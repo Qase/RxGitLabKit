@@ -19,6 +19,35 @@
 		6C5401CF21144AB100631E21 /* RxGitLabKit_macOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5401AE2114461C00631E21 /* RxGitLabKit_macOSTests.swift */; };
 		6C5401D021144ACE00631E21 /* RxGitLabKit_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C540169211445D400631E21 /* RxGitLabKit_iOSTests.swift */; };
 		6C5401D121144ADD00631E21 /* RxGitLabKit_tvOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C540192211445F900631E21 /* RxGitLabKit_tvOSTests.swift */; };
+		6C5401D62114510000631E21 /* APIServicing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5401D52114510000631E21 /* APIServicing.swift */; };
+		6C5401D72114510000631E21 /* APIServicing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5401D52114510000631E21 /* APIServicing.swift */; };
+		6C5401D82114510000631E21 /* APIServicing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5401D52114510000631E21 /* APIServicing.swift */; };
+		6C5401D92114510000631E21 /* APIServicing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5401D52114510000631E21 /* APIServicing.swift */; };
+		6C5401DA2114510000631E21 /* APIServicing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5401D52114510000631E21 /* APIServicing.swift */; };
+		6C5401DB2114510000631E21 /* APIServicing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5401D52114510000631E21 /* APIServicing.swift */; };
+		6C5401DC2114510000631E21 /* APIServicing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5401D52114510000631E21 /* APIServicing.swift */; };
+		6C5401DE2114550900631E21 /* GitLabAPIServicing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5401DD2114550900631E21 /* GitLabAPIServicing.swift */; };
+		6C5401DF2114550900631E21 /* GitLabAPIServicing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5401DD2114550900631E21 /* GitLabAPIServicing.swift */; };
+		6C5401E02114550900631E21 /* GitLabAPIServicing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5401DD2114550900631E21 /* GitLabAPIServicing.swift */; };
+		6C5401E12114550900631E21 /* GitLabAPIServicing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5401DD2114550900631E21 /* GitLabAPIServicing.swift */; };
+		6C5401E22114550900631E21 /* GitLabAPIServicing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5401DD2114550900631E21 /* GitLabAPIServicing.swift */; };
+		6C5401E32114550900631E21 /* GitLabAPIServicing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5401DD2114550900631E21 /* GitLabAPIServicing.swift */; };
+		6C5401E42114550900631E21 /* GitLabAPIServicing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5401DD2114550900631E21 /* GitLabAPIServicing.swift */; };
+		6C5401E72114593600631E21 /* Commit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5401E62114593600631E21 /* Commit.swift */; };
+		6C5401E82114593600631E21 /* Commit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5401E62114593600631E21 /* Commit.swift */; };
+		6C5401E92114593600631E21 /* Commit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5401E62114593600631E21 /* Commit.swift */; };
+		6C5401EA2114593600631E21 /* Commit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5401E62114593600631E21 /* Commit.swift */; };
+		6C5401EB2114593600631E21 /* Commit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5401E62114593600631E21 /* Commit.swift */; };
+		6C5401EC2114593600631E21 /* Commit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5401E62114593600631E21 /* Commit.swift */; };
+		6C5401ED2114593600631E21 /* Commit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5401E62114593600631E21 /* Commit.swift */; };
+		6C5401F1211459ED00631E21 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C5401EF211459ED00631E21 /* RxCocoa.framework */; };
+		6C5401F2211459ED00631E21 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C5401F0211459ED00631E21 /* RxSwift.framework */; };
+		6C5401F5211459F800631E21 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C5401F3211459F800631E21 /* RxCocoa.framework */; };
+		6C5401F6211459F800631E21 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C5401F4211459F800631E21 /* RxSwift.framework */; };
+		6C5401F921145A0600631E21 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C5401F721145A0600631E21 /* RxCocoa.framework */; };
+		6C5401FA21145A0600631E21 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C5401F821145A0600631E21 /* RxSwift.framework */; };
+		6C5401FD21145A1200631E21 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C5401FB21145A1100631E21 /* RxCocoa.framework */; };
+		6C5401FE21145A1200631E21 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C5401FC21145A1200631E21 /* RxSwift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +94,17 @@
 		6C5401AE2114461C00631E21 /* RxGitLabKit_macOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxGitLabKit_macOSTests.swift; sourceTree = "<group>"; };
 		6C5401B02114461C00631E21 /* Info-macOS-Tests.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-macOS-Tests.plist"; sourceTree = "<group>"; };
 		6C5401D321144B7500631E21 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		6C5401D52114510000631E21 /* APIServicing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServicing.swift; sourceTree = "<group>"; };
+		6C5401DD2114550900631E21 /* GitLabAPIServicing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GitLabAPIServicing.swift; path = Models/GitLabAPIServicing.swift; sourceTree = "<group>"; };
+		6C5401E62114593600631E21 /* Commit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Commit.swift; path = Sources/Models/Commit.swift; sourceTree = "<group>"; };
+		6C5401EF211459ED00631E21 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = ../Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		6C5401F0211459ED00631E21 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = ../Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		6C5401F3211459F800631E21 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = ../Carthage/Build/Mac/RxCocoa.framework; sourceTree = "<group>"; };
+		6C5401F4211459F800631E21 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = ../Carthage/Build/Mac/RxSwift.framework; sourceTree = "<group>"; };
+		6C5401F721145A0600631E21 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = ../Carthage/Build/tvOS/RxCocoa.framework; sourceTree = "<group>"; };
+		6C5401F821145A0600631E21 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = ../Carthage/Build/tvOS/RxSwift.framework; sourceTree = "<group>"; };
+		6C5401FB21145A1100631E21 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = ../Carthage/Build/watchOS/RxCocoa.framework; sourceTree = "<group>"; };
+		6C5401FC21145A1200631E21 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = ../Carthage/Build/watchOS/RxSwift.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +112,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C5401F1211459ED00631E21 /* RxCocoa.framework in Frameworks */,
+				6C5401F2211459ED00631E21 /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +128,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C5401FD21145A1200631E21 /* RxCocoa.framework in Frameworks */,
+				6C5401FE21145A1200631E21 /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,6 +137,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C5401F921145A0600631E21 /* RxCocoa.framework in Frameworks */,
+				6C5401FA21145A0600631E21 /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,6 +154,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C5401F5211459F800631E21 /* RxCocoa.framework in Frameworks */,
+				6C5401F6211459F800631E21 /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,10 +173,12 @@
 		6C54014F2114429F00631E21 = {
 			isa = PBXGroup;
 			children = (
+				6C5401E62114593600631E21 /* Commit.swift */,
 				6C5401D321144B7500631E21 /* Package.swift */,
 				6C5401B82114468800631E21 /* Sources */,
 				6C5401D221144B3E00631E21 /* Tests */,
 				6C54015C211445D400631E21 /* Products */,
+				6C5401EE211459ED00631E21 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -173,6 +223,9 @@
 		6C5401B82114468800631E21 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				6C5401D52114510000631E21 /* APIServicing.swift */,
+				6C5401DD2114550900631E21 /* GitLabAPIServicing.swift */,
+				6C5401E52114570200631E21 /* Models */,
 				6C54015E211445D400631E21 /* RxGitLabKit.h */,
 				6C54015F211445D400631E21 /* Info-iOS.plist */,
 				6C54017B211445EA00631E21 /* Info-watchOS.plist */,
@@ -193,6 +246,28 @@
 				6C540191211445F900631E21 /* RxGitLabKit tvOSTests */,
 			);
 			path = Tests;
+			sourceTree = "<group>";
+		};
+		6C5401E52114570200631E21 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		6C5401EE211459ED00631E21 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6C5401FB21145A1100631E21 /* RxCocoa.framework */,
+				6C5401FC21145A1200631E21 /* RxSwift.framework */,
+				6C5401F721145A0600631E21 /* RxCocoa.framework */,
+				6C5401F821145A0600631E21 /* RxSwift.framework */,
+				6C5401F3211459F800631E21 /* RxCocoa.framework */,
+				6C5401F4211459F800631E21 /* RxSwift.framework */,
+				6C5401EF211459ED00631E21 /* RxCocoa.framework */,
+				6C5401F0211459ED00631E21 /* RxSwift.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,6 +316,7 @@
 				6C540157211445D400631E21 /* Frameworks */,
 				6C540158211445D400631E21 /* Headers */,
 				6C540159211445D400631E21 /* Resources */,
+				6C5401FF21145A8D00631E21 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -277,6 +353,7 @@
 				6C540174211445EA00631E21 /* Frameworks */,
 				6C540175211445EA00631E21 /* Headers */,
 				6C540176211445EA00631E21 /* Resources */,
+				6C54020221145B0600631E21 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -295,6 +372,7 @@
 				6C540181211445F800631E21 /* Frameworks */,
 				6C540182211445F800631E21 /* Headers */,
 				6C540183211445F800631E21 /* Resources */,
+				6C54020121145AE300631E21 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -331,6 +409,7 @@
 				6C54019D2114461C00631E21 /* Frameworks */,
 				6C54019E2114461C00631E21 /* Headers */,
 				6C54019F2114461C00631E21 /* Resources */,
+				6C54020021145AD300631E21 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -376,6 +455,7 @@
 					};
 					6C540177211445EA00631E21 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 0940;
 					};
 					6C540184211445F800631E21 = {
 						CreatedOnToolsVersion = 9.4.1;
@@ -466,12 +546,78 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6C5401FF21145A8D00631E21 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+		6C54020021145AD300631E21 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/macOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/macOS/RxCocoa.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+		6C54020121145AE300631E21 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/tvOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/tvOS/RxCocoa.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+		6C54020221145B0600631E21 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/watchOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/watchOS/RxCocoa.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		6C540156211445D400631E21 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C5401E72114593600631E21 /* Commit.swift in Sources */,
 				6C5401D021144ACE00631E21 /* RxGitLabKit_iOSTests.swift in Sources */,
+				6C5401D62114510000631E21 /* APIServicing.swift in Sources */,
+				6C5401DE2114550900631E21 /* GitLabAPIServicing.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -479,7 +625,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C5401EB2114593600631E21 /* Commit.swift in Sources */,
 				6C54016A211445D400631E21 /* RxGitLabKit_iOSTests.swift in Sources */,
+				6C5401DA2114510000631E21 /* APIServicing.swift in Sources */,
+				6C5401E22114550900631E21 /* GitLabAPIServicing.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -487,6 +636,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C5401EA2114593600631E21 /* Commit.swift in Sources */,
+				6C5401E12114550900631E21 /* GitLabAPIServicing.swift in Sources */,
+				6C5401D92114510000631E21 /* APIServicing.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -494,7 +646,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C5401E92114593600631E21 /* Commit.swift in Sources */,
 				6C5401D121144ADD00631E21 /* RxGitLabKit_tvOSTests.swift in Sources */,
+				6C5401D82114510000631E21 /* APIServicing.swift in Sources */,
+				6C5401E02114550900631E21 /* GitLabAPIServicing.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -502,7 +657,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C5401ED2114593600631E21 /* Commit.swift in Sources */,
 				6C540193211445F900631E21 /* RxGitLabKit_tvOSTests.swift in Sources */,
+				6C5401DC2114510000631E21 /* APIServicing.swift in Sources */,
+				6C5401E42114550900631E21 /* GitLabAPIServicing.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -510,7 +668,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C5401E82114593600631E21 /* Commit.swift in Sources */,
 				6C5401CF21144AB100631E21 /* RxGitLabKit_macOSTests.swift in Sources */,
+				6C5401D72114510000631E21 /* APIServicing.swift in Sources */,
+				6C5401DF2114550900631E21 /* GitLabAPIServicing.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -518,7 +679,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C5401EC2114593600631E21 /* Commit.swift in Sources */,
 				6C5401AF2114461C00631E21 /* RxGitLabKit_macOSTests.swift in Sources */,
+				6C5401DB2114510000631E21 /* APIServicing.swift in Sources */,
+				6C5401E32114550900631E21 /* GitLabAPIServicing.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
