@@ -7,76 +7,161 @@
 
 import Foundation
 import RxSwift
+import RxCocoa
 
 typealias QueryParameters = [String: String]
+typealias JSONDictionary = [String: Any]
 typealias Header = [String : String]
 
-public enum RequestMethod: String {
-  case get, post, put, update, delete, patch
+public enum HTTPMethod: String {
+  case get = "GET"
+  case post = "POST"
+  case put = "PUT"
+  case update = "UPDATE"
+  case delete = "DELETE"
+  case patch = "PATCH"
+  case head = "HEAD"
 }
 
-protocol APIRequest {
-  var method: RequestMethod { get }
-  var path: String { get }
-  var parameters: QueryParameters { get }
+public enum NetworkingError: Error {
+  case badRequest // 400
+  case unauthorized // 401
+  case forbidden // 403
+  case notFound // 404
+  case serverFailure // 5xx
+  case unspecified(Int)
+  case parsingJSONFailure
+  case invalidRequest
 }
 
-extension APIRequest {
-  func buildRequest(with baseURL: URL) -> URLRequest {
+protocol APIRequesting {
+  var method: HTTPMethod { get }
+  var path: String? { get }
+  var parameters: QueryParameters? { get }
+  var jsonDictionary: JSONDictionary? {get}
+}
+
+extension APIRequesting {
+  func buildRequest(with baseURL: URL) -> URLRequest? {
     var pathURL = baseURL
-    pathURL.appendPathComponent(path)
+    if let path = path {
+      pathURL.appendPathComponent(path)
+    }
     
-    guard var components = URLComponents(url: pathURL, resolvingAgainstBaseURL: false) else { fatalError("Unable to create URL Components") }
+    guard var components = URLComponents(url: pathURL, resolvingAgainstBaseURL: false) else { return nil }
     
-    components.queryItems = parameters.map { URLQueryItem(name: $0, value: $1) }
+    if let parameters = parameters {
+      components.queryItems = parameters.map { URLQueryItem(name: $0, value: $1) }
+    }
+    guard let url = components.url else { return nil }
     
-    guard let url = components.url else { fatalError("Could not create URL") }
     var request = URLRequest(url: url)
     request.httpMethod = method.rawValue
     request.addValue("application/json", forHTTPHeaderField: "Accept")
+    if let jsonBody = jsonDictionary, let jsonData = try? JSONSerialization.data(withJSONObject: jsonBody) {
+      request.httpBody = jsonData
+    }
+    
     return request
   }
 }
 
-protocol APIResponse {
-  var method: RequestMethod { get }
-  var path: String { get }
-  var parameters: QueryParameters { get }
+struct APIRequest: APIRequesting {
+  var method: HTTPMethod
+  var path: String?
+  var parameters: QueryParameters?
+  var jsonDictionary: JSONDictionary?
+  
+  init(path: String = "", method: HTTPMethod = HTTPMethod.get, parameters: QueryParameters? = nil, jsonBody: JSONDictionary? = nil) {
+    self.path = path
+    self.method = method
+    self.parameters = parameters
+    self.jsonDictionary = jsonBody
+  }
 }
-
-
 
 protocol Networking {
   var baseURL: URL { get set }
-  func request<T: Codable>(apiRequest: APIRequest) -> Observable<T>
+  func request(request: APIRequesting) -> Observable<(response: HTTPURLResponse, data: Data)>
+  func object<T: Codable>(request: APIRequesting) -> Observable<T>
+  func data(request: APIRequesting) -> Observable<Data>
+  func json(request: APIRequesting) -> Observable<JSONDictionary>
 }
 
-
 class Network: Networking {
+  
   internal var baseURL: URL
   
   init(host: URL) {
     baseURL = host
   }
   
-  func request<T: Codable>(apiRequest: APIRequest) -> Observable<T> {
-    return Observable<T>.create { observer in
-      let request = apiRequest.buildRequest(with: self.baseURL)
-      let task = URLSession.shared.dataTask(with: request) { data, response, error in
-        do {
-          let model: T = try JSONDecoder().decode(T.self, from: data ?? Data())
-          observer.onNext(model)
-        } catch let err {
-          observer.onError(err)
-        }
-        observer.onCompleted()
-      }
-      task.resume()
-      return Disposables.create {
-        task.cancel()
-      }
-    }
+  func request(request: APIRequesting) -> Observable<(response: HTTPURLResponse, data: Data)> {
+    guard let request = request.buildRequest(with: self.baseURL) else { return Observable.error(NetworkingError.invalidRequest) }
+    return URLSession.shared.rx.response(request: request)
   }
+  
+  
+  func data(request: APIRequesting) -> Observable<Data> {
+    return self.request(request: request)
+      .flatMap { (response, data) -> Observable<Data> in
+        Observable.create { observer in
+          switch response.statusCode {
+          case 200..<300:
+            observer.onNext(data)
+            observer.onCompleted()
+          case 400:
+            observer.onError(NetworkingError.badRequest)
+          case 401:
+            observer.onError(NetworkingError.unauthorized)
+          case 403:
+            observer.onError(NetworkingError.forbidden)
+          case 404:
+            observer.onError(NetworkingError.notFound)
+          case 500..<600:
+            observer.onError(NetworkingError.serverFailure)
+          default:
+            observer.onError(NetworkingError.unspecified(response.statusCode))
+          }
+          return Disposables.create()
+        }
+      }
+  }
+  
+  func object<T>(request: APIRequesting) -> Observable<T> where T : Decodable, T : Encodable {
+    return self.data(request: request)
+      .flatMap { data -> Observable<T> in
+        return Observable.create{ observer in
+          let decoder = JSONDecoder.init()
+          if let object = try? decoder.decode(T.self, from: data) {
+            observer.onNext(object)
+            observer.onCompleted()
+          } else {
+            observer.onError(NetworkingError.parsingJSONFailure)
+          }
+          
+          return Disposables.create()
+        }
+      }
+  }
+  
+  func json(request: APIRequesting) -> Observable<JSONDictionary> {
+    return self.data(request: request)
+      .flatMap { data -> Observable<JSONDictionary> in
+        return Observable.create { observer in
+          if let dictionary = try? JSONSerialization.jsonObject(with: data, options: []) as? JSONDictionary,
+            let jsonDictionary = dictionary {
+            observer.onNext(jsonDictionary)
+            observer.onCompleted()
+          } else {
+            observer.onError(NetworkingError.parsingJSONFailure)
+          }
+          return Disposables.create()
+        }
+    }
+
+  }
+  
 }
 
 
