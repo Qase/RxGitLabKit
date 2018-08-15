@@ -13,17 +13,19 @@ enum Endpoints {
 }
 
 public protocol RxGitLabAPIClienting {
-  var host: String { get set }
-  var privateToken: String { get set }
+  var hostURL: URL { get set }
+//  var privateToken: String { get set }
+//
+//  func authenticate(host: URL)
+//
+//  func authenticate(host: URL, privateToken: String)
+//
+//  func authenticate(host: URL, OAuthToken: String)
+//
+//  func authenticate(host: URL, email: String, password: String)
+//
   
-  func authenticate(host: URL)
-  
-  func authenticate(host: URL, privateToken: String)
-  
-  func authenticate(host: URL, OAuthToken: String)
-  
-  func authenticate(host: URL, email: String, password: String)
-  
+  //func object<T>(request: APIRequesting) -> Observable<T> where T : Decodable, T : Encodable
 }
 
 
@@ -32,7 +34,8 @@ public protocol RxGitLabAPIClienting {
 //
 //}
 
-class RxGitLabAPIClient {
+class RxGitLabAPIClient: RxGitLabAPIClienting {
+  
   public weak var shared: RxGitLabAPIClient! {
     get {
 //      if shared == nil {
@@ -42,24 +45,51 @@ class RxGitLabAPIClient {
     }
   }
   
-  public var host: URL = URL(string: "https://gitlab.com")!
+  public var privateToken = BehaviorSubject<String?>(value: nil)
   
-  public var privateToken: String?
-  
-  public var OAuthToken: String?
+  public var oAuthToken =  BehaviorSubject<String?>(value: nil)
   
   public var email: String?
 
   public var password: String?
   
-  init(hostURL: URL) {
-    self.host = hostURL
+  var hostURL: URL
+  
+  private let network: Networking = {
+    return Network(with: URLSession.shared)
+  }()
+  
+  
+  // MARK: Endpoints
+  
+  lazy var commits: CommitsEndpoint = {
+    let endpoint = CommitsEndpoint(network: network, hostURL: hostURL)
+    // bind private token and oauthtoken
+//    endpoint.oAuthToken
+    
+    return endpoint
+  }()
+  
+  init(with hostURL: URL) {
+    self.hostURL = hostURL
   }
-
-  convenience init?(host: String, privateToken: String) {
-    guard let hostURL = URL(string: host) else { return nil}
-    self.init(hostURL: hostURL)
-    self.privateToken = privateToken
+  
+  convenience init?(hostURL: URL, privateToken: String) {
+    self.init(with: hostURL)
+    self.privateToken.onNext(privateToken)
+//    self.init(hostURL: hostURL)
+//    self.privateToken = privateToken
+//    self.commits = CommitsEndpoint(network: network)
+    
+  }
+  
+  convenience init?(hostURL: URL, oAuthToken: String) {
+    self.init(with: hostURL)
+    self.oAuthToken.onNext(oAuthToken)
+    //    self.init(hostURL: hostURL)
+    //    self.privateToken = privateToken
+    //    self.commits = CommitsEndpoint(network: network)
+    
   }
   
 //  func authenticate() -> Observable<APIResponse> {

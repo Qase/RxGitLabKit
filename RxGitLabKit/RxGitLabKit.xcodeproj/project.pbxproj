@@ -9,16 +9,28 @@
 /* Begin PBXBuildFile section */
 		6CBD2B28211852DD007BA543 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CBD2B26211852DD007BA543 /* RxCocoa.framework */; };
 		6CBD2B29211852DD007BA543 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CBD2B27211852DD007BA543 /* RxSwift.framework */; };
-		6CBD2B3721185325007BA543 /* APIServicing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5401D52114510000631E21 /* APIServicing.swift */; };
-		6CBD2B3821185325007BA543 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5401DD2114550900631E21 /* APIClient.swift */; };
 		6CBD2B3921185325007BA543 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C54020321145C2300631E21 /* Networking.swift */; };
 		6CBD2B3A21185325007BA543 /* RxGitLabAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8F9C4721147868002D23E7 /* RxGitLabAPIClient.swift */; };
 		6CBD2B4221185484007BA543 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CBD2B4021185483007BA543 /* RxSwift.framework */; };
 		6CBD2B4321185484007BA543 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CBD2B4121185483007BA543 /* RxCocoa.framework */; };
 		6CBD2B44211854B8007BA543 /* RxGitLabKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CE13F6521184ED300C92B7B /* RxGitLabKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6CBD2B492118812A007BA543 /* Enpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBD2B482118812A007BA543 /* Enpoint.swift */; };
+		6CBD2B4A2118812A007BA543 /* Enpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBD2B482118812A007BA543 /* Enpoint.swift */; };
+		6CBD2B4D21188410007BA543 /* CommitsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBD2B4C21188410007BA543 /* CommitsEndpoint.swift */; };
+		6CBD2B4E21188410007BA543 /* CommitsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBD2B4C21188410007BA543 /* CommitsEndpoint.swift */; };
+		6CBD2B50211894E4007BA543 /* Reference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBD2B4F211894E4007BA543 /* Reference.swift */; };
+		6CBD2B51211894E4007BA543 /* Reference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBD2B4F211894E4007BA543 /* Reference.swift */; };
+		6CBD2B532122F160007BA543 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBD2B522122F160007BA543 /* Authentication.swift */; };
+		6CBD2B542122F160007BA543 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBD2B522122F160007BA543 /* Authentication.swift */; };
+		6CBD2B562122F46D007BA543 /* AuthenticationEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBD2B552122F46D007BA543 /* AuthenticationEndpoint.swift */; };
+		6CBD2B572122F46D007BA543 /* AuthenticationEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBD2B552122F46D007BA543 /* AuthenticationEndpoint.swift */; };
+		6CBD2B592122F841007BA543 /* RepositoriesEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBD2B582122F841007BA543 /* RepositoriesEndpoint.swift */; };
+		6CBD2B5A2122F841007BA543 /* RepositoriesEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBD2B582122F841007BA543 /* RepositoriesEndpoint.swift */; };
+		6CBD2B5C2123021C007BA543 /* Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBD2B5B2123021C007BA543 /* Tree.swift */; };
+		6CBD2B5D2123021C007BA543 /* Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBD2B5B2123021C007BA543 /* Tree.swift */; };
+		6CBD2B5F21230714007BA543 /* Contributor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBD2B5E21230714007BA543 /* Contributor.swift */; };
+		6CBD2B6021230714007BA543 /* Contributor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBD2B5E21230714007BA543 /* Contributor.swift */; };
 		6CE13F6721184ED300C92B7B /* RxGitLabKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CE13F6521184ED300C92B7B /* RxGitLabKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6CE13F6B21184EFC00C92B7B /* APIServicing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5401D52114510000631E21 /* APIServicing.swift */; };
-		6CE13F6C21184EFC00C92B7B /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5401DD2114550900631E21 /* APIClient.swift */; };
 		6CE13F6D21184EFC00C92B7B /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C54020321145C2300631E21 /* Networking.swift */; };
 		6CE13F6E21184EFC00C92B7B /* RxGitLabAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8F9C4721147868002D23E7 /* RxGitLabAPIClient.swift */; };
 		6CE13F6F21184EFE00C92B7B /* Commit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5401E62114593600631E21 /* Commit.swift */; };
@@ -26,8 +38,6 @@
 
 /* Begin PBXFileReference section */
 		6C5401D321144B7500631E21 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
-		6C5401D52114510000631E21 /* APIServicing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServicing.swift; sourceTree = "<group>"; };
-		6C5401DD2114550900631E21 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = APIClient.swift; path = Models/APIClient.swift; sourceTree = "<group>"; };
 		6C5401E62114593600631E21 /* Commit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commit.swift; sourceTree = "<group>"; };
 		6C54020321145C2300631E21 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		6C8F9C4721147868002D23E7 /* RxGitLabAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxGitLabAPIClient.swift; sourceTree = "<group>"; };
@@ -37,6 +47,14 @@
 		6CBD2B3221185318007BA543 /* Info-macOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-macOS.plist"; sourceTree = "<group>"; };
 		6CBD2B4021185483007BA543 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/Mac/RxSwift.framework; sourceTree = "<group>"; };
 		6CBD2B4121185483007BA543 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/Mac/RxCocoa.framework; sourceTree = "<group>"; };
+		6CBD2B482118812A007BA543 /* Enpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enpoint.swift; sourceTree = "<group>"; };
+		6CBD2B4C21188410007BA543 /* CommitsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitsEndpoint.swift; sourceTree = "<group>"; };
+		6CBD2B4F211894E4007BA543 /* Reference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reference.swift; sourceTree = "<group>"; };
+		6CBD2B522122F160007BA543 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
+		6CBD2B552122F46D007BA543 /* AuthenticationEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationEndpoint.swift; sourceTree = "<group>"; };
+		6CBD2B582122F841007BA543 /* RepositoriesEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesEndpoint.swift; sourceTree = "<group>"; };
+		6CBD2B5B2123021C007BA543 /* Tree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tree.swift; sourceTree = "<group>"; };
+		6CBD2B5E21230714007BA543 /* Contributor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contributor.swift; sourceTree = "<group>"; };
 		6CE13F6321184ED200C92B7B /* RxGitLabKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxGitLabKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CE13F6521184ED300C92B7B /* RxGitLabKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RxGitLabKit.h; sourceTree = "<group>"; };
 		6CE13F6621184ED300C92B7B /* Info-iOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-iOS.plist"; sourceTree = "<group>"; };
@@ -86,10 +104,9 @@
 		6C5401B82114468800631E21 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				6C5401D52114510000631E21 /* APIServicing.swift */,
-				6C5401DD2114550900631E21 /* APIClient.swift */,
 				6C54020321145C2300631E21 /* Networking.swift */,
 				6C8F9C4721147868002D23E7 /* RxGitLabAPIClient.swift */,
+				6CBD2B4B2118812F007BA543 /* Endpoints */,
 				6C5401E52114570200631E21 /* Models */,
 			);
 			path = Sources;
@@ -99,6 +116,10 @@
 			isa = PBXGroup;
 			children = (
 				6C5401E62114593600631E21 /* Commit.swift */,
+				6CBD2B4F211894E4007BA543 /* Reference.swift */,
+				6CBD2B522122F160007BA543 /* Authentication.swift */,
+				6CBD2B5B2123021C007BA543 /* Tree.swift */,
+				6CBD2B5E21230714007BA543 /* Contributor.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -123,6 +144,17 @@
 				6C5401D321144B7500631E21 /* Package.swift */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6CBD2B4B2118812F007BA543 /* Endpoints */ = {
+			isa = PBXGroup;
+			children = (
+				6CBD2B482118812A007BA543 /* Enpoint.swift */,
+				6CBD2B4C21188410007BA543 /* CommitsEndpoint.swift */,
+				6CBD2B552122F46D007BA543 /* AuthenticationEndpoint.swift */,
+				6CBD2B582122F841007BA543 /* RepositoriesEndpoint.swift */,
+			);
+			path = Endpoints;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,9 +308,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				6CBD2B3A21185325007BA543 /* RxGitLabAPIClient.swift in Sources */,
+				6CBD2B572122F46D007BA543 /* AuthenticationEndpoint.swift in Sources */,
+				6CBD2B4A2118812A007BA543 /* Enpoint.swift in Sources */,
+				6CBD2B51211894E4007BA543 /* Reference.swift in Sources */,
 				6CBD2B3921185325007BA543 /* Networking.swift in Sources */,
-				6CBD2B3721185325007BA543 /* APIServicing.swift in Sources */,
-				6CBD2B3821185325007BA543 /* APIClient.swift in Sources */,
+				6CBD2B4E21188410007BA543 /* CommitsEndpoint.swift in Sources */,
+				6CBD2B5D2123021C007BA543 /* Tree.swift in Sources */,
+				6CBD2B6021230714007BA543 /* Contributor.swift in Sources */,
+				6CBD2B5A2122F841007BA543 /* RepositoriesEndpoint.swift in Sources */,
+				6CBD2B542122F160007BA543 /* Authentication.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,11 +324,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CBD2B562122F46D007BA543 /* AuthenticationEndpoint.swift in Sources */,
+				6CBD2B592122F841007BA543 /* RepositoriesEndpoint.swift in Sources */,
+				6CBD2B532122F160007BA543 /* Authentication.swift in Sources */,
 				6CE13F6F21184EFE00C92B7B /* Commit.swift in Sources */,
+				6CBD2B5F21230714007BA543 /* Contributor.swift in Sources */,
+				6CBD2B50211894E4007BA543 /* Reference.swift in Sources */,
+				6CBD2B492118812A007BA543 /* Enpoint.swift in Sources */,
+				6CBD2B4D21188410007BA543 /* CommitsEndpoint.swift in Sources */,
 				6CE13F6E21184EFC00C92B7B /* RxGitLabAPIClient.swift in Sources */,
 				6CE13F6D21184EFC00C92B7B /* Networking.swift in Sources */,
-				6CE13F6B21184EFC00C92B7B /* APIServicing.swift in Sources */,
-				6CE13F6C21184EFC00C92B7B /* APIClient.swift in Sources */,
+				6CBD2B5C2123021C007BA543 /* Tree.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

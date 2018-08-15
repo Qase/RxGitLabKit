@@ -9,16 +9,16 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-typealias QueryParameters = [String: String]
-typealias JSONDictionary = [String: Any]
-typealias Header = [String : String]
+public typealias QueryParameters = [String: String]
+public typealias JSONDictionary = [String: Any]
+public typealias Header = [String : String]
 
 public enum HTTPMethod: String {
   case get = "GET"
   case post = "POST"
   case put = "PUT"
-  case update = "UPDATE"
   case delete = "DELETE"
+  case update = "UPDATE"
   case patch = "PATCH"
   case head = "HEAD"
 }
@@ -28,13 +28,14 @@ public enum NetworkingError: Error {
   case unauthorized // 401
   case forbidden // 403
   case notFound // 404
+  case methodNotAllowed // 405
   case serverFailure // 5xx
   case unspecified(Int)
   case parsingJSONFailure
-  case invalidRequest
+  case invalidRequest(message: String?)
 }
 
-protocol APIRequesting {
+public protocol APIRequesting {
   var method: HTTPMethod { get }
   var path: String? { get }
   var parameters: QueryParameters? { get }
@@ -42,8 +43,8 @@ protocol APIRequesting {
 }
 
 extension APIRequesting {
-  func buildRequest(with baseURL: URL) -> URLRequest? {
-    var pathURL = baseURL
+  func buildRequest(with hostURL: URL, header: Header?) -> URLRequest? {
+    var pathURL = hostURL
     if let path = path {
       pathURL.appendPathComponent(path)
     }
@@ -57,7 +58,7 @@ extension APIRequesting {
     
     var request = URLRequest(url: url)
     request.httpMethod = method.rawValue
-    request.addValue("application/json", forHTTPHeaderField: "Accept")
+    request.allHTTPHeaderFields = header
     if let jsonBody = jsonDictionary, let jsonData = try? JSONSerialization.data(withJSONObject: jsonBody) {
       request.httpBody = jsonData
     }
@@ -81,29 +82,32 @@ struct APIRequest: APIRequesting {
 }
 
 protocol Networking {
-  var baseURL: URL { get set }
-  func request(request: APIRequesting) -> Observable<(response: HTTPURLResponse, data: Data)>
-  func object<T: Codable>(request: APIRequesting) -> Observable<T>
-  func data(request: APIRequesting) -> Observable<Data>
-  func json(request: APIRequesting) -> Observable<JSONDictionary>
+  static func response(for request: URLRequest,in session: URLSession) -> Observable<(response: HTTPURLResponse, data: Data)>
+  static func object<T: Codable>(for request: URLRequest,in session: URLSession) -> Observable<T>
+  static func data(for request: URLRequest,in session: URLSession) -> Observable<Data>
+  static func json(for request: URLRequest,in session: URLSession) -> Observable<JSONDictionary>
+  
+  func response(for request: URLRequest) -> Observable<(response: HTTPURLResponse, data: Data)>
+  func object<T: Codable>(for request: URLRequest) -> Observable<T>
+  func data(for request: URLRequest) -> Observable<Data>
+  func json(for request: URLRequest) -> Observable<JSONDictionary>
 }
 
 class Network: Networking {
+
+  let session: URLSession
   
-  internal var baseURL: URL
-  
-  init(host: URL) {
-    baseURL = host
+  init(with session: URLSession) {
+    self.session = session
   }
   
-  func request(request: APIRequesting) -> Observable<(response: HTTPURLResponse, data: Data)> {
-    guard let request = request.buildRequest(with: self.baseURL) else { return Observable.error(NetworkingError.invalidRequest) }
-    return URLSession.shared.rx.response(request: request)
+  // přejmenovat na response(for request: URLRequest, in session: URLSession)
+  static func response(for request: URLRequest,in session: URLSession) -> Observable<(response: HTTPURLResponse, data: Data)> {
+    return session.rx.response(request: request)
   }
   
-  
-  func data(request: APIRequesting) -> Observable<Data> {
-    return self.request(request: request)
+  static func data(for request: URLRequest,in session: URLSession) -> Observable<Data> {
+    return self.response(for: request, in: session)
       .flatMap { (response, data) -> Observable<Data> in
         Observable.create { observer in
           switch response.statusCode {
@@ -128,8 +132,8 @@ class Network: Networking {
       }
   }
   
-  func object<T>(request: APIRequesting) -> Observable<T> where T : Decodable, T : Encodable {
-    return self.data(request: request)
+  static func object<T>(for request: URLRequest,in session: URLSession) -> Observable<T> where T : Decodable, T : Encodable {
+    return self.data(for: request, in: session)
       .flatMap { data -> Observable<T> in
         return Observable.create{ observer in
           let decoder = JSONDecoder.init()
@@ -145,8 +149,8 @@ class Network: Networking {
       }
   }
   
-  func json(request: APIRequesting) -> Observable<JSONDictionary> {
-    return self.data(request: request)
+  static func json(for request: URLRequest, in session: URLSession) -> Observable<JSONDictionary> {
+    return self.data(for: request, in: session)
       .flatMap { data -> Observable<JSONDictionary> in
         return Observable.create { observer in
           if let dictionary = try? JSONSerialization.jsonObject(with: data, options: []) as? JSONDictionary,
@@ -159,9 +163,21 @@ class Network: Networking {
           return Disposables.create()
         }
     }
-
   }
   
+  func response(for request: URLRequest) -> Observable<(response: HTTPURLResponse, data: Data)> {
+    return Network.response(for: request, in: session)
+  }
+  
+  func data(for request: URLRequest) -> Observable<Data> {
+    return Network.data(for:request, in: session)
+  }
+  
+  func object<T>(for request: URLRequest) -> Observable<T> where T : Decodable, T : Encodable {
+    return Network.object(for: request, in: session)
+  }
+  
+  func json(for request: URLRequest) -> Observable<JSONDictionary> {
+    return Network.json(for: request, in: session)
+  }
 }
-
-
