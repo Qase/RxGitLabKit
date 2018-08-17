@@ -49,9 +49,9 @@ class RxGitLabAPIClient: RxGitLabAPIClienting {
   
   public var oAuthToken =  BehaviorSubject<String?>(value: nil)
   
-  public var email: String?
+  public var email = BehaviorSubject<String?>(value: nil)
 
-  public var password: String?
+  public var password = BehaviorSubject<String?>(value: nil)
   
   var hostURL: URL
   
@@ -63,12 +63,35 @@ class RxGitLabAPIClient: RxGitLabAPIClienting {
   // MARK: Endpoints
   
   lazy var commits: CommitsEndpoint = {
+    return createAndSubscribeEndpoint(class: CommitsEndpoint.self)
     let endpoint = CommitsEndpoint(network: network, hostURL: hostURL)
-    // bind private token and oauthtoken
-//    endpoint.oAuthToken
-    
+    subscribeToTokens(endpoint: endpoint)
     return endpoint
   }()
+  
+  lazy var repositories: RepositoriesEndpoint = {
+    let endpoint = RepositoriesEndpoint(network: network, hostURL: hostURL)
+    subscribeToTokens(endpoint: endpoint)
+    return endpoint
+  }()
+  
+  private func subscribeToTokens(endpoint: Endpoint) {
+    oAuthToken.filter { $0 != nil}
+      .subscribe(onNext: { token in
+        endpoint.oAuthToken.value = token
+      }).disposed(by: endpoint.disposeBag)
+    
+    privateToken.filter { $0 != nil}
+      .subscribe(onNext: { token in
+        endpoint.oAuthToken.value = token
+      }).disposed(by: endpoint.disposeBag)
+  }
+  
+  private func createAndSubscribeEndpoint<T: Endpoint>(class: T) -> T {
+    let endpoint = T(network: network, hostURL: hostURL)
+    subscribeToTokens(endpoint: endpoint)
+    return endpoint
+  }
   
   init(with hostURL: URL) {
     self.hostURL = hostURL

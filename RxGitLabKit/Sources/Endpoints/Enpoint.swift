@@ -13,6 +13,7 @@ class Endpoint {
   let hostURL: URL
   var privateToken = Variable<String?>(nil)
   var oAuthToken = Variable<String?>(nil)
+  let disposeBag = DisposeBag()
   
   init(network: Networking, hostURL: URL) {
     self.network = network
