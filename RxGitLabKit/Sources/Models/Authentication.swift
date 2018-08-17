@@ -8,7 +8,7 @@
 import Foundation
 
 struct Authentication: Codable {
-  let accessToken: String?
+  let oAuthToken: String?
   let tokenType: String?
   let refreshToken: String?
   let scope: String?
@@ -21,7 +21,7 @@ struct Authentication: Codable {
   }
   
   enum CodingKeys: String, CodingKey {
-    case accessToken = "access_token"
+    case oAuthToken = "access_token"
     case tokenType = "token_type"
     case refreshToken = "refresh_token"
     case scope = "scope"
@@ -30,7 +30,7 @@ struct Authentication: Codable {
   
   init(from decoder: Decoder) throws {
     let values = try decoder.container(keyedBy: CodingKeys.self)
-    accessToken = try values.decodeIfPresent(String.self, forKey: .accessToken)
+    oAuthToken = try values.decodeIfPresent(String.self, forKey: .oAuthToken)
     tokenType = try values.decodeIfPresent(String.self, forKey: .tokenType)
     refreshToken = try values.decodeIfPresent(String.self, forKey: .refreshToken)
     scope = try values.decodeIfPresent(String.self, forKey: .scope)

@@ -15,7 +15,7 @@ class Endpoint {
   var oAuthToken = Variable<String?>(nil)
   let disposeBag = DisposeBag()
   
-  init(network: Networking, hostURL: URL) {
+  required init(network: Networking, hostURL: URL) {
     self.network = network
     self.hostURL = hostURL
   }
@@ -34,9 +34,4 @@ class Endpoint {
     guard let request = request.buildRequest(with: self.hostURL, header: header) else { return Observable.error(NetworkingError.invalidRequest(message: nil)) }
     return network.object(for: request)
   }
-  
-}
-
-extension Endpoint {
- 
 }
