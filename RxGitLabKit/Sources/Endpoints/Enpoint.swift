@@ -8,29 +8,31 @@
 import Foundation
 import RxSwift
 
-class Endpoint {
+public class Endpoint {
   let network: Networking
   let hostURL: URL
-  var privateToken = Variable<String?>(nil)
-  var oAuthToken = Variable<String?>(nil)
+  
+  let privateToken = Variable<String?>(nil)
+  public let oAuthToken = Variable<String?>(nil)
+  let perPage = Variable<Int>(100)
   let disposeBag = DisposeBag()
   
-  required init(network: Networking, hostURL: URL) {
+  required public init(network: Networking, hostURL: URL) {
     self.network = network
     self.hostURL = hostURL
   }
   
   enum Enpoints {}
 
-  func object<T>(for request: APIRequesting) -> Observable<T> where T : Decodable, T : Encodable {
-
-    var header = ["application/json" : "Accept"]
+  func object<T>(for request: APIRequesting) -> Observable<T> where T : Codable {
+    var header = Header()
     if let privateToken = privateToken.value {
       header["Private-Token"] = privateToken
     }
     if let oAuthToken = oAuthToken.value {
       header["Authorization"] = "Bearer \(oAuthToken)"
     }
+    
     guard let request = request.buildRequest(with: self.hostURL, header: header) else { return Observable.error(NetworkingError.invalidRequest(message: nil)) }
     return network.object(for: request)
   }

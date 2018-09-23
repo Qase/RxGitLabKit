@@ -7,8 +7,7 @@
 
 import Foundation
 
-
-struct TreeNode: Codable {
+public struct TreeNode: Codable {
   let id: String?
   let name: String?
   let type: String?

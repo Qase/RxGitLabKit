@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Reference: Codable {
+public struct Reference: Codable {
   let type : String
   let name : String
 }

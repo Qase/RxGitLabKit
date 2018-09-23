@@ -35,65 +35,27 @@ public enum NetworkingError: Error {
   case invalidRequest(message: String?)
 }
 
-public protocol APIRequesting {
-  var method: HTTPMethod { get }
-  var path: String? { get }
-  var parameters: QueryParameters? { get }
-  var jsonDictionary: JSONDictionary? {get}
-}
-
-extension APIRequesting {
-  func buildRequest(with hostURL: URL, header: Header?) -> URLRequest? {
-    var pathURL = hostURL
-    if let path = path {
-      pathURL.appendPathComponent(path)
-    }
-    
-    guard var components = URLComponents(url: pathURL, resolvingAgainstBaseURL: false) else { return nil }
-    
-    if let parameters = parameters {
-      components.queryItems = parameters.map { URLQueryItem(name: $0, value: $1) }
-    }
-    guard let url = components.url else { return nil }
-    
-    var request = URLRequest(url: url)
-    request.httpMethod = method.rawValue
-    request.allHTTPHeaderFields = header
-    if let jsonBody = jsonDictionary, let jsonData = try? JSONSerialization.data(withJSONObject: jsonBody) {
-      request.httpBody = jsonData
-    }
-    
-    return request
-  }
-}
-
-struct APIRequest: APIRequesting {
-  var method: HTTPMethod
-  var path: String?
-  var parameters: QueryParameters?
-  var jsonDictionary: JSONDictionary?
-  
-  init(path: String = "", method: HTTPMethod = HTTPMethod.get, parameters: QueryParameters? = nil, jsonBody: JSONDictionary? = nil) {
-    self.path = path
-    self.method = method
-    self.parameters = parameters
-    self.jsonDictionary = jsonBody
-  }
-}
-
-protocol Networking {
+public protocol Networking {
   static func response(for request: URLRequest,in session: URLSession) -> Observable<(response: HTTPURLResponse, data: Data)>
+  static func header(for request: URLRequest,in session: URLSession) -> Observable<Header>
   static func object<T: Codable>(for request: URLRequest,in session: URLSession) -> Observable<T>
   static func data(for request: URLRequest,in session: URLSession) -> Observable<Data>
   static func json(for request: URLRequest,in session: URLSession) -> Observable<JSONDictionary>
   
   func response(for request: URLRequest) -> Observable<(response: HTTPURLResponse, data: Data)>
+  func header(for request: URLRequest) -> Observable<Header>
+
   func object<T: Codable>(for request: URLRequest) -> Observable<T>
   func data(for request: URLRequest) -> Observable<Data>
   func json(for request: URLRequest) -> Observable<JSONDictionary>
 }
 
-class Network: Networking {
+public class Network: Networking {
+
+  public func header(for request: URLRequest) -> Observable<Header> {
+    return Network.header(for: request, in: session)
+  }
+  
 
   let session: URLSession
   
@@ -102,14 +64,30 @@ class Network: Networking {
   }
   
   // přejmenovat na response(for request: URLRequest, in session: URLSession)
-  static func response(for request: URLRequest,in session: URLSession) -> Observable<(response: HTTPURLResponse, data: Data)> {
+  public static func response(for request: URLRequest,in session: URLSession = .shared) -> Observable<(response: HTTPURLResponse, data: Data)> {
+    print(request)
+    print(request.allHTTPHeaderFields)
     return session.rx.response(request: request)
   }
   
-  static func data(for request: URLRequest,in session: URLSession) -> Observable<Data> {
-    return self.response(for: request, in: session)
+  public static func header(for request: URLRequest,in session: URLSession = .shared) -> Observable<Header> {
+    return Network.response(for: request, in: session)
+      .flatMap { (r, d) -> Observable<Header> in
+        
+        Observable.create { observer in
+          observer.onNext(r.allHeaderFields as! Header)
+          return Disposables.create()
+        }
+      }
+  }
+
+  
+  public static func data(for request: URLRequest,in session: URLSession = .shared) -> Observable<Data> {
+    
+    return Network.response(for: request, in: session)
       .flatMap { (response, data) -> Observable<Data> in
         Observable.create { observer in
+          
           switch response.statusCode {
           case 200..<300:
             observer.onNext(data)
@@ -132,9 +110,10 @@ class Network: Networking {
       }
   }
   
-  static func object<T>(for request: URLRequest,in session: URLSession) -> Observable<T> where T : Decodable, T : Encodable {
-    return self.data(for: request, in: session)
+  public static func object<T>(for request: URLRequest,in session: URLSession = .shared) -> Observable<T> where T : Decodable, T : Encodable {
+    return Network.data(for: request, in: session)
       .flatMap { data -> Observable<T> in
+        print(data)
         return Observable.create{ observer in
           let decoder = JSONDecoder.init()
           if let object = try? decoder.decode(T.self, from: data) {
@@ -149,7 +128,7 @@ class Network: Networking {
       }
   }
   
-  static func json(for request: URLRequest, in session: URLSession) -> Observable<JSONDictionary> {
+  public static func json(for request: URLRequest, in session: URLSession = .shared) -> Observable<JSONDictionary> {
     return self.data(for: request, in: session)
       .flatMap { data -> Observable<JSONDictionary> in
         return Observable.create { observer in
@@ -164,20 +143,20 @@ class Network: Networking {
         }
     }
   }
-  
-  func response(for request: URLRequest) -> Observable<(response: HTTPURLResponse, data: Data)> {
+
+  public func response(for request: URLRequest) -> Observable<(response: HTTPURLResponse, data: Data)> {
     return Network.response(for: request, in: session)
   }
   
-  func data(for request: URLRequest) -> Observable<Data> {
+  public func data(for request: URLRequest) -> Observable<Data> {
     return Network.data(for:request, in: session)
   }
   
-  func object<T>(for request: URLRequest) -> Observable<T> where T : Decodable, T : Encodable {
+  public func object<T>(for request: URLRequest) -> Observable<T> where T : Decodable, T : Encodable {
     return Network.object(for: request, in: session)
   }
   
-  func json(for request: URLRequest) -> Observable<JSONDictionary> {
+  public func json(for request: URLRequest) -> Observable<JSONDictionary> {
     return Network.json(for: request, in: session)
   }
 }

@@ -34,31 +34,50 @@ public protocol RxGitLabAPIClienting {
 //
 //}
 
-class RxGitLabAPIClient: RxGitLabAPIClienting {
-  
+public class RxGitLabAPIClient: RxGitLabAPIClienting {
+    
   public var privateToken = BehaviorSubject<String?>(value: nil)
   
   public var oAuthToken =  BehaviorSubject<String?>(value: nil)
   
-  var hostURL: URL
+  public var perPage = BehaviorSubject<Int>(value: 100)
   
-  private let network: Networking = {
-    return Network(with: URLSession.shared)
-  }()
+  public var hostURL: URL
+  
+  public var urlSession = URLSession.shared
+  
+  public let network: Networking!
+  
+  public static let defaultPerPage = 20
+  
+  public static var apiVersion = 4
+  
+  public static var apiVersionURLString: String {
+    return "/api/v\(apiVersion)"
+  }
   
   // MARK: Endpoints
   
-  lazy var commits: CommitsEndpoint = {
+  public lazy var authentication: AuthenticationEndpoint = {
     return createAndSubscribeEndpoint()
   }()
   
-  lazy var repositories: RepositoriesEndpoint = {
+  public lazy var commits: CommitsEndpoint = {
     return createAndSubscribeEndpoint()
   }()
   
-  lazy var authentication: AuthenticationEndpoint = {
+  public lazy var projects: ProjectsEnpoint = {
     return createAndSubscribeEndpoint()
   }()
+  
+  public lazy var repositories: RepositoriesEndpoint = {
+    return createAndSubscribeEndpoint()
+  }()
+  
+  public lazy var users: UsersEndpoint = {
+    return createAndSubscribeEndpoint()
+  }()
+  
   
   private func createAndSubscribeEndpoint<T: Endpoint>() -> T {
     let endpoint = T(network: network, hostURL: hostURL)
@@ -71,25 +90,31 @@ class RxGitLabAPIClient: RxGitLabAPIClienting {
       .filter { $0 != nil}
       .bind(to: endpoint.privateToken)
       .disposed(by: endpoint.disposeBag)
+    
+    perPage
+      .filter { $0 != nil}
+      .bind(to: endpoint.perPage)
+      .disposed(by: endpoint.disposeBag)
     return endpoint
   }
   
   // MARK: Init
-  init(with hostURL: URL) {
+  public init(with hostURL: URL, using session: URLSession = URLSession.shared) {
     self.hostURL = hostURL
+    self.network = Network(with: session)
   }
   
-  convenience init?(hostURL: URL, privateToken: String) {
-    self.init(with: hostURL)
+  public convenience init(with hostURL: URL, privateToken: String, using session: URLSession = URLSession.shared) {
+    self.init(with: hostURL, using: session)
     self.privateToken.onNext(privateToken)
   }
   
-  convenience init?(hostURL: URL, oAuthToken: String) {
-    self.init(with: hostURL)
+  public convenience init(with hostURL: URL, oAuthToken: String, using session: URLSession = URLSession.shared) {
+    self.init(with: hostURL, using: session)
     self.oAuthToken.onNext(oAuthToken)
   }
   
-  func getOAuthToken(username: String, password: String) -> Observable<Authentication> {
+  public func getOAuthToken(username: String, password: String) -> Observable<Authentication> {
     return authentication.authenticate(username: username, password: password)
   }
   

@@ -8,34 +8,26 @@
 import Foundation
 import RxSwift
 
-class CommitsEndpoint: Endpoint {
+public class CommitsEndpoint: Endpoint {
   
   enum Endpoints {
-    case commits(id: String)
-    case single(id: String, sha: String)
-    case references(id: String, sha: String)
-    case cherryPick(id: String, sha: String)
+    case commits(projectID: String)
+    case single(projectID: String, sha: String)
+    case references(projectID: String, sha: String)
+    case cherryPick(projectID: String, sha: String)
 
     var url: String {
       switch self {
-      case .commits(let id):
-        return "/projects/\(id)/repository/commits"
-      case .single(let id, let sha):
-        return "/projects/\(id)/repository/commits/\(sha)"
-      case .references(let id, let sha):
-        return "/projects/\(id)/repository/commits/\(sha)/refs"
-      case .cherryPick(let id, let sha):
-        return "/projects/\(id)/repository/commits/\(sha)/cherry_pick"
+      case .commits(let projectID):
+        return "/projects/\(projectID)/repository/commits"
+      case .single(let projectID, let sha):
+        return "/projects/\(projectID)/repository/commits/\(sha)"
+      case .references(let projectID, let sha):
+        return "/projects/\(projectID)/repository/commits/\(sha)/refs"
+      case .cherryPick(let projectID, let sha):
+        return "/projects/\(projectID)/repository/commits/\(sha)/cherry_pick"
       }
     }
-  }
-  
-  private func path(endpoint: Endpoints) -> String {
-    return endpoint.url
-  }
-  
-  private func path(endpoint: Endpoints, projectID: String, sha: String? = nil) -> String {
-    return endpoint.url
   }
   
   ///   Get an observable of list of repository commits in a project.
@@ -49,25 +41,28 @@ class CommitsEndpoint: Endpoint {
   ///     - **since: String** - Only commits after or on this date will be returned in ISO 8601 format YYYY-MM-DDTHH:MM:SSZ
   ///
   /// - Returns: An observable of list of repository commits in a project
-  func get(projectID: String, parameters: QueryParameters? = nil) -> Observable<[Commit]> {
-    let getRequest = APIRequest(path: Endpoints.commits(id: projectID).url, method: .get, parameters: parameters)
+  public func get(projectID: String, parameters: QueryParameters? = nil, page: Int = 1, perPage: Int?) -> Observable<[Commit]> {
+    if page != 1 {
+      
+    }
+    let getRequest = APIRequest(path: Endpoints.commits(projectID: projectID).url, method: .get, parameters: parameters)
     return object(for: getRequest)
   }
   
 
-  func getSingle(projectID: String, sha: String) -> Observable<Commit> {
-    let apiRequest = APIRequest(path: Endpoints.single(id: projectID, sha: sha).url)
+  public func getSingle(projectID: String, sha: String) -> Observable<Commit> {
+    let apiRequest = APIRequest(path: Endpoints.single(projectID: projectID, sha: sha).url)
     return object(for: apiRequest)
   }
   
-  func getReferences(projectID: String, sha: String) -> Observable<[Reference]> {
-    let apiRequest = APIRequest(path: Endpoints.references(id: projectID,sha: sha).url)
+  public func getReferences(projectID: String, sha: String) -> Observable<[Reference]> {
+    let apiRequest = APIRequest(path: Endpoints.references(projectID: projectID, sha: sha).url)
     return object(for: apiRequest)
   }
   
 
-  func cherryPick(projectID: String, sha: String) -> Observable<Commit> {
-    let apiRequest = APIRequest(path: Endpoints.cherryPick(id: projectID, sha: sha).url, method: .post)
+  public func cherryPick(projectID: String, sha: String) -> Observable<Commit> {
+    let apiRequest = APIRequest(path: Endpoints.cherryPick(projectID: projectID, sha: sha).url, method: .post)
     return object(for: apiRequest)
   }
   

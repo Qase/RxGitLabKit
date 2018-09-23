@@ -8,9 +8,9 @@
 import Foundation
 import RxSwift
 
-class AuthenticationEndpoint: Endpoint {
+public class AuthenticationEndpoint: Endpoint {
   
-  enum Endpoints {
+  public enum Endpoints {
     case token
     
     var path: String {
@@ -21,19 +21,17 @@ class AuthenticationEndpoint: Endpoint {
     }
   }
   
-  private func path() -> String {
-    return "/oauth/token"
-  }
-  
-  func authenticate(username: String, password: String) -> Observable<Authentication> {
+  public func authenticate(username: String, password: String) -> Observable<Authentication> {
     let jsonBody = [
       "grant_type" : "password",
       "username" : username,
       "password" : password
     ]
-    let request = APIRequest(path: Endpoints.token.path, method: .post, jsonBody: jsonBody)
+    let apiRequest = APIRequest(path: Endpoints.token.path, method: .post, jsonBody: jsonBody)
     
-    return object(for: request)
+    guard let request = apiRequest.buildRequest(with: self.hostURL, apiVersion: nil) else { return Observable.error(NetworkingError.invalidRequest(message: nil)) }
+    
+    return network.object(for: request)
   }
   
 }

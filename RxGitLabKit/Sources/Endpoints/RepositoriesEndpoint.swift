@@ -8,9 +8,9 @@
 import Foundation
 import RxSwift
 
-class RepositoriesEndpoint: Endpoint {
+public class RepositoriesEndpoint: Endpoint {
 
-  enum Endpoints {
+  public enum Endpoints {
     case tree(id: String)
     case blob(id: String, sha: String)
     case rawBlob(id: String, sha: String)
@@ -36,27 +36,27 @@ class RepositoriesEndpoint: Endpoint {
     }
   }
   
-  func tree(projectID: String, parameters: QueryParameters? = nil) -> Observable<[TreeNode]> {
+  public func tree(projectID: String, parameters: QueryParameters? = nil) -> Observable<[TreeNode]> {
     let apiRequest = APIRequest(path: Endpoints.tree(id: projectID).path, parameters: parameters)
     return object(for: apiRequest)
   }
   
-  func blob(projectID: String, sha: String) -> Observable<Data> {
+  public func blob(projectID: String, sha: String) -> Observable<Data> {
     let apiRequest = APIRequest(path: Endpoints.blob(id: projectID, sha: sha).path)
     return object(for: apiRequest)
   }
   
-  func rawBlob(projectID: String, sha: String) -> Observable<Data> {
+  public func rawBlob(projectID: String, sha: String) -> Observable<Data> {
     let apiRequest = APIRequest(path: Endpoints.rawBlob(id: projectID, sha: sha).path)
     return object(for: apiRequest)
   }
   
-  func archive(projectID: String, parameters: QueryParameters? = nil) -> Observable<Data> {
+  public func archive(projectID: String, parameters: QueryParameters? = nil) -> Observable<Data> {
     let apiRequest = APIRequest(path: Endpoints.archive(id: projectID).path)
     return object(for: apiRequest)
   }
   
-  func compare(projectID: String, parameters: QueryParameters) -> Observable<Data> {
+  public func compare(projectID: String, parameters: QueryParameters) -> Observable<Data> {
     if parameters["from"] == nil || parameters["to"] == nil {
       return Observable.error(NetworkingError.invalidRequest(message: "`from` and `to` commit SHA or branch name is required"))
     }
@@ -64,7 +64,7 @@ class RepositoriesEndpoint: Endpoint {
     return object(for: apiRequest)
   }
   
-  func contributors(projectID: String, parameters: QueryParameters? = nil) -> Observable<[Contributor]> {
+  public func contributors(projectID: String, parameters: QueryParameters? = nil) -> Observable<[Contributor]> {
     let apiRequest = APIRequest(path: Endpoints.contributors(id: projectID).path, parameters: parameters)
     return object(for: apiRequest)
   }

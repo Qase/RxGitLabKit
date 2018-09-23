@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct Authentication: Codable {
-  let oAuthToken: String?
-  let tokenType: String?
-  let refreshToken: String?
-  let scope: String?
-  let createdAt: Int?
-  var createdAtDate: Date? {
+public struct Authentication: Codable {
+  public let oAuthToken: String?
+  public let tokenType: String?
+  public let refreshToken: String?
+  public let scope: String?
+  public let createdAt: Int?
+  public var createdAtDate: Date? {
     if let createdAt = createdAt {
       return Date(timeIntervalSince1970: TimeInterval(createdAt))
     }
@@ -28,7 +28,7 @@ struct Authentication: Codable {
     case createdAt = "created_at"
   }
   
-  init(from decoder: Decoder) throws {
+  public init(from decoder: Decoder) throws {
     let values = try decoder.container(keyedBy: CodingKeys.self)
     oAuthToken = try values.decodeIfPresent(String.self, forKey: .oAuthToken)
     tokenType = try values.decodeIfPresent(String.self, forKey: .tokenType)

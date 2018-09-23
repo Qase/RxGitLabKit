@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Commit: Codable {
+public struct Commit: Codable {
   let id : String?
   let shortId : String?
   let title : String?
@@ -37,7 +37,7 @@ struct Commit: Codable {
     case parentIds = "parent_ids"
   }
   
-  init(from decoder: Decoder) throws {
+  public init(from decoder: Decoder) throws {
     let values = try decoder.container(keyedBy: CodingKeys.self)
     id = try values.decodeIfPresent(String.self, forKey: .id)
     shortId = try values.decodeIfPresent(String.self, forKey: .shortId)

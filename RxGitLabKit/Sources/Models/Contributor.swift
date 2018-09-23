@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Contributor: Codable {
+public struct Contributor: Codable {
   let name: String
   let email: String
   let commits: Int
