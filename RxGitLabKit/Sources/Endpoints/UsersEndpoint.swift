@@ -90,12 +90,11 @@ public class UsersEndpoint: Endpoint {
     }
   }
   
-  
-  public func getUsers(page: Int = 1, perPage: Int = RxGitLabAPIClient.defaultPerPage) -> Paginator<User>{
+  public func getUsers(page: Int = 1, perPage: Int = RxGitLabAPIClient.defaultPerPage) -> Paginator<User> {
     let apiRequest = APIRequest(path: Endpoints.users.url, method: .get)
     let paginator = Paginator<User>(network: network, hostURL: hostURL, apiRequest: apiRequest)
-    paginator.page.value = page
-    paginator.perPage.value = perPage
+    paginator.page = page
+    paginator.perPage = perPage
     oAuthToken.asObservable()
       .filter({$0 != nil})
       .bind(to: paginator.oAuthToken)

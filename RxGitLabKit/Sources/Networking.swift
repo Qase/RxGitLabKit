@@ -13,6 +13,17 @@ public typealias QueryParameters = [String: String]
 public typealias JSONDictionary = [String: Any]
 public typealias Header = [String : String]
 
+public enum HeaderKeys: String {
+  case total = "X-Total"
+  case totalPages = "X-Total-Pages"
+  case page = "X-Page"
+  case perPage = "X-Per-Page"
+  case prevPage = "X-Prev-Page"
+  case nextPage = "X-Next-Page"
+  case privateToken = "Private-Token"
+  case oAuthToken = "Authorization"
+}
+
 public enum HTTPMethod: String {
   case get = "GET"
   case post = "POST"
@@ -55,7 +66,6 @@ public class Network: Networking {
   public func header(for request: URLRequest) -> Observable<Header> {
     return Network.header(for: request, in: session)
   }
-  
 
   let session: URLSession
   
@@ -63,10 +73,7 @@ public class Network: Networking {
     self.session = session
   }
   
-  // přejmenovat na response(for request: URLRequest, in session: URLSession)
   public static func response(for request: URLRequest,in session: URLSession = .shared) -> Observable<(response: HTTPURLResponse, data: Data)> {
-    print(request)
-    print(request.allHTTPHeaderFields)
     return session.rx.response(request: request)
   }
   
@@ -83,11 +90,9 @@ public class Network: Networking {
 
   
   public static func data(for request: URLRequest,in session: URLSession = .shared) -> Observable<Data> {
-    
     return Network.response(for: request, in: session)
       .flatMap { (response, data) -> Observable<Data> in
         Observable.create { observer in
-          
           switch response.statusCode {
           case 200..<300:
             observer.onNext(data)
@@ -113,7 +118,6 @@ public class Network: Networking {
   public static func object<T>(for request: URLRequest,in session: URLSession = .shared) -> Observable<T> where T : Decodable, T : Encodable {
     return Network.data(for: request, in: session)
       .flatMap { data -> Observable<T> in
-        print(data)
         return Observable.create{ observer in
           let decoder = JSONDecoder.init()
           if let object = try? decoder.decode(T.self, from: data) {

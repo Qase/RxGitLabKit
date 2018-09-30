@@ -92,7 +92,7 @@ public class RxGitLabAPIClient: RxGitLabAPIClienting {
       .disposed(by: endpoint.disposeBag)
     
     perPage
-      .filter { $0 != nil}
+      .filter { $0 > 0}
       .bind(to: endpoint.perPage)
       .disposed(by: endpoint.disposeBag)
     return endpoint

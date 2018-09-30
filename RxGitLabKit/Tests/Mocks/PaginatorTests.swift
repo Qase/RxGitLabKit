@@ -1,8 +1,8 @@
 //
-//  RxGitLabAPIClientTests.swift
+//  PaginatorTests.swift
 //  RxGitLabKit-iOSTests
 //
-//  Created by Dagy Tran on 26/08/2018.
+//  Created by Dagy Tran on 01/10/2018.
 //
 
 import Foundation
@@ -10,9 +10,9 @@ import XCTest
 import RxGitLabKit
 import RxSwift
 
-class DevelopmentPlaygroundTests: XCTestCase {
+class PaginatorTests: XCTestCase {
   
- 
+  
   private var client: RxGitLabAPIClient!
   
   private let hostURL = URL(string: "https://gitlab.fel.cvut.cz")!
@@ -30,50 +30,7 @@ class DevelopmentPlaygroundTests: XCTestCase {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
     super.tearDown()
   }
-  
-  func testAuthentication2() {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
-      
-    
-    let bag = DisposeBag()
-    
-    let username = "[USERNAME]"
-    let password = "[PASSWORD]"
-    
-    //    XCTAssert(client.test == "tesst")
-    
-    let authentication = client.authentication.authenticate(username: username, password: password)
-    let expectation = XCTestExpectation(description: "response")
-    authentication.subscribe { event in
-      print(event)
-      expectation.fulfill()
-      }.disposed(by: bag)
-    wait(for: [expectation], timeout: 1)
-  }
-  
-  
-  func testVariable() {
-    
-    let source = Variable<String?>(nil)
-    let destination = Variable<String?>(nil)
-    
-    source.value = "Start"
-    
-    source.asObservable()
-      .bind(to: destination)
-    
-    
-    destination.asObservable()
-      .subscribe { event in
-        print(event)
-        print(event.element)
-    }
-    
-    
-    wait(for: [], timeout: 100)
-  }
-  
+
   func testLoadAll() {
     let host = "https://gitlab.fel.cvut.cz"
     
@@ -92,10 +49,10 @@ class DevelopmentPlaygroundTests: XCTestCase {
           expectation.fulfill()
         }
       },
-          onError: { error in
-            print(error)
+      onError: { error in
+        print(error)
       })
     wait(for: [expectation], timeout: 100)
-
+    
   }
 }

@@ -9,15 +9,54 @@ import Foundation
 import RxSwift
 
 public class Paginator<T: Codable> {
+
   var apiRequest: APIRequest
   let network: Networking
   let hostURL: URL
-  public let page: Variable<Int>
-  let perPage: Variable<Int>
+  private let pageVariable: Variable<Int>
+  private let perPageVariable: Variable<Int>
+  private let totalPagesVariable: Variable<Int>
+  private let totalVariable: Variable<Int>
+  
+  public var page: Int {
+    get {
+      return pageVariable.value
+    }
+    set {
+      pageVariable.value = newValue
+    }
+  }
+  
+  public var perPage: Int {
+    get {
+      return perPageVariable.value
+    }
+    set {
+      perPageVariable.value = newValue
+    }
+  }
+  
+  public var totalPages: Int {
+    get {
+      return totalPagesVariable.value
+    }
+    set {
+      totalPagesVariable.value = newValue
+    }
+  }
+  
+  public var total: Int {
+    get {
+      return totalVariable.value
+    }
+    set {
+      totalVariable.value = newValue
+    }
+  }
+  
   let privateToken = Variable<String?>(nil)
   public let oAuthToken = Variable<String?>(nil)
   public let list = Variable<[T]>([])
-//  var pageList: Variable<[T]>?
   
   let refreshTrigger = PublishSubject<Void>()
   let loadNextPageTrigger = PublishSubject<Void>()
@@ -29,88 +68,42 @@ public class Paginator<T: Codable> {
     self.network = network
     self.hostURL = hostURL
     self.apiRequest = apiRequest
-    self.page = Variable<Int>(page)
-    self.perPage = Variable<Int>(perPage)
+    self.pageVariable = Variable<Int>(page)
+    self.perPageVariable = Variable<Int>(perPage)
+    self.totalVariable = Variable<Int>(-1)
+    self.totalPagesVariable = Variable<Int>(-1)
     
-//    let refreshRequest = loading.asObservable()
-//      .sample(self.page.asObservable())
-//
-//    let refreshRequest = self.page.asObservable()
-//      .flatMap { loading -> Observable<Int> in
-//        if loading {
-//          return Observable.empty()
-//        } else {
-//          return Observable<Int>.create { observer in
-//            observer.onNext(self.page.value)
-//            observer.onCompleted()
-//            return Disposables.create()
-//          }
-//        }
-//      }
-    
-//    let nextPageRequest = loading.asObservable()
-//      .sample(loadNextPageTrigger)
-      let nextPageRequest = loadNextPageTrigger.asObservable()
-      .flatMap { [unowned self] _ -> Observable<Int> in
-//        if loading {
-//          return Observable.empty()
-//        } else {
-          return Observable<Int>.create { [unowned self] observer in
-            self.page.value += 1
-            observer.onNext(self.page.value)
-            observer.onCompleted()
-            return Disposables.create()
-          }
-//        }
-      }
+    let nextPageRequest = loadNextPageTrigger.asObservable()
+    .flatMap { [unowned self] _ -> Observable<Int> in
+        return Observable<Int>.create { [unowned self] observer in
+          self.page += 1
+          observer.onNext(self.page)
+          observer.onCompleted()
+          return Disposables.create()
+        }
+    }
     
     let request = Observable
-      .of(self.page.asObservable(), nextPageRequest)
+      .of(self.pageVariable.asObservable(), nextPageRequest)
       .merge()
-//      .share(replay: 2, scope: .whileConnected)
     
-    request.subscribe(onNext: { offset in
-      print("Page \(offset) requested")
-    }).disposed(by: disposeBag)
-    
-    loadNextPageTrigger.subscribe(onNext: { _ in
-      print("loadNextPageTrigger fired")
-    })
-      .disposed(by: disposeBag)
-    
-    let response = request.flatMap { [unowned self] offset -> Observable<[T]> in
-      self.loadData(page: offset, perPage: self.perPage.value)
+    let response = request
+      .sample(loadNextPageTrigger)
+      .flatMap { [unowned self] offset -> Observable<[T]> in
+      self.loadData(page: offset, perPage: self.perPage)
         .do(onError: { [weak self] error in
           self?.error.onError(error)
           print(error)
         })
         .catchError { error -> Observable<[T]> in Observable.empty() }
       }
-//        .share(replay: 1, scope: .whileConnected)
-//    response
-//      .subscribe(onNext: { lst in
-//        print(lst)
-//        for user in lst {
-//          print(user)
-//        }
-//      })
-//      .disposed(by: disposeBag)
-    
+
     Observable
       .combineLatest(request, response, list.asObservable()) { [unowned self] request, response, elements in
-        return self.page.value == 0 ? response : elements + response }
+        return self.page == 0 ? response : elements + response }
       .sample(response)
       .bind(to: list)
-//      .subscribe(onNext: { lst in
-//        print(lst)
-//      })
       .disposed(by: disposeBag)
-    
-//    Observable
-//      .of(request.map {_ in true}, response.map { $0.count == 0 }, error.map { _ in false })
-//      .merge()
-//      .bind(to: loading)
-//      .disposed(by: disposeBag)
 
   }
   
@@ -118,38 +111,61 @@ public class Paginator<T: Codable> {
     loadNextPageTrigger.onNext(())
   }
   
-  public func loadData<T>(page: Int = 1, perPage: Int = RxGitLabAPIClient.defaultPerPage) -> Observable<[T]> where T : Codable {
+  public func loadData(page: Int = 1, perPage: Int = RxGitLabAPIClient.defaultPerPage) -> Observable<[T]> {
     var header = Header()
     if let privateToken = privateToken.value {
-      header["Private-Token"] = privateToken
+      header[HeaderKeys.privateToken.rawValue] = privateToken
     }
     if let oAuthToken = oAuthToken.value {
-      header["Authorization"] = "Bearer \(oAuthToken)"
+      header[HeaderKeys.oAuthToken.rawValue] = "Bearer \(oAuthToken)"
     }
-//    header["page"] = "\(page)"
-//    header["per_page"] = "\(perPage)"
-    
+
     guard let request = apiRequest.buildRequest(with: self.hostURL, header: header, page: page, perPage: perPage) else { return Observable.error(NetworkingError.invalidRequest(message: "invalid"))}
     
     return network.object(for: request)
   }
   
-  public func load() -> Observable<Header> {
+  public func loadAll() -> Variable<[T]> {
     var header = Header()
     if let privateToken = privateToken.value {
-      header["Private-Token"] = privateToken
+      header[HeaderKeys.privateToken.rawValue] = privateToken
     }
     if let oAuthToken = oAuthToken.value {
-      header["Authorization"] = "Bearer \(oAuthToken)"
+      header[HeaderKeys.oAuthToken.rawValue] = "Bearer \(oAuthToken)"
     }
-    apiRequest.method = .head
-    guard let request = apiRequest.buildRequest(with: self.hostURL, header: header) else { return Observable.error(NetworkingError.invalidRequest(message: "invalid"))}
     
-    return network.header(for: request)
-//      .subscribe(onNext: { (header) in
-//        print(header)
-//      }, onError: nil, onCompleted: nil, onDisposed: nil)
+    var headAPIRequest = apiRequest // apiRequest is a struct
+    headAPIRequest.method = .head
     
+    if let request = headAPIRequest.buildRequest(with: self.hostURL, header: header, page: self.page, perPage: self.perPage) {
+
+    network.header(for: request)
+      .filter({ !$0.isEmpty })
+      .map { header -> (Int, [Int]) in
+        guard let perPage = Int(header[HeaderKeys.perPage.rawValue]!),
+          let totalPages = Int(header[HeaderKeys.totalPages.rawValue]!),
+          let total = Int(header[HeaderKeys.total.rawValue]!)
+          else { return (-1, []) }
+        
+        self.perPage = perPage
+        self.totalPages = totalPages
+        self.total = total
+        return (perPage, Array(1...totalPages))
+      }
+      .subscribe(onNext: { (arg) in
+        let (perPage, pages) = arg
+        for page in pages {
+          self.loadData(page: page, perPage: perPage)
+            .subscribe(onNext: { [weak self] (elements) in
+              elements.forEach { self?.list.value.append($0) }
+            }, onError: { (error) in
+              print(error)
+            })
+        }})
+        .disposed(by: disposeBag)
+    }
+    
+    return list
   }
   
 }
