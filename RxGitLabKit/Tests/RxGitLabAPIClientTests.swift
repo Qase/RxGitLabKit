@@ -39,10 +39,10 @@ class RxGitLabAPIClientTests: XCTestCase {
   func testLogin() {
     let expectation = XCTestExpectation(description: "response")
     let client = RxGitLabAPIClient(with: URL(string: "https://gitlab.fel.cvut.cz")!, using: Network(using: URLSession.shared))
-    client.login(username: "[USERNAME]", password: "[PASSWORD]")
+    client.login(username: GeneralMocks.mockLogin["username"]!, password: GeneralMocks.mockLogin["password"]!)
       .subscribe (onNext: { success in
         print(client.oAuthToken.value)
-        XCTAssertTrue(client.oAuthToken.value != nil && client.oAuthToken.value! == "[TOKEN]")
+        XCTAssertTrue(client.oAuthToken.value != nil && client.oAuthToken.value! == GeneralMocks.mockLogin["oAuthToken"])
         expectation.fulfill()
       }, onError: { error in
         XCTFail(error.localizedDescription)
@@ -50,22 +50,6 @@ class RxGitLabAPIClientTests: XCTestCase {
       .disposed(by: disposeBag)
     
     wait(for: [expectation], timeout: 5)
-  }
-  
-  func testTokens() {
-    let host = "gitlab.com"
-    let hostURL = URL(string: host)!
-    let oAuthToken = "oAuthToken"
-    let client = RxGitLabAPIClient(with: hostURL, oAuthToken: oAuthToken)
-    MockURLProtocol.requestHandler = { request in
-      
-      XCTAssertNotNil(request.url)
-      XCTAssertTrue((request.url?.pathComponents.contains(host))!)
-      
-      return (HTTPURLResponse(), RxGitLabApiClientMocks.tokenDataMock)
-    }
-    
-    
   }
   
   func testHost() {
@@ -82,7 +66,7 @@ class RxGitLabAPIClientTests: XCTestCase {
       return (HTTPURLResponse(), RxGitLabApiClientMocks.tokenDataMock)
     }
     
-    let authentication = client.authentication.authenticate(username: "username", password: "password")
+    let authentication = client.authentication.authenticate(username: GeneralMocks.mockLogin["username"]!, password: GeneralMocks.mockLogin["password"]!)
     let expectation = XCTestExpectation(description: "response")
     authentication.subscribe { event in
       print(event)
