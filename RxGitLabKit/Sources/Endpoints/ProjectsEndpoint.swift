@@ -8,7 +8,7 @@
 import Foundation
 import RxSwift
 
-public class ProjectsEnpoint: Endpoint {
+public class ProjectsEnpointGroup: EndpointGroup {
   
   enum Endpoints {
     case project(projectID: String)

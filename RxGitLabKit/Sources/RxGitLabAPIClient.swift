@@ -35,16 +35,17 @@ public protocol RxGitLabAPIClienting {
 //}
 
 public class RxGitLabAPIClient: RxGitLabAPIClienting {
-    
-  public var privateToken = BehaviorSubject<String?>(value: nil)
-  
-  public var oAuthToken =  BehaviorSubject<String?>(value: nil)
-  
-  public var perPage = BehaviorSubject<Int>(value: 100)
   
   public var hostURL: URL
   
   public var urlSession = URLSession.shared
+  
+  public var privateToken = Variable<String?>(nil)
+  
+  public var oAuthToken =  Variable<String?>(nil)
+  
+  public var perPage = Variable<Int>(RxGitLabAPIClient.defaultPerPage)
+
   
   public let network: Networking!
   
@@ -56,42 +57,42 @@ public class RxGitLabAPIClient: RxGitLabAPIClienting {
     return "/api/v\(apiVersion)"
   }
   
-  // MARK: Endpoints
+  // MARK: Endpoint Groups
   
-  public lazy var authentication: AuthenticationEndpoint = {
-    return createAndSubscribeEndpoint()
+  public lazy var authentication: AuthenticationEndpointGroup = {
+    return createAndSubscribeEndpointGroup()
   }()
   
-  public lazy var commits: CommitsEndpoint = {
-    return createAndSubscribeEndpoint()
+  public lazy var commits: CommitsEndpointGroup = {
+    return createAndSubscribeEndpointGroup()
   }()
   
-  public lazy var projects: ProjectsEnpoint = {
-    return createAndSubscribeEndpoint()
+  public lazy var projects: ProjectsEnpointGroup = {
+    return createAndSubscribeEndpointGroup()
   }()
   
-  public lazy var repositories: RepositoriesEndpoint = {
-    return createAndSubscribeEndpoint()
+  public lazy var repositories: RepositoriesEndpointGropu = {
+    return createAndSubscribeEndpointGroup()
   }()
   
-  public lazy var users: UsersEndpoint = {
-    return createAndSubscribeEndpoint()
+  public lazy var users: UsersEndpointGroup = {
+    return createAndSubscribeEndpointGroup()
   }()
   
   
-  private func createAndSubscribeEndpoint<T: Endpoint>() -> T {
+  private func createAndSubscribeEndpointGroup<T: EndpointGroup>() -> T {
     let endpoint = T(network: network, hostURL: hostURL)
-    oAuthToken
+    oAuthToken.asObservable()
       .filter { $0 != nil}
       .bind(to: endpoint.oAuthToken)
       .disposed(by: endpoint.disposeBag)
     
-    privateToken
+    privateToken.asObservable()
       .filter { $0 != nil}
       .bind(to: endpoint.privateToken)
       .disposed(by: endpoint.disposeBag)
     
-    perPage
+    perPage.asObservable()
       .filter { $0 > 0}
       .bind(to: endpoint.perPage)
       .disposed(by: endpoint.disposeBag)
@@ -106,12 +107,12 @@ public class RxGitLabAPIClient: RxGitLabAPIClienting {
   
   public convenience init(with hostURL: URL, privateToken: String, using session: URLSession = URLSession.shared) {
     self.init(with: hostURL, using: session)
-    self.privateToken.onNext(privateToken)
+    self.privateToken.value = privateToken
   }
   
   public convenience init(with hostURL: URL, oAuthToken: String, using session: URLSession = URLSession.shared) {
     self.init(with: hostURL, using: session)
-    self.oAuthToken.onNext(oAuthToken)
+    self.oAuthToken.value = oAuthToken
   }
   
   public func getOAuthToken(username: String, password: String) -> Observable<Authentication> {

@@ -8,7 +8,7 @@
 import Foundation
 import RxSwift
 
-public class UsersEndpoint: Endpoint {
+public class UsersEndpointGroup: EndpointGroup {
   
   enum Endpoints {
     case currentUser

@@ -141,6 +141,7 @@ public class Paginator<T: Codable> {
 
     network.header(for: request)
       .filter({ !$0.isEmpty })
+      // TODO: Error handling
       .map { header -> (Int, [Int]) in
         guard let perPage = Int(header[HeaderKeys.perPage.rawValue]!),
           let totalPages = Int(header[HeaderKeys.totalPages.rawValue]!),

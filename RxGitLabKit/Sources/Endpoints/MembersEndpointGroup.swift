@@ -8,7 +8,7 @@
 import Foundation
 import RxSwift
 
-public class MembersEndpoint: Endpoint {
+public class MembersEndpointGroup: EndpointGroup {
   
   enum Endpoints {
     case groupMember(groupID: String, userID: String)
@@ -38,9 +38,4 @@ public class MembersEndpoint: Endpoint {
     }
   }
 
-//  public func getUsers(page: Int = 1, perPage: Int = RxGitLabAPIClient.defaultPerPage) -> Observable<Commit> {
-//    let apiRequest = APIRequest(path: Endpoints.users, method: .post)
-//    return object(for: apiRequest)
-//  }
-  
 }

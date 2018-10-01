@@ -8,7 +8,7 @@
 import Foundation
 import RxSwift
 
-public class RepositoriesEndpoint: Endpoint {
+public class RepositoriesEndpointGroup: EndpointGroup {
 
   public enum Endpoints {
     case tree(id: String)

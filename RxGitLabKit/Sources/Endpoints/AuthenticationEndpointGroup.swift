@@ -8,7 +8,7 @@
 import Foundation
 import RxSwift
 
-public class AuthenticationEndpoint: Endpoint {
+public class AuthenticationEndpointGroup: EndpointGroup {
   
   public enum Endpoints {
     case token

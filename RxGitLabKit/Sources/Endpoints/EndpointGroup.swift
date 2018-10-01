@@ -8,7 +8,7 @@
 import Foundation
 import RxSwift
 
-public class Endpoint {
+public class EndpointGroup {
   let network: Networking
   let hostURL: URL
   

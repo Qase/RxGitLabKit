@@ -8,7 +8,7 @@
 import Foundation
 import RxSwift
 
-public class CommitsEndpoint: Endpoint {
+public class CommitsEndpointGroup: EndpointGroup {
   
   enum Endpoints {
     case commits(projectID: String)
@@ -49,7 +49,6 @@ public class CommitsEndpoint: Endpoint {
     return object(for: getRequest)
   }
   
-
   public func getSingle(projectID: String, sha: String) -> Observable<Commit> {
     let apiRequest = APIRequest(path: Endpoints.single(projectID: projectID, sha: sha).url)
     return object(for: apiRequest)
@@ -60,7 +59,6 @@ public class CommitsEndpoint: Endpoint {
     return object(for: apiRequest)
   }
   
-
   public func cherryPick(projectID: String, sha: String) -> Observable<Commit> {
     let apiRequest = APIRequest(path: Endpoints.cherryPick(projectID: projectID, sha: sha).url, method: .post)
     return object(for: apiRequest)
