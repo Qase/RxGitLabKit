@@ -21,12 +21,12 @@ class RxGitLabAPIClientTests: XCTestCase {
   private var client: RxGitLabAPIClient!
   
   private let hostURL = URL(string: "test.gitlab.com")!
-  
+  let disposeBag = DisposeBag()
   
   override func setUp() {
     super.setUp()
 //    URLProtocol.registerClass(MockURLProtocol.self)
-    client = RxGitLabAPIClient(with: hostURL, using: session)
+    client = RxGitLabAPIClient(with: hostURL, using: Network(using: session))
 
     // Put setup code here. This method is called before the invocation of each test method in the class.
   }
@@ -34,6 +34,22 @@ class RxGitLabAPIClientTests: XCTestCase {
   override func tearDown() {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
     super.tearDown()
+  }
+  
+  func testLogin() {
+    let expectation = XCTestExpectation(description: "response")
+    let client = RxGitLabAPIClient(with: URL(string: "https://gitlab.fel.cvut.cz")!, using: Network(using: URLSession.shared))
+    client.login(username: "[USERNAME]", password: "[PASSWORD]")
+      .subscribe (onNext: { success in
+        print(client.oAuthToken.value)
+        XCTAssertTrue(client.oAuthToken.value != nil && client.oAuthToken.value! == "[TOKEN]")
+        expectation.fulfill()
+      }, onError: { error in
+        XCTFail(error.localizedDescription)
+      })
+      .disposed(by: disposeBag)
+    
+    wait(for: [expectation], timeout: 5)
   }
   
   func testTokens() {
@@ -139,32 +155,32 @@ class RxGitLabAPIClientTests: XCTestCase {
     wait(for: [expectation], timeout: 1)
   }
   
-  func testPagination() {
-    let host = "https://gitlab.fel.cvut.cz"
-    let bag = DisposeBag()
+//  func testPagination() {
+//    let host = "https://gitlab.fel.cvut.cz"
+//    let bag = DisposeBag()
+//    
+//    let username = "tranaduc"
+//    let password = "nV4-ubr-M8V-LFx"
+//    let client = RxGitLabAPIClient(with: URL(string: host)!)
+//    let expectation = XCTestExpectation(description: "response")
+//
+//    client.getOAuthToken(username: username, password: password)
+//    client.authentication.authenticate(username: username, password: password).subscribe({event in
+//      print(event)
+//      guard let authentication = event.element else { return }
+//      client.oAuthToken.onNext(authentication.oAuthToken)
+//      let paginator = client.users.getUsers()
+//      paginator.load().subscribe { event in
+//          print(event)
+//        print(paginator)
+//        expectation.fulfill()
+//      }
+//    })
+
     
-    let username = "tranaduc"
-    let password = "nV4-ubr-M8V-LFx"
-    let client = RxGitLabAPIClient(with: URL(string: host)!)
-    let expectation = XCTestExpectation(description: "response")
+//    wait(for: [expectation], timeout: 100)
 
-    client.getOAuthToken(username: username, password: password)
-    client.authentication.authenticate(username: username, password: password).subscribe({event in
-      print(event)
-      guard let authentication = event.element else { return }
-      client.oAuthToken.onNext(authentication.oAuthToken)
-      let paginator = client.users.getUsers2()
-      paginator.load().subscribe { event in
-          print(event)
-        print(paginator)
-        expectation.fulfill()
-      }
-    })
-
-    
-    wait(for: [expectation], timeout: 100)
-
-  }
+//  }
   
   func testPagination2() {
     let host = "https://gitlab.fel.cvut.cz"
@@ -182,13 +198,13 @@ class RxGitLabAPIClientTests: XCTestCase {
       .subscribe({event in
 //      print(event)
       guard let authentication = event.element else { return }
-      client.oAuthToken.onNext(authentication.oAuthToken)
+      client.oAuthToken.value = authentication.oAuthToken
       
 //      paginator.page.value = 1
 //      paginator.page.value = 10
     })
     
-    let paginator = client.users.getUsers2(page: 1, perPage: 10)
+    let paginator = client.users.getUsers(page: 1, perPage: 10)
     paginator.list.asObservable()
       .filter({ !$0.isEmpty })
 //      .sample(client.oAuthToken.asObservable().filter { $0 != nil})
@@ -200,7 +216,7 @@ class RxGitLabAPIClientTests: XCTestCase {
 
         if users.count < 20 {
 //          paginator.loadNextPage()
-          paginator.page.value = 3
+          paginator.page = 3
         } else {
           expectation.fulfill()
         }
@@ -235,38 +251,6 @@ class RxGitLabAPIClientTests: XCTestCase {
       for user in users {
         print(user)
       }
-    } else {
-      print("error")
-    }
-    
-    
-  }
-  
-  
-  func testUserDecode() {
-    let user = """
-{
-  "id": 1,
-  "username": "john_smith",
-  "name": "John Smith",
-  "state": "active",
-  "avatar_url": "http://localhost:3000/uploads/user/avatar/1/cd8.jpeg",
-  "web_url": "http://localhost:3000/john_smith",
-  "created_at": "2012-05-23T08:00:58Z",
-  "bio": null,
-  "location": null,
-  "skype": "",
-  "linkedin": "",
-  "twitter": "",
-  "website_url": "",
-  "organization": ""
-}
-"""
-    let data = user.data(using: .utf8)!
-    
-    let decoder = JSONDecoder()
-    if let user = try? decoder.decode(User.self, from: data) {
-      print(user)
     } else {
       print("error")
     }

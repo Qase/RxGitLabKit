@@ -16,10 +16,10 @@ public typealias Header = [String : String]
 public enum HeaderKeys: String {
   case total = "X-Total"
   case totalPages = "X-Total-Pages"
-  case page = "X-Page"
   case perPage = "X-Per-Page"
-  case prevPage = "X-Prev-Page"
+  case page = "X-Page"
   case nextPage = "X-Next-Page"
+  case prevPage = "X-Prev-Page"
   case privateToken = "Private-Token"
   case oAuthToken = "Authorization"
 }
@@ -46,6 +46,31 @@ public enum NetworkingError: Error {
   case invalidRequest(message: String?)
 }
 
+extension NetworkingError: LocalizedError {
+  public var errorDescription: String? {
+    switch self {
+    case .badRequest:
+      return NSLocalizedString("Bad Request", comment: "Bad") // 400
+    case .unauthorized:
+      return NSLocalizedString("Unauthorized", comment: "Unauthorized") // 401
+    case .forbidden:
+      return NSLocalizedString("Forbidden", comment: "Forbidden") // 403
+    case .notFound:
+      return NSLocalizedString("Not Found", comment: "Not") // 404
+    case .methodNotAllowed:
+      return NSLocalizedString("Method Not Allowed", comment: "Method") // 405
+    case .serverFailure:
+      return NSLocalizedString("Server Failure", comment: "Server") // 5xx
+    case .unspecified(let code):
+      return NSLocalizedString("Unspecified: \(code)", comment: "Unspecified: \(code)")
+    case .parsingJSONFailure:
+      return NSLocalizedString("Parsing JSON Failure", comment: "Parsing JSON Failure")
+    case .invalidRequest(let message):
+      return NSLocalizedString("Invalid Request: \(message ?? "")", comment: "Invalid Request: \(message ?? "")")
+    }
+  }
+}
+
 public protocol Networking {
   static func response(for request: URLRequest,in session: URLSession) -> Observable<(response: HTTPURLResponse, data: Data)>
   static func header(for request: URLRequest,in session: URLSession) -> Observable<Header>
@@ -67,9 +92,9 @@ public class Network: Networking {
     return Network.header(for: request, in: session)
   }
 
-  let session: URLSession
+  private let session: URLSession
   
-  init(with session: URLSession) {
+  public init(using session: URLSession) {
     self.session = session
   }
   
@@ -88,7 +113,6 @@ public class Network: Networking {
       }
   }
 
-  
   public static func data(for request: URLRequest,in session: URLSession = .shared) -> Observable<Data> {
     return Network.response(for: request, in: session)
       .flatMap { (response, data) -> Observable<Data> in

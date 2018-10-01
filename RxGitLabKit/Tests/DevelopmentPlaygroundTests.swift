@@ -17,6 +17,7 @@ class DevelopmentPlaygroundTests: XCTestCase {
   
   private let hostURL = URL(string: "https://gitlab.fel.cvut.cz")!
   
+  private let bag = DisposeBag()
   
   override func setUp() {
     super.setUp()

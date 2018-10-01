@@ -37,7 +37,7 @@ class PaginatorTests: XCTestCase {
     let client = RxGitLabAPIClient(with: URL(string: host)!)
     let expectation = XCTestExpectation(description: "response")
     
-    client.oAuthToken.onNext("[TOKEN]")
+    client.oAuthToken.value = "[TOKEN]"
     
     let paginator = client.users.getUsers(page: 1, perPage: 100)
     

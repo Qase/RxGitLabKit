@@ -13,41 +13,10 @@ enum Endpoints {
 }
 
 public protocol RxGitLabAPIClienting {
-  var hostURL: URL { get set }
-//  var privateToken: String { get set }
-//
-//  func authenticate(host: URL)
-//
-//  func authenticate(host: URL, privateToken: String)
-//
-//  func authenticate(host: URL, OAuthToken: String)
-//
-//  func authenticate(host: URL, email: String, password: String)
-//
-  
-  //func object<T>(request: APIRequesting) -> Observable<T> where T : Decodable, T : Encodable
+
 }
 
-
-//extension RxGitLabAPIClienting {
-//  let privateTokenKey = "private_token"
-//
-//}
-
 public class RxGitLabAPIClient: RxGitLabAPIClienting {
-  
-  public var hostURL: URL
-  
-  public var urlSession = URLSession.shared
-  
-  public var privateToken = Variable<String?>(nil)
-  
-  public var oAuthToken =  Variable<String?>(nil)
-  
-  public var perPage = Variable<Int>(RxGitLabAPIClient.defaultPerPage)
-
-  
-  public let network: Networking!
   
   public static let defaultPerPage = 20
   
@@ -57,6 +26,16 @@ public class RxGitLabAPIClient: RxGitLabAPIClienting {
     return "/api/v\(apiVersion)"
   }
   
+  public var hostURL: URL
+  
+  public var privateToken = Variable<String?>(nil)
+  
+  public var oAuthToken =  Variable<String?>(nil)
+  
+  public var perPage = Variable<Int>(RxGitLabAPIClient.defaultPerPage)
+  
+  private let network: Networking
+
   // MARK: Endpoint Groups
   
   public lazy var authentication: AuthenticationEndpointGroup = {
@@ -71,7 +50,7 @@ public class RxGitLabAPIClient: RxGitLabAPIClienting {
     return createAndSubscribeEndpointGroup()
   }()
   
-  public lazy var repositories: RepositoriesEndpointGropu = {
+  public lazy var repositories: RepositoriesEndpointGroup = {
     return createAndSubscribeEndpointGroup()
   }()
   
@@ -79,6 +58,28 @@ public class RxGitLabAPIClient: RxGitLabAPIClienting {
     return createAndSubscribeEndpointGroup()
   }()
   
+  // MARK: Init
+  
+  public init(with hostURL: URL, using network: Networking) {
+    self.hostURL = hostURL
+    self.network = network
+  }
+  
+  public convenience init(with hostURL: URL) {
+    self.init(with: hostURL,using: Network(using: URLSession.shared))
+  }
+  
+  public convenience init(with hostURL: URL, privateToken: String, using network: Networking? = nil) {
+    self.init(with: hostURL, using: network ?? Network(using: URLSession.shared))
+    self.privateToken.value = privateToken
+  }
+  
+  public convenience init(with hostURL: URL, oAuthToken: String, using network: Networking? = nil) {
+    self.init(with: hostURL, using: network ?? Network(using: URLSession.shared))
+    self.oAuthToken.value = oAuthToken
+  }
+  
+  // MARK: Private functions
   
   private func createAndSubscribeEndpointGroup<T: EndpointGroup>() -> T {
     let endpoint = T(network: network, hostURL: hostURL)
@@ -96,27 +97,28 @@ public class RxGitLabAPIClient: RxGitLabAPIClienting {
       .filter { $0 > 0}
       .bind(to: endpoint.perPage)
       .disposed(by: endpoint.disposeBag)
+    
     return endpoint
   }
   
-  // MARK: Init
-  public init(with hostURL: URL, using session: URLSession = URLSession.shared) {
-    self.hostURL = hostURL
-    self.network = Network(with: session)
-  }
-  
-  public convenience init(with hostURL: URL, privateToken: String, using session: URLSession = URLSession.shared) {
-    self.init(with: hostURL, using: session)
-    self.privateToken.value = privateToken
-  }
-  
-  public convenience init(with hostURL: URL, oAuthToken: String, using session: URLSession = URLSession.shared) {
-    self.init(with: hostURL, using: session)
-    self.oAuthToken.value = oAuthToken
-  }
+  // MARK: Public Functions
   
   public func getOAuthToken(username: String, password: String) -> Observable<Authentication> {
     return authentication.authenticate(username: username, password: password)
+  }
+  
+  public func login(username: String, password: String) -> Observable<Bool> {
+    return Observable.create { [weak self] observer in
+      self?.authentication.authenticate(username: username, password: password)
+        .take(1)
+        .subscribe(onNext: { [weak self] token in
+          self?.oAuthToken.value = token.oAuthToken
+          observer.onNext(true)
+          }, onError: { error in
+            observer.onError(error)
+        })
+      return Disposables.create()
+    }
   }
   
 }
