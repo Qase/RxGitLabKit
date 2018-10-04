@@ -92,17 +92,7 @@ public class UsersEndpointGroup: EndpointGroup {
   
   public func getUsers(page: Int = 1, perPage: Int = RxGitLabAPIClient.defaultPerPage) -> Paginator<User> {
     let apiRequest = APIRequest(path: Endpoints.users.url, method: .get)
-    let paginator = Paginator<User>(network: network, hostURL: hostURL, apiRequest: apiRequest)
-    paginator.page = page
-    paginator.perPage = perPage
-    oAuthToken.asObservable()
-      .filter({$0 != nil})
-      .bind(to: paginator.oAuthToken)
-      .disposed(by: paginator.disposeBag)
-    privateToken.asObservable()
-      .filter({$0 != nil})
-      .bind(to: paginator.privateToken)
-      .disposed(by: paginator.disposeBag)
+    let paginator = Paginator<User>(network: network, hostURL: hostURL, apiRequest: apiRequest, page: page, perPage: perPage, oAuthToken: oAuthToken, privateToken: privateToken)
     
     return paginator
   }

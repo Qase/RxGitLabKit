@@ -63,14 +63,17 @@ public struct APIRequest: APIRequesting {
   public var path: String?
   public var parameters: QueryParameters
   public var jsonDictionary: JSONDictionary?
+  public var data: Data?
   
   init(path: String = "",
        method: HTTPMethod = HTTPMethod.get,
        parameters: QueryParameters? = nil,
-       jsonBody: JSONDictionary? = nil) {
+       jsonBody: JSONDictionary? = nil,
+       data: Data? = nil) {
     self.path = path
     self.method = method
     self.parameters = parameters ?? [:]
     self.jsonDictionary = jsonBody
+    self.data = data
   }
 }

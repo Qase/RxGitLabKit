@@ -54,9 +54,10 @@ public class Paginator<T: Codable> {
     }
   }
   
-  let privateToken = Variable<String?>(nil)
-  public let oAuthToken = Variable<String?>(nil)
+  public let privateToken: Variable<String?>
+  public let oAuthToken: Variable<String?>
   public let list = Variable<[T]>([])
+  public let currentPageList = Variable<[T]>([])
   
   let refreshTrigger = PublishSubject<Void>()
   let loadNextPageTrigger = PublishSubject<Void>()
@@ -64,7 +65,7 @@ public class Paginator<T: Codable> {
   let error = PublishSubject<Swift.Error>()
   public let disposeBag = DisposeBag()
 
-  required public init(network: Networking, hostURL: URL, apiRequest: APIRequest, page: Int = 1, perPage: Int = RxGitLabAPIClient.defaultPerPage) {
+  required public init(network: Networking, hostURL: URL, apiRequest: APIRequest, page: Int = 1, perPage: Int = RxGitLabAPIClient.defaultPerPage, oAuthToken: Variable<String?>, privateToken: Variable<String?>) {
     self.network = network
     self.hostURL = hostURL
     self.apiRequest = apiRequest
@@ -72,6 +73,8 @@ public class Paginator<T: Codable> {
     self.perPageVariable = Variable<Int>(perPage)
     self.totalVariable = Variable<Int>(-1)
     self.totalPagesVariable = Variable<Int>(-1)
+    self.oAuthToken = oAuthToken
+    self.privateToken = privateToken
     
     let nextPageRequest = loadNextPageTrigger.asObservable()
     .flatMap { [unowned self] _ -> Observable<Int> in
@@ -97,6 +100,14 @@ public class Paginator<T: Codable> {
         })
         .catchError { error -> Observable<[T]> in Observable.empty() }
       }
+    
+    response.subscribe(onNext: { [weak self] items in
+        self?.currentPageList.value = items
+      }, onError: { [weak self] error in
+        self?.error.onError(error)
+        self?.currentPageList.value = []
+      })
+      .disposed(by: disposeBag)
 
     Observable
       .combineLatest(request, response, list.asObservable()) { [unowned self] request, response, elements in

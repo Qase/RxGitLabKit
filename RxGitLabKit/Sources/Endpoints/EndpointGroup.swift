@@ -12,7 +12,7 @@ public class EndpointGroup {
   let network: Networking
   let hostURL: URL
   
-  let privateToken = Variable<String?>(nil)
+  public let privateToken = Variable<String?>(nil)
   public let oAuthToken = Variable<String?>(nil)
   let perPage = Variable<Int>(100)
   let disposeBag = DisposeBag()

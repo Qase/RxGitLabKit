@@ -39,8 +39,8 @@ class DevelopmentPlaygroundTests: XCTestCase {
     
     let bag = DisposeBag()
     
-    let username = "[USERNAME]"
-    let password = "[PASSWORD]"
+    let username = "tranaduc"
+    let password = "nV4-ubr-M8V-LFx"
     
     //    XCTAssert(client.test == "tesst")
     
@@ -81,7 +81,7 @@ class DevelopmentPlaygroundTests: XCTestCase {
     let client = RxGitLabAPIClient(with: URL(string: host)!)
     let expectation = XCTestExpectation(description: "response")
     
-    client.oAuthToken.onNext("[TOKEN]")
+    client.oAuthToken.value = "e379c3dd992dfb8043db912bb8ad6643130848184edad33358029a3176cabaec"
     
     let paginator = client.users.getUsers(page: 1, perPage: 100)
     

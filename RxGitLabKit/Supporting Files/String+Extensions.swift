@@ -14,7 +14,7 @@ extension String {
   ///
   /// - Returns: Data?
   func data() -> Data {
-    guard let data = data(using: .utf8) else { return Data()}
+    guard let data = data(using: .utf8) else { return Data() }
     return data
   }
 }
