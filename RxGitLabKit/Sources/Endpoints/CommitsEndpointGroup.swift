@@ -145,5 +145,4 @@ public class CommitsEndpointGroup: EndpointGroup {
     let apiRequest = APIRequest(path: Endpoints.cherryPick(projectID: projectID, sha: sha).url, method: .post, parameters: queryParam)
     return object(for: apiRequest)
   }
-  
 }
