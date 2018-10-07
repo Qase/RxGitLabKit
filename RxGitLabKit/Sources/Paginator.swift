@@ -93,6 +93,22 @@ public class Paginator<T: Codable> {
       .flatMap { self.loadData(page: $0.0, perPage: $0.1) }
       .bind(to: self.currentPageListVariable)
       .disposed(by: disposeBag)
+    
+    header()
+      .subscribe(onNext: { header in
+        guard let _perPage = header[HeaderKeys.perPage.rawValue],
+          let perPage = Int(_perPage),
+          let _totalPages = header[HeaderKeys.totalPages.rawValue],
+          let totalPages = Int(_totalPages),
+          let _total = header[HeaderKeys.total.rawValue],
+          let total = Int(_total)
+          else { return }
+        self.perPage = perPage
+        self.totalPages = totalPages
+        self.total = total
+      })
+      .disposed(by: disposeBag)
+    
   }
   
   // MARK: Public Functions
@@ -115,13 +131,6 @@ public class Paginator<T: Codable> {
   /// The items will be emmitted from `currentPageListObservable`
   public func loadFirstPage() {
     page = 1
-    loadPage(page: page, perPage: perPage)
-  }
-  
-  /// Loads items from the last page
-  /// The items will be emmitted from `currentPageListObservable`
-  public func loadLastPage() {
-    page = totalVariable.value
     loadPage(page: page, perPage: perPage)
   }
   
@@ -155,10 +164,7 @@ public class Paginator<T: Codable> {
     return network.object(for: request)
   }
   
-  /// Loads all objects from the endpoint.
-  ///
-  /// - Returns: An observable of array of loaded objects
-  public func loadAll() -> Observable<[T]> {
+  private func header() -> Observable<Header> {
     var header = Header()
     if let privateToken = privateTokenVariable.value {
       header[HeaderKeys.privateToken.rawValue] = privateToken
@@ -173,8 +179,17 @@ public class Paginator<T: Codable> {
     guard let request = headAPIRequest.buildRequest(with: self.hostURL, header: header, page: self.page, perPage: self.perPage) else { return Observable.error(NetworkingError.invalidRequest(message: "invalid")) }
     
     // Get the number of pages
-    let headerResponse = network.header(for: request)
-          .filter({ !$0.isEmpty })
+    return network.header(for: request)
+      .filter({ !$0.isEmpty })
+  }
+  
+  /// Loads all objects from the endpoint.
+  ///
+  /// - Returns: An observable of array of loaded objects
+  public func loadAll() -> Observable<[T]> {
+    
+    // Get the number of pages
+    let headerResponse = header()
           .flatMap { header -> Observable<(Int, [Int])> in
             guard let _perPage = header[HeaderKeys.perPage.rawValue],
               let perPage = Int(_perPage),
@@ -189,8 +204,7 @@ public class Paginator<T: Codable> {
             self.total = total
             return Observable.just((perPage, Array(1...totalPages)))
           }
-    
-    
+
     let arrayOfObservables: Observable<[Observable<[T]>]> = headerResponse
       .map { (arg) -> [Observable<[T]>] in
       let (perPage, pages) = arg
