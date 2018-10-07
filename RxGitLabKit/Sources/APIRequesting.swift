@@ -25,10 +25,25 @@ extension APIRequesting {
     }
     
     guard var components = URLComponents(url: pathURL, resolvingAgainstBaseURL: false) else { return nil }
-    
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+    // Input query items
     if !parameters.isEmpty {
-      components.queryItems = parameters.map { URLQueryItem(name: $0, value: $1) }
+      components.queryItems = parameters.map { (key, value) -> URLQueryItem in
+        switch value {
+        case let bool as Bool:
+          return URLQueryItem(name: key, value: bool ? "true" : "false")
+        case let date as Date:
+          return URLQueryItem(name: key, value: dateFormatter.string(from: date))
+        case is Array<Any>:
+          return URLQueryItem(name: key, value: (value as! Array<Any>).map { "\($0)"}.joined(separator: ","))
+        default:
+          return URLQueryItem(name: key, value: "\(value)")
+        }
+      }
     }
+    
+    // Pagination query items
     if (page != nil || perPage != nil) && components.queryItems == nil {
       components.queryItems = []
       if let page = page {
@@ -39,12 +54,10 @@ extension APIRequesting {
         components.queryItems?.append(URLQueryItem(name: "per_page", value: "\(perPage)"))
       }
     }
-
     
+    // Request from url
     guard let url = components.url else { return nil }
-    
     var request = URLRequest(url: url)
-    
     request.httpMethod = method.rawValue
     if method == .post {
       request.addValue("application/json", forHTTPHeaderField: "Content-Type")

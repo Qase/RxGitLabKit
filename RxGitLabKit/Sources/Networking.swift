@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-public typealias QueryParameters = [String: String]
+public typealias QueryParameters = [String: Any]
 public typealias JSONDictionary = [String: Any]
 public typealias Header = [String : String]
 
