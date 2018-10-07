@@ -104,10 +104,27 @@ public class Network: Networking {
   
   public static func header(for request: URLRequest,in session: URLSession = .shared) -> Observable<Header> {
     return Network.response(for: request, in: session)
-      .flatMap { (r, d) -> Observable<Header> in
+      .flatMap { (response, _) -> Observable<Header> in
         
         Observable.create { observer in
-          observer.onNext(r.allHeaderFields as! Header)
+          switch response.statusCode {
+          case 200..<300:
+            observer.onNext(response.allHeaderFields as! Header)
+            observer.onCompleted()
+          case 400:
+            observer.onError(NetworkingError.badRequest)
+          case 401:
+            observer.onError(NetworkingError.unauthorized)
+          case 403:
+            observer.onError(NetworkingError.forbidden)
+          case 404:
+            observer.onError(NetworkingError.notFound)
+          case 500..<600:
+            observer.onError(NetworkingError.serverFailure)
+          default:
+            observer.onError(NetworkingError.unspecified(response.statusCode))
+          }
+         
           return Disposables.create()
         }
       }
