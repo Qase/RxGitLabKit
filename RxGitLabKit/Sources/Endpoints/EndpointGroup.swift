@@ -12,9 +12,10 @@ public class EndpointGroup {
   let network: Networking
   let hostURL: URL
   
-  public let privateToken = Variable<String?>(nil)
-  public let oAuthToken = Variable<String?>(nil)
-  let perPage = Variable<Int>(100)
+  private (set) var privateToken = Variable<String?>(nil)
+  private (set) var oAuthToken = Variable<String?>(nil)
+  public let perPage = Variable<Int>(100)
+  
   let disposeBag = DisposeBag()
   
   required public init(network: Networking, hostURL: URL) {
@@ -33,7 +34,7 @@ public class EndpointGroup {
       header["Authorization"] = "Bearer \(oAuthToken)"
     }
     
-    guard let request = request.buildRequest(with: self.hostURL, header: header) else { return Observable.error(NetworkingError.invalidRequest(message: nil)) }
+    guard let request = request.buildRequest(with: self.hostURL, header: header) else { return Observable.error(HTTPError.invalidRequest(message: nil)) }
     return network.object(for: request)
   }
 }

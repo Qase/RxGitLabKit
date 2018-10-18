@@ -8,7 +8,6 @@
 import Foundation
 import XCTest
 import RxGitLabKit
-import RxGitLabKit
 import RxSwift
 
 class RxGitLabAPIClientTests: XCTestCase {
@@ -27,7 +26,7 @@ class RxGitLabAPIClientTests: XCTestCase {
   override func setUp() {
     super.setUp()
 //    URLProtocol.registerClass(MockURLProtocol.self)
-    client = RxGitLabAPIClient(with: hostURL, using: Network(using: session))
+    client = RxGitLabAPIClient(with: hostURL, using: NetworkClient(using: session))
 
     // Put setup code here. This method is called before the invocation of each test method in the class.
   }
@@ -39,11 +38,11 @@ class RxGitLabAPIClientTests: XCTestCase {
   
   func testLogin() {
     let expectation = XCTestExpectation(description: "response")
-    let client = RxGitLabAPIClient(with: URL(string: "https://gitlab.fel.cvut.cz")!, using: Network(using: URLSession.shared))
-    client.login(username: GeneralMocks.mockLogin["username"]!, password: GeneralMocks.mockLogin["password"]!)
+    let client = RxGitLabAPIClient(with: URL(string: "https://gitlab.fel.cvut.cz")!, using: NetworkClient(using: URLSession.shared))
+    client.login(username: GeneralMocks.mockLogin[.username]!, password: GeneralMocks.mockLogin[.password]!)
       .subscribe (onNext: { success in
         print(client.oAuthToken.value)
-        XCTAssertTrue(client.oAuthToken.value != nil && client.oAuthToken.value! == GeneralMocks.mockLogin["oAuthToken"])
+        XCTAssertTrue(client.oAuthToken.value != nil && client.oAuthToken.value! == GeneralMocks.mockLogin[.oAuthToken])
         expectation.fulfill()
       }, onError: { error in
         XCTFail(error.localizedDescription)
@@ -63,11 +62,10 @@ class RxGitLabAPIClientTests: XCTestCase {
       
       XCTAssertNotNil(request.url)
       XCTAssertTrue((request.url?.pathComponents.contains(host))!)
-      
       return (HTTPURLResponse(), RxGitLabApiClientMocks.tokenDataMock)
     }
     
-    let authentication = client.authentication.authenticate(username: GeneralMocks.mockLogin["username"]!, password: GeneralMocks.mockLogin["password"]!)
+    let authentication = client.authentication.authenticate(username: GeneralMocks.mockLogin[.username]!, password: GeneralMocks.mockLogin[.password]!)
     let expectation = XCTestExpectation(description: "response")
     authentication.subscribe { event in
       print(event)
@@ -83,8 +81,8 @@ class RxGitLabAPIClientTests: XCTestCase {
     // Use XCTAssert and related functions to verify your tests produce the correct results.
     let bag = DisposeBag()
 
-    let username = "username"
-    let password = "password"
+    let username = "username123"
+    let password = "Password342"
     
 //    XCTAssert(client.test == "tesst")
     
@@ -190,7 +188,7 @@ class RxGitLabAPIClientTests: XCTestCase {
     })
     
     let paginator = client.users.getUsers(page: 1, perPage: 10)
-    paginator.list.asObservable()
+    paginator.allListObservable
       .filter({ !$0.isEmpty })
 //      .sample(client.oAuthToken.asObservable().filter { $0 != nil})
       .subscribe (onNext: { users in
@@ -211,12 +209,12 @@ class RxGitLabAPIClientTests: XCTestCase {
 //      .disposed(by: bag)
 
     
-    paginator.oAuthToken.asObservable()
-    .filter {$0 != nil}
-    .subscribe(onNext: {_ in
-      paginator.loadNextPage()
-//      paginator.page.value = 2
-    })
+//    paginator.oAuthToken.asObservable()
+//    .filter {$0 != nil}
+//    .subscribe(onNext: {_ in
+//      paginator.loadNextPage()
+////      paginator.page.value = 2
+//    })
 //    .disposed(by: bag)
     
     wait(for: [expectation], timeout: 100)

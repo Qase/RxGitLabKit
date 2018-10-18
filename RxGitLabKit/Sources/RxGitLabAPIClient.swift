@@ -66,16 +66,16 @@ public class RxGitLabAPIClient: RxGitLabAPIClienting {
   }
   
   public convenience init(with hostURL: URL) {
-    self.init(with: hostURL,using: Network(using: URLSession.shared))
+    self.init(with: hostURL,using: HTTPClient(using: URLSession.shared))
   }
   
   public convenience init(with hostURL: URL, privateToken: String, using network: Networking? = nil) {
-    self.init(with: hostURL, using: network ?? Network(using: URLSession.shared))
+    self.init(with: hostURL, using: network ?? HTTPClient(using: URLSession.shared))
     self.privateToken.value = privateToken
   }
   
   public convenience init(with hostURL: URL, oAuthToken: String, using network: Networking? = nil) {
-    self.init(with: hostURL, using: network ?? Network(using: URLSession.shared))
+    self.init(with: hostURL, using: network ?? HTTPClient(using: URLSession.shared))
     self.oAuthToken.value = oAuthToken
   }
   

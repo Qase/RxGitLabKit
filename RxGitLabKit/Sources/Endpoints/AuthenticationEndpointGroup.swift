@@ -29,7 +29,7 @@ public class AuthenticationEndpointGroup: EndpointGroup {
     ]
     let apiRequest = APIRequest(path: Endpoints.token.path, method: .post, jsonBody: jsonBody)
     
-    guard let request = apiRequest.buildRequest(with: self.hostURL, apiVersion: nil) else { return Observable.error(NetworkingError.invalidRequest(message: nil)) }
+    guard let request = apiRequest.buildRequest(with: self.hostURL, apiVersion: nil) else { return Observable.error(HTTPError.invalidRequest(message: nil)) }
     
     return network.object(for: request)
   }

@@ -58,7 +58,7 @@ public class RepositoriesEndpointGroup: EndpointGroup {
   
   public func compare(projectID: String, parameters: QueryParameters) -> Observable<Data> {
     if parameters["from"] == nil || parameters["to"] == nil {
-      return Observable.error(NetworkingError.invalidRequest(message: "`from` and `to` commit SHA or branch name is required"))
+      return Observable.error(HTTPError.invalidRequest(message: "`from` and `to` commit SHA or branch name is required"))
     }
     let apiRequest = APIRequest(path: Endpoints.compare(id: projectID).path, parameters: parameters)
     return object(for: apiRequest)

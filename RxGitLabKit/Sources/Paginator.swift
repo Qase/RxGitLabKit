@@ -113,6 +113,16 @@ public class Paginator<T: Codable> {
   
   // MARK: Public Functions
   
+  /// Loads objects from the endpoint and emmits them from `currentPage
+  ///
+  /// - Parameters:
+  ///   - page: Page which should be loaded (default is 1)
+  ///   - perPage: How many objects in a page should be loaded (default is 20, maximum is 100)
+  /// - Returns: An observable of array of loaded objects
+  public func loadPage(page: Int = 1, perPage: Int = RxGitLabAPIClient.defaultPerPage) {
+    loadPageSubject.onNext((page, perPage))
+  }
+  
   /// Loads items from the next page
   /// The items will be emmitted from `currentPageListObservable`
   public func loadNextPage() {
@@ -134,16 +144,6 @@ public class Paginator<T: Codable> {
     loadPage(page: page, perPage: perPage)
   }
   
-  /// Loads objects from the endpoint and emmits them from `currentPage
-  ///
-  /// - Parameters:
-  ///   - page: Page which should be loaded (default is 1)
-  ///   - perPage: How many objects in a page should be loaded (default is 20, maximum is 100)
-  /// - Returns: An observable of array of loaded objects
-  public func loadPage(page: Int = 1, perPage: Int = RxGitLabAPIClient.defaultPerPage) {
-   loadPageSubject.onNext((page, perPage))
-  }
-  
   /// Loads objects from the endpoint.
   ///
   /// - Parameters:
@@ -159,7 +159,7 @@ public class Paginator<T: Codable> {
       header[HeaderKeys.oAuthToken.rawValue] = "Bearer \(oAuthToken)"
     }
     
-    guard let request = apiRequest.buildRequest(with: self.hostURL, header: header, page: page, perPage: perPage) else { return Observable.error(NetworkingError.invalidRequest(message: "invalid"))}
+    guard let request = apiRequest.buildRequest(with: self.hostURL, header: header, page: page, perPage: perPage) else { return Observable.error(HTTPError.invalidRequest(message: "invalid"))}
     
     return network.object(for: request)
   }
@@ -176,7 +176,7 @@ public class Paginator<T: Codable> {
     var headAPIRequest = apiRequest // apiRequest is a struct and the original should not be changed
     headAPIRequest.method = .head
     
-    guard let request = headAPIRequest.buildRequest(with: self.hostURL, header: header, page: self.page, perPage: self.perPage) else { return Observable.error(NetworkingError.invalidRequest(message: "invalid")) }
+    guard let request = headAPIRequest.buildRequest(with: self.hostURL, header: header, page: self.page, perPage: self.perPage) else { return Observable.error(HTTPError.invalidRequest(message: "invalid")) }
     
     // Get the number of pages
     return network.header(for: request)
