@@ -56,7 +56,7 @@ public enum HTTPError: Error {
   case unknown(Int?)
   
   /// JSON Parsing error.
-  case parsingJSONFailure
+  case parsingJSONFailure(error: Error)
   
   /// An invalid request
   case invalidRequest(message: String?)
@@ -81,12 +81,12 @@ extension HTTPError: LocalizedError {
       return NSLocalizedString("Server Failure", comment: "Server") // 5xx
     case .unknown(let code):
       return NSLocalizedString("Unknown: \(code ?? -1)", comment: "Unknown: \(code ?? -1)")
-    case .parsingJSONFailure:
-      return NSLocalizedString("Parsing JSON Failure", comment: "Parsing JSON Failure")
+    case .parsingJSONFailure(let error):
+      return NSLocalizedString("Parsing JSON Failure: \(error)", comment: "Parsing JSON Failure")
     case .invalidRequest(let message):
       return NSLocalizedString("Invalid Request: \(message ?? "")", comment: "Invalid Request: \(message ?? "")")
     case .nonHTTPResponse(let response):
-      return NSLocalizedString("Non HTTP Response from URL: \(response.url).", comment: "Non HTTP Response from URL: \(response.url).")
+      return NSLocalizedString("Non HTTP Response from URL: \(response.url?.absoluteString ?? "NO URL").", comment: "Non HTTP Response from URL: \(response.url?.absoluteString ?? "NO URL").")
     }
     
   }

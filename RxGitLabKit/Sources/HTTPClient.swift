@@ -7,7 +7,6 @@
 
 import Foundation
 import RxSwift
-import RxCocoa
 
 public class HTTPClient: Networking {
 
@@ -62,10 +61,9 @@ public class HTTPClient: Networking {
           default:
             observer.onError(HTTPError.unknown(response.statusCode))
           }
-         
           return Disposables.create()
         }
-      }
+    }
   }
 
   public static func data(for request: URLRequest,in session: URLSessionProtocol = URLSession.shared) -> Observable<Data> {
@@ -91,36 +89,38 @@ public class HTTPClient: Networking {
           }
           return Disposables.create()
         }
-      }
+    }
   }
   
   public static func object<T>(for request: URLRequest,in session: URLSessionProtocol = URLSession.shared) -> Observable<T> where T : Decodable, T : Encodable {
     return HTTPClient.data(for: request, in: session)
       .flatMap { data -> Observable<T> in
         return Observable.create{ observer in
-          let decoder = JSONDecoder.init()
-          if let object = try? decoder.decode(T.self, from: data) {
+          do {
+            let decoder = JSONDecoder.init()
+            let object = try decoder.decode(T.self, from: data)
             observer.onNext(object)
             observer.onCompleted()
-          } else {
-            observer.onError(HTTPError.parsingJSONFailure)
+          } catch let error {
+            observer.onError(HTTPError.parsingJSONFailure(error: error))
           }
+          
           
           return Disposables.create()
         }
-      }
+    }
   }
   
   public static func json(for request: URLRequest, in session: URLSessionProtocol = URLSession.shared) -> Observable<JSONDictionary> {
     return self.data(for: request, in: session)
       .flatMap { data -> Observable<JSONDictionary> in
         return Observable.create { observer in
-          if let dictionary = try? JSONSerialization.jsonObject(with: data, options: []) as? JSONDictionary,
-            let jsonDictionary = dictionary {
-            observer.onNext(jsonDictionary)
+          do {
+            let dictionary = try JSONSerialization.jsonObject(with: data, options: []) as! JSONDictionary
+            observer.onNext(dictionary)
             observer.onCompleted()
-          } else {
-            observer.onError(HTTPError.parsingJSONFailure)
+          } catch let error {
+            observer.onError(HTTPError.parsingJSONFailure(error: error))
           }
           return Disposables.create()
         }

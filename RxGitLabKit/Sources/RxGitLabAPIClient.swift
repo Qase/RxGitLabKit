@@ -7,16 +7,9 @@
 
 import Foundation
 import RxSwift
+import RxCocoa
 
-enum Endpoints {
-  
-}
-
-public protocol RxGitLabAPIClienting {
-
-}
-
-public class RxGitLabAPIClient: RxGitLabAPIClienting {
+public class RxGitLabAPIClient {
   
   public static let defaultPerPage = 20
   
@@ -28,11 +21,11 @@ public class RxGitLabAPIClient: RxGitLabAPIClienting {
   
   public var hostURL: URL
   
-  public var privateToken = Variable<String?>(nil)
+  private(set) var privateToken = Variable<String?>(nil)
   
-  public var oAuthToken =  Variable<String?>(nil)
+  private(set) var oAuthToken =  Variable<String?>(nil)
   
-  public var perPage = Variable<Int>(RxGitLabAPIClient.defaultPerPage)
+  private(set) var perPage = Variable<Int>(RxGitLabAPIClient.defaultPerPage)
   
   private let network: Networking
 
@@ -114,6 +107,7 @@ public class RxGitLabAPIClient: RxGitLabAPIClienting {
         .subscribe(onNext: { [weak self] token in
           self?.oAuthToken.value = token.oAuthToken
           observer.onNext(true)
+          observer.onCompleted()
           }, onError: { error in
             observer.onError(error)
         })
