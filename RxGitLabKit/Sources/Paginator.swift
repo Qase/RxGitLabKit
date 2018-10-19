@@ -21,8 +21,6 @@ public class Paginator<T: Codable> {
   private let totalPagesVariable: Variable<Int>
   private let totalVariable: Variable<Int>
   private let currentPageListVariable = Variable<[T]>([])
-  private let allListVariable = Variable<[T]>([])
-  private let loadPageSubject = PublishSubject<(Int, Int)>()
   private let disposeBag = DisposeBag()
   
   // MARK: Public getters
@@ -70,14 +68,6 @@ public class Paginator<T: Codable> {
     return currentPageListVariable.value
   }
   
-  public var allListObservable: Observable<[T]> {
-    return allListVariable.asObservable()
-  }
-  
-  public var allList: [T] {
-    return allListVariable.value
-  }
-  
   required public init(network: Networking, hostURL: URL, apiRequest: APIRequest, page: Int = 1, perPage: Int = RxGitLabAPIClient.defaultPerPage, oAuthToken: Variable<String?>, privateToken: Variable<String?>) {
     self.network = network
     self.hostURL = hostURL
@@ -88,11 +78,6 @@ public class Paginator<T: Codable> {
     self.totalPagesVariable = Variable<Int>(-1)
     self.oAuthTokenVariable = oAuthToken
     self.privateTokenVariable = privateToken
-    
-    loadPageSubject.asObservable()
-      .flatMap { self.loadData(page: $0.0, perPage: $0.1) }
-      .bind(to: self.currentPageListVariable)
-      .disposed(by: disposeBag)
     
     header()
       .subscribe(onNext: { header in
@@ -113,44 +98,13 @@ public class Paginator<T: Codable> {
   
   // MARK: Public Functions
   
-  /// Loads objects from the endpoint and emmits them from `currentPage
-  ///
-  /// - Parameters:
-  ///   - page: Page which should be loaded (default is 1)
-  ///   - perPage: How many objects in a page should be loaded (default is 20, maximum is 100)
-  /// - Returns: An observable of array of loaded objects
-  public func loadPage(page: Int = 1, perPage: Int = RxGitLabAPIClient.defaultPerPage) {
-    loadPageSubject.onNext((page, perPage))
-  }
-  
-  /// Loads items from the next page
-  /// The items will be emmitted from `currentPageListObservable`
-  public func loadNextPage() {
-    page += 1
-    loadPage(page: page, perPage: perPage)
-  }
-  
-  /// Loads items on from the previous page
-  /// The items will be emmitted from `currentPageListObservable`
-  public func loadPreviousPage() {
-    page -= 1
-    loadPage(page: page, perPage: perPage)
-  }
-  
-  /// Loads items from the first page
-  /// The items will be emmitted from `currentPageListObservable`
-  public func loadFirstPage() {
-    page = 1
-    loadPage(page: page, perPage: perPage)
-  }
-  
   /// Loads objects from the endpoint.
   ///
   /// - Parameters:
   ///   - page: Page which should be loaded (default is 1)
   ///   - perPage: How many objects in a page should be loaded (default is 20, maximum is 100)
   /// - Returns: An observable of array of loaded objects
-  private func loadData(page: Int = 1, perPage: Int = RxGitLabAPIClient.defaultPerPage) -> Observable<[T]> {
+  public func loadPage(page: Int = 1, perPage: Int = RxGitLabAPIClient.defaultPerPage) -> Observable<[T]> {
     var header = Header()
     if let privateToken = privateTokenVariable.value {
       header[HeaderKeys.privateToken.rawValue] = privateToken
@@ -161,7 +115,30 @@ public class Paginator<T: Codable> {
     
     guard let request = apiRequest.buildRequest(with: self.hostURL, header: header, page: page, perPage: perPage) else { return Observable.error(HTTPError.invalidRequest(message: "invalid"))}
     
-    return network.object(for: request)
+    return network.object(for: request).do(onNext: { (elements) in
+      self.currentPageListVariable.value = elements
+    })
+  }
+  
+  /// Loads items from the next page
+  /// The items will be emmitted from `currentPageListObservable`
+  public func loadNextPage() -> Observable<[T]> {
+    page += 1
+    return loadPage(page: page, perPage: perPage)
+  }
+  
+  /// Loads items on from the previous page
+  /// The items will be emmitted from `currentPageListObservable`
+  public func loadPreviousPage() -> Observable<[T]> {
+    page -= 1
+    return loadPage(page: page, perPage: perPage)
+  }
+  
+  /// Loads items from the first page
+  /// The items will be emmitted from `currentPageListObservable`
+  public func loadFirstPage() -> Observable<[T]> {
+    page = 1
+    return loadPage(page: page, perPage: perPage)
   }
   
   private func header() -> Observable<Header> {
@@ -187,7 +164,8 @@ public class Paginator<T: Codable> {
   ///
   /// - Returns: An observable of array of loaded objects
   public func loadAll() -> Observable<[T]> {
-    
+    let allListVariable = Variable<[T]>([])
+
     // Get the number of pages
     let headerResponse = header()
           .flatMap { header -> Observable<(Int, [Int])> in
@@ -209,16 +187,15 @@ public class Paginator<T: Codable> {
       .map { (arg) -> [Observable<[T]>] in
       let (perPage, pages) = arg
       return pages.map { page in
-        return self.loadData(page: page, perPage: perPage)
+        return self.loadPage(page: page, perPage: perPage)
       }
     }
     
     let mergedObjects: Observable<[T]> = arrayOfObservables.flatMap { arg -> Observable<[T]> in
       Observable.from(arg).merge()
     }
-    
     let wholeSequence = mergedObjects.toArray().do(onNext: { value in
-      self.allListVariable.value = value.flatMap { $0 }
+      allListVariable.value = value.flatMap { $0 }
     })
     
     let ret = wholeSequence.flatMap{ arg -> Observable<[T]> in
@@ -227,9 +204,8 @@ public class Paginator<T: Codable> {
       }).count > 0 {
         return Observable.error(RxError.unknown)
       } else {
-        return self.allListVariable.asObservable()
+        return allListVariable.asObservable()
       }
-
     }
     
     return ret

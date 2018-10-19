@@ -35,8 +35,8 @@ extension APIRequesting {
           return URLQueryItem(name: key, value: bool ? "true" : "false")
         case let date as Date:
           return URLQueryItem(name: key, value: dateFormatter.string(from: date))
-        case is Array<Any>:
-          return URLQueryItem(name: key, value: (value as! Array<Any>).map { "\($0)"}.joined(separator: ","))
+        case is Array<CustomStringConvertible>:
+          return URLQueryItem(name: key, value: (value as! Array<CustomStringConvertible>).map { "\($0)"}.joined(separator: ","))
         default:
           return URLQueryItem(name: key, value: "\(value)")
         }

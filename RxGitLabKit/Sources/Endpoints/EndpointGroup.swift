@@ -23,7 +23,7 @@ public class EndpointGroup {
     self.hostURL = hostURL
   }
   
-  enum Enpoints {}
+  private enum Enpoints {}
 
   func object<T>(for request: APIRequesting) -> Observable<T> where T : Codable {
     var header = Header()

@@ -21,9 +21,9 @@ public class RxGitLabAPIClient {
   
   public var hostURL: URL
   
-  private(set) var privateToken = Variable<String?>(nil)
+  public var privateToken = Variable<String?>(nil)
   
-  private(set) var oAuthToken =  Variable<String?>(nil)
+  public var oAuthToken = Variable<String?>(nil)
   
   private(set) var perPage = Variable<Int>(RxGitLabAPIClient.defaultPerPage)
   

@@ -10,7 +10,7 @@ import RxSwift
 
 public class MembersEndpointGroup: EndpointGroup {
   
-  enum Endpoints {
+  private enum Endpoints {
     case groupMember(groupID: String, userID: String)
     case groupMembers(groupID: String)
     case allGroupMembers(groupID: String)
@@ -39,6 +39,7 @@ public class MembersEndpointGroup: EndpointGroup {
   
   public func get(groupID: String, parameters: QueryParameters? = nil) -> Observable<[Member]> {
     let getRequest = APIRequest(path: Endpoints.allGroupMembers(groupID: groupID).url, parameters: parameters)
+    
     return object(for: getRequest)
   }
   
