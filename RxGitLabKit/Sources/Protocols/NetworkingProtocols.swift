@@ -107,7 +107,7 @@ public protocol URLSessionDataTaskProtocol {
 
 //MARK: Conform the protocol
 extension URLSession: URLSessionProtocol {
-  public func dataTask(with request: URLRequest, completionHandler: @escaping URLSessionProtocol.DataTaskResult) -> URLSessionDataTaskProtocol {
+  public func dataTask(with request: URLRequest, completionHandler: @escaping DataTaskResult) -> URLSessionDataTaskProtocol {
     return dataTask(with: request, completionHandler: completionHandler) as URLSessionDataTask
   }
 }

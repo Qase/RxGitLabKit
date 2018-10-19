@@ -9,6 +9,8 @@ import Foundation
 import XCTest
 import RxGitLabKit
 import RxSwift
+import RxBlocking
+import RxTest
 
 class PaginatorTests: XCTestCase {
   
@@ -34,94 +36,100 @@ class PaginatorTests: XCTestCase {
   func testLoadAll() {
     let expectation = XCTestExpectation(description: "response")
     let paginator = client.users.getUsers(page: 1, perPage: 100)
-
-    paginator.loadAll()
-      .subscribe (onNext: { value in
-        print("Loading: \(Float(value.count) / Float(paginator.total) * 100.0) %" )
-        print(value.count)
-        print(paginator.total)
-        if value.count == paginator.total {
-          expectation.fulfill()
-        }
-      },
-      onError: { error in
-        print(error)
-      })
-      .disposed(by: disposeBag)
-    wait(for: [expectation], timeout: timeoutInSeconds)
+    let scheduler = ConcurrentDispatchQueueScheduler(qos: .default)
     
+    let loadAllObservable = paginator.loadAll().subscribeOn(scheduler)
+    let result = try! loadAllObservable.toBlocking().materialize()
+    print(try! loadAllObservable.toBlocking().toArray().count)
+    switch result {
+    case .completed(elements: let elements):
+      XCTAssertEqual(elements.count,  paginator.total)
+    case .failed(elements: _, error: let error):
+      XCTFail(error.localizedDescription)
+    }
+    
+//    loadAllObservable
+//      .subscribe (onNext: { value in
+//        print("Loading: \(Float(value.count) / Float(paginator.total) * 100.0) %" )
+//        print(value.count)
+//        print(paginator.total)
+//        if value.count == paginator.total {
+//          expectation.fulfill()
+//        }
+//      },
+//      onError: { error in
+//        XCTFail(error.localizedDescription)
+//        expectation.fulfill()
+//      })
+//      .disposed(by: disposeBag)
+//    wait(for: [expectation], timeout: timeoutInSeconds)
+//
   }
   
   func testLoadPage() {
-    let expectation = XCTestExpectation(description: "response")
-    let paginator = client.users.getUsers(page: 1, perPage: 100)
-    
-    paginator.currentPageListObservable
-      .filter({ !$0.isEmpty })
-      .subscribe(onNext: { items in
-            XCTAssertEqual(items.count, 66)
-            expectation.fulfill()
-        }, onError: { error in
+    let observable = client.users.getUsers().loadPage(page:1, perPage: 66)
+    let result = observable.filter({ !$0.isEmpty }).toBlocking(timeout: 1000).materialize()
+    switch result {
+    case .completed(elements: let elements):
+      XCTAssertGreaterThan(elements.count, 0)
+      XCTAssertEqual(elements.first!.count,  66)
+    case .failed(elements: _, error: let error):
       XCTFail(error.localizedDescription)
-      })
-      .disposed(by: disposeBag)
-    
-    paginator.loadPage(page: 2, perPage: 66)
-    wait(for: [expectation], timeout: timeoutInSeconds)
+    }
   }
   
-  func testFirstLastPage() {
-    let expectation = XCTestExpectation(description: "response")
+  func testFirstPage() {
     let paginator = client.users.getUsers(page: 2, perPage: 100)
-    
-    paginator.currentPageListObservable
+    XCTAssertEqual(paginator.page, 2)
+    let result = paginator.loadFirstPage()
       .filter({ !$0.isEmpty })
-      .subscribe(onNext: { items in
-        XCTAssertEqual(paginator.page, 1)
-        expectation.fulfill()
-      }, onError: { error in
-        XCTFail(error.localizedDescription)
-      })
-      .disposed(by: disposeBag)
+      .toBlocking()
+      .materialize()
     
-    paginator.loadFirstPage()
-    wait(for: [expectation], timeout: 100)
+    switch result {
+    case .completed(elements: let elements):
+      XCTAssertGreaterThan(elements.count, 0)
+      XCTAssertEqual(elements.first!.count, 100)
+      XCTAssertEqual(paginator.page, 1)
+    case .failed(elements: _, error: let error):
+      XCTFail(error.localizedDescription)
+    }
   }
   
   func testNextPage() {
-    let expectation = XCTestExpectation(description: "response")
     let paginator = client.users.getUsers(page: 3, perPage: 100)
-    
-    paginator.currentPageListObservable
+    XCTAssertEqual(paginator.page, 3)
+    let result = paginator.loadNextPage()
       .filter({ !$0.isEmpty })
-      .subscribe(onNext: { items in
-        XCTAssertEqual(paginator.page, 4)
-        expectation.fulfill()
-      }, onError: { error in
-        XCTFail(error.localizedDescription)
-      })
-      .disposed(by: disposeBag)
+      .toBlocking()
+      .materialize()
     
-    paginator.loadNextPage()
-    wait(for: [expectation], timeout: 100)
+    switch result {
+    case .completed(elements: let elements):
+      XCTAssertGreaterThan(elements.count, 0)
+      XCTAssertEqual(elements.first!.count, 100)
+      XCTAssertEqual(paginator.page, 4)
+    case .failed(elements: _, error: let error):
+      XCTFail(error.localizedDescription)
+    }
   }
   
   func testPreviousPage() {
-    let expectation = XCTestExpectation(description: "response")
     let paginator = client.users.getUsers(page: 3, perPage: 100)
-    
-    paginator.currentPageListObservable
+    XCTAssertEqual(paginator.page, 3)
+    let result = paginator.loadPreviousPage()
       .filter({ !$0.isEmpty })
-      .subscribe(onNext: { items in
-        XCTAssertEqual(paginator.page, 2)
-        expectation.fulfill()
-      }, onError: { error in
-        XCTFail(error.localizedDescription)
-      })
-      .disposed(by: disposeBag)
+      .toBlocking()
+      .materialize()
     
-    paginator.loadPreviousPage()
-    wait(for: [expectation], timeout: 100)
+    switch result {
+    case .completed(elements: let elements):
+      XCTAssertGreaterThan(elements.count, 0)
+      XCTAssertEqual(elements.first!.count, 100)
+      XCTAssertEqual(paginator.page, 2)
+    case .failed(elements: _, error: let error):
+      XCTFail(error.localizedDescription)
+    }
   }
   
   
