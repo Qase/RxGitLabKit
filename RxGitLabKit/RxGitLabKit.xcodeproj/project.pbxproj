@@ -18,12 +18,21 @@
 		6C06A8A7212EB0C300686583 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C06A8A6212EB0C300686583 /* Project.swift */; };
 		6C06A8A8212EB0C300686583 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C06A8A6212EB0C300686583 /* Project.swift */; };
 		6C0BC3F52138159B0000FAAA /* Commit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5401E62114593600631E21 /* Commit.swift */; };
+		6C336E38216AA507009A8324 /* DateFormatter+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C336E37216AA507009A8324 /* DateFormatter+Extensions.swift */; };
+		6C336E39216AA507009A8324 /* DateFormatter+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C336E37216AA507009A8324 /* DateFormatter+Extensions.swift */; };
 		6C35DD12212B04A800D05B87 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C35DD11212B04A800D05B87 /* String+Extensions.swift */; };
 		6C35DD13212B04A800D05B87 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C35DD11212B04A800D05B87 /* String+Extensions.swift */; };
 		6C35DD14212B04A800D05B87 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C35DD11212B04A800D05B87 /* String+Extensions.swift */; };
 		6C35DD1F212C10B500D05B87 /* InputStream+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C35DD1E212C10B500D05B87 /* InputStream+Extensions.swift */; };
 		6C35DD20212C10B500D05B87 /* InputStream+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C35DD1E212C10B500D05B87 /* InputStream+Extensions.swift */; };
 		6C35DD21212C10B500D05B87 /* InputStream+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C35DD1E212C10B500D05B87 /* InputStream+Extensions.swift */; };
+		6C3E6902217872590082C483 /* NetworkingProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3E6901217872590082C483 /* NetworkingProtocols.swift */; };
+		6C3E6903217872630082C483 /* NetworkingProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3E6901217872590082C483 /* NetworkingProtocols.swift */; };
+		6C3E6905217872FE0082C483 /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3E6904217872FE0082C483 /* MockURLSession.swift */; };
+		6C3E690B21790E8C0082C483 /* CommitsEndpointGroupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3E690A21790E8C0082C483 /* CommitsEndpointGroupTests.swift */; };
+		6C3E690D2179FB010082C483 /* HTTPClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3E690C2179FB010082C483 /* HTTPClientTests.swift */; };
+		6C3E690E217A047E0082C483 /* RxTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C35DD18212B0B3200D05B87 /* RxTest.framework */; };
+		6C3E690F217A04900082C483 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C35DD19212B0B3200D05B87 /* RxBlocking.framework */; };
 		6C6E823B2126F7BD00A177CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6E823A2126F7BD00A177CB /* AppDelegate.swift */; };
 		6C6E823D2126F7BD00A177CB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6E823C2126F7BD00A177CB /* ViewController.swift */; };
 		6C6E82402126F7BD00A177CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C6E823E2126F7BD00A177CB /* Main.storyboard */; };
@@ -38,7 +47,7 @@
 		6CB7E8B2214BCFA700426B67 /* Identities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB7E8B0214BCFA700426B67 /* Identities.swift */; };
 		6CBD2B28211852DD007BA543 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CBD2B26211852DD007BA543 /* RxCocoa.framework */; };
 		6CBD2B29211852DD007BA543 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CBD2B27211852DD007BA543 /* RxSwift.framework */; };
-		6CBD2B3921185325007BA543 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C54020321145C2300631E21 /* Networking.swift */; };
+		6CBD2B3921185325007BA543 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C54020321145C2300631E21 /* HTTPClient.swift */; };
 		6CBD2B3A21185325007BA543 /* RxGitLabAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8F9C4721147868002D23E7 /* RxGitLabAPIClient.swift */; };
 		6CBD2B4221185484007BA543 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CBD2B4021185483007BA543 /* RxSwift.framework */; };
 		6CBD2B4321185484007BA543 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CBD2B4121185483007BA543 /* RxCocoa.framework */; };
@@ -59,10 +68,10 @@
 		6CBD2B5F21230714007BA543 /* Contributor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBD2B5E21230714007BA543 /* Contributor.swift */; };
 		6CBD2B6021230714007BA543 /* Contributor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBD2B5E21230714007BA543 /* Contributor.swift */; };
 		6CE13F6721184ED300C92B7B /* RxGitLabKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CE13F6521184ED300C92B7B /* RxGitLabKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6CE13F6D21184EFC00C92B7B /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C54020321145C2300631E21 /* Networking.swift */; };
+		6CE13F6D21184EFC00C92B7B /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C54020321145C2300631E21 /* HTTPClient.swift */; };
 		6CE13F6E21184EFC00C92B7B /* RxGitLabAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8F9C4721147868002D23E7 /* RxGitLabAPIClient.swift */; };
 		6CE13F6F21184EFE00C92B7B /* Commit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5401E62114593600631E21 /* Commit.swift */; };
-		6CE95EBF2161811D00EDAE16 /* PaginatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE95EBE2161811D00EDAE16 /* PaginatorTests.swift */; };
+		6CE95EBF2161811D00EDAE16 /* PaginatorIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE95EBE2161811D00EDAE16 /* PaginatorIntegrationTests.swift */; };
 		6CE95EC1216181B000EDAE16 /* UsersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE95EC0216181B000EDAE16 /* UsersTests.swift */; };
 		6CE95EC2216181F400EDAE16 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CFBFCE62132B5E4001F4391 /* User.swift */; };
 		6CE95EC3216181F800EDAE16 /* Identities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB7E8B0214BCFA700426B67 /* Identities.swift */; };
@@ -121,17 +130,22 @@
 		6C06A8A0212EA41D00686583 /* RxGitLabKit-iOSTests copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "RxGitLabKit-iOSTests copy-Info.plist"; path = "/Users/dagytran/Developer/RxGitLabKit/RxGitLabKit/RxGitLabKit-iOSTests copy-Info.plist"; sourceTree = "<absolute>"; };
 		6C06A8A1212EA89F00686583 /* ProjectsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsEndpoint.swift; sourceTree = "<group>"; };
 		6C06A8A6212EB0C300686583 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		6C336E37216AA507009A8324 /* DateFormatter+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extensions.swift"; sourceTree = "<group>"; };
 		6C35DD03212AEE3C00D05B87 /* RxGitLabKit_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxGitLabKit_iOSTests.swift; sourceTree = "<group>"; };
 		6C35DD05212AEE3C00D05B87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6C35DD0D212AF78C00D05B87 /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MockURLProtocol.swift; path = Tests/MockURLProtocol.swift; sourceTree = SOURCE_ROOT; };
-		6C35DD0F212AF9B200D05B87 /* RxGitLabAPIClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RxGitLabAPIClientTests.swift; path = Tests/RxGitLabAPIClientTests.swift; sourceTree = SOURCE_ROOT; };
+		6C35DD0D212AF78C00D05B87 /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MockURLProtocol.swift; path = Tests/UnitTests/MockURLProtocol.swift; sourceTree = SOURCE_ROOT; };
+		6C35DD0F212AF9B200D05B87 /* RxGitLabAPIClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RxGitLabAPIClientTests.swift; path = Tests/UnitTests/RxGitLabAPIClientTests.swift; sourceTree = SOURCE_ROOT; };
 		6C35DD11212B04A800D05B87 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		6C35DD18212B0B3200D05B87 /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/iOS/RxTest.framework; sourceTree = "<group>"; };
 		6C35DD19212B0B3200D05B87 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
 		6C35DD1E212C10B500D05B87 /* InputStream+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InputStream+Extensions.swift"; sourceTree = "<group>"; };
+		6C3E6901217872590082C483 /* NetworkingProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NetworkingProtocols.swift; path = Sources/Protocols/NetworkingProtocols.swift; sourceTree = SOURCE_ROOT; };
+		6C3E6904217872FE0082C483 /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
+		6C3E690A21790E8C0082C483 /* CommitsEndpointGroupTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitsEndpointGroupTests.swift; sourceTree = "<group>"; };
+		6C3E690C2179FB010082C483 /* HTTPClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientTests.swift; sourceTree = "<group>"; };
 		6C5401D321144B7500631E21 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		6C5401E62114593600631E21 /* Commit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commit.swift; sourceTree = "<group>"; };
-		6C54020321145C2300631E21 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		6C54020321145C2300631E21 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		6C6E82382126F7BC00A177CB /* RxGitLabKitDemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxGitLabKitDemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C6E823A2126F7BD00A177CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6C6E823C2126F7BD00A177CB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -161,16 +175,16 @@
 		6CE13F6321184ED200C92B7B /* RxGitLabKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxGitLabKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CE13F6521184ED300C92B7B /* RxGitLabKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RxGitLabKit.h; sourceTree = "<group>"; };
 		6CE13F6621184ED300C92B7B /* Info-iOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-iOS.plist"; sourceTree = "<group>"; };
-		6CE95EBE2161811D00EDAE16 /* PaginatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PaginatorTests.swift; path = Tests/Mocks/PaginatorTests.swift; sourceTree = SOURCE_ROOT; };
-		6CE95EC0216181B000EDAE16 /* UsersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UsersTests.swift; path = Tests/Mocks/UsersTests.swift; sourceTree = SOURCE_ROOT; };
+		6CE95EBE2161811D00EDAE16 /* PaginatorIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PaginatorIntegrationTests.swift; path = Tests/IntegrationTests/PaginatorIntegrationTests.swift; sourceTree = SOURCE_ROOT; };
+		6CE95EC0216181B000EDAE16 /* UsersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UsersTests.swift; path = Tests/UnitTests/UsersTests.swift; sourceTree = SOURCE_ROOT; };
 		6CE95ED12166120D00EDAE16 /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
 		6CE95ED6216612D900EDAE16 /* AccessLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessLevel.swift; sourceTree = "<group>"; };
 		6CE95EDB2166209000EDAE16 /* Stats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stats.swift; sourceTree = "<group>"; };
 		6CE95EE02166209900EDAE16 /* LastPipeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastPipeline.swift; sourceTree = "<group>"; };
-		6CE95EE72166A3C800EDAE16 /* CommitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitTests.swift; sourceTree = "<group>"; };
+		6CE95EE72166A3C800EDAE16 /* CommitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CommitTests.swift; path = ../Models/CommitTests.swift; sourceTree = "<group>"; };
 		6CE95EE92166A50C00EDAE16 /* ModelMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelMocks.swift; sourceTree = "<group>"; };
 		6CE95EFC2166AC9500EDAE16 /* ParsingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsingError.swift; sourceTree = "<group>"; };
-		6CFBFCDE213298A4001F4391 /* DevelopmentPlaygroundTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DevelopmentPlaygroundTests.swift; path = Tests/DevelopmentPlaygroundTests.swift; sourceTree = SOURCE_ROOT; };
+		6CFBFCDE213298A4001F4391 /* DevelopmentPlaygroundTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DevelopmentPlaygroundTests.swift; path = Tests/UnitTests/DevelopmentPlaygroundTests.swift; sourceTree = SOURCE_ROOT; };
 		6CFBFCE021329D2D001F4391 /* MembersEndpointGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembersEndpointGroup.swift; sourceTree = "<group>"; };
 		6CFBFCE32132AB6A001F4391 /* UsersEndpointGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersEndpointGroup.swift; sourceTree = "<group>"; };
 		6CFBFCE62132B5E4001F4391 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -182,6 +196,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C3E690F217A04900082C483 /* RxBlocking.framework in Frameworks */,
+				6C3E690E217A047E0082C483 /* RxTest.framework in Frameworks */,
 				6C06A899212EA41D00686583 /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -227,16 +243,19 @@
 		6C35DD0C212AF6DC00D05B87 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				6CE95EEB2166A58100EDAE16 /* Models */,
 				6CAA9EFB21582492006F5B16 /* Mocks */,
-				6C35DD0D212AF78C00D05B87 /* MockURLProtocol.swift */,
-				6C35DD0F212AF9B200D05B87 /* RxGitLabAPIClientTests.swift */,
-				6CFBFCDE213298A4001F4391 /* DevelopmentPlaygroundTests.swift */,
-				6CE95EC0216181B000EDAE16 /* UsersTests.swift */,
-				6CE95EBE2161811D00EDAE16 /* PaginatorTests.swift */,
+				6C98CE64217C668C0051569E /* UnitTests */,
+				6C98CE62217C666F0051569E /* IntegrationTests */,
 			);
-			name = Tests;
-			path = "New Group";
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		6C3E6906217874820082C483 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				6C3E6901217872590082C483 /* NetworkingProtocols.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		6C54014F2114429F00631E21 = {
@@ -267,8 +286,9 @@
 		6C5401B82114468800631E21 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				6C3E6906217874820082C483 /* Protocols */,
 				6CE95EFC2166AC9500EDAE16 /* ParsingError.swift */,
-				6C54020321145C2300631E21 /* Networking.swift */,
+				6C54020321145C2300631E21 /* HTTPClient.swift */,
 				6C721A8E214A602100B85194 /* APIRequesting.swift */,
 				6C8F9C4721147868002D23E7 /* RxGitLabAPIClient.swift */,
 				6CFBFCE92132BD9E001F4391 /* Paginator.swift */,
@@ -323,12 +343,35 @@
 			path = RxGitLabKitDemoApp;
 			sourceTree = "<group>";
 		};
+		6C98CE62217C666F0051569E /* IntegrationTests */ = {
+			isa = PBXGroup;
+			children = (
+				6CE95EBE2161811D00EDAE16 /* PaginatorIntegrationTests.swift */,
+			);
+			path = IntegrationTests;
+			sourceTree = "<group>";
+		};
+		6C98CE64217C668C0051569E /* UnitTests */ = {
+			isa = PBXGroup;
+			children = (
+				6CE95EEB2166A58100EDAE16 /* Models */,
+				6C35DD0D212AF78C00D05B87 /* MockURLProtocol.swift */,
+				6C35DD0F212AF9B200D05B87 /* RxGitLabAPIClientTests.swift */,
+				6CFBFCDE213298A4001F4391 /* DevelopmentPlaygroundTests.swift */,
+				6CE95EC0216181B000EDAE16 /* UsersTests.swift */,
+				6C3E690A21790E8C0082C483 /* CommitsEndpointGroupTests.swift */,
+				6C3E690C2179FB010082C483 /* HTTPClientTests.swift */,
+			);
+			path = UnitTests;
+			sourceTree = "<group>";
+		};
 		6CAA9EFB21582492006F5B16 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
 				6CAA9EFC21582492006F5B16 /* GeneralMocks.swift */,
 				6CAA9EFD21582492006F5B16 /* RxGitLabApiClientMocks.swift */,
 				6CE95EE92166A50C00EDAE16 /* ModelMocks.swift */,
+				6C3E6904217872FE0082C483 /* MockURLSession.swift */,
 			);
 			name = Mocks;
 			path = Tests/Mocks;
@@ -343,6 +386,7 @@
 				6C5401D321144B7500631E21 /* Package.swift */,
 				6C35DD11212B04A800D05B87 /* String+Extensions.swift */,
 				6C35DD1E212C10B500D05B87 /* InputStream+Extensions.swift */,
+				6C336E37216AA507009A8324 /* DateFormatter+Extensions.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -366,7 +410,8 @@
 			children = (
 				6CE95EE72166A3C800EDAE16 /* CommitTests.swift */,
 			);
-			path = Models;
+			name = Models;
+			path = CommitTests.swift;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -551,13 +596,15 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxTest.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxBlocking.framework",
 			);
 			name = "Run Script";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
 		6C6E82522126FC6500A177CB /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -572,7 +619,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
 		6CBD2B4621185518007BA543 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -618,7 +665,10 @@
 				6C06A891212EA41D00686583 /* String+Extensions.swift in Sources */,
 				6C06A892212EA41D00686583 /* RxGitLabAPIClientTests.swift in Sources */,
 				6CE95EC1216181B000EDAE16 /* UsersTests.swift in Sources */,
+				6C3E6905217872FE0082C483 /* MockURLSession.swift in Sources */,
+				6C3E690B21790E8C0082C483 /* CommitsEndpointGroupTests.swift in Sources */,
 				6CAA9EFF21582492006F5B16 /* RxGitLabApiClientMocks.swift in Sources */,
+				6C3E690D2179FB010082C483 /* HTTPClientTests.swift in Sources */,
 				6CE95EC52161820000EDAE16 /* Reference.swift in Sources */,
 				6C06A894212EA41D00686583 /* InputStream+Extensions.swift in Sources */,
 				6CE95ECB2161820900EDAE16 /* Contributor.swift in Sources */,
@@ -627,7 +677,7 @@
 				6CE95EC72161820300EDAE16 /* Authentication.swift in Sources */,
 				6C06A896212EA41D00686583 /* RxGitLabKit_iOSTests.swift in Sources */,
 				6CAA9EFE21582492006F5B16 /* GeneralMocks.swift in Sources */,
-				6CE95EBF2161811D00EDAE16 /* PaginatorTests.swift in Sources */,
+				6CE95EBF2161811D00EDAE16 /* PaginatorIntegrationTests.swift in Sources */,
 				6CE95EE82166A3C800EDAE16 /* CommitTests.swift in Sources */,
 				6CE95ED52166120E00EDAE16 /* Member.swift in Sources */,
 				6CFBFCDF213298A4001F4391 /* DevelopmentPlaygroundTests.swift in Sources */,
@@ -653,6 +703,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6CE95ED8216612D900EDAE16 /* AccessLevel.swift in Sources */,
+				6C3E6902217872590082C483 /* NetworkingProtocols.swift in Sources */,
 				6CBD2B3A21185325007BA543 /* RxGitLabAPIClient.swift in Sources */,
 				6CE95EE22166209900EDAE16 /* LastPipeline.swift in Sources */,
 				6C35DD13212B04A800D05B87 /* String+Extensions.swift in Sources */,
@@ -660,7 +711,7 @@
 				6CBD2B4A2118812A007BA543 /* EndpointGroup.swift in Sources */,
 				6CBD2B51211894E4007BA543 /* Reference.swift in Sources */,
 				6CFBFCE52132AB6A001F4391 /* UsersEndpointGroup.swift in Sources */,
-				6CBD2B3921185325007BA543 /* Networking.swift in Sources */,
+				6CBD2B3921185325007BA543 /* HTTPClient.swift in Sources */,
 				6C0BC3F52138159B0000FAAA /* Commit.swift in Sources */,
 				6CBD2B4E21188410007BA543 /* CommitsEndpointGroup.swift in Sources */,
 				6CFBFCE221329D2D001F4391 /* MembersEndpointGroup.swift in Sources */,
@@ -669,6 +720,7 @@
 				6CE95EDD2166209000EDAE16 /* Stats.swift in Sources */,
 				6CBD2B6021230714007BA543 /* Contributor.swift in Sources */,
 				6C06A8A3212EA8A000686583 /* ProjectsEndpoint.swift in Sources */,
+				6C336E39216AA507009A8324 /* DateFormatter+Extensions.swift in Sources */,
 				6CB7E8B2214BCFA700426B67 /* Identities.swift in Sources */,
 				6C35DD20212C10B500D05B87 /* InputStream+Extensions.swift in Sources */,
 				6CBD2B542122F160007BA543 /* Authentication.swift in Sources */,
@@ -686,6 +738,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6CE95ED7216612D900EDAE16 /* AccessLevel.swift in Sources */,
+				6C3E6903217872630082C483 /* NetworkingProtocols.swift in Sources */,
 				6CBD2B562122F46D007BA543 /* AuthenticationEndpointGroup.swift in Sources */,
 				6CE95EE12166209900EDAE16 /* LastPipeline.swift in Sources */,
 				6CBD2B592122F841007BA543 /* RepositoriesEndpointGroup.swift in Sources */,
@@ -702,12 +755,13 @@
 				6CE95EDC2166209000EDAE16 /* Stats.swift in Sources */,
 				6CBD2B492118812A007BA543 /* EndpointGroup.swift in Sources */,
 				6CBD2B4D21188410007BA543 /* CommitsEndpointGroup.swift in Sources */,
+				6C336E38216AA507009A8324 /* DateFormatter+Extensions.swift in Sources */,
 				6CB7E8B1214BCFA700426B67 /* Identities.swift in Sources */,
 				6CE13F6E21184EFC00C92B7B /* RxGitLabAPIClient.swift in Sources */,
 				6C06A8A7212EB0C300686583 /* Project.swift in Sources */,
 				6CE95EFD2166AC9500EDAE16 /* ParsingError.swift in Sources */,
 				6CFBFCEA2132BD9E001F4391 /* Paginator.swift in Sources */,
-				6CE13F6D21184EFC00C92B7B /* Networking.swift in Sources */,
+				6CE13F6D21184EFC00C92B7B /* HTTPClient.swift in Sources */,
 				6CFBFCE42132AB6A001F4391 /* UsersEndpointGroup.swift in Sources */,
 				6CBD2B5C2123021C007BA543 /* Tree.swift in Sources */,
 				6CE95ED22166120E00EDAE16 /* Member.swift in Sources */,
@@ -791,6 +845,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS/**",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -867,6 +922,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS/**",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
