@@ -9,12 +9,9 @@ import Foundation
 
 
 extension DateFormatter {
-  
-  static var `default`: DateFormatter {
+  public static var `default`: DateFormatter {
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
     return dateFormatter
   }
-  
-  
 }

@@ -7,9 +7,16 @@
 
 import Foundation
 
-public struct LastPipeline: Codable {
-  let id: Int?
-  let ref: String?
-  let sha: String?
-  let status: String?
+public struct LastPipeline: Codable, Equatable {
+  public let id: Int?
+  public let ref: String?
+  public let sha: String?
+  public let status: String?
+  
+  public init(id: Int?, ref: String?, sha: String?, status: String?) {
+    self.id = id
+    self.ref = ref
+    self.sha = sha
+    self.status = status
+  }
 }

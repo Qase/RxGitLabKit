@@ -15,7 +15,7 @@ public struct User: Codable {
   public let state : String?
   public let avatarUrl : String?
   public let webUrl : String?
-  public let createdAt : String?
+  public let createdAt : Date?
   public let isAdmin : Bool?
   public let bio : String?
   public let location : String?
@@ -24,13 +24,13 @@ public struct User: Codable {
   public let twitter : String?
   public let websiteUrl : String?
   public let organization : String?
-  public let lastSignInAt : String?
-  public let confirmedAt : String?
+  public let lastSignInAt : Date?
+  public let confirmedAt : Date?
   public let themeId : Int?
-  public let lastActivityOn : String?
+  public let lastActivityOn : Date?
   public let colorSchemeId : Int?
   public let projectsLimit : Int?
-  public let currentSignInAt : String?
+  public let currentSignInAt : Date?
   public let identities : [Identities]?
   public let canCreateGroup : Bool?
   public let canCreateProject : Bool?
@@ -82,7 +82,7 @@ public struct User: Codable {
     state = try values.decodeIfPresent(String.self, forKey: .state)
     avatarUrl = try values.decodeIfPresent(String.self, forKey: .avatarUrl)
     webUrl = try values.decodeIfPresent(String.self, forKey: .webUrl)
-    createdAt = try values.decodeIfPresent(String.self, forKey: .createdAt)
+    createdAt = try User.decodeDateIfPresent(values: values, forKey: .createdAt)
     isAdmin = try values.decodeIfPresent(Bool.self, forKey: .isAdmin)
     bio = try values.decodeIfPresent(String.self, forKey: .bio)
     location = try values.decodeIfPresent(String.self, forKey: .location)
@@ -91,13 +91,13 @@ public struct User: Codable {
     twitter = try values.decodeIfPresent(String.self, forKey: .twitter)
     websiteUrl = try values.decodeIfPresent(String.self, forKey: .websiteUrl)
     organization = try values.decodeIfPresent(String.self, forKey: .organization)
-    lastSignInAt = try values.decodeIfPresent(String.self, forKey: .lastSignInAt)
-    confirmedAt = try values.decodeIfPresent(String.self, forKey: .confirmedAt)
+    lastSignInAt =  try User.decodeDateIfPresent(values: values, forKey: .lastSignInAt)
+    confirmedAt =  try User.decodeDateIfPresent(values: values, forKey: .confirmedAt)
     themeId = try values.decodeIfPresent(Int.self, forKey: .themeId)
-    lastActivityOn = try values.decodeIfPresent(String.self, forKey: .lastActivityOn)
+    lastActivityOn = try User.decodeDateDayIfPresent(values: values, forKey: .lastActivityOn)
     colorSchemeId = try values.decodeIfPresent(Int.self, forKey: .colorSchemeId)
     projectsLimit = try values.decodeIfPresent(Int.self, forKey: .projectsLimit)
-    currentSignInAt = try values.decodeIfPresent(String.self, forKey: .currentSignInAt)
+    currentSignInAt =  try User.decodeDateIfPresent(values: values, forKey: .currentSignInAt)
     identities = try values.decodeIfPresent([Identities].self, forKey: .identities)
     canCreateGroup = try values.decodeIfPresent(Bool.self, forKey: .canCreateGroup)
     canCreateProject = try values.decodeIfPresent(Bool.self, forKey: .canCreateProject)
@@ -105,6 +105,26 @@ public struct User: Codable {
     external = try values.decodeIfPresent(Bool.self, forKey: .external)
     privateProfile = try values.decodeIfPresent(Bool.self, forKey: .privateProfile)
     sharedRunnersMinutesLimit = try values.decodeIfPresent(Int.self, forKey: .sharedRunnersMinutesLimit)
+    
+  }
+  
+  private static func decodeDateIfPresent(values: KeyedDecodingContainer<CodingKeys>, forKey key: CodingKeys) throws -> Date?  {
+    let dateFormatter = DateFormatter.default
+    if let dateString = try values.decodeIfPresent(String.self, forKey: key), let date = dateFormatter.date(from: dateString)  {
+      return date
+    } else {
+      return nil
+    }
+  }
+  
+  private static func decodeDateDayIfPresent(values: KeyedDecodingContainer<CodingKeys>, forKey key: CodingKeys) throws -> Date?  {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy-MM-dd"
+    if let dateString = try values.decodeIfPresent(String.self, forKey: key), let date = dateFormatter.date(from: dateString)  {
+      return date
+    } else {
+      return nil
+    }
   }
   
 }
