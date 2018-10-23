@@ -24,7 +24,7 @@ class MockURLSession: URLSessionProtocol {
   func dataTask(with request: URLRequest, completionHandler: @escaping DataTaskResult) -> URLSessionDataTaskProtocol {
     lastURL = request.url
     
-    completionHandler(nextData, urlResponse ?? successHttpURLResponse(request: request), nextError)
+    completionHandler(nextData, urlResponse, nextError)
     return nextDataTask
   }
 }
