@@ -16,12 +16,12 @@ public class HTTPClient: Networking {
     self.session = session
   }
   
-  public static func response(for request: URLRequest,in session: URLSessionProtocol = URLSession.shared) -> Observable<(response: HTTPURLResponse, data: Data)> {
+  public static func response(for request: URLRequest,in session: URLSessionProtocol = URLSession.shared) -> Observable<(response: HTTPURLResponse, data: Data?)> {
     return Observable.create { observer in
       
       let task = session.dataTask(with: request) { (data, response, error) in
-        guard let response = response, let data = data else {
-          observer.on(.error(error ?? HTTPError.unknown(0)))
+        guard let response = response else {
+          observer.on(.error(error ?? HTTPError.noResponse))
           return
         }
         
@@ -70,6 +70,10 @@ public class HTTPClient: Networking {
     return HTTPClient.response(for: request, in: session)
       .flatMap { (response, data) -> Observable<Data> in
         Observable.create { observer in
+          guard let data = data else {
+            observer.onError(HTTPError.noData)
+            return Disposables.create()
+          }
           switch response.statusCode {
           case 200..<300:
             observer.onNext(data)
@@ -105,7 +109,6 @@ public class HTTPClient: Networking {
             observer.onError(HTTPError.parsingJSONFailure(error: error))
           }
           
-          
           return Disposables.create()
         }
     }
@@ -127,7 +130,7 @@ public class HTTPClient: Networking {
     }
   }
   
-  public func response(for request: URLRequest) -> Observable<(response: HTTPURLResponse, data: Data)> {
+  public func response(for request: URLRequest) -> Observable<(response: HTTPURLResponse, data: Data?)> {
     return HTTPClient.response(for: request, in: session)
   }
   

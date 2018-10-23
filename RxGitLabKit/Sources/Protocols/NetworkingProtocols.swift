@@ -61,7 +61,14 @@ public enum HTTPError: Error {
   /// An invalid request
   case invalidRequest(message: String?)
   
+  /// No Response
+  case noResponse
+  
+  /// Non HTTP Response
   case nonHTTPResponse(response: URLResponse)
+  
+  /// No Data
+  case noData
 }
 
 extension HTTPError: LocalizedError {
@@ -85,10 +92,13 @@ extension HTTPError: LocalizedError {
       return NSLocalizedString("Parsing JSON Failure: \(error)", comment: "Parsing JSON Failure")
     case .invalidRequest(let message):
       return NSLocalizedString("Invalid Request: \(message ?? "")", comment: "Invalid Request: \(message ?? "")")
+    case .noResponse:
+      return NSLocalizedString("No response from server", comment: "No response from server")
     case .nonHTTPResponse(let response):
       return NSLocalizedString("Non HTTP Response from URL: \(response.url?.absoluteString ?? "NO URL").", comment: "Non HTTP Response from URL: \(response.url?.absoluteString ?? "NO URL").")
+    case .noData:
+      return NSLocalizedString("No data returned.", comment: "No data returned.")
     }
-    
   }
 }
 
@@ -115,7 +125,7 @@ extension URLSession: URLSessionProtocol {
 extension URLSessionDataTask: URLSessionDataTaskProtocol {}
 
 public protocol Networking {
-  func response(for request: URLRequest) -> Observable<(response: HTTPURLResponse, data: Data)>
+  func response(for request: URLRequest) -> Observable<(response: HTTPURLResponse, data: Data?)>
   func header(for request: URLRequest) -> Observable<Header>
   
   func object<T: Codable>(for request: URLRequest) -> Observable<T>
