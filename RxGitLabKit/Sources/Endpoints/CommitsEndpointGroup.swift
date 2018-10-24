@@ -81,7 +81,6 @@ public class CommitsEndpointGroup: EndpointGroup {
   ///     - **with_stats: Boolean** - Stats about each commit will be added to the response
   ///
   /// - Returns: A Paginator
-  
   public func getCommits(projectID: String, parameters: QueryParameters? = nil) -> Paginator<Commit> {
     let apiRequest = APIRequest(path: Endpoints.commits(projectID: projectID).url, method: .get, parameters: parameters)
     let paginator = Paginator<Commit>(network: network, hostURL: hostURL, apiRequest: apiRequest, oAuthToken: oAuthToken, privateToken: privateToken)

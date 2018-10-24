@@ -16,11 +16,10 @@ class HTTPClientTests: XCTestCase {
   struct MockStruct: Codable {
     let key: String
   }
-  
-  
+
   private var mockSession: MockURLSession!
   private var client: HTTPClient!
-  private let mockURL = URL(string: "https://gitlab.test.com")!
+  private let mockURL = GeneralMocks.mockURL
   
   override func setUp() {
     // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -65,6 +64,7 @@ class HTTPClientTests: XCTestCase {
     
     responses.forEach { (response, error) in
       mockSession.urlResponse = response
+      mockSession.isNilResponseForced = response == nil
       let result = client.response(for: URLRequest(url: mockURL))
         .toBlocking()
         .materialize()
@@ -149,6 +149,8 @@ class HTTPClientTests: XCTestCase {
     
     responses.forEach { (response, error) in
       mockSession.urlResponse = response
+      mockSession.isNilResponseForced = response == nil
+
       let result = client.header(for: URLRequest(url: mockURL))
         .toBlocking()
         .materialize()
@@ -169,7 +171,6 @@ class HTTPClientTests: XCTestCase {
     """.data()
     let request = URLRequest(url: mockURL)
     mockSession.nextData = mockData
-    mockSession.urlResponse = GeneralMocks.successHttpURLResponse(request: URLRequest(url: mockURL))
     let result = client.data(for: request)
       .toBlocking()
       .materialize()
@@ -208,6 +209,8 @@ class HTTPClientTests: XCTestCase {
     responses.forEach { (response, data, error) in
       mockSession.nextData = data
       mockSession.urlResponse = response
+      mockSession.isNilResponseForced = response == nil
+
       let result = client.data(for: URLRequest(url: mockURL))
         .toBlocking()
         .materialize()
@@ -227,7 +230,7 @@ class HTTPClientTests: XCTestCase {
     """.data()
     let request = URLRequest(url: mockURL)
     mockSession.nextData = mockData
-    mockSession.urlResponse = GeneralMocks.successHttpURLResponse(request: URLRequest(url: mockURL))
+
     let result = (client.object(for: request) as Observable<MockStruct>)
       .toBlocking()
       .materialize()
@@ -245,7 +248,6 @@ class HTTPClientTests: XCTestCase {
     """.data()
     
     mockSession.nextData = corruptedData
-    mockSession.urlResponse = GeneralMocks.successHttpURLResponse(request: URLRequest(url: mockURL))
     let result2 = (client.object(for: request) as Observable<MockStruct>)
       .toBlocking()
       .materialize()
@@ -285,6 +287,8 @@ class HTTPClientTests: XCTestCase {
     responses.forEach { (response, data, error) in
       mockSession.nextData = data
       mockSession.urlResponse = response
+      mockSession.isNilResponseForced = response == nil
+
       let result = (client.object(for: URLRequest(url: mockURL)) as Observable<MockStruct>)
         .toBlocking()
         .materialize()
@@ -309,7 +313,6 @@ class HTTPClientTests: XCTestCase {
     let request = URLRequest(url: mockURL)
     
     mockSession.nextData = mockData
-    mockSession.urlResponse = GeneralMocks.successHttpURLResponse(request: request)
     let result = client.json(for: URLRequest(url: mockURL))
       .toBlocking()
       .materialize()
@@ -338,7 +341,6 @@ class HTTPClientTests: XCTestCase {
     """.data()
     
     mockSession.nextData = corruptedData
-    mockSession.urlResponse = GeneralMocks.successHttpURLResponse(request: URLRequest(url: mockURL))
     let result2 = client.json(for: request)
       .toBlocking()
       .materialize()
@@ -376,6 +378,8 @@ class HTTPClientTests: XCTestCase {
     responses.forEach { (response, data, error) in
       mockSession.nextData = data
       mockSession.urlResponse = response
+      mockSession.isNilResponseForced = response == nil
+
       let result = (client.object(for: URLRequest(url: mockURL)) as Observable<MockStruct>)
         .toBlocking()
         .materialize()

@@ -78,22 +78,6 @@ public class Paginator<T: Codable> {
     self.totalPagesVariable = Variable<Int>(-1)
     self.oAuthTokenVariable = oAuthToken
     self.privateTokenVariable = privateToken
-    
-    header()
-      .subscribe(onNext: { header in
-        guard let _perPage = header[HeaderKeys.perPage.rawValue],
-          let perPage = Int(_perPage),
-          let _totalPages = header[HeaderKeys.totalPages.rawValue],
-          let totalPages = Int(_totalPages),
-          let _total = header[HeaderKeys.total.rawValue],
-          let total = Int(_total)
-          else { return }
-        self.perPage = perPage
-        self.totalPages = totalPages
-        self.total = total
-      })
-      .disposed(by: disposeBag)
-    
   }
   
   // MARK: Public Functions
@@ -105,6 +89,8 @@ public class Paginator<T: Codable> {
   ///   - perPage: How many objects in a page should be loaded (default is 20, maximum is 100)
   /// - Returns: An observable of array of loaded objects
   public func loadPage(page: Int = 1, perPage: Int = RxGitLabAPIClient.defaultPerPage) -> Observable<[T]> {
+    self.page = page
+    self.perPage = perPage
     var header = Header()
     if let privateToken = privateTokenVariable.value {
       header[HeaderKeys.privateToken.rawValue] = privateToken
@@ -114,7 +100,7 @@ public class Paginator<T: Codable> {
     }
     
     guard let request = apiRequest.buildRequest(with: self.hostURL, header: header, page: page, perPage: perPage) else { return Observable.error(HTTPError.invalidRequest(message: "invalid"))}
-    
+
     return network.object(for: request).do(onNext: { (elements) in
       self.currentPageListVariable.value = elements
     })

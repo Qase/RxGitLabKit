@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RxGitLabKit
 
 class CommitsMocks {
   
@@ -947,7 +948,7 @@ class CommitsMocks {
     "title": "Remove redundant word",
     "created_at": "2018-04-24T10:50:38.000Z",
     "parent_ids": ["14390b859c224b2191f400deb32ef97df010ea74"],
-    "message": "Remove redundant word\\n\\nRemoved a redundant \"the\"",
+    "message": "Remove redundant word\\n\\nRemoved a redundant \'the\'",
     "author_name": "Isaac Halvorson",
     "author_email": "hello@hisaac.net",
     "authored_date": "2018-04-23T16:23:23.000Z",
@@ -1248,6 +1249,11 @@ class CommitsMocks {
   
   static let commitData: [Data] = commitJSONs.map { $0.data() }
   
+  static let commits: [Commit] = commitJSONs.map { json in
+    let decoder = JSONDecoder()
+    return try! decoder.decode(Commit.self, from: json.data())
+  }
+
   static var totalCommitsCount: Int {
     return commitData.count
   }

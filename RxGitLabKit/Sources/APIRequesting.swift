@@ -78,7 +78,7 @@ public struct APIRequest: APIRequesting {
   public var jsonDictionary: JSONDictionary?
   public var data: Data?
   
-  init(path: String = "",
+  public init(path: String = "",
        method: HTTPMethod = HTTPMethod.get,
        parameters: QueryParameters? = nil,
        jsonBody: JSONDictionary? = nil,

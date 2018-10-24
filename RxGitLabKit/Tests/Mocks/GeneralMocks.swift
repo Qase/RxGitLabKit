@@ -16,4 +16,11 @@ class GeneralMocks {
                           "password" : "nV4-ubr-M8V-LFx",
                           "oAuthToken" : "e379c3dd992dfb8043db912bb8ad6643130848184edad33358029a3176cabaec"
   ]
+  
+  static func successHttpURLResponse(request: URLRequest) -> URLResponse {
+    return HTTPURLResponse(url: request.url!, statusCode: 200, httpVersion: "HTTP/1.1", headerFields: nil)!
+  }
+  
+  static let mockURL = URL(string: "https://gitlab.test.com")!
+
 }
