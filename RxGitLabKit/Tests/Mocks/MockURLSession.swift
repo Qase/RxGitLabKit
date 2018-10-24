@@ -14,7 +14,9 @@ class MockURLSession: URLSessionProtocol {
   var nextData: Data?
   var nextError: Error?
   var urlResponse: URLResponse?
+  var isNilResponseForced: Bool = false
   
+  private (set) var lastRequest: URLRequest?
   private (set) var lastURL: URL?
   
   func successHttpURLResponse(request: URLRequest) -> URLResponse {
@@ -22,9 +24,10 @@ class MockURLSession: URLSessionProtocol {
   }
   
   func dataTask(with request: URLRequest, completionHandler: @escaping DataTaskResult) -> URLSessionDataTaskProtocol {
+    lastRequest = request
     lastURL = request.url
     
-    completionHandler(nextData, urlResponse, nextError)
+    completionHandler(nextData, urlResponse ?? (isNilResponseForced ? nil : successHttpURLResponse(request: request)), nextError)
     return nextDataTask
   }
 }
