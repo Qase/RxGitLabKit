@@ -32,7 +32,7 @@ class HTTPClientTests: XCTestCase {
     let headerFields = [
       "Content-Type" : "application/json",
       ]
-    let nextData = CommitsMocks.commentData
+    let nextData = CommitsMocks.commentsData
     mockSession.urlResponse = HTTPURLResponse(url: request.url!, statusCode: 200, httpVersion: "HTTP/1.1", headerFields: headerFields)
     mockSession.nextData = nextData
     

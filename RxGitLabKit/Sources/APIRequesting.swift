@@ -12,6 +12,7 @@ public protocol APIRequesting {
   var path: String? { get }
   var parameters: QueryParameters { get }
   var jsonDictionary: JSONDictionary? {get}
+  var data: Data? { get }
 }
 
 extension APIRequesting {
@@ -65,6 +66,10 @@ extension APIRequesting {
     request.allHTTPHeaderFields = header
     if let jsonBody = jsonDictionary, let jsonData = try? JSONSerialization.data(withJSONObject: jsonBody) {
       request.httpBody = jsonData
+    }
+    
+    if let data = data {
+      request.httpBody = data
     }
     
     return request

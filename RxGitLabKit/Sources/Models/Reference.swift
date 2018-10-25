@@ -8,6 +8,6 @@
 import Foundation
 
 public struct Reference: Codable {
-  let type : String
-  let name : String
+  public let type : String
+  public let name : String
 }

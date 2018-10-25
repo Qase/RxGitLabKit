@@ -156,8 +156,8 @@ public class CommitsEndpointGroup: EndpointGroup {
   ///   - Parameter branch: The name of the branch
   /// - Returns: A Commit
   public func cherryPick(projectID: String, sha: String, branch: String) -> Observable<Commit> {
-    let queryParam = ["branch" : branch]
-    let apiRequest = APIRequest(path: Endpoints.cherryPick(projectID: projectID, sha: sha).url, method: .post, parameters: queryParam)
+    let apiRequest =
+    APIRequest(path: Endpoints.cherryPick(projectID: projectID, sha: sha).url, method: .post, jsonBody: ["branch" : branch])
     return object(for: apiRequest)
   }
   
@@ -219,7 +219,7 @@ public class CommitsEndpointGroup: EndpointGroup {
   ///   - Parameter projectID: The ID or URL-encoded path of the project owned by the
   ///   - Parameter sha: The commit has
   /// - Returns: A Status
-  public func postStatus(status: Status, projectID: String, sha: String) -> Observable<[Status]> {
+  public func postStatus(status: Status, projectID: String, sha: String) -> Observable<Status> {
     do {
     let apiRequest = APIRequest(path: Endpoints.statuses(projectID: projectID, sha: sha).url, method: .post, data: try JSONEncoder().encode(status))
       return object(for: apiRequest)

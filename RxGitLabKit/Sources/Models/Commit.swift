@@ -222,6 +222,15 @@ public struct Comment: Codable {
     author = try values.decodeIfPresent(User.self, forKey: .author)
   }
   
+  public init(note: String? = nil, lineType: String? = nil, line: Int? = nil, createdAt: Date? = nil, author: User? = nil, path: String? = nil) {
+    self.note = note
+    self.lineType = lineType
+    self.line = line
+    self.createdAt = createdAt
+    self.author = author
+    self.path = path
+  }
+  
   private static func decodeDateIfPresent(values: KeyedDecodingContainer<CodingKeys>, forKey key: CodingKeys) throws -> Date?  {
     let dateFormatter = DateFormatter.default
     if let dateString = try values.decodeIfPresent(String.self, forKey: key), let date = dateFormatter.date(from: dateString)  {
@@ -291,6 +300,22 @@ public struct Status: Codable {
     case finishedAt = "finished_at"
     case id, ref
     case coverage
+  }
+  
+  public init(status: String? = nil,createdAt: Date? = nil,startedAt: Date? = nil,name: String? = nil,allowFailure: Bool? = nil,author: User? = nil,description: String? = nil,sha: String? = nil,targetURL: String? = nil,finishedAt: Date? = nil,id: Int? = nil,ref: String? = nil,coverage: Double? = nil) {
+    self.status = status
+    self.createdAt = createdAt
+    self.startedAt = startedAt
+    self.name = name
+    self.allowFailure = allowFailure
+    self.author = author
+    self.description = description
+    self.sha = sha
+    self.targetURL = targetURL
+    self.finishedAt = finishedAt
+    self.id = id
+    self.ref = ref
+    self.coverage = coverage
   }
   
   public init(from decoder: Decoder) throws {

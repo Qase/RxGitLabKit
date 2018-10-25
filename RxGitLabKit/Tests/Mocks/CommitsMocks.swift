@@ -81,6 +81,14 @@ class CommitsMocks {
 }
 """.data()
   
+  static let newCommitMock = NewCommit(branch: "master", commitMessage: "some commit message",  actions: [
+    Action(action: "create", filePath: "foo/bar", content: "some content"),
+    Action(action: "delete", filePath: "foo/bar2"),
+    Action(action: "move", filePath: "foo/bar3", previousPath: "foo/bar4", content: "some content"),
+    Action(action: "update", filePath: "foo/bar5", content: "new content"),
+    Action(action: "chmod", filePath: "foo/bar5", executeFileMode: true),
+    ])
+  
   static let newCommitResponseData = """
 {
   "id": "ed899a2f4b50b4370feeea94676502b42383c746",
@@ -179,7 +187,8 @@ class CommitsMocks {
 }
 """.data()
   
-  static let commentData = """
+  static let commentsData = """
+[
 {
   "note": "this code is really nice",
   "author": {
@@ -191,6 +200,7 @@ class CommitsMocks {
     "created_at": "2014-03-06T08:17:35Z"
   }
 }
+]
 """.data()
   
   static let commentResponseData = """
@@ -329,6 +339,53 @@ class CommitsMocks {
          "human_total_time_spent":2
       }
    }
+""".data()
+  
+  static let mergeRequestsData = """
+[
+{
+      "id":45,
+      "iid":1,
+      "project_id":35,
+      "title":"Add new file",
+      "description":"",
+      "state":"opened",
+      "created_at":"2018-03-26T17:26:30Z",
+      "updated_at":"2018-03-26T17:26:30Z",
+      "target_branch":"master",
+      "source_branch":"test-branch",
+      "upvotes":0,
+      "downvotes":0,
+      "author" : {
+        "web_url" : "https://gitlab.example.com/thedude",
+        "name" : "Jeff Lebowski",
+        "avatar_url" : "https://gitlab.example.com/uploads/user/avatar/28/The-Big-Lebowski-400-400.png",
+        "username" : "thedude",
+        "state" : "active",
+        "id" : 28
+      },
+      "assignee":null,
+      "source_project_id":35,
+      "target_project_id":35,
+      "labels":[ ],
+      "work_in_progress":false,
+      "milestone":null,
+      "merge_when_pipeline_succeeds":false,
+      "merge_status":"can_be_merged",
+      "sha":"af5b13261899fb2c0db30abdd0af8b07cb44fdc5",
+      "merge_commit_sha":null,
+      "user_notes_count":0,
+      "discussion_locked":null,
+      "should_remove_source_branch":null,
+      "force_remove_source_branch":false,
+      "web_url":"http://https://gitlab.example.com/root/test-project/merge_requests/1",
+      "time_stats":{
+         "time_estimate":0,
+         "total_time_spent":0,
+         "human_time_estimate":1,
+         "human_total_time_spent":2
+      }
+   }]
 """.data()
   
   
