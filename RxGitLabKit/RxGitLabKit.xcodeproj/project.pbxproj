@@ -389,9 +389,8 @@
 				6C98CE65217C6A050051569E /* CommitsMocks.swift */,
 				6CDC490B218063CB0027063B /* PaginatorMocks.swift */,
 			);
-			name = Mocks;
-			path = Tests/Mocks;
-			sourceTree = SOURCE_ROOT;
+			path = Mocks;
+			sourceTree = "<group>";
 		};
 		6CBD2B3B21185332007BA543 /* Supporting Files */ = {
 			isa = PBXGroup;
