@@ -10,7 +10,7 @@ import RxSwift
 
 public class UsersEndpointGroup: EndpointGroup {
   
-  enum Endpoints {
+  public enum Endpoints {
     case currentUser
     case status
     case user(userID: String)

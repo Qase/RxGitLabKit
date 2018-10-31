@@ -10,7 +10,7 @@ import RxSwift
 
 public class ProjectsEnpointGroup: EndpointGroup {
   
-  enum Endpoints {
+  public enum Endpoints {
     case project(projectID: String)
     case projects
     case userProjects(userID: String)

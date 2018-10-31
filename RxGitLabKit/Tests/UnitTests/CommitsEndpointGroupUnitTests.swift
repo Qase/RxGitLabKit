@@ -15,6 +15,7 @@ class CommitsEndpointGroupUnitTests: XCTestCase {
   
   private var client: RxGitLabAPIClient!
   private let hostURL = URL(string: "https://gitlab.test.com")!
+  private let hostAPIURL = URL(string: "https://gitlab.test.com/api/v4")!
   private var mockSession: MockURLSession!
   private let calendar = Calendar(identifier: .gregorian)
   private let bag = DisposeBag()
@@ -29,7 +30,7 @@ class CommitsEndpointGroupUnitTests: XCTestCase {
   }
   
   func testGetCommits() {
-    let request = URLRequest(url: hostURL.appendingPathComponent("/projects/\(CommitsMocks.mockProjectID)/repository/commits"))
+    let request = URLRequest(url: hostAPIURL.appendingPathComponent(CommitsEndpointGroup.Endpoints.commits(projectID: CommitsMocks.mockProjectID).url))
     mockSession.urlResponse = GeneralMocks.successHttpURLResponse(request: request)
     mockSession.nextData = CommitsMocks.twoCommitsData
     let paginator = client.commits.getCommits(projectID: CommitsMocks.mockProjectID)
@@ -37,14 +38,13 @@ class CommitsEndpointGroupUnitTests: XCTestCase {
       .filter{!$0.isEmpty}
       .toBlocking(timeout: 1)
       .materialize()
-    
-    XCTAssertNotNil(mockSession.lastRequest)
-    XCTAssertNotNil(mockSession.lastRequest!.url)
-    let url = hostURL.appendingPathComponent("\(RxGitLabAPIClient.apiVersionURLString)/projects/\(CommitsMocks.mockProjectID)/repository/commits")
-    XCTAssertTrue(mockSession.lastRequest!.url!.absoluteString.contains(url.absoluteString))
 
     switch result {
     case .completed(elements: let element):
+      
+      XCTAssertNotNil(mockSession.lastURL)
+      XCTAssertEqual(URLComponents(url: mockSession.lastURL!, resolvingAgainstBaseURL: false)!.path, "\(RxGitLabAPIClient.apiVersionURLString)\(CommitsEndpointGroup.Endpoints.commits(projectID: CommitsMocks.mockProjectID).url)")
+      
       XCTAssertEqual(element.count, 1)
       let commits = element.first!
       XCTAssertEqual(commits.count, 2)
@@ -118,9 +118,9 @@ class CommitsEndpointGroupUnitTests: XCTestCase {
     case .completed(elements: let element):
       XCTAssertEqual(element.count, 1)
       let commit = element.first!
-      let expectedURL = URL(string: "\(hostURL.absoluteString)\(RxGitLabAPIClient.apiVersionURLString)/projects/\(projectID)/repository/commits", relativeTo: hostURL)!
+
       XCTAssertNotNil(mockSession.lastURL)
-      XCTAssertEqual(mockSession.lastURL!, expectedURL)
+      XCTAssertEqual(URLComponents(url: mockSession.lastURL!, resolvingAgainstBaseURL: false)!.path, "\(RxGitLabAPIClient.apiVersionURLString)\(CommitsEndpointGroup.Endpoints.commits(projectID: CommitsMocks.mockProjectID).url)")
       XCTAssertNotNil(mockSession.lastRequest)
       XCTAssertNotNil(mockSession.lastRequest!.httpBody)
 
@@ -187,10 +187,9 @@ class CommitsEndpointGroupUnitTests: XCTestCase {
     case .completed(elements: let element):
       XCTAssertEqual(element.count, 1)
       let commit = element.first!
-      
-      let expectedURL = URL(string: "\(hostURL.absoluteString)\(RxGitLabAPIClient.apiVersionURLString)/projects/\(projectID)/repository/commits/\(sha)/cherry_pick")!
+
       XCTAssertNotNil(mockSession.lastURL)
-      XCTAssertEqual(mockSession.lastURL!, expectedURL)
+      XCTAssertEqual(URLComponents(url: mockSession.lastURL!, resolvingAgainstBaseURL: false)!.path, "\(RxGitLabAPIClient.apiVersionURLString)\(CommitsEndpointGroup.Endpoints.cherryPick(projectID: projectID, sha: sha).url)")
       XCTAssertNotNil(mockSession.lastRequest)
       XCTAssertNotNil(mockSession.lastRequest!.httpBody)
       XCTAssertEqual(String(data: mockSession.lastRequest!.httpBody!, encoding: .utf8), "{\"branch\":\"master\"}")
@@ -249,9 +248,8 @@ class CommitsEndpointGroupUnitTests: XCTestCase {
     case .completed(elements: let element):
       XCTAssertEqual(element.count, 1)
       let comment = element.first!
-      let expectedURL = URL(string: "\(hostURL.absoluteString)\(RxGitLabAPIClient.apiVersionURLString)/projects/\(projectID)/repository/commits/\(sha)/comments")!
       XCTAssertNotNil(mockSession.lastURL)
-      XCTAssertEqual(mockSession.lastURL!, expectedURL)
+      XCTAssertEqual(URLComponents(url: mockSession.lastURL!, resolvingAgainstBaseURL: false)!.path, "\(RxGitLabAPIClient.apiVersionURLString)\(CommitsEndpointGroup.Endpoints.comments(projectID: projectID, sha: sha).url)")
       XCTAssertNotNil(mockSession.lastRequest)
       XCTAssertNotNil(mockSession.lastRequest!.httpBody)
       XCTAssertEqual(mockSession.lastRequest?.httpMethod, HTTPMethod.post.rawValue)
@@ -326,9 +324,8 @@ class CommitsEndpointGroupUnitTests: XCTestCase {
     case .completed(elements: let element):
       XCTAssertEqual(element.count, 1)
       let status = element.first!
-      let expectedURL = URL(string: "\(hostURL.absoluteString)\(RxGitLabAPIClient.apiVersionURLString)/projects/\(projectID)/statuses/\(sha)")!
       XCTAssertNotNil(mockSession.lastURL)
-      XCTAssertEqual(mockSession.lastURL!, expectedURL)
+      XCTAssertEqual(URLComponents(url: mockSession.lastURL!, resolvingAgainstBaseURL: false)!.path, "\(RxGitLabAPIClient.apiVersionURLString)\(CommitsEndpointGroup.Endpoints.statuses(projectID: CommitsMocks.mockProjectID, sha: sha).url)")
       XCTAssertNotNil(mockSession.lastRequest)
       XCTAssertNotNil(mockSession.lastRequest!.httpBody)
       XCTAssertEqual(mockSession.lastRequest?.httpMethod, HTTPMethod.post.rawValue)

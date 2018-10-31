@@ -10,7 +10,7 @@ import RxSwift
 
 public class CommitsEndpointGroup: EndpointGroup {
   
-  private enum Endpoints {
+  public enum Endpoints {
     case commits(projectID: String)
     case single(projectID: String, sha: String)
     case references(projectID: String, sha: String)
@@ -21,7 +21,7 @@ public class CommitsEndpointGroup: EndpointGroup {
     case statuses(projectID: String, sha: String)
     case mergeRequests(projectID: String, sha: String)
 
-    var url: String {
+    public var url: String {
       switch self {
       case .commits(let projectID):
         return "/projects/\(projectID)/repository/commits"

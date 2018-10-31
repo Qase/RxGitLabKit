@@ -13,10 +13,14 @@ public class RxGitLabAPIClient: HostCommunicator {
   
   public static let defaultPerPage = 20
   
-  public static var apiVersion = 4
+  public static let apiVersion: Int = 4
   
   public static var apiVersionURLString: String {
-    return "/api/v\(apiVersion)"
+    return "/api/v\(RxGitLabAPIClient.apiVersion)"
+  }
+  
+  public var apiURLString : String {
+    return "\(hostURL.absoluteString)\(RxGitLabAPIClient.apiVersionURLString)"
   }
   
   public let perPage = Variable<Int>(RxGitLabAPIClient.defaultPerPage)

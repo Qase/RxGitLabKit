@@ -23,7 +23,7 @@ class PaginatorIntegrationTests: XCTestCase {
     super.setUp()
     //    URLProtocol.registerClass(MockURLProtocol.self)
     client = RxGitLabAPIClient(with: hostURL)
-    client.oAuthTokenVariable.value = GeneralMocks.mockLogin[.oAuthToken]
+    client.oAuthTokenVariable.value = AuthenticationMocks.mockLogin[.oAuthToken]
     
     // Put setup code here. This method is called before the invocation of each test method in the class.
   }
