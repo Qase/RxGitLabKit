@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-public class RxGitLabAPIClient {
+public class RxGitLabAPIClient: HostCommunicator {
   
   public static let defaultPerPage = 20
   
@@ -19,16 +19,8 @@ public class RxGitLabAPIClient {
     return "/api/v\(apiVersion)"
   }
   
-  public var hostURL: URL
+  public let perPage = Variable<Int>(RxGitLabAPIClient.defaultPerPage)
   
-  public var privateToken = Variable<String?>(nil)
-  
-  public var oAuthToken = Variable<String?>(nil)
-  
-  private(set) var perPage = Variable<Int>(RxGitLabAPIClient.defaultPerPage)
-  
-  private let network: Networking
-
   // MARK: Endpoint Groups
   
   public lazy var authentication: AuthenticationEndpointGroup = {
@@ -54,8 +46,7 @@ public class RxGitLabAPIClient {
   // MARK: Init
   
   public init(with hostURL: URL, using network: Networking) {
-    self.hostURL = hostURL
-    self.network = network
+    super.init(network: network, hostURL: hostURL)
   }
   
   public convenience init(with hostURL: URL) {
@@ -64,26 +55,26 @@ public class RxGitLabAPIClient {
   
   public convenience init(with hostURL: URL, privateToken: String, using network: Networking? = nil) {
     self.init(with: hostURL, using: network ?? HTTPClient(using: URLSession.shared))
-    self.privateToken.value = privateToken
+    self.privateTokenVariable.value = privateToken
   }
   
   public convenience init(with hostURL: URL, oAuthToken: String, using network: Networking? = nil) {
     self.init(with: hostURL, using: network ?? HTTPClient(using: URLSession.shared))
-    self.oAuthToken.value = oAuthToken
+    self.oAuthTokenVariable.value = oAuthToken
   }
   
   // MARK: Private functions
   
   private func createAndSubscribeEndpointGroup<T: EndpointGroup>() -> T {
     let endpoint = T(network: network, hostURL: hostURL)
-    oAuthToken.asObservable()
+    oAuthTokenVariable.asObservable()
       .filter { $0 != nil}
-      .bind(to: endpoint.oAuthToken)
+      .bind(to: endpoint.oAuthTokenVariable)
       .disposed(by: endpoint.disposeBag)
     
-    privateToken.asObservable()
+    privateTokenVariable.asObservable()
       .filter { $0 != nil}
-      .bind(to: endpoint.privateToken)
+      .bind(to: endpoint.privateTokenVariable)
       .disposed(by: endpoint.disposeBag)
     
     perPage.asObservable()
@@ -105,12 +96,13 @@ public class RxGitLabAPIClient {
       self?.authentication.authenticate(username: username, password: password)
         .take(1)
         .subscribe(onNext: { [weak self] token in
-          self?.oAuthToken.value = token.oAuthToken
+          self?.oAuthTokenVariable.value = token.oAuthToken
           observer.onNext(true)
           observer.onCompleted()
           }, onError: { error in
             observer.onError(error)
         })
+        .disposed(by: self?.disposeBag ?? DisposeBag())
       return Disposables.create()
     }
   }

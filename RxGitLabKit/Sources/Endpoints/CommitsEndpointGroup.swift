@@ -83,7 +83,7 @@ public class CommitsEndpointGroup: EndpointGroup {
   /// - Returns: A Paginator
   public func getCommits(projectID: String, parameters: QueryParameters? = nil) -> Paginator<Commit> {
     let apiRequest = APIRequest(path: Endpoints.commits(projectID: projectID).url, method: .get, parameters: parameters)
-    let paginator = Paginator<Commit>(network: network, hostURL: hostURL, apiRequest: apiRequest, oAuthToken: oAuthToken, privateToken: privateToken)
+    let paginator = Paginator<Commit>(network: network, hostURL: hostURL, apiRequest: apiRequest, oAuthToken: oAuthTokenVariable, privateToken: privateTokenVariable)
     return paginator
   }
   
@@ -145,7 +145,7 @@ public class CommitsEndpointGroup: EndpointGroup {
   
   public func getReferences(projectID: String, sha: String) -> Paginator<Reference> {
     let apiRequest = APIRequest(path: Endpoints.references(projectID: projectID, sha: sha).url)
-    let paginator = Paginator<Reference>(network: network, hostURL: hostURL, apiRequest: apiRequest, oAuthToken: oAuthToken, privateToken: privateToken)
+    let paginator = Paginator<Reference>(network: network, hostURL: hostURL, apiRequest: apiRequest, oAuthToken: oAuthTokenVariable, privateToken: privateTokenVariable)
     return paginator
   }
   

@@ -5,6 +5,10 @@
 //  Created by Dagy Tran on 20/08/2018.
 //
 
+
+
+// TODO : Refactor
+
 import Foundation
 import XCTest
 import RxGitLabKit
@@ -41,8 +45,8 @@ class RxGitLabAPIClientTests: XCTestCase {
     let client = RxGitLabAPIClient(with: URL(string: "https://gitlab.fel.cvut.cz")!, using: HTTPClient(using: URLSession.shared))
     client.login(username: GeneralMocks.mockLogin[.username]!, password: GeneralMocks.mockLogin[.password]!)
       .subscribe (onNext: { success in
-        print(client.oAuthToken.value)
-        XCTAssertTrue(client.oAuthToken.value != nil && client.oAuthToken.value! == GeneralMocks.mockLogin[.oAuthToken])
+        print(client.oAuthTokenVariable.value)
+        XCTAssertTrue(client.oAuthTokenVariable.value != nil && client.oAuthTokenVariable.value! == GeneralMocks.mockLogin[.oAuthToken])
         expectation.fulfill()
       }, onError: { error in
         XCTFail(error.localizedDescription)
@@ -76,44 +80,8 @@ class RxGitLabAPIClientTests: XCTestCase {
     
   }
   
-  func testAuthentication() {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
-    let bag = DisposeBag()
-
-    let username = "username123"
-    let password = "Password342"
-    
-//    XCTAssert(client.test == "tesst")
-    
-    
-    
-    MockURLProtocol.requestHandler = { request in
-      guard let bodyStream = request.httpBodyStream, let bodyDict = try? JSONSerialization.jsonObject(with: bodyStream.readData(), options: []) as! [String: String] else {
-        XCTFail("Can't read the body of the request.")
-        let response = HTTPURLResponse(url: self.hostURL, statusCode: 401, httpVersion: "1.1", headerFields: nil)!
-        
-        return (response, GeneralMocks.errorJSONData)
-      }
-      XCTAssertNotNil(bodyDict["username"])
-      XCTAssertNotNil(bodyDict["password"])
-      XCTAssertEqual(username, bodyDict["username"])
-      XCTAssertEqual(password, bodyDict["password"])
-      XCTAssertNotEqual(password, bodyDict["username"])
-      
-      return (HTTPURLResponse(), RxGitLabApiClientMocks.tokenDataMock)
-    }
-    
-    let authentication = client.authentication.authenticate(username: username, password: password)
-    let expectation = XCTestExpectation(description: "response")
-    authentication.subscribe { event in
-      print(event)
-      expectation.fulfill()
-    }.disposed(by: bag)
-    wait(for: [expectation], timeout: 1)
-  }
   
-  func testAuthentication2() {
+  func testAuthentication() {
     // This is an example of a functional test case.
     // Use XCTAssert and related functions to verify your tests produce the correct results.
     

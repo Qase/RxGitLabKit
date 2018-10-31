@@ -23,7 +23,7 @@ class PaginatorIntegrationTests: XCTestCase {
     super.setUp()
     //    URLProtocol.registerClass(MockURLProtocol.self)
     client = RxGitLabAPIClient(with: hostURL)
-    client.oAuthToken.value = GeneralMocks.mockLogin[.oAuthToken]
+    client.oAuthTokenVariable.value = GeneralMocks.mockLogin[.oAuthToken]
     
     // Put setup code here. This method is called before the invocation of each test method in the class.
   }
@@ -49,7 +49,7 @@ class PaginatorIntegrationTests: XCTestCase {
     let expectation = XCTestExpectation(description: "response")
     loadAllObservable
       .subscribe (onNext: { value in
-        let countEquals = value.count == paginator.total
+        let countEquals = value.count == paginator.totalVariable.value
         XCTAssertTrue(countEquals)
         if countEquals {
           expectation.fulfill()
@@ -78,7 +78,7 @@ class PaginatorIntegrationTests: XCTestCase {
   
   func testFirstPage() {
     let paginator = client.users.getUsers(page: 2, perPage: 100)
-    XCTAssertEqual(paginator.page, 2)
+    XCTAssertEqual(paginator.pageVariable.value, 2)
     let result = paginator.loadFirstPage()
       .filter({ !$0.isEmpty })
       .toBlocking()
@@ -88,7 +88,7 @@ class PaginatorIntegrationTests: XCTestCase {
     case .completed(elements: let elements):
       XCTAssertGreaterThan(elements.count, 0)
       XCTAssertEqual(elements.first!.count, 100)
-      XCTAssertEqual(paginator.page, 1)
+      XCTAssertEqual(paginator.pageVariable.value, 1)
     case .failed(elements: _, error: let error):
       XCTFail(error.localizedDescription)
     }
@@ -96,7 +96,7 @@ class PaginatorIntegrationTests: XCTestCase {
   
   func testNextPage() {
     let paginator = client.users.getUsers(page: 3, perPage: 100)
-    XCTAssertEqual(paginator.page, 3)
+    XCTAssertEqual(paginator.pageVariable.value, 3)
     let result = paginator.loadNextPage()
       .filter({ !$0.isEmpty })
       .toBlocking()
@@ -106,7 +106,7 @@ class PaginatorIntegrationTests: XCTestCase {
     case .completed(elements: let elements):
       XCTAssertGreaterThan(elements.count, 0)
       XCTAssertEqual(elements.first!.count, 100)
-      XCTAssertEqual(paginator.page, 4)
+      XCTAssertEqual(paginator.pageVariable.value, 4)
     case .failed(elements: _, error: let error):
       XCTFail(error.localizedDescription)
     }
@@ -114,7 +114,7 @@ class PaginatorIntegrationTests: XCTestCase {
   
   func testPreviousPage() {
     let paginator = client.users.getUsers(page: 3, perPage: 100)
-    XCTAssertEqual(paginator.page, 3)
+    XCTAssertEqual(paginator.pageVariable.value, 3)
     let result = paginator.loadPreviousPage()
       .filter({ !$0.isEmpty })
       .toBlocking()
@@ -124,7 +124,7 @@ class PaginatorIntegrationTests: XCTestCase {
     case .completed(elements: let elements):
       XCTAssertGreaterThan(elements.count, 0)
       XCTAssertEqual(elements.first!.count, 100)
-      XCTAssertEqual(paginator.page, 2)
+      XCTAssertEqual(paginator.pageVariable.value, 2)
     case .failed(elements: _, error: let error):
       XCTFail(error.localizedDescription)
     }

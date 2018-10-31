@@ -8,57 +8,15 @@
 import Foundation
 import RxSwift
 
-public class Paginator<T: Codable> {
+public class Paginator<T: Codable>: HostCommunicator {
 
   // MARK: Private constants
   private let apiRequest: APIRequest
-  private let network: Networking
-  private let hostURL: URL
-  private let privateTokenVariable: Variable<String?>
-  private let oAuthTokenVariable: Variable<String?>
-  private let pageVariable: Variable<Int>
-  private let perPageVariable: Variable<Int>
-  private let totalPagesVariable: Variable<Int>
-  private let totalVariable: Variable<Int>
-  private let currentPageListVariable = Variable<[T]>([])
-  private let disposeBag = DisposeBag()
-  
-  // MARK: Public getters
-  public var page: Int {
-    get {
-      return pageVariable.value
-    }
-    set {
-      pageVariable.value = newValue
-    }
-  }
-  
-  public var perPage: Int {
-    get {
-      return perPageVariable.value
-    }
-    set {
-      perPageVariable.value = newValue
-    }
-  }
-  
-  public var totalPages: Int {
-    get {
-      return totalPagesVariable.value
-    }
-    set {
-      totalPagesVariable.value = newValue
-    }
-  }
-  
-  public var total: Int {
-    get {
-      return totalVariable.value
-    }
-    set {
-      totalVariable.value = newValue
-    }
-  }
+  public let pageVariable = Variable<Int>(-1)
+  public let perPageVariable = Variable<Int>(-1)
+  public let totalPagesVariable = Variable<Int>(-1)
+  public let totalVariable = Variable<Int>(-1)
+  public let currentPageListVariable = Variable<[T]>([])
 
   public var currentPageListObservable: Observable<[T]> {
    return currentPageListVariable.asObservable()
@@ -69,15 +27,16 @@ public class Paginator<T: Codable> {
   }
   
   required public init(network: Networking, hostURL: URL, apiRequest: APIRequest, page: Int = 1, perPage: Int = RxGitLabAPIClient.defaultPerPage, oAuthToken: Variable<String?>, privateToken: Variable<String?>) {
-    self.network = network
-    self.hostURL = hostURL
     self.apiRequest = apiRequest
-    self.pageVariable = Variable<Int>(page)
-    self.perPageVariable = Variable<Int>(perPage)
-    self.totalVariable = Variable<Int>(-1)
-    self.totalPagesVariable = Variable<Int>(-1)
-    self.oAuthTokenVariable = oAuthToken
-    self.privateTokenVariable = privateToken
+    self.pageVariable.value = page
+    self.perPageVariable.value = perPage
+    super.init(network: network, hostURL: hostURL)
+    oAuthToken.asObservable()
+      .bind(to: oAuthTokenVariable)
+      .disposed(by: disposeBag)
+    privateToken.asObservable()
+      .bind(to: privateTokenVariable)
+      .disposed(by: disposeBag)
   }
   
   // MARK: Public Functions
@@ -89,14 +48,14 @@ public class Paginator<T: Codable> {
   ///   - perPage: How many objects in a page should be loaded (default is 20, maximum is 100)
   /// - Returns: An observable of array of loaded objects
   public func loadPage(page: Int = 1, perPage: Int = RxGitLabAPIClient.defaultPerPage) -> Observable<[T]> {
-    self.page = page
-    self.perPage = perPage
+    self.pageVariable.value = page
+    self.perPageVariable.value = perPage
     var header = Header()
-    if let privateToken = privateTokenVariable.value {
-      header[HeaderKeys.privateToken.rawValue] = privateToken
+    if let privateTokenValue = privateTokenVariable.value {
+      header[HeaderKeys.privateToken.rawValue] = privateTokenValue
     }
-    if let oAuthToken = oAuthTokenVariable.value {
-      header[HeaderKeys.oAuthToken.rawValue] = "Bearer \(oAuthToken)"
+    if let oAuthTokenValue = oAuthTokenVariable.value {
+      header[HeaderKeys.oAuthToken.rawValue] = "Bearer \(oAuthTokenValue)"
     }
     
     guard let request = apiRequest.buildRequest(with: self.hostURL, header: header, page: page, perPage: perPage) else { return Observable.error(HTTPError.invalidRequest(message: "invalid"))}
@@ -109,22 +68,22 @@ public class Paginator<T: Codable> {
   /// Loads items from the next page
   /// The items will be emmitted from `currentPageListObservable`
   public func loadNextPage() -> Observable<[T]> {
-    page += 1
-    return loadPage(page: page, perPage: perPage)
+    pageVariable.value += 1
+    return loadPage(page: pageVariable.value, perPage: perPageVariable.value)
   }
   
   /// Loads items on from the previous page
   /// The items will be emmitted from `currentPageListObservable`
   public func loadPreviousPage() -> Observable<[T]> {
-    page -= 1
-    return loadPage(page: page, perPage: perPage)
+    pageVariable.value -= 1
+    return loadPage(page: pageVariable.value, perPage: perPageVariable.value)
   }
   
   /// Loads items from the first page
   /// The items will be emmitted from `currentPageListObservable`
   public func loadFirstPage() -> Observable<[T]> {
-    page = 1
-    return loadPage(page: page, perPage: perPage)
+    pageVariable.value = 1
+    return loadPage(page: pageVariable.value, perPage: perPageVariable.value)
   }
   
   private func header() -> Observable<Header> {
@@ -139,7 +98,7 @@ public class Paginator<T: Codable> {
     var headAPIRequest = apiRequest // apiRequest is a struct and the original should not be changed
     headAPIRequest.method = .head
     
-    guard let request = headAPIRequest.buildRequest(with: self.hostURL, header: header, page: self.page, perPage: self.perPage) else { return Observable.error(HTTPError.invalidRequest(message: "invalid")) }
+    guard let request = headAPIRequest.buildRequest(with: hostURL, header: header, page: pageVariable.value, perPage: perPageVariable.value) else { return Observable.error(HTTPError.invalidRequest(message: "invalid")) }
     
     // Get the number of pages
     return network.header(for: request)
@@ -163,9 +122,9 @@ public class Paginator<T: Codable> {
               let total = Int(_total)
               else { return Observable.error(RxError.unknown) }
     
-            self.perPage = perPage
-            self.totalPages = totalPages
-            self.total = total
+            self.perPageVariable.value = perPage
+            self.totalPagesVariable.value = totalPages
+            self.totalVariable.value = total
             return Observable.just((perPage, Array(1...totalPages)))
           }
 

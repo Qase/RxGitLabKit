@@ -54,8 +54,8 @@ class PaginatorUnitTests: XCTestCase {
       XCTAssertNotNil(elements.first)
       let commits = elements.first!
       XCTAssertEqual(commits.count, perPage)
-      XCTAssertEqual(paginator.page, page)
-      XCTAssertEqual(paginator.perPage, perPage)
+      XCTAssertEqual(paginator.pageVariable.value, page)
+      XCTAssertEqual(paginator.perPageVariable.value, perPage)
       
       let mocks: [Commit] = PaginatorMocks.getCommitPage(page: page, perPage: perPage)
       for i in 0..<commits.count {
@@ -75,8 +75,8 @@ class PaginatorUnitTests: XCTestCase {
     
     let apiRequest = APIRequest(path: "/projects/\(mockProjectID)/repository/commits", method: .get)
     paginator = Paginator(network: client, hostURL: GeneralMocks.mockURL, apiRequest: apiRequest, oAuthToken: Variable(""), privateToken: Variable(""))
-    paginator.page = page
-    paginator.perPage = perPage
+    paginator.pageVariable.value = page
+    paginator.perPageVariable.value = perPage
     let result = paginator.loadNextPage()
       .toBlocking()
       .materialize()
@@ -86,7 +86,7 @@ class PaginatorUnitTests: XCTestCase {
       XCTAssertNotNil(elements.first)
       let commits = elements.first!
       XCTAssertEqual(commits.count, perPage)
-      XCTAssertEqual(paginator.page, page + 1)
+      XCTAssertEqual(paginator.pageVariable.value, page + 1)
     case .failed(elements: _, error: let error):
       XCTFail(error.localizedDescription)
     }
@@ -100,8 +100,8 @@ class PaginatorUnitTests: XCTestCase {
     
     let apiRequest = APIRequest(path: "/projects/\(mockProjectID)/repository/commits", method: .get)
     paginator = Paginator(network: client, hostURL: GeneralMocks.mockURL, apiRequest: apiRequest, oAuthToken: Variable(""), privateToken: Variable(""))
-    paginator.page = page
-    paginator.perPage = perPage
+    paginator.pageVariable.value = page
+    paginator.perPageVariable.value = perPage
     let result = paginator.loadPreviousPage()
       .toBlocking()
       .materialize()
@@ -116,7 +116,7 @@ class PaginatorUnitTests: XCTestCase {
         XCTAssertEqual(commits[i], mocks[i])
       }
       
-      XCTAssertEqual(paginator.page, page - 1)
+      XCTAssertEqual(paginator.pageVariable.value, page - 1)
     case .failed(elements: _, error: let error):
       XCTFail(error.localizedDescription)
     }
@@ -130,8 +130,8 @@ class PaginatorUnitTests: XCTestCase {
     
     let apiRequest = APIRequest(path: "/projects/\(mockProjectID)/repository/commits", method: .get)
     paginator = Paginator(network: client, hostURL: GeneralMocks.mockURL, apiRequest: apiRequest, oAuthToken: Variable(""), privateToken: Variable(""))
-    paginator.page = page
-    paginator.perPage = perPage
+    paginator.pageVariable.value = page
+    paginator.perPageVariable.value = perPage
     let result = paginator.loadFirstPage()
       .toBlocking()
       .materialize()
@@ -141,7 +141,7 @@ class PaginatorUnitTests: XCTestCase {
       XCTAssertNotNil(elements.first)
       let commits = elements.first!
       XCTAssertEqual(commits.count, perPage)
-      XCTAssertEqual(paginator.page, 1)
+      XCTAssertEqual(paginator.pageVariable.value, 1)
     case .failed(elements: _, error: let error):
       XCTFail(error.localizedDescription)
       
