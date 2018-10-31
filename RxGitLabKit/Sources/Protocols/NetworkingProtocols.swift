@@ -123,12 +123,3 @@ extension URLSession: URLSessionProtocol {
 }
 
 extension URLSessionDataTask: URLSessionDataTaskProtocol {}
-
-public protocol Networking {
-  func response(for request: URLRequest) -> Observable<(response: HTTPURLResponse, data: Data?)>
-  func header(for request: URLRequest) -> Observable<Header>
-  
-  func object<T: Codable>(for request: URLRequest) -> Observable<T>
-  func data(for request: URLRequest) -> Observable<Data>
-  func json(for request: URLRequest) -> Observable<JSONDictionary>
-}
