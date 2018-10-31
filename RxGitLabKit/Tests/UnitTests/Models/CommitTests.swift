@@ -231,7 +231,7 @@ class CommitTests: XCTestCase {
   }
   
   func testCommitStatusesDecoding() {
-    guard let statuses = try? decoder.decode([Status].self, from: CommitsMocks.commitStatusesData) else {
+    guard let statuses = try? decoder.decode([CommitStatus].self, from: CommitsMocks.commitStatusesData) else {
       XCTFail("Failed to decode references.")
       return
     }
@@ -257,7 +257,7 @@ class CommitTests: XCTestCase {
   
   
   func testCommitStatusDecoding() {
-    guard let status = try? decoder.decode(Status.self, from: CommitsMocks.buildCommitStatusResponseData) else {
+    guard let status = try? decoder.decode(CommitStatus.self, from: CommitsMocks.buildCommitStatusResponseData) else {
       XCTFail("Failed to decode references.")
       return
     }

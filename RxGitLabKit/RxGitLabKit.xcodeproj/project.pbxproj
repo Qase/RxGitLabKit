@@ -67,6 +67,14 @@
 		6CC3DB0B2189AEA6004677C7 /* HostCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC3DB092189AEA6004677C7 /* HostCommunicator.swift */; };
 		6CC3DB0D2189BDBB004677C7 /* RxGitLabAPIClientUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC3DB0C2189BDBB004677C7 /* RxGitLabAPIClientUnitTests.swift */; };
 		6CC3DB0F2189C07A004677C7 /* AuthenticationMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC3DB0E2189C07A004677C7 /* AuthenticationMocks.swift */; };
+		6CC3DB11218A3C86004677C7 /* UserStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC3DB10218A3C86004677C7 /* UserStatus.swift */; };
+		6CC3DB12218A3C86004677C7 /* UserStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC3DB10218A3C86004677C7 /* UserStatus.swift */; };
+		6CC3DB14218A3CD9004677C7 /* UserKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC3DB13218A3CD9004677C7 /* UserKey.swift */; };
+		6CC3DB15218A3CD9004677C7 /* UserKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC3DB13218A3CD9004677C7 /* UserKey.swift */; };
+		6CC3DB17218A4216004677C7 /* Email.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC3DB16218A4216004677C7 /* Email.swift */; };
+		6CC3DB18218A4216004677C7 /* Email.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC3DB16218A4216004677C7 /* Email.swift */; };
+		6CC3DB1A218A4542004677C7 /* ImpersonationToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC3DB19218A4542004677C7 /* ImpersonationToken.swift */; };
+		6CC3DB1B218A4542004677C7 /* ImpersonationToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC3DB19218A4542004677C7 /* ImpersonationToken.swift */; };
 		6CDC490C218063CB0027063B /* PaginatorMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDC490B218063CB0027063B /* PaginatorMocks.swift */; };
 		6CDC490E218064E60027063B /* PaginatorUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDC490D218064E60027063B /* PaginatorUnitTests.swift */; };
 		6CDC4910218110630027063B /* MultipleResponseMockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDC490F218110630027063B /* MultipleResponseMockURLSession.swift */; };
@@ -166,6 +174,10 @@
 		6CC3DB092189AEA6004677C7 /* HostCommunicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostCommunicator.swift; sourceTree = "<group>"; };
 		6CC3DB0C2189BDBB004677C7 /* RxGitLabAPIClientUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxGitLabAPIClientUnitTests.swift; sourceTree = "<group>"; };
 		6CC3DB0E2189C07A004677C7 /* AuthenticationMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationMocks.swift; sourceTree = "<group>"; };
+		6CC3DB10218A3C86004677C7 /* UserStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatus.swift; sourceTree = "<group>"; };
+		6CC3DB13218A3CD9004677C7 /* UserKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserKey.swift; sourceTree = "<group>"; };
+		6CC3DB16218A4216004677C7 /* Email.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Email.swift; sourceTree = "<group>"; };
+		6CC3DB19218A4542004677C7 /* ImpersonationToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpersonationToken.swift; sourceTree = "<group>"; };
 		6CDC490B218063CB0027063B /* PaginatorMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginatorMocks.swift; sourceTree = "<group>"; };
 		6CDC490D218064E60027063B /* PaginatorUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginatorUnitTests.swift; sourceTree = "<group>"; };
 		6CDC490F218110630027063B /* MultipleResponseMockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleResponseMockURLSession.swift; sourceTree = "<group>"; };
@@ -291,6 +303,8 @@
 			isa = PBXGroup;
 			children = (
 				6C5401E62114593600631E21 /* Commit.swift */,
+				6CC3DB10218A3C86004677C7 /* UserStatus.swift */,
+				6CC3DB13218A3CD9004677C7 /* UserKey.swift */,
 				6CE95EDB2166209000EDAE16 /* Stats.swift */,
 				6CE95EE02166209900EDAE16 /* LastPipeline.swift */,
 				6CBD2B4F211894E4007BA543 /* Reference.swift */,
@@ -302,6 +316,8 @@
 				6CFBFCE62132B5E4001F4391 /* User.swift */,
 				6CE95ED12166120D00EDAE16 /* Member.swift */,
 				6CE95ED6216612D900EDAE16 /* AccessLevel.swift */,
+				6CC3DB16218A4216004677C7 /* Email.swift */,
+				6CC3DB19218A4542004677C7 /* ImpersonationToken.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -632,7 +648,10 @@
 			files = (
 				6CE95ED8216612D900EDAE16 /* AccessLevel.swift in Sources */,
 				6C3E6902217872590082C483 /* NetworkingProtocols.swift in Sources */,
+				6CC3DB12218A3C86004677C7 /* UserStatus.swift in Sources */,
 				6CBD2B3A21185325007BA543 /* RxGitLabAPIClient.swift in Sources */,
+				6CC3DB1B218A4542004677C7 /* ImpersonationToken.swift in Sources */,
+				6CC3DB15218A3CD9004677C7 /* UserKey.swift in Sources */,
 				6CE95EE22166209900EDAE16 /* LastPipeline.swift in Sources */,
 				6C35DD13212B04A800D05B87 /* String+Extensions.swift in Sources */,
 				6CBD2B572122F46D007BA543 /* AuthenticationEndpointGroup.swift in Sources */,
@@ -654,6 +673,7 @@
 				6C35DD20212C10B500D05B87 /* InputStream+Extensions.swift in Sources */,
 				6CBD2B542122F160007BA543 /* Authentication.swift in Sources */,
 				6CE95EFE2166AC9500EDAE16 /* ParsingError.swift in Sources */,
+				6CC3DB18218A4216004677C7 /* Email.swift in Sources */,
 				6CFBFCDD213293D2001F4391 /* RepositoriesEndpointGroup.swift in Sources */,
 				6C98CE69217C71260051569E /* Date+Extensions.swift in Sources */,
 				6C06A8A8212EB0C300686583 /* Project.swift in Sources */,
@@ -669,7 +689,10 @@
 			files = (
 				6CE95ED7216612D900EDAE16 /* AccessLevel.swift in Sources */,
 				6C3E6903217872630082C483 /* NetworkingProtocols.swift in Sources */,
+				6CC3DB11218A3C86004677C7 /* UserStatus.swift in Sources */,
 				6CBD2B562122F46D007BA543 /* AuthenticationEndpointGroup.swift in Sources */,
+				6CC3DB1A218A4542004677C7 /* ImpersonationToken.swift in Sources */,
+				6CC3DB14218A3CD9004677C7 /* UserKey.swift in Sources */,
 				6CE95EE12166209900EDAE16 /* LastPipeline.swift in Sources */,
 				6CBD2B592122F841007BA543 /* RepositoriesEndpointGroup.swift in Sources */,
 				6C06A8A2212EA8A000686583 /* ProjectsEndpoint.swift in Sources */,
@@ -691,6 +714,7 @@
 				6CE13F6E21184EFC00C92B7B /* RxGitLabAPIClient.swift in Sources */,
 				6C06A8A7212EB0C300686583 /* Project.swift in Sources */,
 				6CE95EFD2166AC9500EDAE16 /* ParsingError.swift in Sources */,
+				6CC3DB17218A4216004677C7 /* Email.swift in Sources */,
 				6CFBFCEA2132BD9E001F4391 /* Paginator.swift in Sources */,
 				6C98CE68217C71260051569E /* Date+Extensions.swift in Sources */,
 				6CE13F6D21184EFC00C92B7B /* HTTPClient.swift in Sources */,

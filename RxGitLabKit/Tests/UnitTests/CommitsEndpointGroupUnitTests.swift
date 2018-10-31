@@ -315,7 +315,7 @@ class CommitsEndpointGroupUnitTests: XCTestCase {
     let projectID = CommitsMocks.mockProjectID
     let sha = "18f3e63d05582537db6d183d9d557be09e1f90c8"
 
-    let status = Status(status: "success")
+    let status = CommitStatus(status: "success")
     let result = client.commits.postStatus(status: status, projectID: projectID, sha: sha)
       .toBlocking(timeout: 1)
       .materialize()
