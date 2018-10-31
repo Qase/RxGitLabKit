@@ -47,9 +47,13 @@ public class Paginator<T: Codable>: HostCommunicator {
   ///   - page: Page which should be loaded (default is 1)
   ///   - perPage: How many objects in a page should be loaded (default is 20, maximum is 100)
   /// - Returns: An observable of array of loaded objects
-  public func loadPage(page: Int = 1, perPage: Int = RxGitLabAPIClient.defaultPerPage) -> Observable<[T]> {
-    self.pageVariable.value = page
-    self.perPageVariable.value = perPage
+  public func loadPage(page: Int = 1, perPage: Int = RxGitLabAPIClient.defaultPerPage, isChangingState: Bool = false) -> Observable<[T]> {
+    
+    if isChangingState {
+      self.pageVariable.value = page
+      self.perPageVariable.value = perPage
+    }
+    
     var header = Header()
     if let privateTokenValue = privateTokenVariable.value {
       header[HeaderKeys.privateToken.rawValue] = privateTokenValue
@@ -86,23 +90,25 @@ public class Paginator<T: Codable>: HostCommunicator {
     return loadPage(page: pageVariable.value, perPage: perPageVariable.value)
   }
   
-  private func header() -> Observable<Header> {
-    var header = Header()
-    if let privateToken = privateTokenVariable.value {
-      header[HeaderKeys.privateToken.rawValue] = privateToken
+  private var header: Observable<Header> {
+    get {
+      var header = Header()
+      if let privateToken = self.privateTokenVariable.value {
+        header[HeaderKeys.privateToken.rawValue] = privateToken
+      }
+      if let oAuthToken = self.oAuthTokenVariable.value {
+        header[HeaderKeys.oAuthToken.rawValue] = "Bearer \(oAuthToken)"
+      }
+      
+      var headAPIRequest = self.apiRequest // apiRequest is a struct and the original should not be changed
+      headAPIRequest.method = .head
+      
+      guard let request = headAPIRequest.buildRequest(with: hostURL, header: header, page: pageVariable.value, perPage: perPageVariable.value) else { return Observable.error(HTTPError.invalidRequest(message: "invalid")) }
+      
+      // Get the number of pages
+      return network.header(for: request)
+        .filter({ !$0.isEmpty })
     }
-    if let oAuthToken = oAuthTokenVariable.value {
-      header[HeaderKeys.oAuthToken.rawValue] = "Bearer \(oAuthToken)"
-    }
-    
-    var headAPIRequest = apiRequest // apiRequest is a struct and the original should not be changed
-    headAPIRequest.method = .head
-    
-    guard let request = headAPIRequest.buildRequest(with: hostURL, header: header, page: pageVariable.value, perPage: perPageVariable.value) else { return Observable.error(HTTPError.invalidRequest(message: "invalid")) }
-    
-    // Get the number of pages
-    return network.header(for: request)
-      .filter({ !$0.isEmpty })
   }
   
   /// Loads all objects from the endpoint.
@@ -112,7 +118,7 @@ public class Paginator<T: Codable>: HostCommunicator {
     let allListVariable = Variable<[T]>([])
 
     // Get the number of pages
-    let headerResponse = header()
+    let headerResponse = header
           .flatMap { header -> Observable<(Int, [Int])> in
             guard let _perPage = header[HeaderKeys.perPage.rawValue],
               let perPage = Int(_perPage),

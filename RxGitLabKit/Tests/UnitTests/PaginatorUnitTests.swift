@@ -37,17 +37,23 @@ class PaginatorUnitTests: XCTestCase {
     XCTAssertNil(PaginatorMocks.getPageRange(totalCount: 20, page: 5, perPage: 5))
   }
   
-  func testLoadPage() {
+  
+  func testLoadPageChangingState() {
     let page = 2
     let perPage = 13
+    
+    let defaultPage = 4
+    let defaultPerPage = 20
     
     mockSession.nextData = PaginatorMocks.getCommitPage(page: page, perPage: perPage)
     
     let apiRequest = APIRequest(path: "/projects/\(mockProjectID)/repository/commits", method: .get)
     paginator = Paginator(network: client, hostURL: GeneralMocks.mockURL, apiRequest: apiRequest, oAuthToken: Variable(""), privateToken: Variable(""))
-    let result = paginator.loadPage(page: page, perPage: perPage)
-    .toBlocking()
-    .materialize()
+    paginator.pageVariable.value = defaultPage
+    paginator.perPageVariable.value = defaultPerPage
+    let result = paginator.loadPage(page: page, perPage: perPage, isChangingState: true)
+      .toBlocking()
+      .materialize()
     
     switch result {
     case .completed(elements: let elements):
@@ -56,6 +62,41 @@ class PaginatorUnitTests: XCTestCase {
       XCTAssertEqual(commits.count, perPage)
       XCTAssertEqual(paginator.pageVariable.value, page)
       XCTAssertEqual(paginator.perPageVariable.value, perPage)
+      
+      let mocks: [Commit] = PaginatorMocks.getCommitPage(page: page, perPage: perPage)
+      for i in 0..<commits.count {
+        XCTAssertEqual(commits[i], mocks[i])
+      }
+      
+    case .failed(elements: _, error: let error):
+      XCTFail(error.localizedDescription)
+    }
+  }
+  
+  func testLoadPageNotChangingState() {
+    let page = 2
+    let perPage = 13
+    
+    let defaultPage = 4
+    let defaultPerPage = 20
+    
+    mockSession.nextData = PaginatorMocks.getCommitPage(page: page, perPage: perPage)
+    
+    let apiRequest = APIRequest(path: "/projects/\(mockProjectID)/repository/commits", method: .get)
+    paginator = Paginator(network: client, hostURL: GeneralMocks.mockURL, apiRequest: apiRequest, oAuthToken: Variable(""), privateToken: Variable(""))
+    paginator.pageVariable.value = defaultPage
+    paginator.perPageVariable.value = defaultPerPage
+    let result = paginator.loadPage(page: page, perPage: perPage)
+      .toBlocking()
+      .materialize()
+    
+    switch result {
+    case .completed(elements: let elements):
+      XCTAssertNotNil(elements.first)
+      let commits = elements.first!
+      XCTAssertEqual(commits.count, perPage)
+      XCTAssertEqual(paginator.pageVariable.value, defaultPage)
+      XCTAssertEqual(paginator.perPageVariable.value, defaultPerPage)
       
       let mocks: [Commit] = PaginatorMocks.getCommitPage(page: page, perPage: perPage)
       for i in 0..<commits.count {
