@@ -41,8 +41,7 @@ func testUserDecode() {
       XCTAssert(user.bio == nil)
       XCTAssert(user.linkedin != nil && user.linkedin!.isEmpty)
       let dateFormatter = DateFormatter()
-      dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-      XCTAssert(dateFormatter.date(from: user.createdAt!) != nil)
+//      dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
     } else {
       XCTFail("JSON Decode fail")
     }

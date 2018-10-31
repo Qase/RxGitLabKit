@@ -26,7 +26,7 @@ class RxGitLabAPIClientTests: XCTestCase {
   override func setUp() {
     super.setUp()
 //    URLProtocol.registerClass(MockURLProtocol.self)
-    client = RxGitLabAPIClient(with: hostURL, using: NetworkClient(using: session))
+//    client = RxGitLabAPIClient(with: hostURL, using: NetworkClient(using: session))
 
     // Put setup code here. This method is called before the invocation of each test method in the class.
   }
@@ -38,7 +38,7 @@ class RxGitLabAPIClientTests: XCTestCase {
   
   func testLogin() {
     let expectation = XCTestExpectation(description: "response")
-    let client = RxGitLabAPIClient(with: URL(string: "https://gitlab.fel.cvut.cz")!, using: NetworkClient(using: URLSession.shared))
+    let client = RxGitLabAPIClient(with: URL(string: "https://gitlab.fel.cvut.cz")!, using: HTTPClient(using: URLSession.shared))
     client.login(username: GeneralMocks.mockLogin[.username]!, password: GeneralMocks.mockLogin[.password]!)
       .subscribe (onNext: { success in
         print(client.oAuthToken.value)
@@ -181,15 +181,16 @@ class RxGitLabAPIClientTests: XCTestCase {
       .subscribe({event in
 //      print(event)
       guard let authentication = event.element else { return }
-      client.oAuthToken.value = authentication.oAuthToken
+//      client.oAuthToken.value = authentication.oAuthToken
       
 //      paginator.page.value = 1
 //      paginator.page.value = 10
     })
     
-    let paginator = client.users.getUsers(page: 1, perPage: 10)
-    paginator.allListObservable
-      .filter({ !$0.isEmpty })
+    let paginator =
+      client.users.getUsers(page: 1, perPage: 10)
+        .loadAll()
+        .filter({ !$0.isEmpty })
 //      .sample(client.oAuthToken.asObservable().filter { $0 != nil})
       .subscribe (onNext: { users in
         print("users")
@@ -199,7 +200,7 @@ class RxGitLabAPIClientTests: XCTestCase {
 
         if users.count < 20 {
 //          paginator.loadNextPage()
-          paginator.page = 3
+//          paginator.page = 3
         } else {
           expectation.fulfill()
         }
