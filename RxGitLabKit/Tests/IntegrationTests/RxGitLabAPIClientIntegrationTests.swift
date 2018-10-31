@@ -1,5 +1,5 @@
 //
-//  RxGitLabAPIClientTests.swift
+//  RxGitLabAPIClientIntegrationTests.swift
 //  RxGitLabKit-iOSTests
 //
 //  Created by Dagy Tran on 20/08/2018.
@@ -14,7 +14,7 @@ import XCTest
 import RxGitLabKit
 import RxSwift
 
-class RxGitLabAPIClientTests: XCTestCase {
+class RxGitLabAPIClientIntegrationTests: XCTestCase {
   
   private let session: URLSession = {
     let configuration = URLSessionConfiguration.ephemeral
@@ -43,10 +43,10 @@ class RxGitLabAPIClientTests: XCTestCase {
   func testLogin() {
     let expectation = XCTestExpectation(description: "response")
     let client = RxGitLabAPIClient(with: URL(string: "https://gitlab.fel.cvut.cz")!, using: HTTPClient(using: URLSession.shared))
-    client.login(username: GeneralMocks.mockLogin[.username]!, password: GeneralMocks.mockLogin[.password]!)
+    client.login(username: AuthenticationMocks.mockLogin[.username]!, password: AuthenticationMocks.mockLogin[.password]!)
       .subscribe (onNext: { success in
         print(client.oAuthTokenVariable.value)
-        XCTAssertTrue(client.oAuthTokenVariable.value != nil && client.oAuthTokenVariable.value! == GeneralMocks.mockLogin[.oAuthToken])
+        XCTAssertTrue(client.oAuthTokenVariable.value != nil && client.oAuthTokenVariable.value! == AuthenticationMocks.mockLogin[.oAuthToken])
         expectation.fulfill()
       }, onError: { error in
         XCTFail(error.localizedDescription)
@@ -69,7 +69,7 @@ class RxGitLabAPIClientTests: XCTestCase {
       return (HTTPURLResponse(), RxGitLabApiClientMocks.tokenDataMock)
     }
     
-    let authentication = client.authentication.authenticate(username: GeneralMocks.mockLogin[.username]!, password: GeneralMocks.mockLogin[.password]!)
+    let authentication = client.authentication.authenticate(username: AuthenticationMocks.mockLogin[.username]!, password: AuthenticationMocks.mockLogin[.password]!)
     let expectation = XCTestExpectation(description: "response")
     authentication.subscribe { event in
       print(event)
