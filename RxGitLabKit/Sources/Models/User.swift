@@ -76,9 +76,9 @@ public struct User: Codable {
   public init(from decoder: Decoder) throws {
     let values = try decoder.container(keyedBy: CodingKeys.self)
     id = try values.decodeIfPresent(Int.self, forKey: .id)
-    username = try values.decode(String.self, forKey: .username)
+    username = try values.decodeIfPresent(String.self, forKey: .username)
     email = try values.decodeIfPresent(String.self, forKey: .email)
-    name = try values.decode(String.self, forKey: .name)
+    name = try values.decodeIfPresent(String.self, forKey: .name)
     state = try values.decodeIfPresent(String.self, forKey: .state)
     avatarUrl = try values.decodeIfPresent(String.self, forKey: .avatarUrl)
     webUrl = try values.decodeIfPresent(String.self, forKey: .webUrl)
