@@ -84,9 +84,9 @@
 		6C6EE5BA219081E5006C447E /* TimeStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6EE5B9219081E5006C447E /* TimeStats.swift */; };
 		6C6EE5BB219081E5006C447E /* TimeStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6EE5B9219081E5006C447E /* TimeStats.swift */; };
 		6C6EE5BC21908261006C447E /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CBD2B4021185483007BA543 /* RxSwift.framework */; };
-		6C6EE5BE2190826E006C447E /* RxTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C6EE5BD2190826E006C447E /* RxTest.framework */; };
-		6C6EE5C021908280006C447E /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C6EE5BF21908280006C447E /* RxBlocking.framework */; };
 		6C6EE5C121908295006C447E /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CBD2B4121185483007BA543 /* RxCocoa.framework */; };
+		6C6EE5C321908BF2006C447E /* RxTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C6EE5BD2190826E006C447E /* RxTest.framework */; };
+		6C6EE5C421908BFD006C447E /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C6EE5BF21908280006C447E /* RxBlocking.framework */; };
 		6C721A8F214A602100B85194 /* APIRequesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C721A8E214A602100B85194 /* APIRequesting.swift */; };
 		6C721A90214A602100B85194 /* APIRequesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C721A8E214A602100B85194 /* APIRequesting.swift */; };
 		6C98CE66217C6A050051569E /* CommitsMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C98CE65217C6A050051569E /* CommitsMocks.swift */; };
@@ -295,10 +295,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C6EE5C121908295006C447E /* RxCocoa.framework in Frameworks */,
-				6C6EE5C021908280006C447E /* RxBlocking.framework in Frameworks */,
-				6C6EE5BE2190826E006C447E /* RxTest.framework in Frameworks */,
+				6C6EE5C421908BFD006C447E /* RxBlocking.framework in Frameworks */,
+				6C6EE5C321908BF2006C447E /* RxTest.framework in Frameworks */,
 				6C6EE5BC21908261006C447E /* RxSwift.framework in Frameworks */,
+				6C6EE5C121908295006C447E /* RxCocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -725,11 +725,10 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"",
-				"$(SRCROOT)/Carthage/Build/Mac/RxSwift.framework",
-				"$(SRCROOT)/Carthage/Build/Mac/RxCocoa.framework",
-				"$(SRCROOT)/Carthage/Build/Mac/RxTest.framework",
 				"$(SRCROOT)/Carthage/Build/Mac/RxBlocking.framework",
+				"$(SRCROOT)/Carthage/Build/Mac/RxCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/Mac/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/Mac/RxTest.framework",
 			);
 			name = "Run Script";
 			outputFileListPaths = (
