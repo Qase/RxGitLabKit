@@ -39,7 +39,7 @@ public struct ImpersonationToken: Codable {
   }
   
   private static func decodeDateIfPresent(values: KeyedDecodingContainer<CodingKeys>, forKey key: CodingKeys) throws -> Date?  {
-    let dateFormatter = DateFormatter.default
+    let dateFormatter = ISO8601DateFormatter()
     if let dateString = try values.decodeIfPresent(String.self, forKey: key), let date = dateFormatter.date(from: dateString)  {
       return date
     } else {

@@ -9,6 +9,7 @@ import Foundation
 import RxSwift
 
 /**
+ This EndpointGroup communicates with Projects API (https://docs.gitlab.com/ce/api/projects.html)
  # Projects API
  ## Project visibility level
  Project in GitLab can be either private, internal or public. This is determined by the `visibility` field in the project.
