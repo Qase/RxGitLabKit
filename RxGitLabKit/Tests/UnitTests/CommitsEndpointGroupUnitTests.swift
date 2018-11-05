@@ -11,21 +11,8 @@ import RxSwift
 import RxBlocking
 import RxTest
 
-class CommitsEndpointGroupUnitTests: XCTestCase {
-  
-  private var client: RxGitLabAPIClient!
-  private let hostURL = URL(string: "https://gitlab.test.com")!
-  private let hostAPIURL = URL(string: "https://gitlab.test.com/api/v4")!
-  private var mockSession: MockURLSession!
-  private let calendar = Calendar(identifier: .gregorian)
-  private let bag = DisposeBag()
-  
-  override func setUp() {
-    mockSession = MockURLSession()
-    let mockHTTPClient = HTTPClient(using: mockSession)
-    client = RxGitLabAPIClient(with: hostURL, using: mockHTTPClient)
-  }
-  
+class CommitsEndpointGroupUnitTests: EndpointGroupUnitTests {
+
   override func tearDown() {
   }
   

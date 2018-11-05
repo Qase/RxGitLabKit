@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct Hook: Codable {
+public struct ProjectHook: Codable {
   public let id: Int?
   public let url: String?
   public let projectID: Int?
@@ -51,11 +51,11 @@ public struct Hook: Codable {
     pipelineEvents = try values.decodeIfPresent(Bool.self, forKey: .pipelineEvents)
     wikiPageEvents = try values.decodeIfPresent(Bool.self, forKey: .wikiPageEvents)
     enableSSLVerification = try values.decodeIfPresent(Bool.self, forKey: .enableSSLVerification)
-    createdAt = try Hook.decodeDateIfPresent(values: values, forKey: .createdAt)
+    createdAt = try ProjectHook.decodeDateIfPresent(values: values, forKey: .createdAt)
   }
   
   private static func decodeDateIfPresent(values: KeyedDecodingContainer<CodingKeys>, forKey key: CodingKeys) throws -> Date?  {
-    let dateFormatter = DateFormatter.default
+    let dateFormatter = ISO8601DateFormatter()
     if let dateString = try values.decodeIfPresent(String.self, forKey: key), let date = dateFormatter.date(from: dateString)  {
       return date
     } else {

@@ -17,7 +17,6 @@ import RxBlocking
 
 class DevelopmentPlaygroundTests: XCTestCase {
   
- 
   private var client: RxGitLabAPIClient!
   
   private let hostURL = URL(string: "https://gitlab.fel.cvut.cz")!

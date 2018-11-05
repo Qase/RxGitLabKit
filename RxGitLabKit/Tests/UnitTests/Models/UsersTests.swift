@@ -40,9 +40,13 @@ func testUserDecode() {
       XCTAssert(user.webUrl == "http://localhost:3000/john_smith")
       XCTAssert(user.bio == nil)
       XCTAssert(user.linkedin != nil && user.linkedin!.isEmpty)
-      let dateFormatter = DateFormatter()
-//      dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-    } else {
+
+      let timeZone = TimeZone(secondsFromGMT: 0)
+      let calendar = Calendar(identifier: .gregorian)
+      let components = DateComponents(calendar: calendar, timeZone: timeZone, year: 2012, month: 5, day: 23, hour: 8, minute: 0, second: 58)
+      let date = calendar.date(from: components)!
+      XCTAssertEqual(user.createdAt, date)
+      } else {
       XCTFail("JSON Decode fail")
     }
   }

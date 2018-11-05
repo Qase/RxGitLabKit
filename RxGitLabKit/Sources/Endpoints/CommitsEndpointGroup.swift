@@ -80,7 +80,7 @@ public class CommitsEndpointGroup: EndpointGroup {
   ///     - **all: Boolean** - Retrieve every commit from the repository
   ///     - **with_stats: Boolean** - Stats about each commit will be added to the response
   ///
-  /// - Returns: A Paginator
+  /// - Returns: A Paginator of commits
   public func getCommits(projectID: String, parameters: QueryParameters? = nil) -> Paginator<Commit> {
     let apiRequest = APIRequest(path: Endpoints.commits(projectID: projectID).url, method: .get, parameters: parameters)
     let paginator = Paginator<Commit>(network: network, hostURL: hostURL, apiRequest: apiRequest, oAuthToken: oAuthTokenVariable, privateToken: privateTokenVariable)
@@ -134,7 +134,7 @@ public class CommitsEndpointGroup: EndpointGroup {
   
   ///   Get a paginator of references (from branches or tags) a commit is pushed to.
   ///
-  ///   - Parameter projectID: The ID or URL-encoded path of the project owned by the
+  ///   - Parameter projectID: The ID or URL-encoded path of the project owned by the user
   ///   - Parameter sha: The commit hash or name of a repository branch or tag
   ///
   /// **Query Parameters:**

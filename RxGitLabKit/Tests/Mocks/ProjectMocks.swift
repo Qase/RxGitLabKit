@@ -140,4 +140,13 @@ public struct ProjectMocks {
 "created_at": "2012-10-12T17:04:47Z"
 }
 """.data()
+  
+  public static let languagesData = """
+{
+  "Ruby": 66.69,
+  "JavaScript": 22.98,
+  "HTML": 7.91,
+  "CoffeeScript": 2.42
+}
+""".data()
 }

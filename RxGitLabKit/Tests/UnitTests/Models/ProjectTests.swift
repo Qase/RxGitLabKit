@@ -79,7 +79,7 @@ class ProjectTests: XCTestCase {
   
   func testHookDecode() {
     do {
-      let object = try decoder.decode(Hook.self, from: ProjectMocks.hookData)
+      let object = try decoder.decode(ProjectHook.self, from: ProjectMocks.hookData)
       XCTAssertEqual(object.id, 1)
       XCTAssertEqual(object.url, "http://example.com/hook")
       XCTAssertEqual(object.projectID, 3)
@@ -101,5 +101,31 @@ class ProjectTests: XCTestCase {
     } catch let error {
       XCTFail("Failed to decode commit. Error: \(error.localizedDescription)")
     }
+  }
+  
+  func testLanguagesDecode() {
+    do {
+      let dict = try JSONSerialization.jsonObject(with: ProjectMocks.languagesData, options: []) as! [String: Double]
+      print(dict)
+    } catch let error {
+      XCTFail("Failed to decode langugages. Error: \(error.localizedDescription)")
+    }
+  }
+  
+  func testShareGroupSerialization() {
+    var jsonBody: [String : Any] = [
+      "id": 1,
+      "group_id": 4,
+      "group_access": 20
+    ]
+    let formatter = ISO8601DateFormatter()
+    let dateString = formatter.string(from: Date())
+    
+//    if let date = expiresAt {
+      jsonBody["expires_at"] = dateString
+//    }
+    
+    print(jsonBody)
+    
   }
 }
