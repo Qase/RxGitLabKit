@@ -7,6 +7,7 @@
 
 import Foundation
 import XCTest
+import RxGitLabKit
 
 class UsersTests: XCTestCase {
 
@@ -50,5 +51,4 @@ func testUserDecode() {
       XCTFail("JSON Decode fail")
     }
   }
-
 }
