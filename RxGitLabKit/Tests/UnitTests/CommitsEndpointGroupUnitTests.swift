@@ -15,23 +15,23 @@ class CommitsEndpointGroupUnitTests: EndpointGroupUnitTests {
 
   override func tearDown() {
   }
-  
+
   func testGetCommits() {
     let request = URLRequest(url: hostAPIURL.appendingPathComponent(CommitsEndpointGroup.Endpoints.commits(projectID: CommitsMocks.mockProjectID).url))
     mockSession.urlResponse = GeneralMocks.successHttpURLResponse(request: request)
     mockSession.nextData = CommitsMocks.twoCommitsData
     let paginator = client.commits.getCommits(projectID: CommitsMocks.mockProjectID)
     let result = paginator.loadPage()
-      .filter{!$0.isEmpty}
+      .filter {!$0.isEmpty}
       .toBlocking(timeout: 1)
       .materialize()
 
     switch result {
     case .completed(elements: let element):
-      
+
       XCTAssertNotNil(mockSession.lastURL)
       XCTAssertEqual(URLComponents(url: mockSession.lastURL!, resolvingAgainstBaseURL: false)!.path, "\(RxGitLabAPIClient.apiVersionURLString)\(CommitsEndpointGroup.Endpoints.commits(projectID: CommitsMocks.mockProjectID).url)")
-      
+
       XCTAssertEqual(element.count, 1)
       let commits = element.first!
       XCTAssertEqual(commits.count, 2)
@@ -50,7 +50,7 @@ class CommitsEndpointGroupUnitTests: EndpointGroupUnitTests {
     mockSession.nextData = CommitsMocks.singleCommitResponseData
     let commit = client.commits.getCommit(projectID: CommitsMocks.mockProjectID, sha: "ed899a2f4b50b4370feeea94676502b42383c746")
     let result = commit.toBlocking(timeout: 1).materialize()
-    
+
     switch result {
     case .completed(elements: let element):
       XCTAssertEqual(element.count, 1)
@@ -67,24 +67,24 @@ class CommitsEndpointGroupUnitTests: EndpointGroupUnitTests {
       XCTAssertEqual(commit.parentIds!.count, 1)
       XCTAssertEqual(commit.parentIds!.first!, "ae1d9fb46aa2b07ee9836d49862ec4e2c46fbbba")
       XCTAssertEqual(commit.status, "running")
-      
+
       XCTAssertNotNil(commit.lastPipeline)
       let pipeline = commit.lastPipeline!
       XCTAssertEqual(pipeline.id, 8)
       XCTAssertEqual(pipeline.ref, "master")
       XCTAssertEqual(pipeline.sha, "2dc6aa325a317eda67812f05600bdf0fcdc70ab0")
       XCTAssertEqual(pipeline.status, "created")
-      
+
       XCTAssertNotNil(commit.stats)
       let stats = commit.stats!
       XCTAssertEqual(stats.additions, 15)
       XCTAssertEqual(stats.deletions, 10)
       XCTAssertEqual(stats.total, 25)
-      
+
       let timeZone = TimeZone(secondsFromGMT: 3*3600)
       let components = DateComponents(calendar: calendar, timeZone: timeZone, year: 2012, month: 9, day: 20, hour: 9, minute: 6, second: 12)
       let date = calendar.date(from: components)!
-      
+
       XCTAssertEqual(commit.createdAt, date)
       XCTAssertEqual(commit.authoredDate, date)
       XCTAssertEqual(commit.committedDate, date)
@@ -92,7 +92,7 @@ class CommitsEndpointGroupUnitTests: EndpointGroupUnitTests {
       XCTFail(error.localizedDescription)
     }
   }
-  
+
   func testCreateCommit() {
     mockSession.nextData = CommitsMocks.newCommitResponseData
     let projectID = CommitsMocks.mockProjectID
@@ -100,7 +100,7 @@ class CommitsEndpointGroupUnitTests: EndpointGroupUnitTests {
     let result = commit
       .toBlocking(timeout: 1)
       .materialize()
-    
+
     switch result {
     case .completed(elements: let element):
       XCTAssertEqual(element.count, 1)
@@ -119,12 +119,12 @@ class CommitsEndpointGroupUnitTests: EndpointGroupUnitTests {
       XCTAssertEqual(commit.id, "ed899a2f4b50b4370feeea94676502b42383c746")
       XCTAssertEqual(commit.shortId, "ed899a2f4b5")
       XCTAssertEqual(commit.title, "some commit message")
-      
+
       guard let dict = try? JSONSerialization.jsonObject(with: bodyData, options: .mutableContainers) as! [String: Any] else {
         XCTFail(HTTPError.noData.localizedDescription)
         return
       }
-      
+
       XCTAssertNotNil(dict["actions"])
       XCTAssertNotNil(dict["branch"])
       XCTAssertNotNil(dict["commit_message"])
@@ -134,16 +134,16 @@ class CommitsEndpointGroupUnitTests: EndpointGroupUnitTests {
     case .failed(elements: _, error: let error):
       XCTFail(error.localizedDescription)
     }
-    
+
   }
-  
+
   func testGetReferences() {
     mockSession.nextData = CommitsMocks.referencesResponseData
     let references = client.commits.getReferences(projectID: CommitsMocks.mockProjectID, sha: "ed899a2f4b50b4370feeea94676502b42383c746", parameters: nil)
     let result = references
       .toBlocking(timeout: 1)
       .materialize()
-    
+
     switch result {
     case .completed(elements: let element):
       XCTAssertEqual(element.count, 1)
@@ -158,18 +158,18 @@ class CommitsEndpointGroupUnitTests: EndpointGroupUnitTests {
       XCTFail(error.localizedDescription)
     }
   }
-  
+
   func testCherryPick() {
     mockSession.nextData = CommitsMocks.cherryPickResponseData
     let projectID = "8908"
     let sha = "ouqertjnsmvnjhrejk"
     let branch = "master"
     let commit = client.commits.cherryPick(projectID: projectID, sha: sha, branch: branch)
-    
+
     let result = commit
       .toBlocking(timeout: 1)
       .materialize()
-    
+
     switch result {
     case .completed(elements: let element):
       XCTAssertEqual(element.count, 1)
@@ -183,24 +183,24 @@ class CommitsEndpointGroupUnitTests: EndpointGroupUnitTests {
       XCTAssertEqual(mockSession.lastRequest?.httpMethod, HTTPMethod.post.rawValue)
       XCTAssertNotNil(mockSession.lastRequest!.allHTTPHeaderFields)
       XCTAssertNotNil(mockSession.lastRequest!.allHTTPHeaderFields!["Content-Type"])
-      
+
       XCTAssertEqual(mockSession.lastRequest!.allHTTPHeaderFields!["Content-Type"], "application/json")
 
       XCTAssertEqual(commit.id, "8b090c1b79a14f2bd9e8a738f717824ff53aebad")
       XCTAssertEqual(commit.shortId, "8b090c1b")
-      
+
     case .failed(elements: _, error: let error):
       XCTFail(error.localizedDescription)
     }
   }
-  
+
   func testGetComments() {
     mockSession.nextData = CommitsMocks.commentsData
     let comments = client.commits.getComments(projectID: CommitsMocks.mockProjectID, sha: "ed899a2f4b50b4370feeea94676502b42383c746")
     let result = comments
       .toBlocking(timeout: 1)
       .materialize()
-    
+
     switch result {
     case .completed(elements: let element):
       XCTAssertEqual(element.count, 1)
@@ -217,7 +217,7 @@ class CommitsEndpointGroupUnitTests: EndpointGroupUnitTests {
       XCTFail(error.localizedDescription)
     }
   }
-  
+
   func testPostComment() {
     mockSession.nextData = CommitsMocks.commentResponseData
     let projectID = CommitsMocks.mockProjectID
@@ -230,7 +230,7 @@ class CommitsEndpointGroupUnitTests: EndpointGroupUnitTests {
     let result = client.commits.postComment(comment: comment, projectID: projectID, sha: sha)
       .toBlocking(timeout: 1)
       .materialize()
-    
+
     switch result {
     case .completed(elements: let element):
       XCTAssertEqual(element.count, 1)
@@ -243,7 +243,7 @@ class CommitsEndpointGroupUnitTests: EndpointGroupUnitTests {
       XCTAssertNotNil(mockSession.lastRequest!.allHTTPHeaderFields)
       XCTAssertNotNil(mockSession.lastRequest!.allHTTPHeaderFields!["Content-Type"])
       XCTAssertEqual(mockSession.lastRequest!.allHTTPHeaderFields!["Content-Type"], "application/json")
-      
+
       XCTAssertEqual(comment.note, note)
       XCTAssertNotNil(comment.author)
       let author = comment.author!
@@ -253,7 +253,6 @@ class CommitsEndpointGroupUnitTests: EndpointGroupUnitTests {
       XCTAssertEqual(comment.lineType, lineType)
       XCTAssertEqual(comment.path, path)
 
-      
       let date = calendar.date(from: DateComponents(calendar: calendar, timeZone: TimeZone(secondsFromGMT: 0), year: 2016, month: 1, day: 19, hour: 9, minute: 44, second: 55))!
       XCTAssertEqual(comment.createdAt, date)
 
@@ -261,19 +260,19 @@ class CommitsEndpointGroupUnitTests: EndpointGroupUnitTests {
       XCTFail(error.localizedDescription)
     }
   }
-  
+
   func testGetStatuses() {
     mockSession.nextData = CommitsMocks.commitStatusesData
     let statuses = client.commits.getStatuses(projectID: CommitsMocks.mockProjectID, sha: "ed899a2f4b50b4370feeea94676502b42383c746")
     let result = statuses
       .toBlocking(timeout: 1)
       .materialize()
-    
+
     switch result {
     case .completed(elements: let element):
-      
+
       let date = calendar.date(from: DateComponents(calendar: calendar, timeZone: TimeZone(secondsFromGMT: 0), year: 2016, month: 1, day: 19, hour: 8, minute: 40, second: 25))!
-      
+
       XCTAssertEqual(element.count, 1)
       let statuses = element.first!
       XCTAssertEqual(statuses.count, 2)
@@ -296,7 +295,7 @@ class CommitsEndpointGroupUnitTests: EndpointGroupUnitTests {
       XCTFail(error.localizedDescription)
     }
   }
-  
+
   func testPostStatus() {
     mockSession.nextData = CommitsMocks.buildCommitStatusResponseData
     let projectID = CommitsMocks.mockProjectID
@@ -306,7 +305,7 @@ class CommitsEndpointGroupUnitTests: EndpointGroupUnitTests {
     let result = client.commits.postStatus(status: status, projectID: projectID, sha: sha)
       .toBlocking(timeout: 1)
       .materialize()
-    
+
     switch result {
     case .completed(elements: let element):
       XCTAssertEqual(element.count, 1)
@@ -319,26 +318,26 @@ class CommitsEndpointGroupUnitTests: EndpointGroupUnitTests {
       XCTAssertNotNil(mockSession.lastRequest!.allHTTPHeaderFields)
       XCTAssertNotNil(mockSession.lastRequest!.allHTTPHeaderFields!["Content-Type"])
       XCTAssertEqual(mockSession.lastRequest!.allHTTPHeaderFields!["Content-Type"], "application/json")
-      
+
       XCTAssertEqual(status.status, "success")
     case .failed(elements: _, error: let error):
       XCTFail(error.localizedDescription)
     }
   }
-  
+
   func getMergeRequests() {
     mockSession.nextData = CommitsMocks.mergeRequestsData
     let statuses = client.commits.getMergeRequests(projectID: CommitsMocks.mockProjectID, sha: "ed899a2f4b50b4370feeea94676502b42383c746")
     let result = statuses
       .toBlocking(timeout: 1)
       .materialize()
-    
+
     switch result {
     case .completed(elements: let element):
       XCTAssertEqual(element.count, 1)
       let mergeRequest = element.first!.first!
       let date = calendar.date(from: DateComponents(calendar: calendar, timeZone: TimeZone(secondsFromGMT: 0), year: 2018, month: 3, day: 26, hour: 17, minute: 26, second: 30))!
-      
+
       XCTAssertEqual(mergeRequest.id, 45)
       XCTAssertEqual(mergeRequest.iid, 1)
       XCTAssertEqual(mergeRequest.projectID, 35)
@@ -372,6 +371,5 @@ class CommitsEndpointGroupUnitTests: EndpointGroupUnitTests {
       XCTFail(error.localizedDescription)
     }
   }
-  
-  
+
 }

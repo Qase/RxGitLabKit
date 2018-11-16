@@ -9,9 +9,9 @@ import Foundation
 import RxGitLabKit
 
 class CommitsMocks {
-  
+
   static let mockProjectID = "12345"
-  
+
   static let twoCommitsData = """
 [
   {
@@ -46,7 +46,7 @@ class CommitsMocks {
   }
 ]
 """.data()
-  
+
   static let newCommit = """
 {
   "branch": "master",
@@ -80,15 +80,15 @@ class CommitsMocks {
   ]
 }
 """.data()
-  
-  static let newCommitMock = NewCommit(branch: "master", commitMessage: "some commit message",  actions: [
+
+  static let newCommitMock = NewCommit(branch: "master", commitMessage: "some commit message", actions: [
     Action(action: "create", filePath: "foo/bar", content: "some content"),
     Action(action: "delete", filePath: "foo/bar2"),
     Action(action: "move", filePath: "foo/bar3", previousPath: "foo/bar4", content: "some content"),
     Action(action: "update", filePath: "foo/bar5", content: "new content"),
-    Action(action: "chmod", filePath: "foo/bar5", executeFileMode: true),
+    Action(action: "chmod", filePath: "foo/bar5", executeFileMode: true)
     ])
-  
+
   static let newCommitResponseData = """
 {
   "id": "ed899a2f4b50b4370feeea94676502b42383c746",
@@ -113,7 +113,7 @@ class CommitsMocks {
   "status": null
 }
 """.data()
-  
+
   static let singleCommitResponseData = """
 {
   "id": "6104942438c14ec7bd21c6cd5bd995272b3faff6",
@@ -144,7 +144,7 @@ class CommitsMocks {
   "status": "running"
 }
 """.data()
-  
+
   static let referencesResponseData = """
 [
   {"type": "branch", "name": "'test'"},
@@ -153,7 +153,7 @@ class CommitsMocks {
   {"type": "tag", "name": "v1.1.0"}
  ]
 """.data()
-  
+
   static let cherryPickResponseData = """
 {
   "id": "8b090c1b79a14f2bd9e8a738f717824ff53aebad",
@@ -173,7 +173,7 @@ class CommitsMocks {
   ]
 }
 """.data()
-  
+
   static let diffData = """
 {
   "diff": "--- a/doc/update/5.4-to-6.0.md +++ b/doc/update/5.4-to-6.0.md @@ -71,6 +71,8 @@ sudo -u git -H bundle exec rake migrate_keys RAILS_ENV=production sudo -u git -H bundle exec rake migrate_inline_notes RAILS_ENV=production +sudo -u git -H bundle exec rake gitlab:assets:compile RAILS_ENV=production+",
@@ -186,7 +186,7 @@ class CommitsMocks {
   "deleted_file": false
 }
 """.data()
-  
+
   static let commentsData = """
 [
 {
@@ -202,7 +202,7 @@ class CommitsMocks {
 }
 ]
 """.data()
-  
+
   static let commentResponseData = """
 {
   "author" : {
@@ -220,8 +220,7 @@ class CommitsMocks {
   "note" : "Nice picture man!"
 }
 """.data()
-  
-  
+
   static let commitStatusesData = """
 [
   {
@@ -268,8 +267,7 @@ class CommitsMocks {
    }
 ]
 """.data()
-  
-  
+
   static let buildCommitStatusResponseData = """
 {
 "author" : {
@@ -294,7 +292,7 @@ class CommitsMocks {
   "finished_at" : "2016-01-19T09:05:50Z"
 }
 """.data()
-  
+
   static let mergeRequestData = """
 {
       "id":45,
@@ -340,7 +338,7 @@ class CommitsMocks {
       }
    }
 """.data()
-  
+
   static let mergeRequestsData = """
 [
 {
@@ -387,8 +385,7 @@ class CommitsMocks {
       }
    }]
 """.data()
-  
-  
+
   static let commitJSONs: [String] = [
     """
     {
@@ -1303,9 +1300,9 @@ class CommitsMocks {
     }
 """
   ]
-  
+
   static let commitData: [Data] = commitJSONs.map { $0.data() }
-  
+
   static let commits: [Commit] = commitJSONs.map { json in
     let decoder = JSONDecoder()
     return try! decoder.decode(Commit.self, from: json.data())
@@ -1314,5 +1311,5 @@ class CommitsMocks {
   static var totalCommitsCount: Int {
     return commitData.count
   }
-  
+
 }

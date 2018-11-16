@@ -12,7 +12,7 @@ import RxBlocking
 import RxTest
 
 class HTTPClientTests: XCTestCase {
-  
+
   struct MockStruct: Codable {
     let key: String
   }
@@ -20,26 +20,26 @@ class HTTPClientTests: XCTestCase {
   private var mockSession: MockURLSession!
   private var client: HTTPClient!
   private let mockURL = GeneralMocks.mockURL
-  
+
   override func setUp() {
     // Put setup code here. This method is called before the invocation of each test method in the class.
     mockSession = MockURLSession()
     client = HTTPClient(using: mockSession)
   }
-  
+
   func testResponse() {
     let request = URLRequest(url: mockURL)
     let headerFields = [
-      "Content-Type" : "application/json",
+      "Content-Type" : "application/json"
       ]
     let nextData = CommitsMocks.commentsData
     mockSession.urlResponse = HTTPURLResponse(url: request.url!, statusCode: 200, httpVersion: "HTTP/1.1", headerFields: headerFields)
     mockSession.nextData = nextData
-    
+
     let result = client.response(for: request)
       .toBlocking()
       .materialize()
-    
+
     switch result {
     case .completed(elements: let elements):
       XCTAssertEqual(elements.count, 1)
@@ -54,21 +54,21 @@ class HTTPClientTests: XCTestCase {
       XCTFail(error.localizedDescription)
     }
   }
-  
+
   func testResponseError() {
     let response = URLResponse(url: mockURL, mimeType: nil, expectedContentLength: 1, textEncodingName: nil)
     let responses: [(URLResponse?, HTTPError)] = [
       (nil, HTTPError.noResponse),
       (response, HTTPError.nonHTTPResponse(response: response))
     ]
-    
+
     responses.forEach { (response, error) in
       mockSession.urlResponse = response
       mockSession.isNilResponseForced = response == nil
       let result = client.response(for: URLRequest(url: mockURL))
         .toBlocking()
         .materialize()
-      
+
       switch result {
       case .completed(elements: let elements):
         XCTFail("This should have failed, but got a response instead. \(elements) received")
@@ -77,7 +77,7 @@ class HTTPClientTests: XCTestCase {
       }
     }
   }
-  
+
   func testHeader() {
     let headerFields = [
       "Content-Type" : "application/json",
@@ -92,13 +92,13 @@ class HTTPClientTests: XCTestCase {
       "X-Total": "3016",
       "X-Total-Pages": "31"
     ]
-    
+
     mockSession.urlResponse = HTTPURLResponse(url: mockURL, statusCode: 200, httpVersion: "HTTP/1.1", headerFields: headerFields)!
-    
+
     let result = client.header(for: URLRequest(url: mockURL))
       .toBlocking()
       .materialize()
-    
+
     switch result {
     case .completed(elements: let elements):
       XCTAssertEqual(elements.count, 1)
@@ -115,7 +115,7 @@ class HTTPClientTests: XCTestCase {
       XCTAssertNotNil(header["X-Runtime"])
       XCTAssertNotNil(header["X-Total"])
       XCTAssertNotNil(header["X-Total-Pages"])
-      
+
       XCTAssertEqual(header["X-Content-Type-Options"], "nosniff")
       XCTAssertEqual(header["X-Frame-Options"], "SAMEORIGIN")
       XCTAssertEqual(header["X-Next-Page"], "4")
@@ -130,10 +130,10 @@ class HTTPClientTests: XCTestCase {
       XCTFail(error.localizedDescription)
     }
   }
-  
+
   func testHeaderErrorCodes() {
     let response = URLResponse(url: mockURL, mimeType: nil, expectedContentLength: 1, textEncodingName: nil)
-    
+
     let responses: [(URLResponse?, HTTPError)] = [
       (nil, HTTPError.noResponse),
       (response, HTTPError.nonHTTPResponse(response: response)),
@@ -144,9 +144,9 @@ class HTTPClientTests: XCTestCase {
       (HTTPURLResponse(url: mockURL, statusCode: 500, httpVersion: nil, headerFields: nil), HTTPError.serverFailure),
       (HTTPURLResponse(url: mockURL, statusCode: 550, httpVersion: nil, headerFields: nil), HTTPError.serverFailure),
       (HTTPURLResponse(url: mockURL, statusCode: 1, httpVersion: nil, headerFields: nil), HTTPError.unknown(1)),
-      (HTTPURLResponse(url: mockURL, statusCode: 100, httpVersion: nil, headerFields: nil), HTTPError.unknown(100)),
+      (HTTPURLResponse(url: mockURL, statusCode: 100, httpVersion: nil, headerFields: nil), HTTPError.unknown(100))
       ]
-    
+
     responses.forEach { (response, error) in
       mockSession.urlResponse = response
       mockSession.isNilResponseForced = response == nil
@@ -154,7 +154,7 @@ class HTTPClientTests: XCTestCase {
       let result = client.header(for: URLRequest(url: mockURL))
         .toBlocking()
         .materialize()
-      
+
       switch result {
       case .completed(elements: let elements):
         XCTFail("This should have failed, but got a response instead. \(elements) received")
@@ -163,8 +163,7 @@ class HTTPClientTests: XCTestCase {
       }
     }
   }
-  
-  
+
   func testData() {
     let mockData = """
     { "hello": "world" }
@@ -174,7 +173,7 @@ class HTTPClientTests: XCTestCase {
     let result = client.data(for: request)
       .toBlocking()
       .materialize()
-    
+
     switch result {
     case .completed(elements: let elements):
       let data = elements.first!
@@ -183,29 +182,28 @@ class HTTPClientTests: XCTestCase {
       XCTFail(err.localizedDescription)
     }
   }
-  
-  
+
   func testDataErrorCodes() {
     let mockData = """
     { "hello": "world" }
     """.data()
-    
+
     let nonHTTPResponse = URLResponse(url: mockURL, mimeType: nil, expectedContentLength: 1, textEncodingName: nil)
-    
-    let responses: [(URLResponse?,Data?, HTTPError)] = [
+
+    let responses: [(URLResponse?, Data?, HTTPError)] = [
       (nil, mockData, HTTPError.noResponse),
-      (nonHTTPResponse,mockData, HTTPError.nonHTTPResponse(response: nonHTTPResponse)),
-      (HTTPURLResponse(url: mockURL, statusCode: 200, httpVersion: nil, headerFields: nil), nil , HTTPError.noData),
-      (HTTPURLResponse(url: mockURL, statusCode: 400, httpVersion: nil, headerFields: nil), mockData , HTTPError.badRequest),
+      (nonHTTPResponse, mockData, HTTPError.nonHTTPResponse(response: nonHTTPResponse)),
+      (HTTPURLResponse(url: mockURL, statusCode: 200, httpVersion: nil, headerFields: nil), nil, HTTPError.noData),
+      (HTTPURLResponse(url: mockURL, statusCode: 400, httpVersion: nil, headerFields: nil), mockData, HTTPError.badRequest),
       (HTTPURLResponse(url: mockURL, statusCode: 401, httpVersion: nil, headerFields: nil), mockData, HTTPError.unauthorized),
       (HTTPURLResponse(url: mockURL, statusCode: 403, httpVersion: nil, headerFields: nil), mockData, HTTPError.forbidden),
       (HTTPURLResponse(url: mockURL, statusCode: 404, httpVersion: nil, headerFields: nil), mockData, HTTPError.notFound),
       (HTTPURLResponse(url: mockURL, statusCode: 500, httpVersion: nil, headerFields: nil), mockData, HTTPError.serverFailure),
       (HTTPURLResponse(url: mockURL, statusCode: 550, httpVersion: nil, headerFields: nil), mockData, HTTPError.serverFailure),
       (HTTPURLResponse(url: mockURL, statusCode: 1, httpVersion: nil, headerFields: nil), mockData, HTTPError.unknown(1)),
-      (HTTPURLResponse(url: mockURL, statusCode: 100, httpVersion: nil, headerFields: nil), mockData, HTTPError.unknown(100)),
+      (HTTPURLResponse(url: mockURL, statusCode: 100, httpVersion: nil, headerFields: nil), mockData, HTTPError.unknown(100))
       ]
-    
+
     responses.forEach { (response, data, error) in
       mockSession.nextData = data
       mockSession.urlResponse = response
@@ -214,7 +212,7 @@ class HTTPClientTests: XCTestCase {
       let result = client.data(for: URLRequest(url: mockURL))
         .toBlocking()
         .materialize()
-      
+
       switch result {
       case .completed(elements: let elements):
         XCTFail("This should have failed, but got a response instead. \(elements) received")
@@ -223,7 +221,7 @@ class HTTPClientTests: XCTestCase {
       }
     }
   }
-  
+
   func testObject() {
     let mockData = """
     { "key": "hello world" }
@@ -234,7 +232,7 @@ class HTTPClientTests: XCTestCase {
     let result = (client.object(for: request) as Observable<MockStruct>)
       .toBlocking()
       .materialize()
-    
+
     switch result {
     case .completed(elements: let elements):
       let mockStruct = elements.first!
@@ -242,16 +240,16 @@ class HTTPClientTests: XCTestCase {
     case .failed(elements: _, error: let err):
       XCTFail(err.localizedDescription)
     }
-    
+
     let corruptedData = """
     { "key": : "hello world" }
     """.data()
-    
+
     mockSession.nextData = corruptedData
     let result2 = (client.object(for: request) as Observable<MockStruct>)
       .toBlocking()
       .materialize()
-    
+
     switch result2 {
     case .completed(elements: let elements):
       XCTFail("Corrupted data should not be able to be decoded. Elements: \(elements)")
@@ -259,31 +257,30 @@ class HTTPClientTests: XCTestCase {
       print(err.localizedDescription)
       XCTAssertTrue(err.localizedDescription.contains("Parsing JSON Failure: dataCorrupted"))
     }
-    
-    
+
   }
-  
+
   func testObjectErrorCodes() {
     let mockData = """
     { "key": "hello world" }
     """.data()
-    
+
     let nonHTTPResponse = URLResponse(url: mockURL, mimeType: nil, expectedContentLength: 1, textEncodingName: nil)
-    
+
     let responses: [(URLResponse?, Data?, HTTPError)] = [
       (nil, mockData, HTTPError.noResponse),
-      (nonHTTPResponse,mockData, HTTPError.nonHTTPResponse(response: nonHTTPResponse)),
-      (HTTPURLResponse(url: mockURL, statusCode: 200, httpVersion: nil, headerFields: nil), nil , HTTPError.noData),
-      (HTTPURLResponse(url: mockURL, statusCode: 400, httpVersion: nil, headerFields: nil), mockData , HTTPError.badRequest),
+      (nonHTTPResponse, mockData, HTTPError.nonHTTPResponse(response: nonHTTPResponse)),
+      (HTTPURLResponse(url: mockURL, statusCode: 200, httpVersion: nil, headerFields: nil), nil, HTTPError.noData),
+      (HTTPURLResponse(url: mockURL, statusCode: 400, httpVersion: nil, headerFields: nil), mockData, HTTPError.badRequest),
       (HTTPURLResponse(url: mockURL, statusCode: 401, httpVersion: nil, headerFields: nil), mockData, HTTPError.unauthorized),
       (HTTPURLResponse(url: mockURL, statusCode: 403, httpVersion: nil, headerFields: nil), mockData, HTTPError.forbidden),
       (HTTPURLResponse(url: mockURL, statusCode: 404, httpVersion: nil, headerFields: nil), mockData, HTTPError.notFound),
       (HTTPURLResponse(url: mockURL, statusCode: 500, httpVersion: nil, headerFields: nil), mockData, HTTPError.serverFailure),
       (HTTPURLResponse(url: mockURL, statusCode: 550, httpVersion: nil, headerFields: nil), mockData, HTTPError.serverFailure),
       (HTTPURLResponse(url: mockURL, statusCode: 1, httpVersion: nil, headerFields: nil), mockData, HTTPError.unknown(1)),
-      (HTTPURLResponse(url: mockURL, statusCode: 100, httpVersion: nil, headerFields: nil), mockData, HTTPError.unknown(100)),
+      (HTTPURLResponse(url: mockURL, statusCode: 100, httpVersion: nil, headerFields: nil), mockData, HTTPError.unknown(100))
       ]
-    
+
     responses.forEach { (response, data, error) in
       mockSession.nextData = data
       mockSession.urlResponse = response
@@ -292,7 +289,7 @@ class HTTPClientTests: XCTestCase {
       let result = (client.object(for: URLRequest(url: mockURL)) as Observable<MockStruct>)
         .toBlocking()
         .materialize()
-      
+
       switch result {
       case .completed(elements: let elements):
         XCTFail("This should have failed, but got a response instead. \(elements) received")
@@ -301,9 +298,9 @@ class HTTPClientTests: XCTestCase {
       }
     }
   }
-  
+
   func testJSON() {
-    
+
     let mockData = """
     { "key": "hello world",
       "number" : 4,
@@ -311,12 +308,12 @@ class HTTPClientTests: XCTestCase {
     }
     """.data()
     let request = URLRequest(url: mockURL)
-    
+
     mockSession.nextData = mockData
     let result = client.json(for: URLRequest(url: mockURL))
       .toBlocking()
       .materialize()
-    
+
     switch result {
     case .completed(elements: let elements):
       XCTAssertEqual(elements.count, 1)
@@ -324,27 +321,27 @@ class HTTPClientTests: XCTestCase {
       XCTAssertNotNil(jsonDict["key"])
       XCTAssertNotNil(jsonDict["number"])
       XCTAssertNotNil(jsonDict["bool"])
-      
+
       XCTAssertTrue(jsonDict["key"]! is String)
       XCTAssertTrue(jsonDict["number"]! is Int)
       XCTAssertTrue(jsonDict["bool"]! is Bool)
-      
+
       XCTAssertEqual(jsonDict["key"] as! String, "hello world")
       XCTAssertEqual(jsonDict["number"] as! Int, 4)
       XCTAssertEqual(jsonDict["bool"] as! Bool, true)
     case .failed(elements: _, error: let err):
       XCTFail(err.localizedDescription)
     }
-    
+
     let corruptedData = """
     { "key": : "hello world" }
     """.data()
-    
+
     mockSession.nextData = corruptedData
     let result2 = client.json(for: request)
       .toBlocking()
       .materialize()
-    
+
     switch result2 {
     case .completed(elements: let elements):
       XCTFail("Corrupted data should not be able to be decoded. Elements: \(elements)")
@@ -353,28 +350,28 @@ class HTTPClientTests: XCTestCase {
       XCTAssertTrue(err.localizedDescription.contains("Parsing JSON Failure:"))
     }
   }
-  
+
   func testJSONErrorCodes() {
     let mockData = """
     { "key": "hello world" }
     """.data()
-    
+
     let nonHTTPResponse = URLResponse(url: mockURL, mimeType: nil, expectedContentLength: 1, textEncodingName: nil)
-    
+
     let responses: [(URLResponse?, Data?, HTTPError)] = [
       (nil, mockData, HTTPError.noResponse),
-      (nonHTTPResponse,mockData, HTTPError.nonHTTPResponse(response: nonHTTPResponse)),
-      (HTTPURLResponse(url: mockURL, statusCode: 200, httpVersion: nil, headerFields: nil), nil , HTTPError.noData),
-      (HTTPURLResponse(url: mockURL, statusCode: 400, httpVersion: nil, headerFields: nil), mockData , HTTPError.badRequest),
+      (nonHTTPResponse, mockData, HTTPError.nonHTTPResponse(response: nonHTTPResponse)),
+      (HTTPURLResponse(url: mockURL, statusCode: 200, httpVersion: nil, headerFields: nil), nil, HTTPError.noData),
+      (HTTPURLResponse(url: mockURL, statusCode: 400, httpVersion: nil, headerFields: nil), mockData, HTTPError.badRequest),
       (HTTPURLResponse(url: mockURL, statusCode: 401, httpVersion: nil, headerFields: nil), mockData, HTTPError.unauthorized),
       (HTTPURLResponse(url: mockURL, statusCode: 403, httpVersion: nil, headerFields: nil), mockData, HTTPError.forbidden),
       (HTTPURLResponse(url: mockURL, statusCode: 404, httpVersion: nil, headerFields: nil), mockData, HTTPError.notFound),
       (HTTPURLResponse(url: mockURL, statusCode: 500, httpVersion: nil, headerFields: nil), mockData, HTTPError.serverFailure),
       (HTTPURLResponse(url: mockURL, statusCode: 550, httpVersion: nil, headerFields: nil), mockData, HTTPError.serverFailure),
       (HTTPURLResponse(url: mockURL, statusCode: 1, httpVersion: nil, headerFields: nil), mockData, HTTPError.unknown(1)),
-      (HTTPURLResponse(url: mockURL, statusCode: 100, httpVersion: nil, headerFields: nil), mockData, HTTPError.unknown(100)),
+      (HTTPURLResponse(url: mockURL, statusCode: 100, httpVersion: nil, headerFields: nil), mockData, HTTPError.unknown(100))
       ]
-    
+
     responses.forEach { (response, data, error) in
       mockSession.nextData = data
       mockSession.urlResponse = response
@@ -383,7 +380,7 @@ class HTTPClientTests: XCTestCase {
       let result = (client.object(for: URLRequest(url: mockURL)) as Observable<MockStruct>)
         .toBlocking()
         .materialize()
-      
+
       switch result {
       case .completed(elements: let elements):
         XCTFail("This should have failed, but got a response instead. \(elements) received")
@@ -392,5 +389,5 @@ class HTTPClientTests: XCTestCase {
       }
     }
   }
-  
+
 }

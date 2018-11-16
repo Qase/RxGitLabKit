@@ -31,7 +31,7 @@ func testUserDecode() {
   }
   """
     let data = user.data(using: .utf8)!
-  
+
     let decoder = JSONDecoder()
     if let user = try? decoder.decode(User.self, from: data) {
       XCTAssert(user.username == "john_smith")

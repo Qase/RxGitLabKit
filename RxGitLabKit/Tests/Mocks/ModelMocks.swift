@@ -8,7 +8,7 @@
 import Foundation
 
 class ModelMocks {
-  
+
   static let newCommitJSON = """
 {
   "branch": "master",
@@ -42,7 +42,5 @@ class ModelMocks {
   ]
 }
 """
-  
-  
-  
+
 }

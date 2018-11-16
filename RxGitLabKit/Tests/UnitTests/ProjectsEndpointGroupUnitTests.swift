@@ -19,7 +19,7 @@ class ProjectsEndpointGroupUnitTests: EndpointGroupUnitTests {
     let result = languages
       .toBlocking(timeout: 1)
       .materialize()
-    
+
     switch result {
     case .completed(elements: let element):
       XCTAssertEqual(element.count, 1)
@@ -33,12 +33,10 @@ class ProjectsEndpointGroupUnitTests: EndpointGroupUnitTests {
       XCTAssertEqual(languages["JavaScript"]!, 22.98)
       XCTAssertEqual(languages["HTML"]!, 7.91)
       XCTAssertEqual(languages["CoffeeScript"]!, 2.42)
-      
+
     case .failed(elements: _, error: let error):
       XCTFail(error.localizedDescription)
     }
   }
-  
-  
-  
+
 }

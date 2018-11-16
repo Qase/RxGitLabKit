@@ -9,15 +9,15 @@ import Foundation
 import RxGitLabKit
 
 class PaginatorMocks {
-  
+
   static let commitJSONs: [String] = CommitsMocks.commitJSONs
-  
+
   static let commits: [Commit] = CommitsMocks.commits
-  
+
   static var totalElementsCount: Int {
     return commitJSONs.count
   }
-  
+
   static func getHeader(page: Int, perPage: Int) -> Header {
     let header = [
       HeaderKeys.total.rawValue: "\(totalElementsCount)",
@@ -27,22 +27,22 @@ class PaginatorMocks {
       HeaderKeys.nextPage.rawValue: "\(min(page + 1, totalElementsCount))",
       HeaderKeys.prevPage.rawValue: "\(max(page - 1, 0))"
     ]
-    
+
     return header
   }
-  
+
   static func getCommitPage(page: Int, perPage: Int) -> Data {
     guard let range = getPageRange(totalCount: totalElementsCount, page: page, perPage: perPage) else { return "[]".data()}
     let joinedStrings = "[ \(commitJSONs[range].joined(separator: ", ")) ]"
-    
+
     return joinedStrings.data()
   }
-  
+
   static func getCommitPage(page: Int, perPage: Int) -> [Commit] {
     guard let range = getPageRange(totalCount: totalElementsCount, page: page, perPage: perPage) else { return []}
     return Array(commits[range])
   }
-  
+
   static func getPageRange(totalCount: Int, page: Int, perPage: Int) -> Range<Int>? {
     let _page = max(1, page)
     let _perPage = max(1, perPage)

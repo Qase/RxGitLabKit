@@ -80,7 +80,7 @@ public struct ProjectMocks {
     }
   }
 """.data()
-  
+
   public static let linksData = """
 {
 "self": "http://example.com/api/v4/projects",
@@ -92,7 +92,7 @@ public struct ProjectMocks {
 "members": "http://example.com/api/v4/projects/1/members"
 }
 """.data()
-  
+
   public static let statisticsData = """
 {
       "commit_count": 37,
@@ -102,7 +102,7 @@ public struct ProjectMocks {
       "job_artifacts_size": 0
     }
 """.data()
-  
+
   public static let namespaceData = """
 {
       "id": 3,
@@ -112,7 +112,7 @@ public struct ProjectMocks {
       "full_path": "diaspora"
     }
 """.data()
-  
+
   public static let userData = """
 {
   "id": 3,
@@ -120,7 +120,7 @@ public struct ProjectMocks {
   "created_at": "2013-09-30T13:46:02Z"
 }
 """.data()
-  
+
   public static let hookData = """
 {
 "id": 1,
@@ -140,7 +140,7 @@ public struct ProjectMocks {
 "created_at": "2012-10-12T17:04:47Z"
 }
 """.data()
-  
+
   public static let languagesData = """
 {
   "Ruby": 66.69,

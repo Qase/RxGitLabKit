@@ -5,7 +5,6 @@
 //  Created by Dagy Tran on 01/11/2018.
 //
 
-
 import XCTest
 import RxGitLabKit
 
@@ -13,7 +12,7 @@ class ProjectTests: XCTestCase {
 
   private let decoder = JSONDecoder()
   private let calendar = Calendar(identifier: .gregorian)
-  
+
   func testProjectDecode() {
     do {
       let project = try decoder.decode(Project.self, from: ProjectMocks.projectData)
@@ -23,7 +22,7 @@ class ProjectTests: XCTestCase {
       XCTFail("Failed to decode commit. Error: \(error.localizedDescription)")
     }
   }
-  
+
   func testLinksDecode() {
     do {
       let links = try decoder.decode(Links.self, from: ProjectMocks.linksData)
@@ -35,12 +34,12 @@ class ProjectTests: XCTestCase {
       XCTAssertEqual(links.labels, "http://example.com/api/v4/projects/1/labels")
       XCTAssertEqual(links.events, "http://example.com/api/v4/projects/1/events")
       XCTAssertEqual(links.members, "http://example.com/api/v4/projects/1/members")
-      
+
     } catch let error {
       XCTFail("Failed to decode commit. Error: \(error.localizedDescription)")
     }
   }
-  
+
   func testStatisticsDecode() {
     do {
       let statistics = try decoder.decode(ProjectStatistics.self, from: ProjectMocks.statisticsData)
@@ -53,7 +52,7 @@ class ProjectTests: XCTestCase {
       XCTFail("Failed to decode commit. Error: \(error.localizedDescription)")
     }
   }
-  
+
   func testNamespaceDecode() {
     do {
       let namespace = try decoder.decode(Namespace.self, from: ProjectMocks.namespaceData)
@@ -66,7 +65,7 @@ class ProjectTests: XCTestCase {
       XCTFail("Failed to decode commit. Error: \(error.localizedDescription)")
     }
   }
-  
+
   func testUserDecode() {
     do {
       let namespace = try decoder.decode(User.self, from: ProjectMocks.userData)
@@ -76,7 +75,7 @@ class ProjectTests: XCTestCase {
       XCTFail("Failed to decode commit. Error: \(error.localizedDescription)")
     }
   }
-  
+
   func testHookDecode() {
     do {
       let object = try decoder.decode(ProjectHook.self, from: ProjectMocks.hookData)
@@ -102,7 +101,7 @@ class ProjectTests: XCTestCase {
       XCTFail("Failed to decode commit. Error: \(error.localizedDescription)")
     }
   }
-  
+
   func testLanguagesDecode() {
     do {
       let dict = try JSONSerialization.jsonObject(with: ProjectMocks.languagesData, options: []) as! [String: Double]
@@ -111,21 +110,21 @@ class ProjectTests: XCTestCase {
       XCTFail("Failed to decode langugages. Error: \(error.localizedDescription)")
     }
   }
-  
+
   func testShareGroupSerialization() {
-    var jsonBody: [String : Any] = [
+    var jsonBody: [String: Any] = [
       "id": 1,
       "group_id": 4,
       "group_access": 20
     ]
     let formatter = ISO8601DateFormatter()
     let dateString = formatter.string(from: Date())
-    
+
 //    if let date = expiresAt {
       jsonBody["expires_at"] = dateString
 //    }
-    
+
     print(jsonBody)
-    
+
   }
 }

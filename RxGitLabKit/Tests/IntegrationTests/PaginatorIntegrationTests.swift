@@ -13,21 +13,21 @@ import RxBlocking
 import RxTest
 
 class PaginatorIntegrationTests: XCTestCase {
-  
+
   private var client: RxGitLabAPIClient!
   private let hostURL = URL(string: "https://gitlab.fel.cvut.cz")!
   private let timeoutInSeconds = TimeInterval(5)
   private let disposeBag = DisposeBag()
-  
+
   override func setUp() {
     super.setUp()
     //    URLProtocol.registerClass(MockURLProtocol.self)
     client = RxGitLabAPIClient(with: hostURL)
     client.oAuthTokenVariable.value = AuthenticationMocks.mockLogin[.oAuthToken]
-    
+
     // Put setup code here. This method is called before the invocation of each test method in the class.
   }
-  
+
   override func tearDown() {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
     super.tearDown()
@@ -45,7 +45,7 @@ class PaginatorIntegrationTests: XCTestCase {
 //    case .failed(elements: _, error: let error):
 //      XCTFail(error.localizedDescription)
 //    }
-    
+
     let expectation = XCTestExpectation(description: "response")
     loadAllObservable
       .subscribe (onNext: { value in
@@ -63,19 +63,19 @@ class PaginatorIntegrationTests: XCTestCase {
     wait(for: [expectation], timeout: timeoutInSeconds)
 
   }
-  
+
   func testLoadPage() {
-    let observable = client.users.getUsers().loadPage(page:1, perPage: 66)
+    let observable = client.users.getUsers().loadPage(page: 1, perPage: 66)
     let result = observable.filter({ !$0.isEmpty }).toBlocking(timeout: 1000).materialize()
     switch result {
     case .completed(elements: let elements):
       XCTAssertGreaterThan(elements.count, 0)
-      XCTAssertEqual(elements.first!.count,  66)
+      XCTAssertEqual(elements.first!.count, 66)
     case .failed(elements: _, error: let error):
       XCTFail(error.localizedDescription)
     }
   }
-  
+
   func testFirstPage() {
     let paginator = client.users.getUsers(page: 2, perPage: 100)
     XCTAssertEqual(paginator.pageVariable.value, 2)
@@ -83,7 +83,7 @@ class PaginatorIntegrationTests: XCTestCase {
       .filter({ !$0.isEmpty })
       .toBlocking()
       .materialize()
-    
+
     switch result {
     case .completed(elements: let elements):
       XCTAssertGreaterThan(elements.count, 0)
@@ -93,7 +93,7 @@ class PaginatorIntegrationTests: XCTestCase {
       XCTFail(error.localizedDescription)
     }
   }
-  
+
   func testNextPage() {
     let paginator = client.users.getUsers(page: 3, perPage: 100)
     XCTAssertEqual(paginator.pageVariable.value, 3)
@@ -101,7 +101,7 @@ class PaginatorIntegrationTests: XCTestCase {
       .filter({ !$0.isEmpty })
       .toBlocking()
       .materialize()
-    
+
     switch result {
     case .completed(elements: let elements):
       XCTAssertGreaterThan(elements.count, 0)
@@ -111,7 +111,7 @@ class PaginatorIntegrationTests: XCTestCase {
       XCTFail(error.localizedDescription)
     }
   }
-  
+
   func testPreviousPage() {
     let paginator = client.users.getUsers(page: 3, perPage: 100)
     XCTAssertEqual(paginator.pageVariable.value, 3)
@@ -119,7 +119,7 @@ class PaginatorIntegrationTests: XCTestCase {
       .filter({ !$0.isEmpty })
       .toBlocking()
       .materialize()
-    
+
     switch result {
     case .completed(elements: let elements):
       XCTAssertGreaterThan(elements.count, 0)
@@ -129,6 +129,5 @@ class PaginatorIntegrationTests: XCTestCase {
       XCTFail(error.localizedDescription)
     }
   }
-  
-  
+
 }
