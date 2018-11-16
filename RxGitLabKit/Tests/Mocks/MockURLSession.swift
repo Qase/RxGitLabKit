@@ -12,6 +12,7 @@ class MockURLSession: URLSessionProtocol {
   
   var nextDataTask = MockURLSessionDataTask()
   var nextData: Data?
+  var nextDataHandler: ((URLRequest) -> Data?)?
   var nextError: Error?
   var urlResponse: URLResponse?
   var isNilResponseForced: Bool = false
@@ -27,7 +28,12 @@ class MockURLSession: URLSessionProtocol {
     lastRequest = request
     lastURL = request.url
     
-    completionHandler(nextData, urlResponse ?? (isNilResponseForced ? nil : successHttpURLResponse(request: request)), nextError)
+    var data = nextData
+    if nextDataHandler != nil {
+      data = nextDataHandler!(request)
+    }
+    
+    completionHandler(data, urlResponse ?? (isNilResponseForced ? nil : successHttpURLResponse(request: request)), nextError)
     return nextDataTask
   }
 }

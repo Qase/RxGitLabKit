@@ -14,48 +14,39 @@ public class HostCommunicator {
   public let privateTokenVariable = Variable<String?>(nil)
   public let oAuthTokenVariable = Variable<String?>(nil)
   public let disposeBag = DisposeBag()
+  private var authorizationHeader: Header {
+    var header = Header()
+    if let privateToken = privateTokenVariable.value {
+      header["Private-Token"] = privateToken
+    }
+    if let oAuthToken = oAuthTokenVariable.value {
+      header["Authorization"] = "Bearer \(oAuthToken)"
+    }
+    return header
+  }
   
   public init(network: Networking, hostURL: URL) {
     self.network = network
     self.hostURL = hostURL
   }
   
+  public func header(for request: APIRequesting) -> Observable<Header> {
+     guard let request = request.buildRequest(with: self.hostURL, header: authorizationHeader) else { return Observable.error(HTTPError.invalidRequest(message: nil)) }
+    return network.header(for: request)
+  }
+  
   public func object<T>(for request: APIRequesting) -> Observable<T> where T : Codable {
-    var header = Header()
-    if let privateToken = privateTokenVariable.value {
-      header["Private-Token"] = privateToken
-    }
-    if let oAuthToken = oAuthTokenVariable.value {
-      header["Authorization"] = "Bearer \(oAuthToken)"
-    }
-    
-    guard let request = request.buildRequest(with: self.hostURL, header: header) else { return Observable.error(HTTPError.invalidRequest(message: nil)) }
+    guard let request = request.buildRequest(with: self.hostURL, header: authorizationHeader) else { return Observable.error(HTTPError.invalidRequest(message: nil)) }
     return network.object(for: request)
   }
   
   public func data(for request: APIRequesting) -> Observable<Data> {
-    var header = Header()
-    if let privateToken = privateTokenVariable.value {
-      header["Private-Token"] = privateToken
-    }
-    if let oAuthToken = oAuthTokenVariable.value {
-      header["Authorization"] = "Bearer \(oAuthToken)"
-    }
-    
-    guard let request = request.buildRequest(with: self.hostURL, header: header) else { return Observable.error(HTTPError.invalidRequest(message: nil)) }
+    guard let request = request.buildRequest(with: self.hostURL, header: authorizationHeader) else { return Observable.error(HTTPError.invalidRequest(message: nil)) }
     return network.data(for: request)
   }
   
   public func response(for request: APIRequesting) -> Observable<(response: HTTPURLResponse, data: Data?)> {
-    var header = Header()
-    if let privateToken = privateTokenVariable.value {
-      header["Private-Token"] = privateToken
-    }
-    if let oAuthToken = oAuthTokenVariable.value {
-      header["Authorization"] = "Bearer \(oAuthToken)"
-    }
-    
-    guard let request = request.buildRequest(with: self.hostURL, header: header) else { return Observable.error(HTTPError.invalidRequest(message: nil)) }
+    guard let request = request.buildRequest(with: self.hostURL, header: authorizationHeader) else { return Observable.error(HTTPError.invalidRequest(message: nil)) }
     return network.response(for: request)
   }
   
@@ -65,5 +56,7 @@ public class HostCommunicator {
         return response
       }
   }
+  
+  
 }
 

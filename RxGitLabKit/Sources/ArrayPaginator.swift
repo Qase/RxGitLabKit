@@ -26,13 +26,19 @@ public class ArrayPaginator<T: Codable> {
   }
   
   public subscript(range: Range<Int>) -> Observable<[T]> {
-    let arrayOfObservables: [Observable<[T]>] = range.map { self.loadPage(page: $0) }
+    let arrayOfObservables: [Observable<(Int, [T])>] = range
+      .map { page in self.loadPage(page: page).map {(page, $0)}}
+
     let mergedObjects: Observable<[T]> = Observable
       .zip(arrayOfObservables)
-      .map { polePoli -> [T] in
-        polePoli.flatMap { $0 }
+      .map { arrayOfTuples -> [(Int, [T])] in
+        arrayOfTuples.sorted(by: { (lhs, rhs) -> Bool in
+          return lhs.0 < rhs.0
+        })}
+      .map { arrayOfTuples -> [T] in
+        arrayOfTuples.flatMap {$0.1}
       }
-
+    
     return mergedObjects
   }
   
@@ -41,9 +47,27 @@ public class ArrayPaginator<T: Codable> {
     return self[range]
   }
   
-  private func loadPage(page: Int) -> Observable<[T]> {
-     guard let request = apiRequest.buildRequest(with: communicator.hostURL, page: page, perPage: perPage) else { return Observable.error(HTTPError.invalidRequest(message: "invalid"))}
-    return communicator.network.object(for: request)
+  
+  public var totalPages: Observable<Int> {
+    return communicator
+      .header(for: apiRequest)
+      .map({ header -> Int in
+        guard let _page = header[HeaderKeys.totalPages.rawValue], let pagesCount = Int(_page) else { return 0 }
+        return pagesCount
+      })
   }
-	
+
+  public func loadAll() -> Observable<[T]> {
+    return totalPages.flatMap { self[1...$0] }
+  }
+  
+  private func loadPage(page: Int) -> Observable<[T]> {
+    var newApiRequest = apiRequest
+    newApiRequest.parameters["page"] = page
+    newApiRequest.parameters["perPage"] = perPage
+
+    return communicator
+      .object(for: newApiRequest)
+  }
+  
 }
