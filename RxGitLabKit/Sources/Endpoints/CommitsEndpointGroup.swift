@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 
 public class CommitsEndpointGroup: EndpointGroup {
-  
+
   public enum Endpoints {
     case commits(projectID: String)
     case single(projectID: String, sha: String)
@@ -41,11 +41,11 @@ public class CommitsEndpointGroup: EndpointGroup {
         return "/projects/\(projectID)/statuses/\(sha)"
       case .mergeRequests(let projectID, let sha):
         return "/projects/\(projectID)/repository/commits/\(sha)/merge_requests"
-      
+
       }
     }
   }
-  
+
   ///   Get an observable of list of repository commits in a project.
   ///
   ///   - Parameter projectID: The ID or URL-encoded path of the project owned by the
@@ -65,7 +65,7 @@ public class CommitsEndpointGroup: EndpointGroup {
     let getRequest = APIRequest(path: Endpoints.commits(projectID: projectID).url, method: .get, parameters: parameters)
     return object(for: getRequest)
   }
-  
+
   ///   Get a paginator of list of repository commits in a project.
   ///
   ///   - Parameter projectID: The ID or URL-encoded path of the project owned by the
@@ -86,7 +86,7 @@ public class CommitsEndpointGroup: EndpointGroup {
     let paginator = Paginator<Commit>(network: network, hostURL: hostURL, apiRequest: apiRequest, oAuthToken: oAuthTokenVariable, privateToken: privateTokenVariable)
     return paginator
   }
-  
+
   ///   Create a commit
   ///
   ///   - Parameter projectID: The ID or URL-encoded path of the project owned by the
@@ -100,7 +100,7 @@ public class CommitsEndpointGroup: EndpointGroup {
     let apiRequest = APIRequest(path: Endpoints.commits(projectID: projectID).url, method: .post, data: newCommitData)
     return object(for: apiRequest)
   }
-  
+
   ///   Get a specific commit identified by the commit hash or name of a branch or tag.
 
   ///
@@ -116,7 +116,7 @@ public class CommitsEndpointGroup: EndpointGroup {
     let apiRequest = APIRequest(path: Endpoints.single(projectID: projectID, sha: sha).url, parameters: parameters)
     return object(for: apiRequest)
   }
-  
+
   ///   Get all references (from branches or tags) a commit is pushed to. The pagination parameters page and per_page can be used to restrict the list of references.
   ///
   ///   - Parameter projectID: The ID or URL-encoded path of the project owned by the
@@ -131,7 +131,7 @@ public class CommitsEndpointGroup: EndpointGroup {
     let apiRequest = APIRequest(path: Endpoints.references(projectID: projectID, sha: sha).url, parameters: parameters)
     return object(for: apiRequest)
   }
-  
+
   ///   Get a paginator of references (from branches or tags) a commit is pushed to.
   ///
   ///   - Parameter projectID: The ID or URL-encoded path of the project owned by the user
@@ -142,13 +142,13 @@ public class CommitsEndpointGroup: EndpointGroup {
   ///     - **type: String** - The scope of commits. Possible values `branch`, `tag`, `all`. Default is `all`
   ///
   /// - Returns: A Paginator of References
-  
+
   public func getReferences(projectID: String, sha: String) -> Paginator<Reference> {
     let apiRequest = APIRequest(path: Endpoints.references(projectID: projectID, sha: sha).url)
     let paginator = Paginator<Reference>(network: network, hostURL: hostURL, apiRequest: apiRequest, oAuthToken: oAuthTokenVariable, privateToken: privateTokenVariable)
     return paginator
   }
-  
+
   ///   Cherry picks a commit to a given branch.
   ///
   ///   - Parameter projectID: The ID or URL-encoded path of the project owned by the
@@ -160,7 +160,7 @@ public class CommitsEndpointGroup: EndpointGroup {
     APIRequest(path: Endpoints.cherryPick(projectID: projectID, sha: sha).url, method: .post, jsonBody: ["branch" : branch])
     return object(for: apiRequest)
   }
-  
+
   ///   Get the diff of a commit in a project.
   ///
   ///   - Parameter projectID: The ID or URL-encoded path of the project owned by the
@@ -170,7 +170,7 @@ public class CommitsEndpointGroup: EndpointGroup {
     let apiRequest = APIRequest(path: Endpoints.diff(projectID: projectID, sha: sha).url)
     return object(for: apiRequest)
   }
-  
+
   ///   Get the comments of a commit in a project.
   ///
   ///   - Parameter projectID: The ID or URL-encoded path of the project owned by the
@@ -180,7 +180,7 @@ public class CommitsEndpointGroup: EndpointGroup {
     let apiRequest = APIRequest(path: Endpoints.comments(projectID: projectID, sha: sha).url)
     return object(for: apiRequest)
   }
-  
+
   ///   Adds a comment to a commit.-
   ///
   ///   In order to post a comment in a particular line of a particular file, you must specify the full commit SHA, the path, the `line` and `line_type` should be `new`.
@@ -203,7 +203,7 @@ public class CommitsEndpointGroup: EndpointGroup {
       return Observable.error(error)
     }
   }
-  
+
   ///   Get the comments of a commit in a project.
   ///
   ///   - Parameter projectID: The ID or URL-encoded path of the project owned by the
@@ -213,7 +213,7 @@ public class CommitsEndpointGroup: EndpointGroup {
     let apiRequest = APIRequest(path: Endpoints.statuses(projectID: projectID, sha: sha).url)
     return object(for: apiRequest)
   }
-  
+
   ///   Adds or updates a build status of a commit.
   ///
   ///   - Parameter projectID: The ID or URL-encoded path of the project owned by the
@@ -227,7 +227,7 @@ public class CommitsEndpointGroup: EndpointGroup {
       return Observable.error(error)
     }
   }
-  
+
   ///   Get a list of Merge Requests related to the specified commit.
   ///
   ///   - Parameter projectID: The ID or URL-encoded path of the project owned by the

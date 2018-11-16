@@ -14,13 +14,13 @@ public struct Comment: Codable {
   public let createdAt: Date?
   public let author: User?
   public let path: String?
-  
+
   enum CodingKeys: String, CodingKey {
     case note, path, line, author
     case lineType = "line_type"
     case createdAt = "created_at"
   }
-  
+
   public init(from decoder: Decoder) throws {
     let values = try decoder.container(keyedBy: CodingKeys.self)
     note = try values.decode(String.self, forKey: .note)
@@ -30,7 +30,7 @@ public struct Comment: Codable {
     path = try values.decodeIfPresent(String.self, forKey: .path)
     author = try values.decodeIfPresent(User.self, forKey: .author)
   }
-  
+
   public init(note: String? = nil, lineType: String? = nil, line: Int? = nil, createdAt: Date? = nil, author: User? = nil, path: String? = nil) {
     self.note = note
     self.lineType = lineType
@@ -39,10 +39,10 @@ public struct Comment: Codable {
     self.author = author
     self.path = path
   }
-  
-  private static func decodeDateIfPresent(values: KeyedDecodingContainer<CodingKeys>, forKey key: CodingKeys) throws -> Date?  {
+
+  private static func decodeDateIfPresent(values: KeyedDecodingContainer<CodingKeys>, forKey key: CodingKeys) throws -> Date? {
     let dateFormatter = ISO8601DateFormatter()
-    if let dateString = try values.decodeIfPresent(String.self, forKey: key), let date = dateFormatter.date(from: dateString)  {
+    if let dateString = try values.decodeIfPresent(String.self, forKey: key), let date = dateFormatter.date(from: dateString) {
       return date
     } else {
       return nil

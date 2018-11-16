@@ -12,7 +12,7 @@ public struct LastPipeline: Codable, Equatable {
   public let ref: String?
   public let sha: String?
   public let status: String?
-  
+
   public init(id: Int?, ref: String?, sha: String?, status: String?) {
     self.id = id
     self.ref = ref

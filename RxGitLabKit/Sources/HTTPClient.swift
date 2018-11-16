@@ -11,7 +11,7 @@ import RxSwift
 public protocol Networking {
   func response(for request: URLRequest) -> Observable<(response: HTTPURLResponse, data: Data?)>
   func header(for request: URLRequest) -> Observable<Header>
-  
+
   func object<T: Codable>(for request: URLRequest) -> Observable<T>
   func data(for request: URLRequest) -> Observable<Data>
   func json(for request: URLRequest) -> Observable<JSONDictionary>
@@ -20,38 +20,38 @@ public protocol Networking {
 public class HTTPClient: Networking {
 
   private let session: URLSessionProtocol
-  
+
   public init(using session: URLSessionProtocol) {
     self.session = session
   }
-  
-  public static func response(for request: URLRequest,in session: URLSessionProtocol = URLSession.shared) -> Observable<(response: HTTPURLResponse, data: Data?)> {
+
+  public static func response(for request: URLRequest, in session: URLSessionProtocol = URLSession.shared) -> Observable<(response: HTTPURLResponse, data: Data?)> {
     return Observable.create { observer in
-      
+
       let task = session.dataTask(with: request) { (data, response, error) in
         guard let response = response else {
           observer.on(.error(error ?? HTTPError.noResponse))
           return
         }
-        
+
         guard let httpResponse = response as? HTTPURLResponse else {
           observer.on(.error(HTTPError.nonHTTPResponse(response: response)))
           return
         }
-        
+
         observer.on(.next((httpResponse, data)))
         observer.on(.completed)
       }
-      
+
       task.resume()
       return Disposables.create(with: task.cancel)
     }
   }
-  
-  public static func header(for request: URLRequest,in session: URLSessionProtocol = URLSession.shared) -> Observable<Header> {
+
+  public static func header(for request: URLRequest, in session: URLSessionProtocol = URLSession.shared) -> Observable<Header> {
     return HTTPClient.response(for: request, in: session)
       .flatMap { (response, _) -> Observable<Header> in
-        
+
         Observable.create { observer in
           switch response.statusCode {
           case 200..<300:
@@ -75,7 +75,7 @@ public class HTTPClient: Networking {
     }
   }
 
-  public static func data(for request: URLRequest,in session: URLSessionProtocol = URLSession.shared) -> Observable<Data> {
+  public static func data(for request: URLRequest, in session: URLSessionProtocol = URLSession.shared) -> Observable<Data> {
     return HTTPClient.response(for: request, in: session)
       .flatMap { (response, data) -> Observable<Data> in
         Observable.create { observer in
@@ -104,11 +104,11 @@ public class HTTPClient: Networking {
         }
     }
   }
-  
-  public static func object<T>(for request: URLRequest,in session: URLSessionProtocol = URLSession.shared) -> Observable<T> where T : Decodable, T : Encodable {
+
+  public static func object<T>(for request: URLRequest, in session: URLSessionProtocol = URLSession.shared) -> Observable<T> where T: Decodable, T: Encodable {
     return HTTPClient.data(for: request, in: session)
       .flatMap { data -> Observable<T> in
-        return Observable.create{ observer in
+        return Observable.create { observer in
           do {
             let decoder = JSONDecoder.init()
             let object = try decoder.decode(T.self, from: data)
@@ -117,12 +117,12 @@ public class HTTPClient: Networking {
           } catch let error {
             observer.onError(HTTPError.parsingJSONFailure(error: error))
           }
-          
+
           return Disposables.create()
         }
     }
   }
-  
+
   public static func json(for request: URLRequest, in session: URLSessionProtocol = URLSession.shared) -> Observable<JSONDictionary> {
     return self.data(for: request, in: session)
       .flatMap { data -> Observable<JSONDictionary> in
@@ -138,23 +138,23 @@ public class HTTPClient: Networking {
         }
     }
   }
-  
+
   public func response(for request: URLRequest) -> Observable<(response: HTTPURLResponse, data: Data?)> {
     return HTTPClient.response(for: request, in: session)
   }
-  
+
   public func header(for request: URLRequest) -> Observable<Header> {
     return HTTPClient.header(for: request, in: session)
   }
-  
+
   public func data(for request: URLRequest) -> Observable<Data> {
-    return HTTPClient.data(for:request, in: session)
+    return HTTPClient.data(for: request, in: session)
   }
-  
-  public func object<T>(for request: URLRequest) -> Observable<T> where T : Decodable, T : Encodable {
+
+  public func object<T>(for request: URLRequest) -> Observable<T> where T: Decodable, T: Encodable {
     return HTTPClient.object(for: request, in: session)
   }
-  
+
   public func json(for request: URLRequest) -> Observable<JSONDictionary> {
     return HTTPClient.json(for: request, in: session)
   }

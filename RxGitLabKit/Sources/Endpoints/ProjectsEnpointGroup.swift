@@ -26,7 +26,7 @@ import RxSwift
  - `ff`: No merge commits are created and all merges are fast-forwarded, which means that merging is only allowed if the branch could be fast-forwarded.
  */
 public class ProjectsEnpointGroup: EndpointGroup {
-  
+
   public enum Endpoints {
     case project(projectID: String)
     case projects
@@ -51,7 +51,7 @@ public class ProjectsEnpointGroup: EndpointGroup {
     case transfer(projectID: String)
     case mirrorPull(projectID: String)
     case snapshot(projectID: String)
-    
+
     var url: String {
       switch self {
       case .project(let projectID):
@@ -131,12 +131,12 @@ public class ProjectsEnpointGroup: EndpointGroup {
     let request = APIRequest(path: Endpoints.project(projectID: projectID).url, parameters: parameters)
     return object(for: request)
   }
-  
+
   public func getProjects(parameters: QueryParameters? = nil, page: Int = 1, perPage: Int = RxGitLabAPIClient.defaultPerPage) -> Observable<[Project]> {
     let request = APIRequest(path: Endpoints.projects.url, parameters: parameters)
     return object(for: request)
   }
-  
+
   /// Get single project
   ///
   /// Get a specific project. This endpoint can be accessed without authentication if the project is publicly accessible.
@@ -146,7 +146,7 @@ public class ProjectsEnpointGroup: EndpointGroup {
     let apiRequest = APIRequest(path: Endpoints.project(projectID: projectID).url)
     return object(for: apiRequest)
   }
-  
+
   /// Get project users
   ///
   /// Get the users list of a project. The pagination parameters page and per_page can be used to restrict the list of references.
@@ -178,7 +178,7 @@ public class ProjectsEnpointGroup: EndpointGroup {
     let request = APIRequest(path: Endpoints.userProjects(userID: userID).url, parameters: parameters)
     return object(for: request)
   }
-  
+
   /// Get project users
   ///
   /// Get the paginator of users list of a project.
@@ -210,7 +210,7 @@ public class ProjectsEnpointGroup: EndpointGroup {
     let paginator = Paginator<Project>(network: network, hostURL: hostURL, apiRequest: apiRequest, oAuthToken: oAuthTokenVariable, privateToken: privateTokenVariable)
     return paginator
   }
-  
+
   /// Get project users
   ///
   /// Get the users list of a project.
@@ -221,7 +221,7 @@ public class ProjectsEnpointGroup: EndpointGroup {
     let request = APIRequest(path: Endpoints.projectUsers(projectID: projectID).url)
     return object(for: request)
   }
-  
+
   /// Create project
   ///
   /// Creates a new project owned by the authenticated user.
@@ -235,7 +235,7 @@ public class ProjectsEnpointGroup: EndpointGroup {
     let apiRequest = APIRequest(path: Endpoints.projects.url, method: .post, data: newProjectData)
     return object(for: apiRequest)
   }
-  
+
   /// Remove project
   ///
   /// Removes a project including all associated resources (issues, merge requests etc.)
@@ -245,7 +245,7 @@ public class ProjectsEnpointGroup: EndpointGroup {
     let apiRequest = APIRequest(path: Endpoints.project(projectID: projectID).url, method: .delete)
     return httpURLResponse(for: apiRequest)
   }
-  
+
   /// Create project for user
   ///
   /// Creates a new project owned by the specified user. Available **only for admins**.
@@ -261,8 +261,7 @@ public class ProjectsEnpointGroup: EndpointGroup {
     let apiRequest = APIRequest(path: Endpoints.createUserProject(userID: userID).url, method: .post, data: newProjectData)
     return object(for: apiRequest)
   }
-  
-  
+
   /// Edit project
   ///
   /// Updates an existing project.
@@ -279,7 +278,7 @@ public class ProjectsEnpointGroup: EndpointGroup {
     let apiRequest = APIRequest(path: Endpoints.project(projectID: "\(projectID)").url, method: .post, data: projectData)
     return object(for: apiRequest)
   }
-  
+
   /// Fork project
   ///
   /// Forks a project into the user namespace of the authenticated user or the one provided.
@@ -293,8 +292,7 @@ public class ProjectsEnpointGroup: EndpointGroup {
     let apiRequest = APIRequest(path: Endpoints.fork(projectID: projectID).url, method: .post, parameters: params)
     return httpURLResponse(for: apiRequest)
   }
-  
-  
+
   /// List Forks of a project
   ///
   /// List the projects accessible to the calling user that have an established, forked relationship with the specified project
@@ -322,7 +320,7 @@ public class ProjectsEnpointGroup: EndpointGroup {
     let request = APIRequest(path: Endpoints.fork(projectID: projectID).url, parameters: parameters)
     return object(for: request)
   }
-  
+
   /// Star a project
   ///
   /// Stars a given project. Returns status code `304` if the project is already starred.
@@ -332,8 +330,7 @@ public class ProjectsEnpointGroup: EndpointGroup {
     let apiRequest = APIRequest(path: Endpoints.star(projectID: projectID).url, method: .post)
     return object(for: apiRequest)
   }
-  
-  
+
   /// Unstar a project
   ///
   /// Unstars a given project. Returns status code `304` if the project is not starred.
@@ -343,8 +340,7 @@ public class ProjectsEnpointGroup: EndpointGroup {
     let apiRequest = APIRequest(path: Endpoints.unstar(projectID: projectID).url, method: .post)
     return object(for: apiRequest)
   }
-  
-  
+
   /// Languages
   ///
   /// Get languages used in a project with percentage value.
@@ -353,7 +349,7 @@ public class ProjectsEnpointGroup: EndpointGroup {
   public func getLanguages(projectID: String ) -> Observable<[String: Double]> {
     let apiRequest = APIRequest(path: Endpoints.unstar(projectID: projectID).url, method: .post)
     return data(for: apiRequest).flatMap({ (data) -> Observable<[String: Double]> in
-      return Observable<[String: Double]>.create{ observer -> Disposable in
+      return Observable<[String: Double]>.create { observer -> Disposable in
         do {
           let dict = try JSONSerialization.jsonObject(with: data, options: []) as! [String: Double]
           observer.onNext(dict)
@@ -365,8 +361,7 @@ public class ProjectsEnpointGroup: EndpointGroup {
       }
     })
   }
-  
-  
+
   /// Archive a project
   ///
   /// Archives the project if the user is either admin or the project owner of this project. This action is idempotent, thus archiving an already archived project will not change the project.
@@ -376,7 +371,7 @@ public class ProjectsEnpointGroup: EndpointGroup {
     let apiRequest = APIRequest(path: Endpoints.archive(projectID: projectID).url, method: .post)
     return object(for: apiRequest)
   }
-  
+
   /// Unarchive a project
   ///
   /// Unarchives the project if the user is either admin or the project owner of this project. This action is idempotent, thus unarchiving a non-archived project will not change the project.
@@ -386,7 +381,7 @@ public class ProjectsEnpointGroup: EndpointGroup {
     let apiRequest = APIRequest(path: Endpoints.unarchive(projectID: projectID).url, method: .post)
     return object(for: apiRequest)
   }
-  
+
   /// Share project with group
   ///
   /// Allow to share project with group.
@@ -397,24 +392,24 @@ public class ProjectsEnpointGroup: EndpointGroup {
   ///   - expiresAt: Share expiration date
   /// - Returns: An observable of server HTTPURLResponse
   public func shareProjectWithGroup(projectID: String, groupID: Int, groupAccess: Int, expiresAt: Date? = nil) -> Observable<HTTPURLResponse> {
-    
-    var jsonBody: [String : Any] = [
+
+    var jsonBody: [String: Any] = [
       "id": projectID,
       "group_id": groupID,
       "group_access": groupAccess
       ]
-    
+
     if let date = expiresAt {
       jsonBody["expires_at"] = date.asISO8601String
     }
-  
+
     let apiRequest = APIRequest(path: Endpoints.star(projectID: projectID).url, method: .post, jsonBody: jsonBody)
     return response(for: apiRequest)
       .map { ( response, _) -> HTTPURLResponse in
         return response
       }
   }
-  
+
   /// Delete a shared project link within a group
   ///
   /// Unshare the project from the group. Returns `204` and no content on success.
@@ -427,7 +422,7 @@ public class ProjectsEnpointGroup: EndpointGroup {
     return response(for: apiRequest)
       .map { (response, _) -> HTTPURLResponse in return response }
   }
-  
+
   /// List project hooks
   ///
   /// Get a list of project hooks.
@@ -441,8 +436,7 @@ public class ProjectsEnpointGroup: EndpointGroup {
     let paginator = Paginator<ProjectHook>(network: network, hostURL: hostURL, apiRequest: apiRequest, page: page, perPage: perPage, oAuthToken: oAuthTokenVariable, privateToken: privateTokenVariable)
     return paginator
   }
-  
-  
+
   /// Get project hook
   ///
   /// Get a specific hook for a project.
@@ -454,7 +448,7 @@ public class ProjectsEnpointGroup: EndpointGroup {
     let apiRequest = APIRequest(path: Endpoints.hook(projectID: projectID, hookID: hookID).url)
     return object(for: apiRequest)
   }
-  
+
   /// Add project hook
   ///
   /// Adds a hook to a specified project.
@@ -472,7 +466,7 @@ public class ProjectsEnpointGroup: EndpointGroup {
       return Observable.error(error)
     }
   }
-  
+
   /// Edit project hook
   ///
   /// Edits a hook for a specified project.
@@ -490,7 +484,7 @@ public class ProjectsEnpointGroup: EndpointGroup {
       return Observable.error(error)
     }
   }
-  
+
   /// Delete project hook
   ///
   /// Removes a hook from a project. This is an idempotent method and can be called multiple times. Either the hook is available or not.
@@ -505,7 +499,7 @@ public class ProjectsEnpointGroup: EndpointGroup {
     return response(for: apiRequest)
       .map { (response, _) -> HTTPURLResponse in return response }
   }
-  
+
   /// Create a forked from/to relation between existing projects
   ///
   /// - Parameters:
@@ -517,7 +511,7 @@ public class ProjectsEnpointGroup: EndpointGroup {
     return response(for: apiRequest)
       .map { (response, _) -> HTTPURLResponse in return response }
   }
-  
+
   /// Delete an existing forked from relationship
   ///
   /// - Parameter projectID: The ID or URL-encoded path of the project
@@ -527,7 +521,7 @@ public class ProjectsEnpointGroup: EndpointGroup {
     return response(for: apiRequest)
       .map { (response, _) -> HTTPURLResponse in return response }
   }
-  
+
   /// Start the Housekeeping task for a Project
   ///
   /// - Parameter projectID: The ID or URL-encoded path of the project
@@ -537,7 +531,7 @@ public class ProjectsEnpointGroup: EndpointGroup {
     return response(for: apiRequest)
       .map { (response, _) -> HTTPURLResponse in return response }
   }
-  
+
   /// Transfer a project to a new namespace
   ///
   /// - Parameters:

@@ -24,7 +24,7 @@ extension APIRequesting {
     if let path = path {
       pathURL.appendPathComponent(path)
     }
-    
+
     guard var components = URLComponents(url: pathURL, resolvingAgainstBaseURL: false) else { return nil }
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
@@ -43,19 +43,19 @@ extension APIRequesting {
         }
       }
     }
-    
+
     // Pagination query items
     if (page != nil || perPage != nil) && components.queryItems == nil {
       components.queryItems = []
       if let page = page {
         components.queryItems?.append(URLQueryItem(name: "page", value: "\(page)"))
       }
-      
+
       if let perPage = perPage {
         components.queryItems?.append(URLQueryItem(name: "per_page", value: "\(perPage)"))
       }
     }
-    
+
     // Request from url
     guard let url = components.url else { return nil }
     var request = URLRequest(url: url)
@@ -67,11 +67,11 @@ extension APIRequesting {
     if let jsonBody = jsonDictionary, let jsonData = try? JSONSerialization.data(withJSONObject: jsonBody) {
       request.httpBody = jsonData
     }
-    
+
     if let data = data {
       request.httpBody = data
     }
-    
+
     return request
   }
 }
@@ -82,7 +82,7 @@ public struct APIRequest: APIRequesting {
   public var parameters: QueryParameters
   public var jsonDictionary: JSONDictionary?
   public var data: Data?
-  
+
   public init(path: String = "",
        method: HTTPMethod = HTTPMethod.get,
        parameters: QueryParameters? = nil,

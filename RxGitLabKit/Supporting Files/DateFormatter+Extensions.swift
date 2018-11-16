@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 extension DateFormatter {
   public static var `default`: DateFormatter {
     let dateFormatter = DateFormatter()

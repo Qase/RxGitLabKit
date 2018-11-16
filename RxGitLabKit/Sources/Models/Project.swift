@@ -41,7 +41,7 @@ public struct Project: Codable {
   public let mergeMethod: String?
   public let statistics: ProjectStatistics?
   public let links: Links?
-  
+
   enum CodingKeys: String, CodingKey {
     case id, description
     case defaultBranch = "default_branch"
@@ -83,7 +83,7 @@ public struct Project: Codable {
     case statistics
     case links = "_links"
   }
-  
+
   public init(from decoder: Decoder) throws {
     let values = try decoder.container(keyedBy: CodingKeys.self)
     id = try values.decodeIfPresent(Int.self, forKey: .id)
@@ -128,10 +128,10 @@ public struct Project: Codable {
     statistics = try values.decodeIfPresent(ProjectStatistics.self, forKey: .statistics)
     links = try values.decodeIfPresent(Links.self, forKey: .links)
   }
-  
-  private static func decodeDateIfPresent(values: KeyedDecodingContainer<CodingKeys>, forKey key: CodingKeys) throws -> Date?  {
+
+  private static func decodeDateIfPresent(values: KeyedDecodingContainer<CodingKeys>, forKey key: CodingKeys) throws -> Date? {
     let dateFormatter = ISO8601DateFormatter()
-    if let dateString = try values.decodeIfPresent(String.self, forKey: key), let date = dateFormatter.date(from: dateString)  {
+    if let dateString = try values.decodeIfPresent(String.self, forKey: key), let date = dateFormatter.date(from: dateString) {
       return date
     } else {
       return nil

@@ -19,7 +19,7 @@ public struct Authentication: Codable {
     }
     return nil
   }
-  
+
   enum CodingKeys: String, CodingKey {
     case oAuthToken = "access_token"
     case tokenType = "token_type"
@@ -27,7 +27,7 @@ public struct Authentication: Codable {
     case scope = "scope"
     case createdAt = "created_at"
   }
-  
+
   public init(from decoder: Decoder) throws {
     let values = try decoder.container(keyedBy: CodingKeys.self)
     oAuthToken = try values.decodeIfPresent(String.self, forKey: .oAuthToken)

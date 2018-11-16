@@ -10,7 +10,7 @@ import Foundation
 public struct TimeStats: Codable {
   public let timeEstimate, totalTimeSpent: Int?
   public let humanTimeEstimate, humanTotalTimeSpent: Int?
-  
+
   enum CodingKeys: String, CodingKey {
     case timeEstimate = "time_estimate"
     case totalTimeSpent = "total_time_spent"

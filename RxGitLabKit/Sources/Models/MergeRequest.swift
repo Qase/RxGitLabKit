@@ -29,7 +29,7 @@ public struct MergeRequest: Codable {
   public let forceRemoveSourceBranch: Bool?
   public let webURL: String?
   public let timeStats: TimeStats?
-  
+
   enum CodingKeys: String, CodingKey {
     case id, iid
     case projectID = "project_id"
@@ -55,7 +55,7 @@ public struct MergeRequest: Codable {
     case webURL = "web_url"
     case timeStats = "time_stats"
   }
-  
+
   public init(from decoder: Decoder) throws {
     let values = try decoder.container(keyedBy: CodingKeys.self)
     id = try values.decode(Int.self, forKey: .id)
@@ -87,12 +87,12 @@ public struct MergeRequest: Codable {
     forceRemoveSourceBranch = try values.decodeIfPresent(Bool.self, forKey: .forceRemoveSourceBranch)
     webURL = try values.decodeIfPresent(String.self, forKey: .webURL)
     timeStats = try values.decodeIfPresent(TimeStats.self, forKey: .timeStats)
-    
+
   }
-  
-  private static func decodeDateIfPresent(values: KeyedDecodingContainer<CodingKeys>, forKey key: CodingKeys) throws -> Date?  {
+
+  private static func decodeDateIfPresent(values: KeyedDecodingContainer<CodingKeys>, forKey key: CodingKeys) throws -> Date? {
     let dateFormatter = ISO8601DateFormatter()
-    if let dateString = try values.decodeIfPresent(String.self, forKey: key), let date = dateFormatter.date(from: dateString)  {
+    if let dateString = try values.decodeIfPresent(String.self, forKey: key), let date = dateFormatter.date(from: dateString) {
       return date
     } else {
       return nil

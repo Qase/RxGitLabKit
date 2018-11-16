@@ -16,7 +16,7 @@ public struct Diff: Codable {
   public let newFile: Bool?
   public let renamedFile: Bool?
   public let deletedFile: Bool?
-  
+
   enum CodingKeys: String, CodingKey {
     case diff
     case newPath = "new_path"

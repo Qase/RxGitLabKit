@@ -20,11 +20,11 @@ public class ArrayPaginator<T: Codable> {
     self.apiRequest = apiRequest
     self.perPage = perPage
   }
-  
+
   public subscript(index: Int) -> Observable<[T]> {
     return loadPage(page: index)
   }
-  
+
   public subscript(range: Range<Int>) -> Observable<[T]> {
     let arrayOfObservables: [Observable<(Int, [T])>] = range
       .map { page in self.loadPage(page: page).map {(page, $0)}}
@@ -38,16 +38,15 @@ public class ArrayPaginator<T: Codable> {
       .map { arrayOfTuples -> [T] in
         arrayOfTuples.flatMap {$0.1}
       }
-    
+
     return mergedObjects
   }
-  
+
   public subscript(closedRange: ClosedRange<Int>) -> Observable<[T]> {
     let range = Range(closedRange)
     return self[range]
   }
-  
-  
+
   public var totalPages: Observable<Int> {
     return communicator
       .header(for: apiRequest)
@@ -60,7 +59,7 @@ public class ArrayPaginator<T: Codable> {
   public func loadAll() -> Observable<[T]> {
     return totalPages.flatMap { self[1...$0] }
   }
-  
+
   private func loadPage(page: Int) -> Observable<[T]> {
     var newApiRequest = apiRequest
     newApiRequest.parameters["page"] = page
@@ -69,5 +68,5 @@ public class ArrayPaginator<T: Codable> {
     return communicator
       .object(for: newApiRequest)
   }
-  
+
 }

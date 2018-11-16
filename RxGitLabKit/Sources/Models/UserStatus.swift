@@ -9,7 +9,7 @@ import Foundation
 
 public struct UserStatus: Codable {
   public let emoji, message, messageHTML: String
-  
+
   enum CodingKeys: String, CodingKey {
     case emoji, message
     case messageHTML = "message_html"

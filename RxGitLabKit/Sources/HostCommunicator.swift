@@ -24,39 +24,37 @@ public class HostCommunicator {
     }
     return header
   }
-  
+
   public init(network: Networking, hostURL: URL) {
     self.network = network
     self.hostURL = hostURL
   }
-  
+
   public func header(for request: APIRequesting) -> Observable<Header> {
      guard let request = request.buildRequest(with: self.hostURL, header: authorizationHeader) else { return Observable.error(HTTPError.invalidRequest(message: nil)) }
     return network.header(for: request)
   }
-  
-  public func object<T>(for request: APIRequesting) -> Observable<T> where T : Codable {
+
+  public func object<T>(for request: APIRequesting) -> Observable<T> where T: Codable {
     guard let request = request.buildRequest(with: self.hostURL, header: authorizationHeader) else { return Observable.error(HTTPError.invalidRequest(message: nil)) }
     return network.object(for: request)
   }
-  
+
   public func data(for request: APIRequesting) -> Observable<Data> {
     guard let request = request.buildRequest(with: self.hostURL, header: authorizationHeader) else { return Observable.error(HTTPError.invalidRequest(message: nil)) }
     return network.data(for: request)
   }
-  
+
   public func response(for request: APIRequesting) -> Observable<(response: HTTPURLResponse, data: Data?)> {
     guard let request = request.buildRequest(with: self.hostURL, header: authorizationHeader) else { return Observable.error(HTTPError.invalidRequest(message: nil)) }
     return network.response(for: request)
   }
-  
+
   public func httpURLResponse(for request: APIRequesting) -> Observable<HTTPURLResponse> {
     return response(for: request)
       .map { (response, _) -> HTTPURLResponse in
         return response
       }
   }
-  
-  
-}
 
+}

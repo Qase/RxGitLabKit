@@ -14,7 +14,7 @@ public struct Member: Codable {
   let webURL: String
   let expiresAt: Date
   let accessLevel: Int
-  
+
   enum CodingKeys: String, CodingKey {
     case id, username, name, state
     case avatarURL = "avatar_url"

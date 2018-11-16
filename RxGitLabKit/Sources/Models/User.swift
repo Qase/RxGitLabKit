@@ -8,39 +8,39 @@
 import Foundation
 
 public struct User: Codable {
-  public let id : Int?
-  public let username : String?
-  public let email : String?
-  public let name : String?
-  public let state : String?
-  public let avatarUrl : String?
-  public let webUrl : String?
-  public let createdAt : Date?
-  public let isAdmin : Bool?
-  public let bio : String?
-  public let location : String?
-  public let skype : String?
-  public let linkedin : String?
-  public let twitter : String?
-  public let websiteUrl : String?
-  public let organization : String?
-  public let lastSignInAt : Date?
-  public let confirmedAt : Date?
-  public let themeId : Int?
-  public let lastActivityOn : Date?
-  public let colorSchemeId : Int?
-  public let projectsLimit : Int?
-  public let currentSignInAt : Date?
-  public let identities : [Identities]?
-  public let canCreateGroup : Bool?
-  public let canCreateProject : Bool?
-  public let twoFactorEnabled : Bool?
-  public let external : Bool?
-  public let privateProfile : Bool?
-  public let sharedRunnersMinutesLimit : Int?
-  
+  public let id: Int?
+  public let username: String?
+  public let email: String?
+  public let name: String?
+  public let state: String?
+  public let avatarUrl: String?
+  public let webUrl: String?
+  public let createdAt: Date?
+  public let isAdmin: Bool?
+  public let bio: String?
+  public let location: String?
+  public let skype: String?
+  public let linkedin: String?
+  public let twitter: String?
+  public let websiteUrl: String?
+  public let organization: String?
+  public let lastSignInAt: Date?
+  public let confirmedAt: Date?
+  public let themeId: Int?
+  public let lastActivityOn: Date?
+  public let colorSchemeId: Int?
+  public let projectsLimit: Int?
+  public let currentSignInAt: Date?
+  public let identities: [Identities]?
+  public let canCreateGroup: Bool?
+  public let canCreateProject: Bool?
+  public let twoFactorEnabled: Bool?
+  public let external: Bool?
+  public let privateProfile: Bool?
+  public let sharedRunnersMinutesLimit: Int?
+
   enum CodingKeys: String, CodingKey {
-    
+
     case id = "id"
     case username = "username"
     case email = "email"
@@ -72,7 +72,7 @@ public struct User: Codable {
     case privateProfile = "private_profile"
     case sharedRunnersMinutesLimit = "shared_runners_minutes_limit"
   }
-  
+
   public init(from decoder: Decoder) throws {
     let values = try decoder.container(keyedBy: CodingKeys.self)
     id = try values.decodeIfPresent(Int.self, forKey: .id)
@@ -105,26 +105,26 @@ public struct User: Codable {
     external = try values.decodeIfPresent(Bool.self, forKey: .external)
     privateProfile = try values.decodeIfPresent(Bool.self, forKey: .privateProfile)
     sharedRunnersMinutesLimit = try values.decodeIfPresent(Int.self, forKey: .sharedRunnersMinutesLimit)
-    
+
   }
-  
-  private static func decodeDateIfPresent(values: KeyedDecodingContainer<CodingKeys>, forKey key: CodingKeys) throws -> Date?  {
+
+  private static func decodeDateIfPresent(values: KeyedDecodingContainer<CodingKeys>, forKey key: CodingKeys) throws -> Date? {
     let dateFormatter = ISO8601DateFormatter()
-    if let dateString = try values.decodeIfPresent(String.self, forKey: key), let date = dateFormatter.date(from: dateString)  {
+    if let dateString = try values.decodeIfPresent(String.self, forKey: key), let date = dateFormatter.date(from: dateString) {
       return date
     } else {
       return nil
     }
   }
-  
-  private static func decodeDateDayIfPresent(values: KeyedDecodingContainer<CodingKeys>, forKey key: CodingKeys) throws -> Date?  {
+
+  private static func decodeDateDayIfPresent(values: KeyedDecodingContainer<CodingKeys>, forKey key: CodingKeys) throws -> Date? {
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "yyyy-MM-dd"
-    if let dateString = try values.decodeIfPresent(String.self, forKey: key), let date = dateFormatter.date(from: dateString)  {
+    if let dateString = try values.decodeIfPresent(String.self, forKey: key), let date = dateFormatter.date(from: dateString) {
       return date
     } else {
       return nil
     }
   }
-  
+
 }

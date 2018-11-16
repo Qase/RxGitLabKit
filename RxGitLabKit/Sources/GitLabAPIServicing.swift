@@ -8,24 +8,21 @@
 import Foundation
 
 enum Endpoints {
-  
+
 }
 
 public protocol GitLabAPIServicing {
-  
-  
+
   func authenticate(server: URL)
-  
+
   func authenticate(server: URL, privateToken: String)
-  
+
   func authenticate(server: URL, OAuthToken: String)
-  
+
   func authenticate(server: URL, email: String, password: String)
 
 }
 
-
 extension GitLabAPIServicing {
-  
-  
+
 }

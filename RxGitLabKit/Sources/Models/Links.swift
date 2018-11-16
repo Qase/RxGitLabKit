@@ -10,7 +10,7 @@ import Foundation
 public struct Links: Codable {
   public let linksSelf, issues, mergeRequests, repoBranches: String?
   public let labels, events, members: String?
-  
+
   enum CodingKeys: String, CodingKey {
     case linksSelf = "self"
     case issues

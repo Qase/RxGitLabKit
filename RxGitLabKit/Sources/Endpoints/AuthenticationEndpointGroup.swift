@@ -9,10 +9,10 @@ import Foundation
 import RxSwift
 
 public class AuthenticationEndpointGroup: EndpointGroup {
-  
+
   public enum Endpoints {
     case token
-    
+
     var path: String {
       switch self {
       case .token:
@@ -20,7 +20,7 @@ public class AuthenticationEndpointGroup: EndpointGroup {
       }
     }
   }
-  
+
   public func authenticate(username: String, password: String) -> Observable<Authentication> {
     let jsonBody = [
       "grant_type" : "password",
@@ -28,10 +28,10 @@ public class AuthenticationEndpointGroup: EndpointGroup {
       "password" : password
     ]
     let apiRequest = APIRequest(path: Endpoints.token.path, method: .post, jsonBody: jsonBody)
-    
+
     guard let request = apiRequest.buildRequest(with: self.hostURL, apiVersion: nil) else { return Observable.error(HTTPError.invalidRequest(message: nil)) }
-    
+
     return network.object(for: request)
   }
-  
+
 }

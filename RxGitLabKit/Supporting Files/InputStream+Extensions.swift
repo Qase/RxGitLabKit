@@ -8,7 +8,7 @@
 import Foundation
 
 extension InputStream {
-  
+
   public func readData(bufferSize: Int = 4096) -> Data {
     var result = Data()
     var buffer = [UInt8](repeating: 0, count: bufferSize)
@@ -21,7 +21,7 @@ extension InputStream {
     close()
     return result
   }
-  
+
   public func readString(bufferSize: Int = 4096) -> String {
     let data = readData(bufferSize: bufferSize)
     return String(data: data, encoding: .utf8) ?? ""

@@ -14,10 +14,10 @@ public struct ProjectHook: Codable {
   public let pushEvents: Bool?
   public let pushEventsBranchFilter: String?
   public let issuesEvents, confidentialIssuesEvents, mergeRequestsEvents, tagPushEvents: Bool?
-  public let noteEvents, jobEvents, pipelineEvents,  wikiPageEvents: Bool?
+  public let noteEvents, jobEvents, pipelineEvents, wikiPageEvents: Bool?
   public let enableSSLVerification: Bool?
   public let createdAt: Date?
-  
+
   enum CodingKeys: String, CodingKey {
     case id, url
     case projectID = "project_id"
@@ -34,7 +34,7 @@ public struct ProjectHook: Codable {
     case enableSSLVerification = "enable_ssl_verification"
     case createdAt = "created_at"
   }
-  
+
   public init(from decoder: Decoder) throws {
     let values = try decoder.container(keyedBy: CodingKeys.self)
     id = try values.decodeIfPresent(Int.self, forKey: .id)
@@ -53,14 +53,14 @@ public struct ProjectHook: Codable {
     enableSSLVerification = try values.decodeIfPresent(Bool.self, forKey: .enableSSLVerification)
     createdAt = try ProjectHook.decodeDateIfPresent(values: values, forKey: .createdAt)
   }
-  
-  private static func decodeDateIfPresent(values: KeyedDecodingContainer<CodingKeys>, forKey key: CodingKeys) throws -> Date?  {
+
+  private static func decodeDateIfPresent(values: KeyedDecodingContainer<CodingKeys>, forKey key: CodingKeys) throws -> Date? {
     let dateFormatter = ISO8601DateFormatter()
-    if let dateString = try values.decodeIfPresent(String.self, forKey: key), let date = dateFormatter.date(from: dateString)  {
+    if let dateString = try values.decodeIfPresent(String.self, forKey: key), let date = dateFormatter.date(from: dateString) {
       return date
     } else {
       return nil
     }
   }
-  
+
 }

@@ -25,23 +25,23 @@ public struct Commit: Codable, Equatable {
       lhs.stats == rhs.stats &&
       lhs.status == rhs.status
   }
-  
-  public let id : String
-  public let shortId : String?
-  public let title : String?
-  public let authorName : String?
-  public let authorEmail : String?
-  public let authoredDate : Date?
-  public let committerName : String?
-  public let committerEmail : String?
-  public let committedDate : Date?
-  public let createdAt : Date?
-  public let message : String?
-  public let parentIds : [String]?
+
+  public let id: String
+  public let shortId: String?
+  public let title: String?
+  public let authorName: String?
+  public let authorEmail: String?
+  public let authoredDate: Date?
+  public let committerName: String?
+  public let committerEmail: String?
+  public let committedDate: Date?
+  public let createdAt: Date?
+  public let message: String?
+  public let parentIds: [String]?
   public let lastPipeline: LastPipeline?
   public let stats: Stats?
   public let status: String?
-  
+
   enum CodingKeys: String, CodingKey {
     case id
     case shortId = "short_id"
@@ -59,7 +59,7 @@ public struct Commit: Codable, Equatable {
     case stats
     case status
   }
-  
+
   public init(from decoder: Decoder) throws {
     let values = try decoder.container(keyedBy: CodingKeys.self)
     id = try values.decode(String.self, forKey: .id)
@@ -78,10 +78,10 @@ public struct Commit: Codable, Equatable {
     committedDate = try Commit.decodeDateIfPresent(values: values, forKey: .committedDate)
     createdAt = try Commit.decodeDateIfPresent(values: values, forKey: .createdAt)
   }
-  
-  private static func decodeDateIfPresent(values: KeyedDecodingContainer<CodingKeys>, forKey key: CodingKeys) throws -> Date?  {
+
+  private static func decodeDateIfPresent(values: KeyedDecodingContainer<CodingKeys>, forKey key: CodingKeys) throws -> Date? {
     let dateFormatter = ISO8601DateFormatter()
-    if let dateString = try values.decodeIfPresent(String.self, forKey: key), let date = dateFormatter.date(from: dateString)  {
+    if let dateString = try values.decodeIfPresent(String.self, forKey: key), let date = dateFormatter.date(from: dateString) {
       return date
     } else {
       return nil
@@ -98,7 +98,7 @@ public struct NewCommit: Codable, Equatable {
   public let authorEmail: String?
   public let authorName: String?
   public let stats: Bool?
-  
+
   enum CodingKeys: String, CodingKey {
     case id
     case branch
@@ -109,7 +109,7 @@ public struct NewCommit: Codable, Equatable {
     case authorName = "author_name"
     case stats
   }
-  
+
   public init(id: String? = nil, branch: String, commitMessage: String, startBranch: String? = nil, actions: [Action]? = nil, authorEmail: String? = nil, authorName: String? = nil, stats: Bool? = nil) {
     self.id = id
     self.branch = branch
@@ -120,7 +120,7 @@ public struct NewCommit: Codable, Equatable {
     self.authorName = authorName
     self.stats = stats
   }
-  
+
   public static func == (lhs: NewCommit, rhs: NewCommit) -> Bool {
     return lhs.id == rhs.id &&
     lhs.branch == rhs.branch &&
@@ -130,5 +130,5 @@ public struct NewCommit: Codable, Equatable {
     lhs.authorEmail == rhs.authorEmail &&
     lhs.authorName == rhs.authorName &&
     lhs.stats == rhs.stats
-  }  
+  }
 }

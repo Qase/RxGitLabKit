@@ -10,7 +10,7 @@ import RxSwift
 
 public typealias QueryParameters = [String: Any]
 public typealias JSONDictionary = [String: Any]
-public typealias Header = [String : String]
+public typealias Header = [String: String]
 
 public enum HeaderKeys: String {
   case total = "X-Total"
@@ -36,37 +36,37 @@ public enum HTTPMethod: String {
 public enum HTTPError: Error {
   /// Bad Request - 400
   case badRequest
-  
+
   /// Unauthorized Access - 401
   case unauthorized
-  
+
   /// Forbidden Access - 403
   case forbidden
-  
+
   /// Requested resource could not be found - 404
   case notFound
-  
+
   /// A request method is not supported - 405
   case methodNotAllowed
-  
+
   /// Server failed to fulfill a request - 5xx
   case serverFailure
-  
+
   /// Unknown Error
   case unknown(Int?)
-  
+
   /// JSON Parsing error.
   case parsingJSONFailure(error: Error)
-  
+
   /// An invalid request
   case invalidRequest(message: String?)
-  
+
   /// No Response
   case noResponse
-  
+
   /// Non HTTP Response
   case nonHTTPResponse(response: URLResponse)
-  
+
   /// No Data
   case noData
 }
@@ -104,7 +104,7 @@ extension HTTPError: LocalizedError {
 
 public protocol URLSessionProtocol {
   typealias DataTaskResult = (Data?, URLResponse?, Error?) -> Void
-  
+
   func dataTask(with request: URLRequest, completionHandler: @escaping DataTaskResult) -> URLSessionDataTaskProtocol
 }
 
@@ -115,7 +115,7 @@ public protocol URLSessionDataTaskProtocol {
   func cancel()
 }
 
-//MARK: Conform the protocol
+// MARK: Conform the protocol
 extension URLSession: URLSessionProtocol {
   public func dataTask(with request: URLRequest, completionHandler: @escaping DataTaskResult) -> URLSessionDataTaskProtocol {
     return dataTask(with: request, completionHandler: completionHandler) as URLSessionDataTask
