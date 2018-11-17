@@ -205,9 +205,9 @@ public class ProjectsEnpointGroup: EndpointGroup {
   ///   - **with_merge_requests_enabled: Boolean** - Limit by enabled merge requests feature
   ///   - **min_access_level: Integer** - Limit by current user minimal access level
   /// - Returns: An observable of list of Project
-  public func getUserProjects(userID: String, parameters: QueryParameters? = nil) -> Paginator<Project> {
+  public func getUserProjects(userID: String, parameters: QueryParameters? = nil) -> ArrayPaginator<Project> {
     let apiRequest = APIRequest(path: Endpoints.userProjects(userID: userID).url, parameters: parameters)
-    let paginator = Paginator<Project>(network: network, hostURL: hostURL, apiRequest: apiRequest, oAuthToken: oAuthTokenVariable, privateToken: privateTokenVariable)
+    let paginator = ArrayPaginator<Project>(communicator: hostCommunicator, apiRequest: apiRequest)
     return paginator
   }
 
@@ -431,9 +431,9 @@ public class ProjectsEnpointGroup: EndpointGroup {
   ///   - page: The page number
   ///   - perPage: Maximum item count per page
   /// - Returns: A paginator of Hook
-  public func getHooks(projectID: String, page: Int = 1, perPage: Int = RxGitLabAPIClient.defaultPerPage) -> Paginator<ProjectHook> {
+  public func getHooks(projectID: String, page: Int = 1, perPage: Int = RxGitLabAPIClient.defaultPerPage) -> ArrayPaginator<ProjectHook> {
     let apiRequest = APIRequest(path: Endpoints.hooks(projectID: projectID).url)
-    let paginator = Paginator<ProjectHook>(network: network, hostURL: hostURL, apiRequest: apiRequest, page: page, perPage: perPage, oAuthToken: oAuthTokenVariable, privateToken: privateTokenVariable)
+    let paginator = ArrayPaginator<ProjectHook>(communicator: hostCommunicator, apiRequest: apiRequest)
     return paginator
   }
 

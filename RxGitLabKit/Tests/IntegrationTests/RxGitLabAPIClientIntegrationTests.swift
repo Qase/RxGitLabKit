@@ -40,7 +40,8 @@ class RxGitLabAPIClientIntegrationTests: XCTestCase {
 
   func testLogin() {
     let expectation = XCTestExpectation(description: "response")
-    let client = RxGitLabAPIClient(with: URL(string: "https://gitlab.fel.cvut.cz")!, using: HTTPClient(using: URLSession.shared))
+    let hostCommunicator = HostCommunicator(hostURL: URL(string: "https://gitlab.fel.cvut.cz")!)
+    let client = RxGitLabAPIClient(with: hostCommunicator)
     client.login(username: AuthenticationMocks.mockLogin[.username]!, password: AuthenticationMocks.mockLogin[.password]!)
       .subscribe (onNext: { success in
         print(client.oAuthTokenVariable.value)

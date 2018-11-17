@@ -387,6 +387,7 @@
 				6C721A8E214A602100B85194 /* APIRequesting.swift */,
 				6C8F9C4721147868002D23E7 /* RxGitLabAPIClient.swift */,
 				6CFBFCE92132BD9E001F4391 /* Paginator.swift */,
+				6C42B1EC219D70FD008E8726 /* ArrayPaginator.swift */,
 				6CC3DB092189AEA6004677C7 /* HostCommunicator.swift */,
 				6CBD2B4B2118812F007BA543 /* Endpoints */,
 				6C5401E52114570200631E21 /* Models */,
@@ -511,7 +512,6 @@
 			children = (
 				6CBD2B482118812A007BA543 /* EndpointGroup.swift */,
 				6CBD2B4C21188410007BA543 /* CommitsEndpointGroup.swift */,
-				6C42B1EC219D70FD008E8726 /* ArrayPaginator.swift */,
 				6CFBFCE021329D2D001F4391 /* MembersEndpointGroup.swift */,
 				6CFBFCE32132AB6A001F4391 /* UsersEndpointGroup.swift */,
 				6CBD2B552122F46D007BA543 /* AuthenticationEndpointGroup.swift */,

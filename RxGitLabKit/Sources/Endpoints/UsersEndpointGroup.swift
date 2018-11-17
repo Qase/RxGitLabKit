@@ -90,10 +90,9 @@ public class UsersEndpointGroup: EndpointGroup {
     }
   }
 
-  public func getUsers(page: Int = 1, perPage: Int = RxGitLabAPIClient.defaultPerPage, parameters: QueryParameters? = nil) -> Paginator<User> {
+  public func getUsers(page: Int = 1, perPage: Int = RxGitLabAPIClient.defaultPerPage, parameters: QueryParameters? = nil) -> ArrayPaginator<User> {
     let apiRequest = APIRequest(path: Endpoints.users.url, parameters: parameters)
-    let paginator = Paginator<User>(network: network, hostURL: hostURL, apiRequest: apiRequest, page: page, perPage: perPage, oAuthToken: oAuthTokenVariable, privateToken: privateTokenVariable)
-
+    let paginator = ArrayPaginator<User>(communicator: hostCommunicator, apiRequest: apiRequest)
     return paginator
   }
 
@@ -183,8 +182,7 @@ public class UsersEndpointGroup: EndpointGroup {
   ///   - username - Username
   public func deleteUser(userID: Int, parameters: QueryParameters? = nil) -> Observable<Bool> {
     let apiRequest = APIRequest(path: Endpoints.user(userID: userID).url, method: .delete, parameters: parameters)
-    let urlRequest = apiRequest.buildRequest(with: hostURL)!
-    return network.response(for: urlRequest)
+    return response(for: apiRequest)
       .map({ ( response, data) -> Bool in
         return response.statusCode == 204
       })
@@ -257,8 +255,8 @@ public class UsersEndpointGroup: EndpointGroup {
 
   public func deleteSSHKey(keyID: Int, parameters: QueryParameters? = nil) -> Observable<Bool> {
     let apiRequest = APIRequest(path: Endpoints.sshKey(keyID: keyID).url, method: .delete, parameters: parameters)
-    let urlRequest = apiRequest.buildRequest(with: hostURL)!
-    return network.response(for: urlRequest)
+
+    return response(for: apiRequest)
       .map({ ( response, data) -> Bool in
         return response.statusCode == 204
       })
@@ -266,8 +264,8 @@ public class UsersEndpointGroup: EndpointGroup {
 
   public func deleteUsersSSHKey(userID: Int, keyID: Int, parameters: QueryParameters? = nil) -> Observable<Bool> {
     let apiRequest = APIRequest(path: Endpoints.usersSSHKey(userID: userID, keyID: keyID).url, method: .delete, parameters: parameters)
-    let urlRequest = apiRequest.buildRequest(with: hostURL)!
-    return network.response(for: urlRequest)
+
+    return response(for: apiRequest)
       .map({ ( response, data) -> Bool in
         return response.statusCode == 204
       })
@@ -295,8 +293,8 @@ public class UsersEndpointGroup: EndpointGroup {
 
   public func deleteGPGKey(keyID: Int, parameters: QueryParameters? = nil) -> Observable<Bool> {
     let apiRequest = APIRequest(path: Endpoints.gpgKey(keyID: keyID).url, method: .delete, parameters: parameters)
-    let urlRequest = apiRequest.buildRequest(with: hostURL)!
-    return network.response(for: urlRequest)
+
+    return response(for: apiRequest)
       .map({ ( response, data) -> Bool in
         return response.statusCode == 204
       })
@@ -324,8 +322,7 @@ public class UsersEndpointGroup: EndpointGroup {
 
   public func deleteUsersGPGKey(userID: Int, keyID: Int, parameters: QueryParameters? = nil) -> Observable<Bool> {
     let apiRequest = APIRequest(path: Endpoints.usersGPGKey(userID: userID, keyID: keyID).url, method: .delete, parameters: parameters)
-    let urlRequest = apiRequest.buildRequest(with: hostURL)!
-    return network.response(for: urlRequest)
+    return response(for: apiRequest)
       .map({ ( response, data) -> Bool in
         return response.statusCode == 204
       })
@@ -353,8 +350,8 @@ public class UsersEndpointGroup: EndpointGroup {
 
   public func deleteEmail(emailID: Int) -> Observable<Bool> {
     let apiRequest = APIRequest(path: Endpoints.email(emailID: emailID).url, method: .delete)
-    let urlRequest = apiRequest.buildRequest(with: hostURL)!
-    return network.response(for: urlRequest)
+
+    return response(for: apiRequest)
       .map({ ( response, data) -> Bool in
         return response.statusCode == 204
       })
@@ -372,8 +369,8 @@ public class UsersEndpointGroup: EndpointGroup {
 
   public func deleteUsersEmail(userID: Int, emailID: Int) -> Observable<Bool> {
     let apiRequest = APIRequest(path: Endpoints.usersEmail(userID: userID, emailID: emailID).url, method: .delete)
-    let urlRequest = apiRequest.buildRequest(with: hostURL)!
-    return network.response(for: urlRequest)
+
+    return response(for: apiRequest)
       .map({ ( response, data) -> Bool in
         return response.statusCode == 204
       })
@@ -381,8 +378,8 @@ public class UsersEndpointGroup: EndpointGroup {
 
   public func blockUser(userID: Int) -> Observable<Bool> {
     let apiRequest = APIRequest(path: Endpoints.blockUser(userID: userID).url, method: .post)
-    let urlRequest = apiRequest.buildRequest(with: hostURL)!
-    return network.response(for: urlRequest)
+
+    return response(for: apiRequest)
       .map({ ( response, data) -> Bool in
         return response.statusCode == 201
       })
@@ -390,8 +387,8 @@ public class UsersEndpointGroup: EndpointGroup {
 
   public func unBlockUser(userID: Int) -> Observable<Bool> {
     let apiRequest = APIRequest(path: Endpoints.unBlockUser(userID: userID).url, method: .post)
-    let urlRequest = apiRequest.buildRequest(with: hostURL)!
-    return network.response(for: urlRequest)
+
+    return response(for: apiRequest)
       .map({ ( response, data) -> Bool in
         return response.statusCode == 204
       })

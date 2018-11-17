@@ -26,8 +26,7 @@ extension APIRequesting {
     }
 
     guard var components = URLComponents(url: pathURL, resolvingAgainstBaseURL: false) else { return nil }
-    let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+    let dateFormatter = ISO8601DateFormatter()
     // Input query items
     if !parameters.isEmpty {
       components.queryItems = parameters.map { (key, value) -> URLQueryItem in

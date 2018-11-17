@@ -21,7 +21,7 @@ class CommitsEndpointGroupUnitTests: EndpointGroupUnitTests {
     mockSession.urlResponse = GeneralMocks.successHttpURLResponse(request: request)
     mockSession.nextData = CommitsMocks.twoCommitsData
     let paginator = client.commits.getCommits(projectID: CommitsMocks.mockProjectID)
-    let result = paginator.loadPage()
+    let result = paginator[1]
       .filter {!$0.isEmpty}
       .toBlocking(timeout: 1)
       .materialize()

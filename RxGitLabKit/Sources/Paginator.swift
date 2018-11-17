@@ -34,9 +34,9 @@ public class Paginator<T: Codable>: HostCommunicator {
     oAuthToken.asObservable()
       .bind(to: oAuthTokenVariable)
       .disposed(by: disposeBag)
-    privateToken.asObservable()
-      .bind(to: privateTokenVariable)
-      .disposed(by: disposeBag)
+//    privateToken.asObservable()
+//      .bind(to: privateTokenVariable)
+//      .disposed(by: disposeBag)
   }
 
   // MARK: Public Functions
@@ -55,7 +55,7 @@ public class Paginator<T: Codable>: HostCommunicator {
     }
 
     var header = Header()
-    if let privateTokenValue = privateTokenVariable.value {
+    if let privateTokenValue = privateToken {
       header[HeaderKeys.privateToken.rawValue] = privateTokenValue
     }
     if let oAuthTokenValue = oAuthTokenVariable.value {
@@ -93,7 +93,7 @@ public class Paginator<T: Codable>: HostCommunicator {
   private var header: Observable<Header> {
     get {
       var header = Header()
-      if let privateToken = self.privateTokenVariable.value {
+      if let privateToken = self.privateToken {
         header[HeaderKeys.privateToken.rawValue] = privateToken
       }
       if let oAuthToken = self.oAuthTokenVariable.value {

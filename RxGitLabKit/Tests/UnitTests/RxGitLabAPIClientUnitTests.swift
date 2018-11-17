@@ -21,7 +21,8 @@ class RxGitLabAPIClientUnitTests: XCTestCase {
   override func setUp() {
     super.setUp()
     mockSession = MockURLSession()
-    client = RxGitLabAPIClient(with: hostURL, using: HTTPClient(using: mockSession))
+    let hostCommunicator = HostCommunicator(network: HTTPClient(using: mockSession), hostURL: hostURL)
+    client = RxGitLabAPIClient(with: hostCommunicator)
   }
 
   func testGetOAuthToken() {
@@ -77,7 +78,7 @@ class RxGitLabAPIClientUnitTests: XCTestCase {
       }
 
       XCTAssertEqual(client.oAuthTokenVariable.value, AuthenticationMocks.mockLogin[.oAuthToken])
-      XCTAssertNil(client.privateTokenVariable.value)
+      XCTAssertNil(client.privateToken)
     case .failed(elements: _, error: let error):
       XCTFail(error.localizedDescription)
     }

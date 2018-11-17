@@ -23,6 +23,7 @@ class EndpointGroupUnitTests: XCTestCase {
   override func setUp() {
     mockSession = MockURLSession()
     let mockHTTPClient = HTTPClient(using: mockSession)
-    client = RxGitLabAPIClient(with: hostURL, using: mockHTTPClient)
+    let hostCommunicator = HostCommunicator(network: mockHTTPClient, hostURL: hostURL)
+    client = RxGitLabAPIClient(with: hostCommunicator)
   }
 }
