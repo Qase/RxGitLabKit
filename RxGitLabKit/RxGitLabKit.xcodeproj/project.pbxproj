@@ -44,6 +44,12 @@
 		6C4370BC218B9AF9002ACBDA /* ProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4370B9218B9A86002ACBDA /* ProjectTests.swift */; };
 		6C4370BE218BA777002ACBDA /* ProjectHook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4370BD218BA777002ACBDA /* ProjectHook.swift */; };
 		6C4370BF218BA777002ACBDA /* ProjectHook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4370BD218BA777002ACBDA /* ProjectHook.swift */; };
+		6C54518C21A016FD00B6BFA0 /* RepositoriesEnpointGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C54518B21A016FD00B6BFA0 /* RepositoriesEnpointGroup.swift */; };
+		6C54518D21A016FD00B6BFA0 /* RepositoriesEnpointGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C54518B21A016FD00B6BFA0 /* RepositoriesEnpointGroup.swift */; };
+		6C54518F21A024C300B6BFA0 /* Comparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C54518E21A024C300B6BFA0 /* Comparison.swift */; };
+		6C54519021A024C300B6BFA0 /* Comparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C54518E21A024C300B6BFA0 /* Comparison.swift */; };
+		6C54519221A0261E00B6BFA0 /* FileInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C54519121A0261E00B6BFA0 /* FileInfo.swift */; };
+		6C54519321A0261E00B6BFA0 /* FileInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C54519121A0261E00B6BFA0 /* FileInfo.swift */; };
 		6C6EE57B218F6F23006C447E /* ProjectsEndpointGroupUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6EE57A218F6F23006C447E /* ProjectsEndpointGroupUnitTests.swift */; };
 		6C6EE57D218F6F7D006C447E /* EndpointGroupUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6EE57C218F6F7D006C447E /* EndpointGroupUnitTests.swift */; };
 		6C6EE58821907480006C447E /* RxGitLabKit_macOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6EE58721907480006C447E /* RxGitLabKit_macOSTests.swift */; };
@@ -219,6 +225,9 @@
 		6C5401D321144B7500631E21 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		6C5401E62114593600631E21 /* Commit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commit.swift; sourceTree = "<group>"; };
 		6C54020321145C2300631E21 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		6C54518B21A016FD00B6BFA0 /* RepositoriesEnpointGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesEnpointGroup.swift; sourceTree = "<group>"; };
+		6C54518E21A024C300B6BFA0 /* Comparison.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comparison.swift; sourceTree = "<group>"; };
+		6C54519121A0261E00B6BFA0 /* FileInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileInfo.swift; sourceTree = "<group>"; };
 		6C6EE57A218F6F23006C447E /* ProjectsEndpointGroupUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProjectsEndpointGroupUnitTests.swift; path = Tests/UnitTests/ProjectsEndpointGroupUnitTests.swift; sourceTree = SOURCE_ROOT; };
 		6C6EE57C218F6F7D006C447E /* EndpointGroupUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointGroupUnitTests.swift; sourceTree = "<group>"; };
 		6C6EE58521907480006C447E /* RxGitLabKit-macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RxGitLabKit-macOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -424,6 +433,8 @@
 				6CC3DB16218A4216004677C7 /* Email.swift */,
 				6CC3DB19218A4542004677C7 /* ImpersonationToken.swift */,
 				6C4370BD218BA777002ACBDA /* ProjectHook.swift */,
+				6C54518E21A024C300B6BFA0 /* Comparison.swift */,
+				6C54519121A0261E00B6BFA0 /* FileInfo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -517,6 +528,7 @@
 				6CBD2B552122F46D007BA543 /* AuthenticationEndpointGroup.swift */,
 				6CBD2B582122F841007BA543 /* RepositoriesEndpointGroup.swift */,
 				6C06A8A1212EA89F00686583 /* ProjectsEnpointGroup.swift */,
+				6C54518B21A016FD00B6BFA0 /* RepositoriesEnpointGroup.swift */,
 			);
 			path = Endpoints;
 			sourceTree = "<group>";
@@ -863,6 +875,7 @@
 				6C4370B8218B9A55002ACBDA /* ProjectMocks.swift in Sources */,
 				6CE95EE22166209900EDAE16 /* LastPipeline.swift in Sources */,
 				6C35DD13212B04A800D05B87 /* String+Extensions.swift in Sources */,
+				6C54519321A0261E00B6BFA0 /* FileInfo.swift in Sources */,
 				6C6EE5B8219081D2006C447E /* MergeRequest.swift in Sources */,
 				6CBD2B572122F46D007BA543 /* AuthenticationEndpointGroup.swift in Sources */,
 				6CBD2B4A2118812A007BA543 /* EndpointGroup.swift in Sources */,
@@ -870,10 +883,12 @@
 				6CBD2B51211894E4007BA543 /* Reference.swift in Sources */,
 				6C6EE5AC21908152006C447E /* Action.swift in Sources */,
 				6CFBFCE52132AB6A001F4391 /* UsersEndpointGroup.swift in Sources */,
+				6C54518D21A016FD00B6BFA0 /* RepositoriesEnpointGroup.swift in Sources */,
 				6C42B1EE219D70FD008E8726 /* ArrayPaginator.swift in Sources */,
 				6CBD2B3921185325007BA543 /* HTTPClient.swift in Sources */,
 				6C0BC3F52138159B0000FAAA /* Commit.swift in Sources */,
 				6CBD2B4E21188410007BA543 /* CommitsEndpointGroup.swift in Sources */,
+				6C54519021A024C300B6BFA0 /* Comparison.swift in Sources */,
 				6CFBFCE221329D2D001F4391 /* MembersEndpointGroup.swift in Sources */,
 				6C4370B5218B981F002ACBDA /* Links.swift in Sources */,
 				6C4370BF218BA777002ACBDA /* ProjectHook.swift in Sources */,
@@ -916,6 +931,7 @@
 				6C4370B7218B9A55002ACBDA /* ProjectMocks.swift in Sources */,
 				6CE95EE12166209900EDAE16 /* LastPipeline.swift in Sources */,
 				6CBD2B592122F841007BA543 /* RepositoriesEndpointGroup.swift in Sources */,
+				6C54519221A0261E00B6BFA0 /* FileInfo.swift in Sources */,
 				6C6EE5B7219081D2006C447E /* MergeRequest.swift in Sources */,
 				6C06A8A2212EA8A000686583 /* ProjectsEnpointGroup.swift in Sources */,
 				6CFBFCE121329D2D001F4391 /* MembersEndpointGroup.swift in Sources */,
@@ -923,10 +939,12 @@
 				6C35DD1F212C10B500D05B87 /* InputStream+Extensions.swift in Sources */,
 				6C6EE5AB21908152006C447E /* Action.swift in Sources */,
 				6CBD2B532122F160007BA543 /* Authentication.swift in Sources */,
+				6C54518C21A016FD00B6BFA0 /* RepositoriesEnpointGroup.swift in Sources */,
 				6C42B1ED219D70FD008E8726 /* ArrayPaginator.swift in Sources */,
 				6CE13F6F21184EFE00C92B7B /* Commit.swift in Sources */,
 				6CFBFCE72132B5E4001F4391 /* User.swift in Sources */,
 				6C35DD12212B04A800D05B87 /* String+Extensions.swift in Sources */,
+				6C54518F21A024C300B6BFA0 /* Comparison.swift in Sources */,
 				6CBD2B5F21230714007BA543 /* Contributor.swift in Sources */,
 				6C4370B4218B981F002ACBDA /* Links.swift in Sources */,
 				6C4370BE218BA777002ACBDA /* ProjectHook.swift in Sources */,

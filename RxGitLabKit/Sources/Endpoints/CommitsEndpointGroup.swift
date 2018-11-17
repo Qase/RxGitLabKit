@@ -48,7 +48,7 @@ public class CommitsEndpointGroup: EndpointGroup {
 
   ///   Get an observable of list of repository commits in a project.
   ///
-  ///   - Parameter projectID: The ID or URL-encoded path of the project owned by the
+  ///   - Parameter projectID: The ID or URL-encoded path of the project 
   ///   - Parameter parameters: Query Parameters - See description
   ///
   /// **Query Parameters:**
@@ -68,7 +68,7 @@ public class CommitsEndpointGroup: EndpointGroup {
 
   ///   Get a paginator of list of repository commits in a project.
   ///
-  ///   - Parameter projectID: The ID or URL-encoded path of the project owned by the
+  ///   - Parameter projectID: The ID or URL-encoded path of the project
   ///   - Parameter parameters: Query Parameters - See description
   ///
   /// **Query Parameters:**
@@ -120,7 +120,7 @@ public class CommitsEndpointGroup: EndpointGroup {
 
   ///   Get all references (from branches or tags) a commit is pushed to. The pagination parameters page and per_page can be used to restrict the list of references.
   ///
-  ///   - Parameter projectID: The ID or URL-encoded path of the project owned by the
+  ///   - Parameter projectID: The ID or URL-encoded path of the project
   ///   - Parameter sha: The commit hash or name of a repository branch or tag
   ///
   /// **Query Parameters:**
@@ -152,7 +152,7 @@ public class CommitsEndpointGroup: EndpointGroup {
 
   ///   Cherry picks a commit to a given branch.
   ///
-  ///   - Parameter projectID: The ID or URL-encoded path of the project owned by the
+  ///   - Parameter projectID: The ID or URL-encoded path of the project
   ///   - Parameter sha: The commit has
   ///   - Parameter branch: The name of the branch
   /// - Returns: A Commit
@@ -164,7 +164,7 @@ public class CommitsEndpointGroup: EndpointGroup {
 
   ///   Get the diff of a commit in a project.
   ///
-  ///   - Parameter projectID: The ID or URL-encoded path of the project owned by the
+  ///   - Parameter projectID: The ID or URL-encoded path of the project 
   ///   - Parameter sha: The commit has
   /// - Returns: A Diff
   public func getDiff(projectID: String, sha: String) -> Observable<Diff> {
