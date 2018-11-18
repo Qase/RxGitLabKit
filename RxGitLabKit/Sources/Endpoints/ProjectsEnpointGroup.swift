@@ -28,29 +28,29 @@ import RxSwift
 public class ProjectsEnpointGroup: EndpointGroup {
 
   public enum Endpoints {
-    case project(projectID: String)
+    case project(projectID: Int)
     case projects
     case userProjects(userID: String)
-    case projectUsers(projectID: String)
+    case projectUsers(projectID: Int)
     case createUserProject(userID: String)
-    case fork(projectID: String)
-    case forks(projectID: String)
-    case star(projectID: String)
-    case unstar(projectID: String)
-    case languages(projectID: String)
-    case archive(projectID: String)
-    case unarchive(projectID: String)
-    case uploads(projectID: String)
-    case share(projectID: String)
-    case shareGroup(projectID: String, groupID: Int)
-    case hook(projectID: String, hookID: Int)
-    case hooks(projectID: String)
-    case forkRelationship(projectID: String, forkedFromID: Int)
-    case housekeeping(projectID: String)
-    case pushRule(projectID: String)
-    case transfer(projectID: String)
-    case mirrorPull(projectID: String)
-    case snapshot(projectID: String)
+    case fork(projectID: Int)
+    case forks(projectID: Int)
+    case star(projectID: Int)
+    case unstar(projectID: Int)
+    case languages(projectID: Int)
+    case archive(projectID: Int)
+    case unarchive(projectID: Int)
+    case uploads(projectID: Int)
+    case share(projectID: Int)
+    case shareGroup(projectID: Int, groupID: Int)
+    case hook(projectID: Int, hookID: Int)
+    case hooks(projectID: Int)
+    case forkRelationship(projectID: Int, forkedFromID: Int)
+    case housekeeping(projectID: Int)
+    case pushRule(projectID: Int)
+    case transfer(projectID: Int)
+    case mirrorPull(projectID: Int)
+    case snapshot(projectID: Int)
 
     var url: String {
       switch self {
@@ -59,7 +59,7 @@ public class ProjectsEnpointGroup: EndpointGroup {
       case .projects:
         return "/projects"
       case .userProjects(let userID):
-        return "/users/\(userID)"
+        return "/users/\(userID)/projects"
       case .projectUsers(let projectID):
         return "/projects/\(projectID)/users"
       case .createUserProject(let userID):
@@ -127,14 +127,24 @@ public class ProjectsEnpointGroup: EndpointGroup {
   ///     - **min_access_level: Integer** -   Limit by current user minimal access level
   ///
   /// - Returns: An observable of list of projects in a project
-  public func getProject(projectID: String, parameters: QueryParameters? = nil) -> Observable<Project> {
+  public func getProject(projectID: Int, parameters: QueryParameters? = nil) -> Observable<Project> {
     let request = APIRequest(path: Endpoints.project(projectID: projectID).url, parameters: parameters)
     return object(for: request)
   }
 
   public func getProjects(parameters: QueryParameters? = nil, page: Int = 1, perPage: Int = RxGitLabAPIClient.defaultPerPage) -> Observable<[Project]> {
-    let request = APIRequest(path: Endpoints.projects.url, parameters: parameters)
-    return object(for: request)
+    var queryParams = parameters ?? QueryParameters()
+    queryParams["page"] =  page
+    queryParams["per_page"] = perPage
+    
+    let apiRequest = APIRequest(path: Endpoints.projects.url, parameters: queryParams)
+    return object(for: apiRequest)
+  }
+  
+  public func getProjects(parameters: QueryParameters? = nil) -> ArrayPaginator<Project> {
+    let apiRequest = APIRequest(path: Endpoints.projects.url, parameters: parameters)
+    let paginator = ArrayPaginator<Project>(communicator: hostCommunicator, apiRequest: apiRequest)
+    return paginator
   }
 
   /// Get single project
@@ -142,7 +152,7 @@ public class ProjectsEnpointGroup: EndpointGroup {
   /// Get a specific project. This endpoint can be accessed without authentication if the project is publicly accessible.
   /// - Parameter projectID: ID of the project
   /// - Returns: An observable of `Project`
-  public func getProject(projectID: String) -> Observable<Project> {
+  public func getProject(projectID: Int) -> Observable<Project> {
     let apiRequest = APIRequest(path: Endpoints.project(projectID: projectID).url)
     return object(for: apiRequest)
   }
@@ -217,7 +227,7 @@ public class ProjectsEnpointGroup: EndpointGroup {
   /// - Parameters:
   ///   - projectID: The ID or URL-encoded path of the project
   /// - Returns: An observable of list of Users
-  public func getProjectUsers(projectID: String) -> Observable<[User]> {
+  public func getProjectUsers(projectID: Int) -> Observable<[User]> {
     let request = APIRequest(path: Endpoints.projectUsers(projectID: projectID).url)
     return object(for: request)
   }
@@ -241,7 +251,7 @@ public class ProjectsEnpointGroup: EndpointGroup {
   /// Removes a project including all associated resources (issues, merge requests etc.)
   /// - Parameter projectID: The ID or URL-encoded path of the project
   /// - Returns: An observable of server HTTPURLResponse
-  public func deleteProject(projectID: String) -> Observable<HTTPURLResponse> {
+  public func deleteProject(projectID: Int) -> Observable<HTTPURLResponse> {
     let apiRequest = APIRequest(path: Endpoints.project(projectID: projectID).url, method: .delete)
     return httpURLResponse(for: apiRequest)
   }
@@ -269,13 +279,11 @@ public class ProjectsEnpointGroup: EndpointGroup {
   /// - Returns: An observable of Project
   public func putProject(project: Project) -> Observable<Project> {
     let encoder = JSONEncoder()
-    guard let projectID = project.id else {
-      return Observable.error(ParsingError.encoding(message: "No project ID found."))
-    }
+
     guard let projectData = try? encoder.encode(project) else {
       return Observable.error(ParsingError.encoding(message: "Project could not be encoded"))
     }
-    let apiRequest = APIRequest(path: Endpoints.project(projectID: "\(projectID)").url, method: .post, data: projectData)
+    let apiRequest = APIRequest(path: Endpoints.project(projectID: project.id).url, method: .post, data: projectData)
     return object(for: apiRequest)
   }
 
@@ -287,7 +295,7 @@ public class ProjectsEnpointGroup: EndpointGroup {
   ///   - projectID: The ID or URL-encoded path of the project
   ///   - namespace: The ID or path of the namespace that the project will be forked to
   /// - Returns: An observable of server HTTPURLResponse
-  public func forkProject(projectID: String, namespace: String) -> Observable<HTTPURLResponse> {
+  public func forkProject(projectID: Int, namespace: String) -> Observable<HTTPURLResponse> {
     let params = ["namespace" : namespace]
     let apiRequest = APIRequest(path: Endpoints.fork(projectID: projectID).url, method: .post, parameters: params)
     return httpURLResponse(for: apiRequest)
@@ -316,7 +324,7 @@ public class ProjectsEnpointGroup: EndpointGroup {
   ///   - **with_merge_requests_enabled: Boolean** - Limit by enabled merge requests feature
   ///   - **min_access_level: Integer** - Limit by current user minimal access level
   /// - Returns: An observable of list of projects
-  public func getProjectForks(projectID: String, parameters: QueryParameters? = nil ) -> Observable<[Project]> {
+  public func getProjectForks(projectID: Int, parameters: QueryParameters? = nil ) -> Observable<[Project]> {
     let request = APIRequest(path: Endpoints.fork(projectID: projectID).url, parameters: parameters)
     return object(for: request)
   }
@@ -326,7 +334,7 @@ public class ProjectsEnpointGroup: EndpointGroup {
   /// Stars a given project. Returns status code `304` if the project is already starred.
   /// - Parameter projectID: The ID or URL-encoded path of the project
   /// - Returns: An observable of a starred project
-  public func starProject(projectID: String) -> Observable<Project> {
+  public func starProject(projectID: Int) -> Observable<Project> {
     let apiRequest = APIRequest(path: Endpoints.star(projectID: projectID).url, method: .post)
     return object(for: apiRequest)
   }
@@ -336,7 +344,7 @@ public class ProjectsEnpointGroup: EndpointGroup {
   /// Unstars a given project. Returns status code `304` if the project is not starred.
   /// - Parameter projectID: The ID or URL-encoded path of the project
   /// - Returns: An observable of a starred project
-  public func unstarProject(projectID: String) -> Observable<Project> {
+  public func unstarProject(projectID: Int) -> Observable<Project> {
     let apiRequest = APIRequest(path: Endpoints.unstar(projectID: projectID).url, method: .post)
     return object(for: apiRequest)
   }
@@ -346,7 +354,7 @@ public class ProjectsEnpointGroup: EndpointGroup {
   /// Get languages used in a project with percentage value.
   /// - Parameter projectID: The ID or URL-encoded path of the project
   /// - Returns: An observable of a dictionary of languages
-  public func getLanguages(projectID: String ) -> Observable<[String: Double]> {
+  public func getLanguages(projectID: Int ) -> Observable<[String: Double]> {
     let apiRequest = APIRequest(path: Endpoints.unstar(projectID: projectID).url, method: .post)
     return data(for: apiRequest).flatMap({ (data) -> Observable<[String: Double]> in
       return Observable<[String: Double]>.create { observer -> Disposable in
@@ -367,7 +375,7 @@ public class ProjectsEnpointGroup: EndpointGroup {
   /// Archives the project if the user is either admin or the project owner of this project. This action is idempotent, thus archiving an already archived project will not change the project.
   /// - Parameter projectID: The ID or URL-encoded path of the project
   /// - Returns: An observable of a project
-  public func archiveProject(projectID: String) -> Observable<Project> {
+  public func archiveProject(projectID: Int) -> Observable<Project> {
     let apiRequest = APIRequest(path: Endpoints.archive(projectID: projectID).url, method: .post)
     return object(for: apiRequest)
   }
@@ -377,7 +385,7 @@ public class ProjectsEnpointGroup: EndpointGroup {
   /// Unarchives the project if the user is either admin or the project owner of this project. This action is idempotent, thus unarchiving a non-archived project will not change the project.
   /// - Parameter projectID: The ID or URL-encoded path of the project
   /// - Returns: An observable of a project
-  public func unarchiveProject(projectID: String) -> Observable<Project> {
+  public func unarchiveProject(projectID: Int) -> Observable<Project> {
     let apiRequest = APIRequest(path: Endpoints.unarchive(projectID: projectID).url, method: .post)
     return object(for: apiRequest)
   }
@@ -391,7 +399,7 @@ public class ProjectsEnpointGroup: EndpointGroup {
   ///   - groupAccess: The permissions level to grant the group
   ///   - expiresAt: Share expiration date
   /// - Returns: An observable of server HTTPURLResponse
-  public func shareProjectWithGroup(projectID: String, groupID: Int, groupAccess: Int, expiresAt: Date? = nil) -> Observable<HTTPURLResponse> {
+  public func shareProjectWithGroup(projectID: Int, groupID: Int, groupAccess: Int, expiresAt: Date? = nil) -> Observable<HTTPURLResponse> {
 
     var jsonBody: [String: Any] = [
       "id": projectID,
@@ -417,7 +425,7 @@ public class ProjectsEnpointGroup: EndpointGroup {
   ///   - projectID: The ID or URL-encoded path of the project
   ///   - groupID: The ID of the group
   /// - Returns: An observable of server HTTPURLResponse
-  public func deleteSharedProjectWithinGroup(projectID: String, groupID: Int) -> Observable<HTTPURLResponse> {
+  public func deleteSharedProjectWithinGroup(projectID: Int, groupID: Int) -> Observable<HTTPURLResponse> {
     let apiRequest = APIRequest(path: Endpoints.shareGroup(projectID: projectID, groupID: groupID).url, method: .delete)
     return response(for: apiRequest)
       .map { (response, _) -> HTTPURLResponse in return response }
@@ -431,7 +439,7 @@ public class ProjectsEnpointGroup: EndpointGroup {
   ///   - page: The page number
   ///   - perPage: Maximum item count per page
   /// - Returns: A paginator of Hook
-  public func getHooks(projectID: String, page: Int = 1, perPage: Int = RxGitLabAPIClient.defaultPerPage) -> ArrayPaginator<ProjectHook> {
+  public func getHooks(projectID: Int, page: Int = 1, perPage: Int = RxGitLabAPIClient.defaultPerPage) -> ArrayPaginator<ProjectHook> {
     let apiRequest = APIRequest(path: Endpoints.hooks(projectID: projectID).url)
     let paginator = ArrayPaginator<ProjectHook>(communicator: hostCommunicator, apiRequest: apiRequest)
     return paginator
@@ -444,7 +452,7 @@ public class ProjectsEnpointGroup: EndpointGroup {
   ///   - projectID: The ID or URL-encoded path of the project
   ///   - hookID: The ID of a project hook
   /// - Returns: An observable of a ProjectHook
-  public func getHook(projectID: String, hookID: Int) -> Observable<ProjectHook> {
+  public func getHook(projectID: Int, hookID: Int) -> Observable<ProjectHook> {
     let apiRequest = APIRequest(path: Endpoints.hook(projectID: projectID, hookID: hookID).url)
     return object(for: apiRequest)
   }
@@ -456,7 +464,7 @@ public class ProjectsEnpointGroup: EndpointGroup {
   ///   - projectID: The ID of a project hook
   ///   - hook: A Hook to be created
   /// - Returns: An observable of server HTTPURLResponse
-  public func postHook(projectID: String, hook: ProjectHook) -> Observable<HTTPURLResponse> {
+  public func postHook(projectID: Int, hook: ProjectHook) -> Observable<HTTPURLResponse> {
     do {
       let data = try JSONEncoder().encode(hook)
       let apiRequest = APIRequest(path: Endpoints.hooks(projectID: projectID).url, method: .post, data: data)
@@ -474,7 +482,7 @@ public class ProjectsEnpointGroup: EndpointGroup {
   ///   - projectID: The ID or URL-encoded path of the project
   ///   - hook: A hook to be updated
   /// - Returns: An observable of server HTTPURLResponse
-  public func putHook(projectID: String, hook: ProjectHook) -> Observable<HTTPURLResponse> {
+  public func putHook(projectID: Int, hook: ProjectHook) -> Observable<HTTPURLResponse> {
     do {
       let data = try JSONEncoder().encode(hook)
       let apiRequest = APIRequest(path: Endpoints.hook(projectID: projectID, hookID: hook.id!).url, method: .put, data: data)
@@ -494,7 +502,7 @@ public class ProjectsEnpointGroup: EndpointGroup {
   ///   - hookID: The ID of the project hook
 
   /// - Returns: An observable of server HTTPURLResponse
-  public func deleteHook(projectID: String, hookID: Int) -> Observable<HTTPURLResponse> {
+  public func deleteHook(projectID: Int, hookID: Int) -> Observable<HTTPURLResponse> {
     let apiRequest = APIRequest(path: Endpoints.hook(projectID: projectID, hookID: hookID).url, method: .delete)
     return response(for: apiRequest)
       .map { (response, _) -> HTTPURLResponse in return response }
@@ -506,7 +514,7 @@ public class ProjectsEnpointGroup: EndpointGroup {
   ///   - projectID: The ID or URL-encoded path of the project
   ///   - forkedFromID: The ID of the project that was forked from
   /// - Returns: An observable of server HTTPURLResponse
-  public func postForkRelation(projectID: String, forkedFromID: Int) -> Observable<HTTPURLResponse> {
+  public func postForkRelation(projectID: Int, forkedFromID: Int) -> Observable<HTTPURLResponse> {
     let apiRequest = APIRequest(path: Endpoints.forkRelationship(projectID: projectID, forkedFromID: forkedFromID).url, method: .post)
     return response(for: apiRequest)
       .map { (response, _) -> HTTPURLResponse in return response }
@@ -516,7 +524,7 @@ public class ProjectsEnpointGroup: EndpointGroup {
   ///
   /// - Parameter projectID: The ID or URL-encoded path of the project
   /// - Returns: An observable of server HTTPURLResponse
-  public func deleteForkRelation(projectID: String) -> Observable<HTTPURLResponse> {
+  public func deleteForkRelation(projectID: Int) -> Observable<HTTPURLResponse> {
     let apiRequest = APIRequest(path: Endpoints.fork(projectID: projectID).url, method: .delete)
     return response(for: apiRequest)
       .map { (response, _) -> HTTPURLResponse in return response }
@@ -526,7 +534,7 @@ public class ProjectsEnpointGroup: EndpointGroup {
   ///
   /// - Parameter projectID: The ID or URL-encoded path of the project
   /// - Returns: An observable of server HTTPURLResponse
-  public func postHousekeeping(projectID: String) -> Observable<HTTPURLResponse> {
+  public func postHousekeeping(projectID: Int) -> Observable<HTTPURLResponse> {
     let apiRequest = APIRequest(path: Endpoints.housekeeping(projectID: projectID).url, method: .post)
     return response(for: apiRequest)
       .map { (response, _) -> HTTPURLResponse in return response }
@@ -538,7 +546,7 @@ public class ProjectsEnpointGroup: EndpointGroup {
   ///   - projectID: The ID of the project
   ///   - namespace: The ID or path of the namespace to transfer to project to
   /// - Returns: An observable of server HTTPURLResponse
-  public func putTransfer(projectID: String, namespace: String) -> Observable<HTTPURLResponse> {
+  public func putTransfer(projectID: Int, namespace: String) -> Observable<HTTPURLResponse> {
     let apiRequest = APIRequest(path: Endpoints.transfer(projectID: projectID).url, method: .put, jsonBody: ["namespace" : namespace])
     return response(for: apiRequest)
       .map { (response, _) -> HTTPURLResponse in return response }

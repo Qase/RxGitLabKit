@@ -11,7 +11,7 @@ import RxCocoa
 
 public class RxGitLabAPIClient {
 
-  public static let defaultPerPage = 20
+  public static let defaultPerPage = 100
 
   public static let apiVersion: Int = 4
   
@@ -103,17 +103,26 @@ public class RxGitLabAPIClient {
   }
 
   // MARK: Public Functions
+  
+  public func changeHostURL(hostURL: URL) {
+    hostCommunicator.hostURL = hostURL
+  }
 
   public func getOAuthToken(username: String, password: String) -> Observable<Authentication> {
     return authentication.authenticate(username: username, password: password)
   }
 
-  public func login(username: String, password: String) -> Observable<Bool> {
+  public func logIn(username: String, password: String) -> Observable<Bool> {
     let tokenObservable = getOAuthToken(username: username, password: password)
-      .map { $0.oAuthToken }
+      .map { $0.oAuthToken }.share()
     tokenObservable.bind(to: oAuthTokenVariable)
       .disposed(by: disposeBag)
     return tokenObservable.map { $0 != nil }
+  }
+  
+  public func logOut() {
+    oAuthTokenVariable.value = nil
+    privateToken = nil
   }
 
 }

@@ -15,7 +15,7 @@ class ProjectsEndpointGroupUnitTests: EndpointGroupUnitTests {
 
   func testGetLanguages() {
     mockSession.nextData = ProjectMocks.languagesData
-    let languages = client.projects.getLanguages(projectID: "4")
+    let languages = client.projects.getLanguages(projectID: 4)
     let result = languages
       .toBlocking(timeout: 1)
       .materialize()

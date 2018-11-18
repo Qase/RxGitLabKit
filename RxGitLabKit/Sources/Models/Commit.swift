@@ -27,13 +27,13 @@ public struct Commit: Codable, Equatable {
   }
 
   public let id: String
-  public let shortId: String?
+  public let shortId: String
   public let title: String?
-  public let authorName: String?
+  public let authorName: String
   public let authorEmail: String?
   public let authoredDate: Date?
-  public let committerName: String?
-  public let committerEmail: String?
+  public let committerName: String
+  public let committerEmail: String
   public let committedDate: Date?
   public let createdAt: Date?
   public let message: String?
@@ -63,12 +63,12 @@ public struct Commit: Codable, Equatable {
   public init(from decoder: Decoder) throws {
     let values = try decoder.container(keyedBy: CodingKeys.self)
     id = try values.decode(String.self, forKey: .id)
-    shortId = try values.decodeIfPresent(String.self, forKey: .shortId)
+    shortId = try values.decode(String.self, forKey: .shortId)
     title = try values.decodeIfPresent(String.self, forKey: .title)
-    authorName = try values.decodeIfPresent(String.self, forKey: .authorName)
+    authorName = try values.decode(String.self, forKey: .authorName)
     authorEmail = try values.decodeIfPresent(String.self, forKey: .authorEmail)
-    committerName = try values.decodeIfPresent(String.self, forKey: .committerName)
-    committerEmail = try values.decodeIfPresent(String.self, forKey: .committerEmail)
+    committerName = try values.decode(String.self, forKey: .committerName)
+    committerEmail = try values.decode(String.self, forKey: .committerEmail)
     message = try values.decodeIfPresent(String.self, forKey: .message)
     parentIds = try values.decodeIfPresent([String].self, forKey: .parentIds)
     lastPipeline = try values.decodeIfPresent(LastPipeline.self, forKey: .lastPipeline)

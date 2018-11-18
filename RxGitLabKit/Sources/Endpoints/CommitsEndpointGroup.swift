@@ -11,15 +11,15 @@ import RxSwift
 public class CommitsEndpointGroup: EndpointGroup {
 
   public enum Endpoints {
-    case commits(projectID: String)
-    case single(projectID: String, sha: String)
-    case references(projectID: String, sha: String)
-    case cherryPick(projectID: String, sha: String)
-    case diff(projectID: String, sha: String)
-    case comments(projectID: String, sha: String)
-    case statusesList(projectID: String, sha: String)
-    case statuses(projectID: String, sha: String)
-    case mergeRequests(projectID: String, sha: String)
+    case commits(projectID: Int)
+    case single(projectID: Int, sha: String)
+    case references(projectID: Int, sha: String)
+    case cherryPick(projectID: Int, sha: String)
+    case diff(projectID: Int, sha: String)
+    case comments(projectID: Int, sha: String)
+    case statusesList(projectID: Int, sha: String)
+    case statuses(projectID: Int, sha: String)
+    case mergeRequests(projectID: Int, sha: String)
 
     public var url: String {
       switch self {
@@ -61,7 +61,8 @@ public class CommitsEndpointGroup: EndpointGroup {
   ///     - **with_stats: Boolean** - Stats about each commit will be added to the response
   ///
   /// - Returns: An observable of list of repository commits in a project
-  public func getCommits(projectID: String, parameters: QueryParameters? = nil, page: Int = 1, perPage: Int = RxGitLabAPIClient.defaultPerPage) -> Observable<[Commit]> {
+  public func getCommits(projectID: Int, parameters: QueryParameters? = nil, page: Int = 1, perPage: Int = RxGitLabAPIClient.defaultPerPage) -> Observable<[Commit]> {
+    print(projectID)
     let getRequest = APIRequest(path: Endpoints.commits(projectID: projectID).url, method: .get, parameters: parameters)
     return object(for: getRequest)
   }
@@ -81,7 +82,7 @@ public class CommitsEndpointGroup: EndpointGroup {
   ///     - **with_stats: Boolean** - Stats about each commit will be added to the response
   ///
   /// - Returns: A Paginator of commits
-  public func getCommits(projectID: String, parameters: QueryParameters? = nil) -> ArrayPaginator<Commit> {
+  public func getCommits(projectID: Int, parameters: QueryParameters? = nil) -> ArrayPaginator<Commit> {
     let apiRequest = APIRequest(path: Endpoints.commits(projectID: projectID).url, method: .get, parameters: parameters)
     
     let paginator = ArrayPaginator<Commit>(communicator: hostCommunicator, apiRequest: apiRequest)
@@ -93,7 +94,7 @@ public class CommitsEndpointGroup: EndpointGroup {
   ///   - Parameter projectID: The ID or URL-encoded path of the project owned by the
   ///   - Parameter newCommit: newCommit
   /// - Returns: An observable of accepted Commit
-  public func createCommit(projectID: String, newCommit: NewCommit) -> Observable<Commit> {
+  public func createCommit(projectID: Int, newCommit: NewCommit) -> Observable<Commit> {
     let encoder = JSONEncoder()
     guard let newCommitData = try? encoder.encode(newCommit) else {
       return Observable.error(ParsingError.encoding(message: "New Commit could not be encoded"))
@@ -113,7 +114,7 @@ public class CommitsEndpointGroup: EndpointGroup {
   ///     - **stats: Bool** - Include commit stats. Default is true
   ///
   /// - Returns: An observable of Commit
-  public func getCommit(projectID: String, sha: String, parameters: QueryParameters? = nil) -> Observable<Commit> {
+  public func getCommit(projectID: Int, sha: String, parameters: QueryParameters? = nil) -> Observable<Commit> {
     let apiRequest = APIRequest(path: Endpoints.single(projectID: projectID, sha: sha).url, parameters: parameters)
     return object(for: apiRequest)
   }
@@ -128,7 +129,7 @@ public class CommitsEndpointGroup: EndpointGroup {
   ///     - **type: String** - The scope of commits. Possible values `branch`, `tag`, `all`. Default is `all`
   ///
   /// - Returns: An observable of list of References
-  public func getReferences(projectID: String, sha: String, parameters: QueryParameters? = nil, page: Int = 1, perPage: Int = RxGitLabAPIClient.defaultPerPage) -> Observable<[Reference]> {
+  public func getReferences(projectID: Int, sha: String, parameters: QueryParameters? = nil, page: Int = 1, perPage: Int = RxGitLabAPIClient.defaultPerPage) -> Observable<[Reference]> {
     let apiRequest = APIRequest(path: Endpoints.references(projectID: projectID, sha: sha).url, parameters: parameters)
     return object(for: apiRequest)
   }
@@ -144,7 +145,7 @@ public class CommitsEndpointGroup: EndpointGroup {
   ///
   /// - Returns: A Paginator of References
 
-  public func getReferences(projectID: String, sha: String) -> ArrayPaginator<Reference> {
+  public func getReferences(projectID: Int, sha: String) -> ArrayPaginator<Reference> {
     let apiRequest = APIRequest(path: Endpoints.references(projectID: projectID, sha: sha).url)
     let paginator = ArrayPaginator<Reference>(communicator: hostCommunicator, apiRequest: apiRequest)
     return paginator
@@ -156,7 +157,7 @@ public class CommitsEndpointGroup: EndpointGroup {
   ///   - Parameter sha: The commit has
   ///   - Parameter branch: The name of the branch
   /// - Returns: A Commit
-  public func cherryPick(projectID: String, sha: String, branch: String) -> Observable<Commit> {
+  public func cherryPick(projectID: Int, sha: String, branch: String) -> Observable<Commit> {
     let apiRequest =
     APIRequest(path: Endpoints.cherryPick(projectID: projectID, sha: sha).url, method: .post, jsonBody: ["branch" : branch])
     return object(for: apiRequest)
@@ -167,7 +168,7 @@ public class CommitsEndpointGroup: EndpointGroup {
   ///   - Parameter projectID: The ID or URL-encoded path of the project 
   ///   - Parameter sha: The commit has
   /// - Returns: A Diff
-  public func getDiff(projectID: String, sha: String) -> Observable<Diff> {
+  public func getDiff(projectID: Int, sha: String) -> Observable<Diff> {
     let apiRequest = APIRequest(path: Endpoints.diff(projectID: projectID, sha: sha).url)
     return object(for: apiRequest)
   }
@@ -177,7 +178,7 @@ public class CommitsEndpointGroup: EndpointGroup {
   ///   - Parameter projectID: The ID or URL-encoded path of the project owned by the
   ///   - Parameter sha: The commit has
   /// - Returns: A Comment
-  public func getComments(projectID: String, sha: String) -> Observable<[Comment]> {
+  public func getComments(projectID: Int, sha: String) -> Observable<[Comment]> {
     let apiRequest = APIRequest(path: Endpoints.comments(projectID: projectID, sha: sha).url)
     return object(for: apiRequest)
   }
@@ -195,7 +196,7 @@ public class CommitsEndpointGroup: EndpointGroup {
   ///   - Parameter projectID: The ID or URL-encoded path of the project owned by the
   ///   - Parameter sha: The commit has
   /// - Returns: A Comment
-  public func postComment(comment: Comment, projectID: String, sha: String) -> Observable<Comment> {
+  public func postComment(comment: Comment, projectID: Int, sha: String) -> Observable<Comment> {
     do {
       let data = try JSONEncoder().encode(comment)
       let apiRequest = APIRequest(path: Endpoints.comments(projectID: projectID, sha: sha).url, method: .post, data: data)
@@ -210,7 +211,7 @@ public class CommitsEndpointGroup: EndpointGroup {
   ///   - Parameter projectID: The ID or URL-encoded path of the project owned by the
   ///   - Parameter sha: The commit has
   /// - Returns: A Comment
-  public func getStatuses(projectID: String, sha: String) -> Observable<[CommitStatus]> {
+  public func getStatuses(projectID: Int, sha: String) -> Observable<[CommitStatus]> {
     let apiRequest = APIRequest(path: Endpoints.statuses(projectID: projectID, sha: sha).url)
     return object(for: apiRequest)
   }
@@ -220,7 +221,7 @@ public class CommitsEndpointGroup: EndpointGroup {
   ///   - Parameter projectID: The ID or URL-encoded path of the project owned by the
   ///   - Parameter sha: The commit has
   /// - Returns: A Status
-  public func postStatus(status: CommitStatus, projectID: String, sha: String) -> Observable<CommitStatus> {
+  public func postStatus(status: CommitStatus, projectID: Int, sha: String) -> Observable<CommitStatus> {
     do {
     let apiRequest = APIRequest(path: Endpoints.statuses(projectID: projectID, sha: sha).url, method: .post, data: try JSONEncoder().encode(status))
       return object(for: apiRequest)
@@ -234,7 +235,7 @@ public class CommitsEndpointGroup: EndpointGroup {
   ///   - Parameter projectID: The ID or URL-encoded path of the project owned by the
   ///   - Parameter sha: The commit has
   /// - Returns: A list of MergeRequests
-  public func getMergeRequests(projectID: String, sha: String) -> Observable<[MergeRequest]> {
+  public func getMergeRequests(projectID: Int, sha: String) -> Observable<[MergeRequest]> {
     let apiRequest = APIRequest(path: Endpoints.mergeRequests(projectID: projectID, sha: sha).url)
     return hostCommunicator.object(for: apiRequest)
   }

@@ -10,7 +10,7 @@ import RxSwift
 
 public class HostCommunicator {
   public let network: Networking
-  public let hostURL: URL
+  public var hostURL: URL
   public var privateToken: String? = nil
   public let oAuthTokenVariable = Variable<String?>(nil)
   public let disposeBag = DisposeBag()

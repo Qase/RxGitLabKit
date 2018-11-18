@@ -13,30 +13,31 @@ public struct Project: Codable {
     decoder.dateDecodingStrategy = .iso8601
     return decoder
   }
-  public let id: Int?
+  public let id: Int
   public let description: String?
-  public let defaultBranch, visibility, sshURLToRepo: String?
+  public let defaultBranch: String?
+  public let visibility, sshURLToRepo: String?
   public let httpURLToRepo: String?
   public let webURL: String?
   public let readmeURL: String?
   public let tagList: [String]?
   public let owner: User?
-  public let name, nameWithNamespace, path, pathWithNamespace: String?
+  public let name, nameWithNamespace, path, pathWithNamespace: String
   public let issuesEnabled: Bool?
   public let openIssuesCount: Int?
   public let mergeRequestsEnabled, jobsEnabled, wikiEnabled, snippetsEnabled: Bool?
   public let resolveOutdatedDiffDiscussions, containerRegistryEnabled: Bool?
   public let createdAt, lastActivityAt: Date?
   public let creatorID: Int?
-  public let namespace: Namespace?
+  public let namespace: Namespace
   public let importStatus: String?
   public let archived: Bool?
   public let avatarURL: String?
   public let sharedRunnersEnabled: Bool?
-  public let forksCount, starCount: Int?
+  public let forksCount, starCount: Int
   public let runnersToken: String?
   public let publicJobs: Bool?
-  public let sharedWithGroups: [String]?
+  public let sharedWithGroups: [ShareGroup]?
   public let onlyAllowMergeIfPipelineSucceeds, onlyAllowMergeIfAllDiscussionsAreResolved, requestAccessEnabled: Bool?
   public let mergeMethod: String?
   public let statistics: ProjectStatistics?
@@ -86,7 +87,7 @@ public struct Project: Codable {
 
   public init(from decoder: Decoder) throws {
     let values = try decoder.container(keyedBy: CodingKeys.self)
-    id = try values.decodeIfPresent(Int.self, forKey: .id)
+    id = try values.decode(Int.self, forKey: .id)
     description = try values.decodeIfPresent(String.self, forKey: .description)
     defaultBranch = try values.decodeIfPresent(String.self, forKey: .defaultBranch)
     visibility = try values.decodeIfPresent(String.self, forKey: .visibility)
@@ -96,10 +97,10 @@ public struct Project: Codable {
     readmeURL = try values.decodeIfPresent(String.self, forKey: .readmeURL)
     tagList = try values.decodeIfPresent([String].self, forKey: .tagList)
     owner = try values.decodeIfPresent(User.self, forKey: .owner)
-    name = try values.decodeIfPresent(String.self, forKey: .name)
-    nameWithNamespace = try values.decodeIfPresent(String.self, forKey: .nameWithNamespace)
-    path = try values.decodeIfPresent(String.self, forKey: .path)
-    pathWithNamespace = try values.decodeIfPresent(String.self, forKey: .pathWithNamespace)
+    name = try values.decode(String.self, forKey: .name)
+    nameWithNamespace = try values.decode(String.self, forKey: .nameWithNamespace)
+    path = try values.decode(String.self, forKey: .path)
+    pathWithNamespace = try values.decode(String.self, forKey: .pathWithNamespace)
     issuesEnabled = try values.decodeIfPresent(Bool.self, forKey: .issuesEnabled)
     openIssuesCount = try values.decodeIfPresent(Int.self, forKey: .openIssuesCount)
     mergeRequestsEnabled = try values.decodeIfPresent(Bool.self, forKey: .mergeRequestsEnabled)
@@ -111,16 +112,16 @@ public struct Project: Codable {
     createdAt = try Project.decodeDateIfPresent(values: values, forKey: .createdAt)
     lastActivityAt = try Project.decodeDateIfPresent(values: values, forKey: .lastActivityAt)
     creatorID = try values.decodeIfPresent(Int.self, forKey: .creatorID)
-    namespace = try values.decodeIfPresent(Namespace.self, forKey: .namespace)
+    namespace = try values.decode(Namespace.self, forKey: .namespace)
     importStatus = try values.decodeIfPresent(String.self, forKey: .importStatus)
     archived = try values.decodeIfPresent(Bool.self, forKey: .archived)
     avatarURL = try values.decodeIfPresent(String.self, forKey: .avatarURL)
     sharedRunnersEnabled = try values.decodeIfPresent(Bool.self, forKey: .sharedRunnersEnabled)
-    forksCount = try values.decodeIfPresent(Int.self, forKey: .forksCount)
-    starCount = try values.decodeIfPresent(Int.self, forKey: .starCount)
+    forksCount = try values.decode(Int.self, forKey: .forksCount)
+    starCount = try values.decode(Int.self, forKey: .starCount)
     runnersToken = try values.decodeIfPresent(String.self, forKey: .runnersToken)
     publicJobs = try values.decodeIfPresent(Bool.self, forKey: .publicJobs)
-    sharedWithGroups = try values.decodeIfPresent([String].self, forKey: .sharedWithGroups)
+    sharedWithGroups = try values.decodeIfPresent([ShareGroup].self, forKey: .sharedWithGroups)
     onlyAllowMergeIfPipelineSucceeds = try values.decodeIfPresent(Bool.self, forKey: .onlyAllowMergeIfPipelineSucceeds)
     onlyAllowMergeIfAllDiscussionsAreResolved = try values.decodeIfPresent(Bool.self, forKey: .onlyAllowMergeIfAllDiscussionsAreResolved)
     requestAccessEnabled = try values.decodeIfPresent(Bool.self, forKey: .requestAccessEnabled)

@@ -83,6 +83,7 @@ public class HTTPClient: Networking {
             observer.onError(HTTPError.noData)
             return Disposables.create()
           }
+          print(request)
           switch response.statusCode {
           case 200..<300:
             observer.onNext(data)
@@ -115,6 +116,7 @@ public class HTTPClient: Networking {
             observer.onNext(object)
             observer.onCompleted()
           } catch let error {
+            print(String(data: data, encoding: .utf8)!)
             observer.onError(HTTPError.parsingJSONFailure(error: error))
           }
 

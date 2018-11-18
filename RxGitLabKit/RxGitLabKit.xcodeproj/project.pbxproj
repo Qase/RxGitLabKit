@@ -50,6 +50,8 @@
 		6C54519021A024C300B6BFA0 /* Comparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C54518E21A024C300B6BFA0 /* Comparison.swift */; };
 		6C54519221A0261E00B6BFA0 /* FileInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C54519121A0261E00B6BFA0 /* FileInfo.swift */; };
 		6C54519321A0261E00B6BFA0 /* FileInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C54519121A0261E00B6BFA0 /* FileInfo.swift */; };
+		6C54527621A196EB00B6BFA0 /* ShareGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C54527521A196EB00B6BFA0 /* ShareGroup.swift */; };
+		6C54527721A196EB00B6BFA0 /* ShareGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C54527521A196EB00B6BFA0 /* ShareGroup.swift */; };
 		6C6EE57B218F6F23006C447E /* ProjectsEndpointGroupUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6EE57A218F6F23006C447E /* ProjectsEndpointGroupUnitTests.swift */; };
 		6C6EE57D218F6F7D006C447E /* EndpointGroupUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6EE57C218F6F7D006C447E /* EndpointGroupUnitTests.swift */; };
 		6C6EE58821907480006C447E /* RxGitLabKit_macOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6EE58721907480006C447E /* RxGitLabKit_macOSTests.swift */; };
@@ -228,6 +230,7 @@
 		6C54518B21A016FD00B6BFA0 /* RepositoriesEnpointGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesEnpointGroup.swift; sourceTree = "<group>"; };
 		6C54518E21A024C300B6BFA0 /* Comparison.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comparison.swift; sourceTree = "<group>"; };
 		6C54519121A0261E00B6BFA0 /* FileInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileInfo.swift; sourceTree = "<group>"; };
+		6C54527521A196EB00B6BFA0 /* ShareGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareGroup.swift; sourceTree = "<group>"; };
 		6C6EE57A218F6F23006C447E /* ProjectsEndpointGroupUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProjectsEndpointGroupUnitTests.swift; path = Tests/UnitTests/ProjectsEndpointGroupUnitTests.swift; sourceTree = SOURCE_ROOT; };
 		6C6EE57C218F6F7D006C447E /* EndpointGroupUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointGroupUnitTests.swift; sourceTree = "<group>"; };
 		6C6EE58521907480006C447E /* RxGitLabKit-macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RxGitLabKit-macOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -435,6 +438,7 @@
 				6C4370BD218BA777002ACBDA /* ProjectHook.swift */,
 				6C54518E21A024C300B6BFA0 /* Comparison.swift */,
 				6C54519121A0261E00B6BFA0 /* FileInfo.swift */,
+				6C54527521A196EB00B6BFA0 /* ShareGroup.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -908,6 +912,7 @@
 				6CBD2B542122F160007BA543 /* Authentication.swift in Sources */,
 				6CE95EFE2166AC9500EDAE16 /* ParsingError.swift in Sources */,
 				6CC3DB18218A4216004677C7 /* Email.swift in Sources */,
+				6C54527721A196EB00B6BFA0 /* ShareGroup.swift in Sources */,
 				6CFBFCDD213293D2001F4391 /* RepositoriesEndpointGroup.swift in Sources */,
 				6C98CE69217C71260051569E /* Date+Extensions.swift in Sources */,
 				6C06A8A8212EB0C300686583 /* Project.swift in Sources */,
@@ -964,6 +969,7 @@
 				6C06A8A7212EB0C300686583 /* Project.swift in Sources */,
 				6CE95EFD2166AC9500EDAE16 /* ParsingError.swift in Sources */,
 				6CC3DB17218A4216004677C7 /* Email.swift in Sources */,
+				6C54527621A196EB00B6BFA0 /* ShareGroup.swift in Sources */,
 				6CFBFCEA2132BD9E001F4391 /* Paginator.swift in Sources */,
 				6C98CE68217C71260051569E /* Date+Extensions.swift in Sources */,
 				6CE13F6D21184EFC00C92B7B /* HTTPClient.swift in Sources */,

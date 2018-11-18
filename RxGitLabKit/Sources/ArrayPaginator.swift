@@ -48,8 +48,10 @@ public class ArrayPaginator<T: Codable> {
   }
 
   public var totalPages: Observable<Int> {
+    var newApiRequest = apiRequest
+    newApiRequest.parameters["per_page"] = perPage
     return communicator
-      .header(for: apiRequest)
+      .header(for: newApiRequest)
       .map({ header -> Int in
         guard let _page = header[HeaderKeys.totalPages.rawValue], let pagesCount = Int(_page) else { return 0 }
         return pagesCount
@@ -63,7 +65,7 @@ public class ArrayPaginator<T: Codable> {
   private func loadPage(page: Int) -> Observable<[T]> {
     var newApiRequest = apiRequest
     newApiRequest.parameters["page"] = page
-    newApiRequest.parameters["perPage"] = perPage
+    newApiRequest.parameters["per_page"] = perPage
 
     return communicator
       .object(for: newApiRequest)
