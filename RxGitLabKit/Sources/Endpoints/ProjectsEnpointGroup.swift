@@ -30,9 +30,9 @@ public class ProjectsEnpointGroup: EndpointGroup {
   public enum Endpoints {
     case project(projectID: Int)
     case projects
-    case userProjects(userID: String)
+    case userProjects(userID: Int)
     case projectUsers(projectID: Int)
-    case createUserProject(userID: String)
+    case createUserProject(userID: Int)
     case fork(projectID: Int)
     case forks(projectID: Int)
     case star(projectID: Int)
@@ -141,9 +141,9 @@ public class ProjectsEnpointGroup: EndpointGroup {
     return object(for: apiRequest)
   }
   
-  public func getProjects(parameters: QueryParameters? = nil) -> ArrayPaginator<Project> {
+  public func getProjects(parameters: QueryParameters? = nil) -> Paginator<Project> {
     let apiRequest = APIRequest(path: Endpoints.projects.url, parameters: parameters)
-    let paginator = ArrayPaginator<Project>(communicator: hostCommunicator, apiRequest: apiRequest)
+    let paginator = Paginator<Project>(communicator: hostCommunicator, apiRequest: apiRequest)
     return paginator
   }
 
@@ -184,7 +184,7 @@ public class ProjectsEnpointGroup: EndpointGroup {
   ///   - **with_merge_requests_enabled: Boolean** - Limit by enabled merge requests feature
   ///   - **min_access_level: Integer** - Limit by current user minimal access level
   /// - Returns: An observable of list of Project
-  public func getUserProjects(userID: String, parameters: QueryParameters? = nil, page: Int = 1, perPage: Int = RxGitLabAPIClient.defaultPerPage) -> Observable<[Project]> {
+  public func getUserProjects(userID: Int, parameters: QueryParameters? = nil, page: Int = 1, perPage: Int = RxGitLabAPIClient.defaultPerPage) -> Observable<[Project]> {
     let request = APIRequest(path: Endpoints.userProjects(userID: userID).url, parameters: parameters)
     return object(for: request)
   }
@@ -215,9 +215,9 @@ public class ProjectsEnpointGroup: EndpointGroup {
   ///   - **with_merge_requests_enabled: Boolean** - Limit by enabled merge requests feature
   ///   - **min_access_level: Integer** - Limit by current user minimal access level
   /// - Returns: An observable of list of Project
-  public func getUserProjects(userID: String, parameters: QueryParameters? = nil) -> ArrayPaginator<Project> {
+  public func getUserProjects(userID: Int, parameters: QueryParameters? = nil) -> Paginator<Project> {
     let apiRequest = APIRequest(path: Endpoints.userProjects(userID: userID).url, parameters: parameters)
-    let paginator = ArrayPaginator<Project>(communicator: hostCommunicator, apiRequest: apiRequest)
+    let paginator = Paginator<Project>(communicator: hostCommunicator, apiRequest: apiRequest)
     return paginator
   }
 
@@ -263,7 +263,7 @@ public class ProjectsEnpointGroup: EndpointGroup {
   ///   - project: A Project Object
   ///   - userID: The user ID of the project owner
   /// - Returns: An observable of the posted Project
-  public func postProjectForUser(project: Project, userID: String) -> Observable<Project> {
+  public func postProjectForUser(project: Project, userID: Int) -> Observable<Project> {
     let encoder = JSONEncoder()
     guard let newProjectData = try? encoder.encode(project) else {
       return Observable.error(ParsingError.encoding(message: "New Project could not be encoded"))
@@ -439,9 +439,9 @@ public class ProjectsEnpointGroup: EndpointGroup {
   ///   - page: The page number
   ///   - perPage: Maximum item count per page
   /// - Returns: A paginator of Hook
-  public func getHooks(projectID: Int, page: Int = 1, perPage: Int = RxGitLabAPIClient.defaultPerPage) -> ArrayPaginator<ProjectHook> {
+  public func getHooks(projectID: Int, page: Int = 1, perPage: Int = RxGitLabAPIClient.defaultPerPage) -> Paginator<ProjectHook> {
     let apiRequest = APIRequest(path: Endpoints.hooks(projectID: projectID).url)
-    let paginator = ArrayPaginator<ProjectHook>(communicator: hostCommunicator, apiRequest: apiRequest)
+    let paginator = Paginator<ProjectHook>(communicator: hostCommunicator, apiRequest: apiRequest)
     return paginator
   }
 

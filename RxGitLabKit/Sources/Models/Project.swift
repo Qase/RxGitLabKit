@@ -131,7 +131,7 @@ public struct Project: Codable {
   }
 
   private static func decodeDateIfPresent(values: KeyedDecodingContainer<CodingKeys>, forKey key: CodingKeys) throws -> Date? {
-    let dateFormatter = ISO8601DateFormatter()
+    let dateFormatter = DateFormatter.default
     if let dateString = try values.decodeIfPresent(String.self, forKey: key), let date = dateFormatter.date(from: dateString) {
       return date
     } else {

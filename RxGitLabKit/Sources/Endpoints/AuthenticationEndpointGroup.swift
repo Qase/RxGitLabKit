@@ -28,7 +28,7 @@ public class AuthenticationEndpointGroup: EndpointGroup {
       "password" : password
     ]
     let apiRequest = APIRequest(path: Endpoints.token.url, method: .post, jsonBody: jsonBody)
-    return hostCommunicator.object(for: apiRequest, apiVersion: nil)
+    return object(for: apiRequest, apiVersion: nil)
   }
 
 }

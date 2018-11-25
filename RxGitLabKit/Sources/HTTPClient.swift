@@ -26,8 +26,15 @@ public class HTTPClient: Networking {
   }
 
   public static func response(for request: URLRequest, in session: URLSessionProtocol = URLSession.shared) -> Observable<(response: HTTPURLResponse, data: Data?)> {
+    print("Request")
+    debugPrint(request)
+    if let body = request.httpBody {
+      debugPrint(String(data: body, encoding: .utf8)!)
+    }
+    if let headers = request.allHTTPHeaderFields, headers.count > 0 {
+      debugPrint(headers)
+    }
     return Observable.create { observer in
-
       let task = session.dataTask(with: request) { (data, response, error) in
         guard let response = response else {
           observer.on(.error(error ?? HTTPError.noResponse))
@@ -83,7 +90,6 @@ public class HTTPClient: Networking {
             observer.onError(HTTPError.noData)
             return Disposables.create()
           }
-          print(request)
           switch response.statusCode {
           case 200..<300:
             observer.onNext(data)

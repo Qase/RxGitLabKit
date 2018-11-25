@@ -82,10 +82,10 @@ public class CommitsEndpointGroup: EndpointGroup {
   ///     - **with_stats: Boolean** - Stats about each commit will be added to the response
   ///
   /// - Returns: A Paginator of commits
-  public func getCommits(projectID: Int, parameters: QueryParameters? = nil) -> ArrayPaginator<Commit> {
+  public func getCommits(projectID: Int, parameters: QueryParameters? = nil) -> Paginator<Commit> {
     let apiRequest = APIRequest(path: Endpoints.commits(projectID: projectID).url, method: .get, parameters: parameters)
     
-    let paginator = ArrayPaginator<Commit>(communicator: hostCommunicator, apiRequest: apiRequest)
+    let paginator = Paginator<Commit>(communicator: hostCommunicator, apiRequest: apiRequest)
     return paginator
   }
 
@@ -145,9 +145,9 @@ public class CommitsEndpointGroup: EndpointGroup {
   ///
   /// - Returns: A Paginator of References
 
-  public func getReferences(projectID: Int, sha: String) -> ArrayPaginator<Reference> {
+  public func getReferences(projectID: Int, sha: String) -> Paginator<Reference> {
     let apiRequest = APIRequest(path: Endpoints.references(projectID: projectID, sha: sha).url)
-    let paginator = ArrayPaginator<Reference>(communicator: hostCommunicator, apiRequest: apiRequest)
+    let paginator = Paginator<Reference>(communicator: hostCommunicator, apiRequest: apiRequest)
     return paginator
   }
 
@@ -237,6 +237,6 @@ public class CommitsEndpointGroup: EndpointGroup {
   /// - Returns: A list of MergeRequests
   public func getMergeRequests(projectID: Int, sha: String) -> Observable<[MergeRequest]> {
     let apiRequest = APIRequest(path: Endpoints.mergeRequests(projectID: projectID, sha: sha).url)
-    return hostCommunicator.object(for: apiRequest)
+    return object(for: apiRequest)
   }
 }

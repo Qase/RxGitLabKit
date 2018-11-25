@@ -9,11 +9,9 @@ import Foundation
 import RxSwift
 
 public class HostCommunicator {
-  public let network: Networking
-  public var hostURL: URL
-  public var privateToken: String? = nil
-  public let oAuthTokenVariable = Variable<String?>(nil)
-  public let disposeBag = DisposeBag()
+  
+  private let network: Networking
+  private let disposeBag = DisposeBag()
   private var authorizationHeader: Header {
     var header = Header()
     if let privateToken = privateToken {
@@ -25,6 +23,10 @@ public class HostCommunicator {
     return header
   }
 
+  public var hostURL: URL
+  public var privateToken: String? = nil
+  public let oAuthTokenVariable = Variable<String?>(nil)
+  
   public init(network: Networking, hostURL: URL) {
     self.network = network
     self.hostURL = hostURL
@@ -60,5 +62,4 @@ public class HostCommunicator {
         return response
       }
   }
-
 }

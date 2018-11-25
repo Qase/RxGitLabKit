@@ -1,165 +1,78 @@
 //
-//  Paginator.swift
+//  ArrayPaginator.swift
 //  RxGitLabKit
 //
-//  Created by Dagy Tran on 26/08/2018.
+//  Created by Dagy Tran on 15/11/2018.
 //
 
 import Foundation
 import RxSwift
 
-public class Paginator<T: Codable>: HostCommunicator {
+public class Paginator<T: Codable> {
 
   // MARK: Private constants
   private let apiRequest: APIRequest
-  public let pageVariable = Variable<Int>(-1)
-  public let perPageVariable = Variable<Int>(-1)
-  public let totalPagesVariable = Variable<Int>(-1)
-  public let totalVariable = Variable<Int>(-1)
-  public let currentPageListVariable = Variable<[T]>([])
-
-  public var currentPageListObservable: Observable<[T]> {
-   return currentPageListVariable.asObservable()
+  private let perPage: Int
+  private let communicator: HostCommunicator
+  
+  // MARK: Computed variables
+  public var totalPages: Observable<Int> {
+    var newApiRequest = apiRequest
+    newApiRequest.parameters["per_page"] = perPage
+    return communicator
+      .header(for: newApiRequest)
+      .map({ header -> Int in
+        guard let _page = header[HeaderKeys.totalPages.rawValue], let pagesCount = Int(_page) else { return 0 }
+        return pagesCount
+      })
   }
-
-  public var currentPageList: [T] {
-    return currentPageListVariable.value
-  }
-
-  required public init(network: Networking, hostURL: URL, apiRequest: APIRequest, page: Int = 1, perPage: Int = RxGitLabAPIClient.defaultPerPage, oAuthToken: Variable<String?>, privateToken: Variable<String?>) {
+  
+  // MARK: Init
+  required public init(communicator: HostCommunicator, apiRequest: APIRequest, perPage: Int = RxGitLabAPIClient.defaultPerPage) {
+    self.communicator = communicator
     self.apiRequest = apiRequest
-    self.pageVariable.value = page
-    self.perPageVariable.value = perPage
-    super.init(network: network, hostURL: hostURL)
-    oAuthToken.asObservable()
-      .bind(to: oAuthTokenVariable)
-      .disposed(by: disposeBag)
-//    privateToken.asObservable()
-//      .bind(to: privateTokenVariable)
-//      .disposed(by: disposeBag)
+    self.perPage = perPage
   }
 
-  // MARK: Public Functions
-
-  /// Loads objects from the endpoint.
-  ///
-  /// - Parameters:
-  ///   - page: Page which should be loaded (default is 1)
-  ///   - perPage: How many objects in a page should be loaded (default is 20, maximum is 100)
-  /// - Returns: An observable of array of loaded objects
-  public func loadPage(page: Int = 1, perPage: Int = RxGitLabAPIClient.defaultPerPage, isChangingState: Bool = false) -> Observable<[T]> {
-
-    if isChangingState {
-      self.pageVariable.value = page
-      self.perPageVariable.value = perPage
-    }
-
-    var header = Header()
-    if let privateTokenValue = privateToken {
-      header[HeaderKeys.privateToken.rawValue] = privateTokenValue
-    }
-    if let oAuthTokenValue = oAuthTokenVariable.value {
-      header[HeaderKeys.oAuthToken.rawValue] = "Bearer \(oAuthTokenValue)"
-    }
-
-    guard let request = apiRequest.buildRequest(with: self.hostURL, header: header, page: page, perPage: perPage) else { return Observable.error(HTTPError.invalidRequest(message: "invalid"))}
-
-    return network.object(for: request).do(onNext: { (elements) in
-      self.currentPageListVariable.value = elements
-    })
+  // MARK: Subscripts
+  public subscript(index: Int) -> Observable<[T]> {
+    return loadPage(page: index)
   }
 
-  /// Loads items from the next page
-  /// The items will be emmitted from `currentPageListObservable`
-  public func loadNextPage() -> Observable<[T]> {
-    pageVariable.value += 1
-    return loadPage(page: pageVariable.value, perPage: perPageVariable.value)
-  }
+  public subscript(range: Range<Int>) -> Observable<[T]> {
+    let arrayOfObservables: [Observable<(Int, [T])>] = range
+      .map { page in self.loadPage(page: page).map {(page, $0)}}
 
-  /// Loads items on from the previous page
-  /// The items will be emmitted from `currentPageListObservable`
-  public func loadPreviousPage() -> Observable<[T]> {
-    pageVariable.value -= 1
-    return loadPage(page: pageVariable.value, perPage: perPageVariable.value)
-  }
-
-  /// Loads items from the first page
-  /// The items will be emmitted from `currentPageListObservable`
-  public func loadFirstPage() -> Observable<[T]> {
-    pageVariable.value = 1
-    return loadPage(page: pageVariable.value, perPage: perPageVariable.value)
-  }
-
-  private var header: Observable<Header> {
-    get {
-      var header = Header()
-      if let privateToken = self.privateToken {
-        header[HeaderKeys.privateToken.rawValue] = privateToken
-      }
-      if let oAuthToken = self.oAuthTokenVariable.value {
-        header[HeaderKeys.oAuthToken.rawValue] = "Bearer \(oAuthToken)"
+    let mergedObjects: Observable<[T]> = Observable
+      .zip(arrayOfObservables)
+      .map { arrayOfTuples -> [(Int, [T])] in
+        arrayOfTuples.sorted(by: { (lhs, rhs) -> Bool in
+          return lhs.0 < rhs.0
+        })}
+      .map { arrayOfTuples -> [T] in
+        arrayOfTuples.flatMap {$0.1}
       }
 
-      var headAPIRequest = self.apiRequest // apiRequest is a struct and the original should not be changed
-      headAPIRequest.method = .head
-
-      guard let request = headAPIRequest.buildRequest(with: hostURL, header: header, page: pageVariable.value, perPage: perPageVariable.value) else { return Observable.error(HTTPError.invalidRequest(message: "invalid")) }
-
-      // Get the number of pages
-      return network.header(for: request)
-        .filter({ !$0.isEmpty })
-    }
+    return mergedObjects
   }
 
-  /// Loads all objects from the endpoint.
-  ///
-  /// - Returns: An observable of array of loaded objects
+  public subscript(closedRange: ClosedRange<Int>) -> Observable<[T]> {
+    let range = Range(closedRange)
+    return self[range]
+  }
+
+  // MARK: Functions
   public func loadAll() -> Observable<[T]> {
-    let allListVariable = Variable<[T]>([])
+    return totalPages.flatMap { self[1...$0] }
+  }
 
-    // Get the number of pages
-    let headerResponse = header
-          .flatMap { header -> Observable<(Int, [Int])> in
-            guard let _perPage = header[HeaderKeys.perPage.rawValue],
-              let perPage = Int(_perPage),
-              let _totalPages = header[HeaderKeys.totalPages.rawValue],
-              let totalPages = Int(_totalPages),
-              let _total = header[HeaderKeys.total.rawValue],
-              let total = Int(_total)
-              else { return Observable.error(RxError.unknown) }
+  private func loadPage(page: Int) -> Observable<[T]> {
+    var newApiRequest = apiRequest
+    newApiRequest.parameters["page"] = page
+    newApiRequest.parameters["per_page"] = perPage
 
-            self.perPageVariable.value = perPage
-            self.totalPagesVariable.value = totalPages
-            self.totalVariable.value = total
-            return Observable.just((perPage, Array(1...totalPages)))
-          }
-
-    let arrayOfObservables: Observable<[Observable<[T]>]> = headerResponse
-      .map { (arg) -> [Observable<[T]>] in
-      let (perPage, pages) = arg
-      return pages.map { page in
-        return self.loadPage(page: page, perPage: perPage)
-      }
-    }
-
-    let mergedObjects: Observable<[T]> = arrayOfObservables.flatMap { arg -> Observable<[T]> in
-      Observable.from(arg).merge()
-    }
-    let wholeSequence = mergedObjects.toArray().do(onNext: { value in
-      allListVariable.value = value.flatMap { $0 }
-    })
-
-    let ret = wholeSequence.flatMap { arg -> Observable<[T]> in
-      if arg.filter({ (elements) -> Bool in
-        elements.isEmpty
-      }).count > 0 {
-        return Observable.error(RxError.unknown)
-      } else {
-        return allListVariable.asObservable()
-      }
-    }
-
-    return ret
+    return communicator
+      .object(for: newApiRequest)
   }
 
 }

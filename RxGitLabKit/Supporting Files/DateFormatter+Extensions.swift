@@ -10,7 +10,7 @@ import Foundation
 extension DateFormatter {
   public static var `default`: DateFormatter {
     let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
     return dateFormatter
   }
 }

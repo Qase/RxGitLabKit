@@ -90,9 +90,9 @@ public class UsersEndpointGroup: EndpointGroup {
     }
   }
 
-  public func getUsers(page: Int = 1, perPage: Int = RxGitLabAPIClient.defaultPerPage, parameters: QueryParameters? = nil) -> ArrayPaginator<User> {
+  public func getUsers(page: Int = 1, perPage: Int = RxGitLabAPIClient.defaultPerPage, parameters: QueryParameters? = nil) -> Paginator<User> {
     let apiRequest = APIRequest(path: Endpoints.users.url, parameters: parameters)
-    let paginator = ArrayPaginator<User>(communicator: hostCommunicator, apiRequest: apiRequest)
+    let paginator = Paginator<User>(communicator: hostCommunicator, apiRequest: apiRequest)
     return paginator
   }
 
@@ -188,9 +188,9 @@ public class UsersEndpointGroup: EndpointGroup {
       })
   }
 
-  public func getCurrentUser() -> Observable<User> {
+  public func getCurrentUser() -> Observable<User?> {
     let apiRequest = APIRequest(path: Endpoints.currentUser.url)
-    return object(for: apiRequest)
+    return object(for: apiRequest).catchErrorJustReturn(nil)
   }
 
   public func getStatus() -> Observable<UserStatus> {

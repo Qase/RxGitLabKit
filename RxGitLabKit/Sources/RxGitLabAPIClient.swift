@@ -10,10 +10,23 @@ import RxSwift
 import RxCocoa
 
 public class RxGitLabAPIClient {
+  
+  private let loginPublishSubject = PublishSubject<(String, String)>()
+  private let getCurrentUserTrigger = PublishSubject<Void>()
 
-  public static let defaultPerPage = 100
+  public let currentUserVariable = Variable<User?>(nil)
+  
+  public var currentUserObservable: Observable<User?> {
+    return currentUserVariable.asObservable().distinctUntilChanged { $0?.id == $1?.id }
+  }
+  
+  public static let defaultPerPage = 20
 
   public static let apiVersion: Int = 4
+  
+  public var hostURL: URL {
+    return hostCommunicator.hostURL
+  }
   
   private let hostCommunicator: HostCommunicator
   
@@ -39,15 +52,15 @@ public class RxGitLabAPIClient {
     return createAndSubscribeEndpointGroup()
   }()
 
-  public lazy var commits: CommitsEndpointGroup = {
-    return createAndSubscribeEndpointGroup()
-  }()
-
   public lazy var projects: ProjectsEnpointGroup = {
     return createAndSubscribeEndpointGroup()
   }()
 
   public lazy var repositories: RepositoriesEndpointGroup = {
+    return createAndSubscribeEndpointGroup()
+  }()
+  
+  public lazy var commits: CommitsEndpointGroup = {
     return createAndSubscribeEndpointGroup()
   }()
 
@@ -59,9 +72,7 @@ public class RxGitLabAPIClient {
   
   public init(with hostCommunicator: HostCommunicator) {
     self.hostCommunicator = hostCommunicator
-    oAuthTokenVariable.asObservable()
-      .bind(to: hostCommunicator.oAuthTokenVariable)
-    .disposed(by: disposeBag)
+    setupBindings()
   }
 
   public convenience init(with hostURL: URL) {
@@ -81,19 +92,40 @@ public class RxGitLabAPIClient {
   }
 
   // MARK: Private functions
+  
+  private func setupBindings() {
+    
+    oAuthTokenVariable.asObservable()
+      .bind(to: hostCommunicator.oAuthTokenVariable)
+      .disposed(by: disposeBag)
+    
+    let tokenObservable = loginPublishSubject.flatMap { (arg0) -> Observable<String?> in
+      let (username, password) = arg0
+      return self.authentication.authenticate(username: username, password: password)
+          .map { $0.oAuthToken }
+      }
+      .share()
+
+
+    tokenObservable.bind(to: oAuthTokenVariable)
+      .disposed(by: disposeBag)
+    tokenObservable.bind(to: hostCommunicator.oAuthTokenVariable)
+      .disposed(by: disposeBag)
+    
+    oAuthTokenVariable.asObservable()
+      .filter { $0 != nil }
+      .flatMap { _ in self.users.getCurrentUser() }
+      .bind(to: currentUserVariable)
+      .disposed(by: disposeBag)
+    
+    getCurrentUserTrigger.flatMap { self.users.getCurrentUser() }
+      .debug()
+      .bind(to: currentUserVariable)
+      .disposed(by: disposeBag)
+  }
 
   private func createAndSubscribeEndpointGroup<T: EndpointGroup>() -> T {
     let endpoint = T(with: hostCommunicator)
-//    oAuthTokenVariable.asObservable()
-//      .filter { $0 != nil}
-//      .bind(to: endpoint.oAuthTokenVariable)
-//      .disposed(by: endpoint.disposeBag)
-//
-//    privateTokenVariable.asObservable()
-//      .filter { $0 != nil}
-//      .bind(to: endpoint.privateTokenVariable)
-//      .disposed(by: endpoint.disposeBag)
-//
     perPage.asObservable()
       .filter { $0 > 0}
       .bind(to: endpoint.perPage)
@@ -108,21 +140,29 @@ public class RxGitLabAPIClient {
     hostCommunicator.hostURL = hostURL
   }
 
-  public func getOAuthToken(username: String, password: String) -> Observable<Authentication> {
-    return authentication.authenticate(username: username, password: password)
+  public func logIn(username: String, password: String) -> Observable<User?> {
+    loginPublishSubject.onNext((username, password))
+    return currentUserObservable
   }
-
-  public func logIn(username: String, password: String) -> Observable<Bool> {
-    let tokenObservable = getOAuthToken(username: username, password: password)
-      .map { $0.oAuthToken }.share()
-    tokenObservable.bind(to: oAuthTokenVariable)
-      .disposed(by: disposeBag)
-    return tokenObservable.map { $0 != nil }
+  
+  public func logIn(privateToken: String) -> Observable<User?> {
+    self.privateToken = privateToken
+    hostCommunicator.privateToken = privateToken
+    getCurrentUserTrigger.onNext(())
+    return currentUserObservable
+  }
+  
+  public func logIn(oAuthToken: String) -> Observable<User?> {
+    self.oAuthTokenVariable.value = oAuthToken
+    getCurrentUserTrigger.onNext(())
+    return currentUserObservable
   }
   
   public func logOut() {
     oAuthTokenVariable.value = nil
     privateToken = nil
+    hostCommunicator.privateToken = nil
+    currentUserVariable.value = nil
   }
 
 }

@@ -10,11 +10,11 @@ import RxSwift
 
 public class EndpointGroup {
   
-  public let hostCommunicator: HostCommunicator
-
-  public let perPage = Variable<Int>(100)
+  internal let hostCommunicator: HostCommunicator
+  internal let disposeBag = DisposeBag()
   
-  public let disposeBag = DisposeBag()
+  public let perPage = Variable<Int>(100)
+
 
   public enum Enpoints {}
 
