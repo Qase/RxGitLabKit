@@ -1,2 +1,2 @@
+github "SnapKit/SnapKit" ~> 4.0.0
 github "ReactiveX/RxSwift" ~> 4.0
-github "ReactiveCocoa/ReactiveCocoa" ~> 7.0

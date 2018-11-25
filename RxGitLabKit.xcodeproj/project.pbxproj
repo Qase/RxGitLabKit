@@ -199,7 +199,6 @@
 
 /* Begin PBXFileReference section */
 		6C06A89F212EA41D00686583 /* RxGitLabKit-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RxGitLabKit-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6C06A8A0212EA41D00686583 /* RxGitLabKit-iOSTests copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "RxGitLabKit-iOSTests copy-Info.plist"; path = "/Users/dagytran/Developer/RxGitLabKit/RxGitLabKit/RxGitLabKit-iOSTests copy-Info.plist"; sourceTree = "<absolute>"; };
 		6C06A8A1212EA89F00686583 /* ProjectsEnpointGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsEnpointGroup.swift; sourceTree = "<group>"; };
 		6C06A8A6212EB0C300686583 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		6C336E37216AA507009A8324 /* DateFormatter+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extensions.swift"; sourceTree = "<group>"; };
@@ -372,7 +371,6 @@
 				6C6EE58621907480006C447E /* RxGitLabKit-macOSTests */,
 				6C54015C211445D400631E21 /* Products */,
 				6C5401EE211459ED00631E21 /* Frameworks */,
-				6C06A8A0212EA41D00686583 /* RxGitLabKit-iOSTests copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
