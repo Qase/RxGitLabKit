@@ -140,22 +140,19 @@ public class RxGitLabAPIClient {
     hostCommunicator.hostURL = hostURL
   }
 
-  public func logIn(username: String, password: String) -> Observable<User?> {
+  public func logIn(username: String, password: String){
     loginPublishSubject.onNext((username, password))
-    return currentUserObservable
   }
   
-  public func logIn(privateToken: String) -> Observable<User?> {
+  public func logIn(privateToken: String) {
     self.privateToken = privateToken
     hostCommunicator.privateToken = privateToken
     getCurrentUserTrigger.onNext(())
-    return currentUserObservable
   }
   
-  public func logIn(oAuthToken: String) -> Observable<User?> {
+  public func logIn(oAuthToken: String) {
     self.oAuthTokenVariable.value = oAuthToken
     getCurrentUserTrigger.onNext(())
-    return currentUserObservable
   }
   
   public func logOut() {
