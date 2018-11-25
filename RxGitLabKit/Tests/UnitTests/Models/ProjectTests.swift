@@ -117,7 +117,7 @@ class ProjectTests: XCTestCase {
       "group_id": 4,
       "group_access": 20
     ]
-    let formatter = ISO8601DateFormatter()
+    let formatter = DateFormatter.default
     let dateString = formatter.string(from: Date())
 
 //    if let date = expiresAt {
