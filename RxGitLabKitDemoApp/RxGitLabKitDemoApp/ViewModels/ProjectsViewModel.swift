@@ -19,27 +19,24 @@ class ProjectsViewModel: BaseViewModel {
   private let projectsEndpointGroup: ProjectsEnpointGroup!
   private let loadNextPageTrigger = PublishSubject<Void>()
   
-  
   // MARK: Public properties
   let gitlabClient: RxGitLabAPIClient!
   let isLoading = Variable<Bool>(true)
+  let isUserVariable = Variable<Bool>(false)
+  let searchTextVariable = Variable<String?>(nil)
+  var projectPaginator = Variable<Paginator<Project>?>(nil)
+  
+  // MARK: Outputs
+  var dataSource: Observable<[Project]> {
+    return projects.asObservable()
+  }
+  
   var projectsCount: Int {
     return projects.value.count
   }
   
   var totalProjectsCount: Int {
     return 100
-  }
-  
-  let isUserVariable = Variable<Bool>(false)
-  
-  let searchTextVariable = Variable<String?>(nil)
-  
-  var projectPaginator = Variable<Paginator<Project>?>(nil)
-
-  // MARK: Outputs
-  var dataSource: Observable<[Project]> {
-    return projects.asObservable()
   }
   
   init(with gitlabClient: RxGitLabAPIClient, driver: Driver<Void>? = nil) {

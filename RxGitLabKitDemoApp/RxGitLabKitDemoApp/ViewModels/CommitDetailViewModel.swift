@@ -52,9 +52,6 @@ class CommitDetailViewModel: BaseViewModel {
         if let parentIds = commit.parentIds?.joined(separator: ",") {
           texts.append(("Parent IDs", parentIds))
         }
-        //    if let lastPipeline = commit.lastPipeline {
-        //      texts.append(("lastPipeline", lastPipeline))
-        //    }
         if let stats = commit.stats {
           if let total = stats.total {
             texts.append(("Total", String(total)))

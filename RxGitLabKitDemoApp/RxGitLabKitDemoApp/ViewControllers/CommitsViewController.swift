@@ -24,8 +24,9 @@ class CommitsViewController: BaseViewController {
     navigationItem.largeTitleDisplayMode = .never
     setupTableView()
     setupTableViewBinding()
-    setupRefreshControl()
-    setupRefreshControlBinding()
+    if let isCollapsed = splitViewController?.isCollapsed, !isCollapsed{
+      setupFirstCommitBinding()
+    }
   }
   
   private func setupTableView() {
@@ -92,22 +93,16 @@ class CommitsViewController: BaseViewController {
     self.showDetailViewController(UINavigationController(rootViewController: commitDetailVC), sender: self)
   }
   
-  private func setupRefreshControl() {
-    let refreshControl = UIRefreshControl()
-    tableView.refreshControl = refreshControl
-    refreshControl.beginRefreshing()
-    self.refreshControl = refreshControl
-  }
-  
-  private func setupRefreshControlBinding() {
+
+  /// Shows Commit detail only if the app is in Split or Slideover mode - on iPads
+  private func setupFirstCommitBinding() {
     viewModel.dataSource
       .observeOn(MainScheduler.instance)
       .subscribe { event in
-        self.refreshControl.endRefreshing()
         if let commits = event.element, commits.count > 0 {
           let indexPath = IndexPath(item: 0, section: 0)
           self.showDetail(indexPath)
-          self.tableView.selectRow(at: indexPath, animated: false, scrollPosition: .top)
+          self.tableView.selectRow(at: indexPath, animated: true, scrollPosition: .bottom)
         }
       }
       .disposed(by: disposeBag)

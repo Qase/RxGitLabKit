@@ -94,9 +94,10 @@ class ProfileViewController: BaseViewController {
     }
   }
   
-  var viewModel: ProfileViewModel!
   private weak var tableView: UITableView!
   private weak var logoutButton: UIButton!
+  
+  var viewModel: ProfileViewModel!
   
   override func viewDidLoad() {
     super.viewDidLoad()

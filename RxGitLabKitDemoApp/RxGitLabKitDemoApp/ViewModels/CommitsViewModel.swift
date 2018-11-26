@@ -7,8 +7,8 @@
 //
 
 import Foundation
-import RxGitLabKit
 import RxSwift
+import RxGitLabKit
 import RxCocoa
 
 class CommitsViewModel: BaseViewModel {
@@ -18,12 +18,11 @@ class CommitsViewModel: BaseViewModel {
   private let paginator: Paginator<Commit>!
   private var pagesLoaded = 0
   private let loadNextPageTrigger = PublishSubject<Void>()
-
   
   // MARK: Outputs
   let gitlabClient: RxGitLabAPIClient!
   let projectID: Int
-
+  
   var dataSource: Observable<[Commit]> {
     return commits.asObservable()
   }

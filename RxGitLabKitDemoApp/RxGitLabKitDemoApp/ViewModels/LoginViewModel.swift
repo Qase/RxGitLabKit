@@ -11,9 +11,10 @@ import RxSwift
 import RxGitLabKit
 
 class LoginViewModel: BaseViewModel {
+  
+  private let userVariable = Variable<User?>(nil)
 
   let gitlabClient: RxGitLabAPIClient
-  private let userVariable = Variable<User?>(nil)
   
   var user: Observable<User> {
     return userVariable.asObservable()

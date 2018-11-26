@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6C05B85021AC550E009E9A98 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C05B84321AC4E8F009E9A98 /* RxCocoa.framework */; };
-		6C05B85121AC550E009E9A98 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C05B84521AC4E99009E9A98 /* RxSwift.framework */; };
-		6C05B85221AC550E009E9A98 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C05B84721AC4EA6009E9A98 /* SnapKit.framework */; };
-		6C05B85321AC5567009E9A98 /* RxGitLabKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C05B83721AC4D60009E9A98 /* RxGitLabKit.framework */; };
-		6C05B85421AC5567009E9A98 /* RxGitLabKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6C05B83721AC4D60009E9A98 /* RxGitLabKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6C05B85D21AC5A84009E9A98 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C05B85A21AC5A83009E9A98 /* RxSwift.framework */; };
+		6C05B85E21AC5A84009E9A98 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C05B85B21AC5A83009E9A98 /* SnapKit.framework */; };
+		6C05B85F21AC5A84009E9A98 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C05B85C21AC5A83009E9A98 /* RxCocoa.framework */; };
+		6C05B86F21AC5A9B009E9A98 /* RxGitLabKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C05B86821AC5A8D009E9A98 /* RxGitLabKit.framework */; };
+		6C05B87021AC5A9B009E9A98 /* RxGitLabKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6C05B86821AC5A8D009E9A98 /* RxGitLabKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6C54520F21A043A700B6BFA0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C54520E21A043A700B6BFA0 /* AppDelegate.swift */; };
 		6C54521121A043A700B6BFA0 /* ProjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C54521021A043A700B6BFA0 /* ProjectsViewController.swift */; };
 		6C54521421A043A700B6BFA0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C54521221A043A700B6BFA0 /* Main.storyboard */; };
@@ -42,37 +42,37 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		6C05B83621AC4D60009E9A98 /* PBXContainerItemProxy */ = {
+		6C05B86721AC5A8D009E9A98 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 6C54524821A094F200B6BFA0 /* RxGitLabKit.xcodeproj */;
+			containerPortal = 6C05B86021AC5A8C009E9A98 /* RxGitLabKit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 6CE13F6321184ED200C92B7B;
 			remoteInfo = "RxGitLabKit-iOS";
 		};
-		6C05B83821AC4D60009E9A98 /* PBXContainerItemProxy */ = {
+		6C05B86921AC5A8D009E9A98 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 6C54524821A094F200B6BFA0 /* RxGitLabKit.xcodeproj */;
+			containerPortal = 6C05B86021AC5A8C009E9A98 /* RxGitLabKit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 6CBD2B2F21185318007BA543;
 			remoteInfo = "RxGitLabKit-macOS";
 		};
-		6C05B83A21AC4D60009E9A98 /* PBXContainerItemProxy */ = {
+		6C05B86B21AC5A8D009E9A98 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 6C54524821A094F200B6BFA0 /* RxGitLabKit.xcodeproj */;
+			containerPortal = 6C05B86021AC5A8C009E9A98 /* RxGitLabKit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 6C06A89F212EA41D00686583;
 			remoteInfo = "RxGitLabKit-iOSTests";
 		};
-		6C05B83C21AC4D60009E9A98 /* PBXContainerItemProxy */ = {
+		6C05B86D21AC5A8D009E9A98 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 6C54524821A094F200B6BFA0 /* RxGitLabKit.xcodeproj */;
+			containerPortal = 6C05B86021AC5A8C009E9A98 /* RxGitLabKit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 6C6EE58521907480006C447E;
 			remoteInfo = "RxGitLabKit-macOSTests";
 		};
-		6C05B85521AC5567009E9A98 /* PBXContainerItemProxy */ = {
+		6C05B87121AC5A9B009E9A98 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 6C54524821A094F200B6BFA0 /* RxGitLabKit.xcodeproj */;
+			containerPortal = 6C05B86021AC5A8C009E9A98 /* RxGitLabKit.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = 6CE13F6221184ED200C92B7B;
 			remoteInfo = "RxGitLabKit-iOS";
@@ -94,13 +94,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		6C05B85721AC5567009E9A98 /* Embed Frameworks */ = {
+		6C05B87321AC5A9C009E9A98 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				6C05B85421AC5567009E9A98 /* RxGitLabKit.framework in Embed Frameworks */,
+				6C05B87021AC5A9B009E9A98 /* RxGitLabKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -108,9 +108,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		6C05B84321AC4E8F009E9A98 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = ../Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
-		6C05B84521AC4E99009E9A98 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = ../Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
-		6C05B84721AC4EA6009E9A98 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = ../Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
+		6C05B85A21AC5A83009E9A98 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = ../Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		6C05B85B21AC5A83009E9A98 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = ../Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
+		6C05B85C21AC5A83009E9A98 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = ../Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		6C05B86021AC5A8C009E9A98 /* RxGitLabKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RxGitLabKit.xcodeproj; path = ../RxGitLabKit.xcodeproj; sourceTree = "<group>"; };
+		6C0B0BCF21AACC7000A4EB50 /* RxGitLabKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxGitLabKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C0B0BD321AAD0D500A4EB50 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = ../RxGitLabKit/Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		6C0B0BD521AAD0E500A4EB50 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = ../RxGitLabKit/Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		6C0B0BD721AAD10D00A4EB50 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = ../RxGitLabKit/Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		6C54520B21A043A700B6BFA0 /* RxGitLabKitDemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxGitLabKitDemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C54520E21A043A700B6BFA0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6C54521021A043A700B6BFA0 /* ProjectsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsViewController.swift; sourceTree = "<group>"; };
@@ -129,7 +134,6 @@
 		6C54524021A04B3500B6BFA0 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		6C54524121A04B3500B6BFA0 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		6C54524621A04E0B00B6BFA0 /* CommitDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitDetailViewController.swift; sourceTree = "<group>"; };
-		6C54524821A094F200B6BFA0 /* RxGitLabKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RxGitLabKit.xcodeproj; path = ../RxGitLabKit.xcodeproj; sourceTree = "<group>"; };
 		6C54525E21A09D9A00B6BFA0 /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/iOS/RxTest.framework; sourceTree = "<group>"; };
 		6C54525F21A09D9A00B6BFA0 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
 		6C54526221A0AFC200B6BFA0 /* CommitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitsViewController.swift; sourceTree = "<group>"; };
@@ -157,10 +161,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C05B85021AC550E009E9A98 /* RxCocoa.framework in Frameworks */,
-				6C05B85121AC550E009E9A98 /* RxSwift.framework in Frameworks */,
-				6C05B85321AC5567009E9A98 /* RxGitLabKit.framework in Frameworks */,
-				6C05B85221AC550E009E9A98 /* SnapKit.framework in Frameworks */,
+				6C05B85D21AC5A84009E9A98 /* RxSwift.framework in Frameworks */,
+				6C05B85E21AC5A84009E9A98 /* SnapKit.framework in Frameworks */,
+				6C05B86F21AC5A9B009E9A98 /* RxGitLabKit.framework in Frameworks */,
+				6C05B85F21AC5A84009E9A98 /* RxCocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,13 +185,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6C05B83021AC4D60009E9A98 /* Products */ = {
+		6C05B82E21AC17BA009E9A98 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				6C05B83721AC4D60009E9A98 /* RxGitLabKit.framework */,
-				6C05B83921AC4D60009E9A98 /* RxGitLabKit.framework */,
-				6C05B83B21AC4D60009E9A98 /* RxGitLabKit-iOSTests.xctest */,
-				6C05B83D21AC4D60009E9A98 /* RxGitLabKit-macOSTests.xctest */,
+				6C54527E21A1F6E200B6BFA0 /* BaseViewController.swift */,
+				6C54528021A1F76000B6BFA0 /* BaseViewModel.swift */,
+				6C54528821A21CC900B6BFA0 /* BaseView.swift */,
+				6C54528221A1F7C100B6BFA0 /* BaseTableViewCell.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		6C05B82F21AC181B009E9A98 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				6CF64BB221A43C38003D81CB /* Date+Extensions.swift */,
+				6C54526F21A16E4C00B6BFA0 /* UITableViewCell+Extensions.swift */,
+				6C61D37621A9956D0087FCF2 /* UITableView+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		6C05B86121AC5A8C009E9A98 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6C05B86821AC5A8D009E9A98 /* RxGitLabKit.framework */,
+				6C05B86A21AC5A8D009E9A98 /* RxGitLabKit.framework */,
+				6C05B86C21AC5A8D009E9A98 /* RxGitLabKit-iOSTests.xctest */,
+				6C05B86E21AC5A8D009E9A98 /* RxGitLabKit-macOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -195,7 +220,7 @@
 		6C54520221A043A700B6BFA0 = {
 			isa = PBXGroup;
 			children = (
-				6C54524821A094F200B6BFA0 /* RxGitLabKit.xcodeproj */,
+				6C05B86021AC5A8C009E9A98 /* RxGitLabKit.xcodeproj */,
 				6C54520D21A043A700B6BFA0 /* RxGitLabKitDemoApp */,
 				6C54522221A043AA00B6BFA0 /* RxGitLabKitDemoAppTests */,
 				6C54522D21A043AA00B6BFA0 /* RxGitLabKitDemoAppUITests */,
@@ -217,15 +242,12 @@
 		6C54520D21A043A700B6BFA0 /* RxGitLabKitDemoApp */ = {
 			isa = PBXGroup;
 			children = (
-				6C54526E21A16E3C00B6BFA0 /* Supporting Files */,
+				6C05B82E21AC17BA009E9A98 /* Base */,
 				6C54526521A1695F00B6BFA0 /* ViewModels */,
 				6C54526B21A16D8200B6BFA0 /* Views */,
 				6C54526421A1694000B6BFA0 /* ViewControllers */,
-				6C54520E21A043A700B6BFA0 /* AppDelegate.swift */,
-				6C54521221A043A700B6BFA0 /* Main.storyboard */,
-				6C54521521A043AA00B6BFA0 /* Assets.xcassets */,
-				6C54521721A043AA00B6BFA0 /* LaunchScreen.storyboard */,
-				6C54521A21A043AA00B6BFA0 /* Info.plist */,
+				6C05B82F21AC181B009E9A98 /* Extensions */,
+				6C54526E21A16E3C00B6BFA0 /* Supporting Files */,
 			);
 			path = RxGitLabKitDemoApp;
 			sourceTree = "<group>";
@@ -251,9 +273,13 @@
 		6C54523E21A04B3500B6BFA0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6C05B84721AC4EA6009E9A98 /* SnapKit.framework */,
-				6C05B84521AC4E99009E9A98 /* RxSwift.framework */,
-				6C05B84321AC4E8F009E9A98 /* RxCocoa.framework */,
+				6C0B0BD721AAD10D00A4EB50 /* SnapKit.framework */,
+				6C0B0BD521AAD0E500A4EB50 /* RxCocoa.framework */,
+				6C05B85C21AC5A83009E9A98 /* RxCocoa.framework */,
+				6C0B0BD321AAD0D500A4EB50 /* RxSwift.framework */,
+				6C05B85A21AC5A83009E9A98 /* RxSwift.framework */,
+				6C05B85B21AC5A83009E9A98 /* SnapKit.framework */,
+				6C0B0BCF21AACC7000A4EB50 /* RxGitLabKit.framework */,
 				6C54525F21A09D9A00B6BFA0 /* RxBlocking.framework */,
 				6C54525E21A09D9A00B6BFA0 /* RxTest.framework */,
 				6C54523F21A04B3500B6BFA0 /* RxCocoa.framework */,
@@ -271,7 +297,6 @@
 				6C54526221A0AFC200B6BFA0 /* CommitsViewController.swift */,
 				6C54524621A04E0B00B6BFA0 /* CommitDetailViewController.swift */,
 				6C54527C21A1D2A100B6BFA0 /* CustomSplitViewController.swift */,
-				6C54527E21A1F6E200B6BFA0 /* BaseViewController.swift */,
 				6C54528421A20CA300B6BFA0 /* LoginViewController.swift */,
 			);
 			path = ViewControllers;
@@ -284,7 +309,6 @@
 				6C54526921A16CF200B6BFA0 /* ProjectsViewModel.swift */,
 				6C54527121A17EDC00B6BFA0 /* ProfileViewModel.swift */,
 				6C54527321A1801400B6BFA0 /* CommitsViewModel.swift */,
-				6C54528021A1F76000B6BFA0 /* BaseViewModel.swift */,
 				6C54528621A20CED00B6BFA0 /* LoginViewModel.swift */,
 			);
 			path = ViewModels;
@@ -296,8 +320,6 @@
 				6C54526C21A16E2B00B6BFA0 /* ProjectTableViewCell.swift */,
 				6C54527821A1A7A900B6BFA0 /* CommitTableViewCell.swift */,
 				6C54527A21A1C32A00B6BFA0 /* CommitDetailTableViewCell.swift */,
-				6C54528221A1F7C100B6BFA0 /* BaseTableViewCell.swift */,
-				6C54528821A21CC900B6BFA0 /* BaseView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -305,9 +327,11 @@
 		6C54526E21A16E3C00B6BFA0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				6CF64BB221A43C38003D81CB /* Date+Extensions.swift */,
-				6C54526F21A16E4C00B6BFA0 /* UITableViewCell+Extensions.swift */,
-				6C61D37621A9956D0087FCF2 /* UITableView+Extensions.swift */,
+				6C54520E21A043A700B6BFA0 /* AppDelegate.swift */,
+				6C54521221A043A700B6BFA0 /* Main.storyboard */,
+				6C54521521A043AA00B6BFA0 /* Assets.xcassets */,
+				6C54521721A043AA00B6BFA0 /* LaunchScreen.storyboard */,
+				6C54521A21A043AA00B6BFA0 /* Info.plist */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -323,12 +347,12 @@
 				6C54520821A043A700B6BFA0 /* Frameworks */,
 				6C54520921A043A700B6BFA0 /* Resources */,
 				6C54524521A04B3B00B6BFA0 /* ShellScript */,
-				6C05B85721AC5567009E9A98 /* Embed Frameworks */,
+				6C05B87321AC5A9C009E9A98 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				6C05B85621AC5567009E9A98 /* PBXTargetDependency */,
+				6C05B87221AC5A9B009E9A98 /* PBXTargetDependency */,
 			);
 			name = RxGitLabKitDemoApp;
 			productName = RxGitLabKitDemoApp;
@@ -407,8 +431,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 6C05B83021AC4D60009E9A98 /* Products */;
-					ProjectRef = 6C54524821A094F200B6BFA0 /* RxGitLabKit.xcodeproj */;
+					ProductGroup = 6C05B86121AC5A8C009E9A98 /* Products */;
+					ProjectRef = 6C05B86021AC5A8C009E9A98 /* RxGitLabKit.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -421,32 +445,32 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		6C05B83721AC4D60009E9A98 /* RxGitLabKit.framework */ = {
+		6C05B86821AC5A8D009E9A98 /* RxGitLabKit.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = RxGitLabKit.framework;
-			remoteRef = 6C05B83621AC4D60009E9A98 /* PBXContainerItemProxy */;
+			remoteRef = 6C05B86721AC5A8D009E9A98 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		6C05B83921AC4D60009E9A98 /* RxGitLabKit.framework */ = {
+		6C05B86A21AC5A8D009E9A98 /* RxGitLabKit.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = RxGitLabKit.framework;
-			remoteRef = 6C05B83821AC4D60009E9A98 /* PBXContainerItemProxy */;
+			remoteRef = 6C05B86921AC5A8D009E9A98 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		6C05B83B21AC4D60009E9A98 /* RxGitLabKit-iOSTests.xctest */ = {
+		6C05B86C21AC5A8D009E9A98 /* RxGitLabKit-iOSTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = "RxGitLabKit-iOSTests.xctest";
-			remoteRef = 6C05B83A21AC4D60009E9A98 /* PBXContainerItemProxy */;
+			remoteRef = 6C05B86B21AC5A8D009E9A98 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		6C05B83D21AC4D60009E9A98 /* RxGitLabKit-macOSTests.xctest */ = {
+		6C05B86E21AC5A8D009E9A98 /* RxGitLabKit-macOSTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = "RxGitLabKit-macOSTests.xctest";
-			remoteRef = 6C05B83C21AC4D60009E9A98 /* PBXContainerItemProxy */;
+			remoteRef = 6C05B86D21AC5A8D009E9A98 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -550,10 +574,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		6C05B85621AC5567009E9A98 /* PBXTargetDependency */ = {
+		6C05B87221AC5A9B009E9A98 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "RxGitLabKit-iOS";
-			targetProxy = 6C05B85521AC5567009E9A98 /* PBXContainerItemProxy */;
+			targetProxy = 6C05B87121AC5A9B009E9A98 /* PBXContainerItemProxy */;
 		};
 		6C54522121A043AA00B6BFA0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -714,7 +738,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/../Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = RxGitLabKitDemoApp/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/RxGitLabKitDemoApp/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -738,7 +762,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/../Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = RxGitLabKitDemoApp/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/RxGitLabKitDemoApp/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

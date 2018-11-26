@@ -10,86 +10,49 @@ import UIKit
 import RxSwift
 
 class LoginViewController: BaseViewController {
-    
+  
+  private weak var hostTextField: UITextField!
+  private weak var userNameTextField: UITextField!
+  private weak var passwordTextField: UITextField!
+  private weak var privateTokenField: UITextField!
+  private weak var oAuthTokenTextField: UITextField!
+  private weak var authorizeButton: UIButton!
+  
   var viewModel: LoginViewModel!
-  
-  let hostLabel: UILabel = {
-    let label = UILabel()
-    label.text = "Host"
-    return label
-  }()
-  
-  let hostTextField: UITextField = {
-    let textField = UITextField()
-    textField.borderStyle = .roundedRect
-    return textField
-  } ()
-  
-  let userNameLabel: UILabel = {
-    let label = UILabel()
-    label.text = "Username or e-mail"
-    return label
-  } ()
-  
-  let userNameTextField: UITextField = {
-    let textField = UITextField()
-    textField.borderStyle = .roundedRect
-    textField.text = "dagytran@gmail.com"
-    return textField
-  } ()
-  
-  let passwordLabel: UILabel = {
-    let label = UILabel()
-    label.text = "Password"
-    return label
-  } ()
-  
-  let passwordTextField: UITextField = {
-    let textField = UITextField()
-    textField.isSecureTextEntry = true
-    textField.borderStyle = .roundedRect
-    return textField
-  } ()
-  
-  let privateTokenLabel: UILabel = {
-    let label = UILabel()
-    label.text = "Private Token"
-    return label
-  } ()
-  
-  let privateTokenField: UITextField = {
-    let textField = UITextField()
-    textField.borderStyle = .roundedRect
-    return textField
-  } ()
-  
-  let oAuthTokenLabel: UILabel = {
-    let label = UILabel()
-    label.text = "OAuth Token"
-    return label
-  } ()
-  
-  let oAuthTokenTextField: UITextField = {
-    let textField = UITextField()
-    textField.borderStyle = .roundedRect
-    return textField
-  } ()
-  
-  let authorizeButton: UIButton = {
-    let button = UIButton()
-    button.setTitle("Authorize", for: .normal)
-    button.setTitleColor(.blue, for: .normal)
-    return button
-  } ()
-  
+
   private let loginTrigger = PublishSubject<[String : String]>()
   
   override func viewDidLoad() {
     super.viewDidLoad()
     navigationItem.hidesBackButton = true
-
     title = "Login"
     view.backgroundColor = .white
+    
+    let authorizeButton = UIButton()
+    authorizeButton.setTitle("Authorize", for: .normal)
+    authorizeButton.setTitleColor(.blue, for: .normal)
+    self.authorizeButton = authorizeButton
+
+    let hostLabel = createLabelWithText("Host")
+    let userNameLabel = createLabelWithText("Username or e-mail")
+    let passwordLabel = createLabelWithText("Password")
+    let privateTokenLabel = createLabelWithText("Private Token")
+    let oAuthTokenLabel = createLabelWithText("OAuth Token")
+    
+    let hostTextField = createTextFieldWithRoundedCorners()
+    self.hostTextField = hostTextField
+    let userNameTextField = createTextFieldWithRoundedCorners()
+    userNameTextField.textContentType = .username
+    self.userNameTextField = userNameTextField
+    let passwordTextField = createTextFieldWithRoundedCorners()
+    passwordTextField.isSecureTextEntry = true
+    passwordTextField.textContentType = .password
+    self.passwordTextField = passwordTextField
+    let privateTokenField = createTextFieldWithRoundedCorners()
+    self.privateTokenField = privateTokenField
+    let oAuthTokenTextField = createTextFieldWithRoundedCorners()
+    self.oAuthTokenTextField = oAuthTokenTextField
+    
     hostTextField.text = viewModel.gitlabClient.hostURL.absoluteString
     
     let stackView = UIStackView(arrangedSubviews: [hostLabel, hostTextField, userNameLabel, userNameTextField, passwordLabel, passwordTextField, privateTokenLabel, privateTokenField, oAuthTokenLabel, oAuthTokenTextField])
@@ -107,7 +70,12 @@ class LoginViewController: BaseViewController {
       make.top.equalTo(stackView.snp.bottom).offset(32)
       make.centerX.equalToSuperview()
     }
-    
+    let gesture = UITapGestureRecognizer()
+    gesture.rx.event.subscribe(onNext: { (gesture) in
+      self.view.endEditing(true)
+    })
+    .disposed(by: disposeBag)
+    view.addGestureRecognizer(gesture)
     setupBinding()
   }
   
@@ -155,6 +123,18 @@ class LoginViewController: BaseViewController {
     let profileVC = ProfileViewController()
     profileVC.viewModel = ProfileViewModel(with: self.viewModel.gitlabClient)
     self.navigationController?.popViewController(animated: true)
+  }
+  
+  private func createLabelWithText(_ text: String) -> UILabel {
+    let label = UILabel()
+    label.text = text
+    return label
+  }
+  
+  private func createTextFieldWithRoundedCorners() -> UITextField {
+    let textField = UITextField()
+    textField.borderStyle = .roundedRect
+    return textField
   }
   
 }

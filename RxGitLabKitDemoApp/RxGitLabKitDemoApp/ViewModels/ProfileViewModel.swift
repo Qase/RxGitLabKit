@@ -17,24 +17,11 @@ class ProfileViewModel: BaseViewModel {
   var user: User? {
     return userVariable.value
   }
-
-  init(with gitlabClient: RxGitLabAPIClient) {
-    self.gitlabClient = gitlabClient
-    super.init()
-    gitlabClient.currentUserObservable
-      .bind(to: userVariable)
-      .disposed(by: self.disposeBag)
-  }
-  
-  func logOut() {
-    gitlabClient.logOut()
-  }
   
   var dataSource: Observable<[(String, String)]> {
     return userVariable.asObservable()
       .filter { $0 != nil}
       .map { user in
-        
         guard let user = user else { return [] }
         var texts = [(String, String)]()
         
@@ -51,11 +38,22 @@ class ProfileViewModel: BaseViewModel {
         }
         
         if let privateToken = self.gitlabClient.privateToken {
-          texts.append(("Private Token", privateToken))
+          texts.append(("OAuth Token", privateToken))
         }
-        
         return texts
     }
+  }
+
+  init(with gitlabClient: RxGitLabAPIClient) {
+    self.gitlabClient = gitlabClient
+    super.init()
+    gitlabClient.currentUserObservable
+      .bind(to: userVariable)
+      .disposed(by: self.disposeBag)
+  }
+  
+  func logOut() {
+    gitlabClient.logOut()
   }
   
 }

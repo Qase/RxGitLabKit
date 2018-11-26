@@ -70,5 +70,4 @@ class CommitDetailViewController: BaseViewController {
     .bind(to:refreshControl.rx.isRefreshing)
     .disposed(by: disposeBag)
   }
-
 }

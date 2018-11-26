@@ -22,17 +22,11 @@ class ProjectsViewController: BaseViewController, UISplitViewControllerDelegate 
     super.viewDidLoad()
     title = "Projects"
     modalPresentationStyle = .popover
+    definesPresentationContext = true
     setupNavbar()
     setupSearchController()
-//    setupBarButton()
     setupTableView()
     setupTableViewBinding()
-//    setupRefreshControl()
-  }
-  
-  override func viewDidAppear(_ animated: Bool) {
-    super.viewDidAppear(animated)
-//    setupRefreshControlBinding()
   }
   
   private func setupNavbar() {
@@ -140,43 +134,6 @@ class ProjectsViewController: BaseViewController, UISplitViewControllerDelegate 
         }
       })
       .disposed(by: disposeBag)
-  }
-  
-  private func setupRefreshControl() {
-    let refreshControl = UIRefreshControl()
-//    tableView.refreshControl = refreshControl
-    self.refreshControl = refreshControl
-  }
-  
-  private func setupRefreshControlBinding() {
-    viewModel.isLoading
-      .asObservable()
-      .observeOn(MainScheduler.instance)
-      .distinctUntilChanged()
-      .debug()
-      .subscribe(onNext: { (isLoading) in
-        if isLoading {
-          self.refreshControl.beginRefreshing()
-        } else {
-          self.refreshControl.endRefreshing()
-        }
-      })
-      .disposed(by: disposeBag)
-    
-//    viewModel.dataSource
-//      .observeOn(MainScheduler.instance)
-//      .subscribe {
-//        self.refreshControl.endRefreshing()
-//      }
-//      .disposed(by: disposeBag)
-//
-//    refreshControl.rx.controlEvent(.valueChanged)
-//      .subscribe(onNext: { _ in
-//        if self.refreshControl.isRefreshing {
-//          self.viewModel.loadProjects()
-//        }
-//      })
-//      .disposed(by: disposeBag)
   }
   
   func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
