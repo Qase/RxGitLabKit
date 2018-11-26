@@ -25,7 +25,7 @@ public struct ProjectMocks {
     "owner": {
       "id": 3,
       "name": "Diaspora",
-      "created_at": "2013-09-30T13:46:02Z"
+      "created_at": "2013-09-30T13:46:02.000Z"
     },
     "name": "Diaspora Client",
     "name_with_namespace": "Diaspora / Diaspora Client",
@@ -39,8 +39,8 @@ public struct ProjectMocks {
     "snippets_enabled": false,
     "resolve_outdated_diff_discussions": false,
     "container_registry_enabled": false,
-    "created_at": "2013-09-30T13:46:02Z",
-    "last_activity_at": "2013-09-30T13:46:02Z",
+    "created_at": "2013-09-30T13:46:02.000Z",
+    "last_activity_at": "2013-09-30T13:46:02.000Z",
     "creator_id": 3,
     "namespace": {
       "id": 3,
@@ -117,7 +117,7 @@ public struct ProjectMocks {
 {
   "id": 3,
   "name": "Diaspora",
-  "created_at": "2013-09-30T13:46:02Z"
+  "created_at": "2013-09-30T13:46:02.000Z"
 }
 """.data()
 
@@ -137,7 +137,7 @@ public struct ProjectMocks {
 "pipeline_events": true,
 "wiki_page_events": true,
 "enable_ssl_verification": true,
-"created_at": "2012-10-12T17:04:47Z"
+"created_at": "2012-10-12T17:04:47.000Z"
 }
 """.data()
 

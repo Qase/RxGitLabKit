@@ -9,7 +9,7 @@
 
 import Foundation
 import XCTest
-import RxGitLabKit
+@testable import RxGitLabKit
 import RxSwift
 import RxTest
 import RxBlocking
@@ -61,7 +61,7 @@ class DevelopmentPlaygroundTests: XCTestCase {
         .value
         .map({ Int($0) }),
       let page = _page,
-      let _perPage = queryItems.filter({$0.name == "perPage"})
+      let _perPage = queryItems.filter({$0.name == "per_page"})
         .first?
         .value
         .map({Int($0)}),
@@ -78,7 +78,7 @@ class DevelopmentPlaygroundTests: XCTestCase {
 
     let apiRequest = APIRequest(path: "/projects/\(mockProjectID)/repository/commits", method: .get)
     let hostCommunicator = HostCommunicator(network: client, hostURL: GeneralMocks.mockURL)
-    let paginator = ArrayPaginator<Commit>(communicator: hostCommunicator, apiRequest: apiRequest, perPage: perPage)
+    let paginator = Paginator<Commit>(communicator: hostCommunicator, apiRequest: apiRequest, perPage: perPage)
     let result = paginator[2..<5]
       .toBlocking()
       .materialize()
@@ -88,7 +88,7 @@ class DevelopmentPlaygroundTests: XCTestCase {
       XCTAssertNotNil(elements.first)
       let commits = elements.first!
       commits.forEach { (commit) in
-        print("\(commit.shortId!) \(commit.title!)")
+        print("\(commit.shortId) \(commit.title!)")
       }
       print("Commit count: \(commits.count)")
     case .failed(elements: _, error: let error):

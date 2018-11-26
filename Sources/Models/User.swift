@@ -9,7 +9,7 @@ import Foundation
 
 public struct User: Codable {
   public let id: Int
-  public let username: String
+  public let username: String?
   public let email: String?
   public let name: String?
   public let state: String?
@@ -76,7 +76,7 @@ public struct User: Codable {
   public init(from decoder: Decoder) throws {
     let values = try decoder.container(keyedBy: CodingKeys.self)
     id = try values.decode(Int.self, forKey: .id)
-    username = try values.decode(String.self, forKey: .username)
+    username = try values.decodeIfPresent(String.self, forKey: .username)
     email = try values.decodeIfPresent(String.self, forKey: .email)
     name = try values.decodeIfPresent(String.self, forKey: .name)
     state = try values.decodeIfPresent(String.self, forKey: .state)

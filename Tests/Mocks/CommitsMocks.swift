@@ -10,7 +10,7 @@ import RxGitLabKit
 
 class CommitsMocks {
 
-  static let mockProjectID = "12345"
+  static let mockProjectID = 12345
 
   static let twoCommitsData = """
 [
@@ -20,11 +20,11 @@ class CommitsMocks {
     "title": "Replace sanitize with escape once",
     "author_name": "Dmitriy Zaporozhets",
     "author_email": "dzaporozhets@sphereconsultinginc.com",
-    "authored_date": "2012-09-20T11:50:22+03:00",
+    "authored_date": "2012-09-20T11:50:22.000+03:00",
     "committer_name": "Administrator",
     "committer_email": "admin@example.com",
-    "committed_date": "2012-09-20T11:50:22+03:00",
-    "created_at": "2012-09-20T11:50:22+03:00",
+    "committed_date": "2012-09-20T11:50:22.000+03:00",
+    "created_at": "2012-09-20T11:50:22.000+03:00",
     "message": "Replace sanitize with escape once",
     "parent_ids": [
       "6104942438c14ec7bd21c6cd5bd995272b3faff6"
@@ -38,7 +38,7 @@ class CommitsMocks {
     "author_email": "dmitriy.zaporozhets@gmail.com",
     "committer_name": "Dmitriy",
     "committer_email": "dmitriy.zaporozhets@gmail.com",
-    "created_at": "2012-09-20T09:06:12+03:00",
+    "created_at": "2012-09-20T09:06:12.000+03:00",
     "message": "Sanitize for network graph",
     "parent_ids": [
       "ae1d9fb46aa2b07ee9836d49862ec4e2c46fbbba"
@@ -123,10 +123,10 @@ class CommitsMocks {
   "author_email": "dmitriy.zaporozhets@gmail.com",
   "committer_name": "Dmitriy",
   "committer_email": "dmitriy.zaporozhets@gmail.com",
-  "created_at": "2012-09-20T09:06:12+03:00",
+  "created_at": "2012-09-20T09:06:12.000+03:00",
   "message": "Sanitize for network graph",
-  "committed_date": "2012-09-20T09:06:12+03:00",
-  "authored_date": "2012-09-20T09:06:12+03:00",
+  "committed_date": "2012-09-20T09:06:12.000+03:00",
+  "authored_date": "2012-09-20T09:06:12.000+03:00",
   "parent_ids": [
     "ae1d9fb46aa2b07ee9836d49862ec4e2c46fbbba"
   ],
@@ -197,7 +197,7 @@ class CommitsMocks {
     "email": "admin@local.host",
     "name": "Administrator",
     "state": "active",
-    "created_at": "2014-03-06T08:17:35Z"
+    "created_at": "2014-03-06T08:17:35.000Z"
   }
 }
 ]
@@ -213,7 +213,7 @@ class CommitsMocks {
       "name" : "Jeff Lebowski",
       "id" : 28
     },
-  "created_at" : "2016-01-19T09:44:55Z",
+  "created_at" : "2016-01-19T09:44:55.000Z",
   "line_type" : "new",
   "path" : "dudeism.md",
   "line" : 11,
@@ -225,7 +225,7 @@ class CommitsMocks {
 [
   {
       "status" : "pending",
-      "created_at" : "2016-01-19T08:40:25Z",
+      "created_at" : "2016-01-19T08:40:25.000Z",
       "started_at" : null,
       "name" : "bundler:audit",
       "allow_failure" : true,
@@ -249,7 +249,7 @@ class CommitsMocks {
       "name" : "test",
       "allow_failure" : false,
       "status" : "pending",
-      "created_at" : "2016-01-19T08:40:25Z",
+      "created_at" : "2016-01-19T08:40:25.000Z",
       "target_url" : "https://gitlab.example.com/thedude/gitlab-ce/builds/90",
       "id" : 90,
       "finished_at" : null,
@@ -287,9 +287,9 @@ class CommitsMocks {
   "target_url" : null,
   "ref" : null,
   "started_at" : null,
-  "created_at" : "2016-01-19T09:05:50Z",
+  "created_at" : "2016-01-19T09:05:50.000Z",
   "allow_failure" : false,
-  "finished_at" : "2016-01-19T09:05:50Z"
+  "finished_at" : "2016-01-19T09:05:50.000Z"
 }
 """.data()
 
@@ -301,8 +301,8 @@ class CommitsMocks {
       "title":"Add new file",
       "description":"",
       "state":"opened",
-      "created_at":"2018-03-26T17:26:30Z",
-      "updated_at":"2018-03-26T17:26:30Z",
+      "created_at":"2018-03-26T17:26:30.000Z",
+      "updated_at":"2018-03-26T17:26:30.000Z",
       "target_branch":"master",
       "source_branch":"test-branch",
       "upvotes":0,
@@ -348,8 +348,8 @@ class CommitsMocks {
       "title":"Add new file",
       "description":"",
       "state":"opened",
-      "created_at":"2018-03-26T17:26:30Z",
-      "updated_at":"2018-03-26T17:26:30Z",
+      "created_at":"2018-03-26T17:26:30.000Z",
+      "updated_at":"2018-03-26T17:26:30.000Z",
       "target_branch":"master",
       "source_branch":"test-branch",
       "upvotes":0,

@@ -7,11 +7,6 @@
 //
 
 import XCTest
-@testable import RxGitLabKitDemoApp
-import RxSwift
-import RxBlocking
-import RxGitLabKit
-
 
 class RxGitLabKitDemoAppTests: XCTestCase {
 

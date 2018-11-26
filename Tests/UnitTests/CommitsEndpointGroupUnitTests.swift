@@ -6,7 +6,7 @@
 //
 
 import XCTest
-import RxGitLabKit
+@testable import RxGitLabKit
 import RxSwift
 import RxBlocking
 import RxTest
@@ -161,7 +161,7 @@ class CommitsEndpointGroupUnitTests: EndpointGroupUnitTests {
 
   func testCherryPick() {
     mockSession.nextData = CommitsMocks.cherryPickResponseData
-    let projectID = "8908"
+    let projectID = 8908
     let sha = "ouqertjnsmvnjhrejk"
     let branch = "master"
     let commit = client.commits.cherryPick(projectID: projectID, sha: sha, branch: branch)

@@ -68,9 +68,9 @@ class ProjectTests: XCTestCase {
 
   func testUserDecode() {
     do {
-      let namespace = try decoder.decode(User.self, from: ProjectMocks.userData)
-      XCTAssertEqual(namespace.id, 3)
-      XCTAssertEqual(namespace.name, "Diaspora")
+      let user = try decoder.decode(User.self, from: ProjectMocks.userData)
+      XCTAssertEqual(user.id, 3)
+      XCTAssertEqual(user.name, "Diaspora")
     } catch let error {
       XCTFail("Failed to decode commit. Error: \(error.localizedDescription)")
     }

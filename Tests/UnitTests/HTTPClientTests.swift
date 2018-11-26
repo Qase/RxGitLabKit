@@ -6,7 +6,7 @@
 //
 
 import XCTest
-import RxGitLabKit
+@testable import RxGitLabKit
 import RxSwift
 import RxBlocking
 import RxTest

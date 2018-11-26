@@ -106,7 +106,6 @@ public class RxGitLabAPIClient {
       }
       .share()
 
-
     tokenObservable.bind(to: oAuthTokenVariable)
       .disposed(by: disposeBag)
     tokenObservable.bind(to: hostCommunicator.oAuthTokenVariable)
@@ -140,7 +139,7 @@ public class RxGitLabAPIClient {
     hostCommunicator.hostURL = hostURL
   }
 
-  public func logIn(username: String, password: String){
+  public func logIn(username: String, password: String) {
     loginPublishSubject.onNext((username, password))
   }
   

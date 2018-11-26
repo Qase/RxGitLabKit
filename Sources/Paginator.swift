@@ -27,6 +27,17 @@ public class Paginator<T: Codable> {
       })
   }
   
+  public var totalItems: Observable<Int> {
+    var newApiRequest = apiRequest
+    newApiRequest.parameters["per_page"] = perPage
+    return communicator
+      .header(for: newApiRequest)
+      .map({ header -> Int in
+        guard let _page = header[HeaderKeys.total.rawValue], let pagesCount = Int(_page) else { return 0 }
+        return pagesCount
+      })
+  }
+  
   // MARK: Init
   required public init(communicator: HostCommunicator, apiRequest: APIRequest, perPage: Int = RxGitLabAPIClient.defaultPerPage) {
     self.communicator = communicator

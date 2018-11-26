@@ -20,7 +20,7 @@ func testUserDecode() {
     "state": "active",
     "avatar_url": "http://localhost:3000/uploads/user/avatar/1/cd8.jpeg",
     "web_url": "http://localhost:3000/john_smith",
-    "created_at": "2012-05-23T08:00:58Z",
+    "created_at": "2012-05-23T08:00:58.000Z",
     "bio": null,
     "location": null,
     "skype": "",

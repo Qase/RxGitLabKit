@@ -9,7 +9,7 @@
 
 import Foundation
 import XCTest
-import RxGitLabKit
+@testable import RxGitLabKit
 import RxSwift
 
 class RxGitLabAPIClientIntegrationTests: XCTestCase {
@@ -24,35 +24,22 @@ class RxGitLabAPIClientIntegrationTests: XCTestCase {
     client = RxGitLabAPIClient(with: hostCommunicator)
   }
 
-  func testGetToken() {
-    let result = client.getOAuthToken(username: AuthenticationMocks.username, password: AuthenticationMocks.password)
-      .toBlocking()
-      .materialize()
-    
-    switch result {
-    case .completed(elements: let elements):
-      XCTAssertNotNil(elements.first)
-      let token = elements.first!
-      print(token)
-    case .failed(elements: _, error: let error):
-      XCTFail(error.localizedDescription)
-    }
-  }
-
   func testLogin() {
-    let result = client.login(username: AuthenticationMocks.username, password: AuthenticationMocks.password)
+    client.logIn(username: AuthenticationMocks.username, password: AuthenticationMocks.password)
+    let result = client.oAuthTokenVariable.asObservable()
+      .filter{ $0 != nil }
+      .take(1)
       .toBlocking()
       .materialize()
     
     switch result {
     case .completed(elements: let elements):
-      XCTAssertNotNil(elements.first)
-      let token = elements.first!
-      print(token)
-      XCTAssertNotNil(client.oAuthTokenVariable.value)
+      XCTAssertNotNil(elements.first ?? nil)
+      XCTAssertEqual(elements.first!, AuthenticationMocks.oAuthToken)
+
+      XCTAssertNil(client.privateToken)
     case .failed(elements: _, error: let error):
       XCTFail(error.localizedDescription)
     }
   }
-  
 }

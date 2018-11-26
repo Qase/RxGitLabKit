@@ -7,7 +7,7 @@
 
 import Foundation
 import XCTest
-import RxGitLabKit
+@testable import RxGitLabKit
 import RxSwift
 import RxBlocking
 import RxTest
@@ -23,7 +23,7 @@ class PaginatorIntegrationTests: XCTestCase {
     super.setUp()
     //    URLProtocol.registerClass(MockURLProtocol.self)
     client = RxGitLabAPIClient(with: hostURL)
-    client.oAuthTokenVariable.value = AuthenticationMocks.mockLogin[.oAuthToken]
+    client.oAuthTokenVariable.value = AuthenticationMocks.oAuthToken
 
     // Put setup code here. This method is called before the invocation of each test method in the class.
   }
@@ -33,101 +33,31 @@ class PaginatorIntegrationTests: XCTestCase {
     super.tearDown()
   }
 
-//  func testLoadAll() {
-//    let paginator = client.users.getUsers(page: 1, perPage: 100)
-//    let loadAllObservable = paginator.loadAll()
-//
-//    // toBlocking doesn't work for some reason
-////    let result = loadAllObservable.toBlocking().materialize()
-////    switch result {
-////    case .completed(elements: let elements):
-////      XCTAssertEqual(elements.count,  paginator.total)
-////    case .failed(elements: _, error: let error):
-////      XCTFail(error.localizedDescription)
-////    }
-//
-//    let expectation = XCTestExpectation(description: "response")
-//    loadAllObservable
-//      .subscribe (onNext: { value in
-//        let countEquals = value.count == paginator.totalVariable.value
-//        XCTAssertTrue(countEquals)
-//        if countEquals {
-//          expectation.fulfill()
-//        }
-//      },
-//      onError: { error in
-//        XCTFail(error.localizedDescription)
-//        expectation.fulfill()
-//      })
-//      .disposed(by: disposeBag)
-//    wait(for: [expectation], timeout: timeoutInSeconds)
-//
-//  }
+  func testLoadAll() {
+    let paginator = client.users.getUsers(page: 1, perPage: 100)
+    let loadAllObservable = paginator.loadAll()
+    let totalObservable = paginator.totalItems
+    
+    let totalResult = totalObservable
+      .toBlocking()
+      .materialize()
+    
+    var total = 0
+    switch totalResult {
+    case .completed(elements: let elements):
+      total = elements[0]
+    case .failed(elements: _, error: let error):
+      XCTFail(error.localizedDescription)
+    }
 
-//  func testLoadPage() {
-//    let observable = client.users.getUsers().loadPage(page: 1, perPage: 66)
-//    let result = observable.filter({ !$0.isEmpty }).toBlocking(timeout: 1000).materialize()
-//    switch result {
-//    case .completed(elements: let elements):
-//      XCTAssertGreaterThan(elements.count, 0)
-//      XCTAssertEqual(elements.first!.count, 66)
-//    case .failed(elements: _, error: let error):
-//      XCTFail(error.localizedDescription)
-//    }
-//  }
-//
-//  func testFirstPage() {
-//    let paginator = client.users.getUsers(page: 2, perPage: 100)
-//    XCTAssertEqual(paginator.pageVariable.value, 2)
-//    let result = paginator.loadFirstPage()
-//      .filter({ !$0.isEmpty })
-//      .toBlocking()
-//      .materialize()
-//
-//    switch result {
-//    case .completed(elements: let elements):
-//      XCTAssertGreaterThan(elements.count, 0)
-//      XCTAssertEqual(elements.first!.count, 100)
-//      XCTAssertEqual(paginator.pageVariable.value, 1)
-//    case .failed(elements: _, error: let error):
-//      XCTFail(error.localizedDescription)
-//    }
-//  }
-//
-//  func testNextPage() {
-//    let paginator = client.users.getUsers(page: 3, perPage: 100)
-//    XCTAssertEqual(paginator.pageVariable.value, 3)
-//    let result = paginator.loadNextPage()
-//      .filter({ !$0.isEmpty })
-//      .toBlocking()
-//      .materialize()
-//
-//    switch result {
-//    case .completed(elements: let elements):
-//      XCTAssertGreaterThan(elements.count, 0)
-//      XCTAssertEqual(elements.first!.count, 100)
-//      XCTAssertEqual(paginator.pageVariable.value, 4)
-//    case .failed(elements: _, error: let error):
-//      XCTFail(error.localizedDescription)
-//    }
-//  }
-//
-//  func testPreviousPage() {
-//    let paginator = client.users.getUsers(page: 3, perPage: 100)
-//    XCTAssertEqual(paginator.pageVariable.value, 3)
-//    let result = paginator.loadPreviousPage()
-//      .filter({ !$0.isEmpty })
-//      .toBlocking()
-//      .materialize()
-//
-//    switch result {
-//    case .completed(elements: let elements):
-//      XCTAssertGreaterThan(elements.count, 0)
-//      XCTAssertEqual(elements.first!.count, 100)
-//      XCTAssertEqual(paginator.pageVariable.value, 2)
-//    case .failed(elements: _, error: let error):
-//      XCTFail(error.localizedDescription)
-//    }
-//  }
+    // toBlocking doesn't work for some reason
+    let result = loadAllObservable.toBlocking().materialize()
+    switch result {
+    case .completed(elements: let elements):
+      XCTAssertEqual(elements[0].count, total)
+    case .failed(elements: _, error: let error):
+      XCTFail(error.localizedDescription)
+    }
+  }
 
 }
