@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:RxGitLabKitDemoApp/RxGitLabKitDemoApp.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:RxGitLabKit.xcodeproj">
    </FileRef>
 </Workspace>

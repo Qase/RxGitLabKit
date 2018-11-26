@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C05B84D21AC5063009E9A98 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CBD2B27211852DD007BA543 /* RxSwift.framework */; };
+		6C05B84E21AC506D009E9A98 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CBD2B26211852DD007BA543 /* RxCocoa.framework */; };
 		6C06A891212EA41D00686583 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C35DD11212B04A800D05B87 /* String+Extensions.swift */; };
 		6C06A892212EA41D00686583 /* RxGitLabAPIClientIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C35DD0F212AF9B200D05B87 /* RxGitLabAPIClientIntegrationTests.swift */; };
 		6C06A894212EA41D00686583 /* InputStream+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C35DD1E212C10B500D05B87 /* InputStream+Extensions.swift */; };
@@ -107,8 +109,6 @@
 		6CAA9EFF21582492006F5B16 /* RxGitLabApiClientMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAA9EFD21582492006F5B16 /* RxGitLabApiClientMocks.swift */; };
 		6CB7E8B1214BCFA700426B67 /* Identities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB7E8B0214BCFA700426B67 /* Identities.swift */; };
 		6CB7E8B2214BCFA700426B67 /* Identities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB7E8B0214BCFA700426B67 /* Identities.swift */; };
-		6CBD2B28211852DD007BA543 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CBD2B26211852DD007BA543 /* RxCocoa.framework */; };
-		6CBD2B29211852DD007BA543 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CBD2B27211852DD007BA543 /* RxSwift.framework */; };
 		6CBD2B3921185325007BA543 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C54020321145C2300631E21 /* HTTPClient.swift */; };
 		6CBD2B3A21185325007BA543 /* RxGitLabAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8F9C4721147868002D23E7 /* RxGitLabAPIClient.swift */; };
 		6CBD2B4221185484007BA543 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CBD2B4021185483007BA543 /* RxSwift.framework */; };
@@ -325,8 +325,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6CBD2B28211852DD007BA543 /* RxCocoa.framework in Frameworks */,
-				6CBD2B29211852DD007BA543 /* RxSwift.framework in Frameworks */,
+				6C05B84E21AC506D009E9A98 /* RxCocoa.framework in Frameworks */,
+				6C05B84D21AC5063009E9A98 /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
