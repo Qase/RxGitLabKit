@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:../RxGitLabKitDemoApp/RxGitLabKitDemoApp.xcodeproj">
+      location = "group:RxGitLabKitDemoApp/RxGitLabKitDemoApp.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:RxGitLabKit.xcodeproj">
