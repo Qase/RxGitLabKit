@@ -13,7 +13,6 @@ import RxSwift
 class CommitsViewController: BaseViewController {
   
   private weak var tableView: UITableView!
-  private weak var refreshControl: UIRefreshControl!
   private weak var emptyLabel: UILabel!
   
   var viewModel: CommitsViewModel!

@@ -14,7 +14,6 @@ class ProjectsViewController: BaseViewController, UISplitViewControllerDelegate 
   
   private weak var searchController: UISearchController!
   private weak var tableView: UITableView!
-  private weak var refreshControl: UIRefreshControl!
 
   var viewModel: ProjectsViewModel!
 
