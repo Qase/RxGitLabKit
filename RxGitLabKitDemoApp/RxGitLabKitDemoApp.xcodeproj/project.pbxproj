@@ -113,9 +113,6 @@
 		6C05B85C21AC5A83009E9A98 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = ../Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		6C05B86021AC5A8C009E9A98 /* RxGitLabKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RxGitLabKit.xcodeproj; path = ../RxGitLabKit.xcodeproj; sourceTree = "<group>"; };
 		6C0B0BCF21AACC7000A4EB50 /* RxGitLabKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxGitLabKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6C0B0BD321AAD0D500A4EB50 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = ../RxGitLabKit/Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
-		6C0B0BD521AAD0E500A4EB50 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = ../RxGitLabKit/Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
-		6C0B0BD721AAD10D00A4EB50 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = ../RxGitLabKit/Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		6C54520B21A043A700B6BFA0 /* RxGitLabKitDemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxGitLabKitDemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C54520E21A043A700B6BFA0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6C54521021A043A700B6BFA0 /* ProjectsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsViewController.swift; sourceTree = "<group>"; };
@@ -130,12 +127,7 @@
 		6C54522E21A043AA00B6BFA0 /* RxGitLabKitDemoAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxGitLabKitDemoAppUITests.swift; sourceTree = "<group>"; };
 		6C54523021A043AA00B6BFA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6C54523C21A048EA00B6BFA0 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		6C54523F21A04B3500B6BFA0 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
-		6C54524021A04B3500B6BFA0 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
-		6C54524121A04B3500B6BFA0 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		6C54524621A04E0B00B6BFA0 /* CommitDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitDetailViewController.swift; sourceTree = "<group>"; };
-		6C54525E21A09D9A00B6BFA0 /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/iOS/RxTest.framework; sourceTree = "<group>"; };
-		6C54525F21A09D9A00B6BFA0 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
 		6C54526221A0AFC200B6BFA0 /* CommitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitsViewController.swift; sourceTree = "<group>"; };
 		6C54526621A1697B00B6BFA0 /* CommitDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitDetailViewModel.swift; sourceTree = "<group>"; };
 		6C54526921A16CF200B6BFA0 /* ProjectsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsViewModel.swift; sourceTree = "<group>"; };
@@ -273,18 +265,10 @@
 		6C54523E21A04B3500B6BFA0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6C0B0BD721AAD10D00A4EB50 /* SnapKit.framework */,
-				6C0B0BD521AAD0E500A4EB50 /* RxCocoa.framework */,
 				6C05B85C21AC5A83009E9A98 /* RxCocoa.framework */,
-				6C0B0BD321AAD0D500A4EB50 /* RxSwift.framework */,
 				6C05B85A21AC5A83009E9A98 /* RxSwift.framework */,
 				6C05B85B21AC5A83009E9A98 /* SnapKit.framework */,
 				6C0B0BCF21AACC7000A4EB50 /* RxGitLabKit.framework */,
-				6C54525F21A09D9A00B6BFA0 /* RxBlocking.framework */,
-				6C54525E21A09D9A00B6BFA0 /* RxTest.framework */,
-				6C54523F21A04B3500B6BFA0 /* RxCocoa.framework */,
-				6C54524021A04B3500B6BFA0 /* RxSwift.framework */,
-				6C54524121A04B3500B6BFA0 /* SnapKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
