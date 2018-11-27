@@ -1,14 +1,14 @@
 //
-//  RxGitLabKit_macOSTests.swift
-//  RxGitLabKit-macOSTests
+//  RxGitLabKit_tvOSTests.swift
+//  RxGitLabKit-tvOSTests
 //
-//  Created by Dagy Tran on 05/11/2018.
+//  Created by Dagy Tran on 27/11/2018.
 //
 
 import XCTest
 @testable import RxGitLabKit
 
-class RxGitLabKit_macOSTests: XCTestCase {
+class RxGitLabKit_tvOSTests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.

@@ -9,7 +9,6 @@ import Foundation
 import XCTest
 @testable import RxGitLabKit
 import RxSwift
-import RxGitLabKit
 
 class RxGitLabAPIClientUnitTests: XCTestCase {
 
