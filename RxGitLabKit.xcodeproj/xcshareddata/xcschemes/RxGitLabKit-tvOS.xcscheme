@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6C05B89721AD1A8D009E9A98"
-               BuildableName = "RxGitLabKit_tvOS.framework"
+               BuildableName = "RxGitLabKit.framework"
                BlueprintName = "RxGitLabKit-tvOS"
                ReferencedContainer = "container:RxGitLabKit.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6C05B89721AD1A8D009E9A98"
-            BuildableName = "RxGitLabKit_tvOS.framework"
+            BuildableName = "RxGitLabKit.framework"
             BlueprintName = "RxGitLabKit-tvOS"
             ReferencedContainer = "container:RxGitLabKit.xcodeproj">
          </BuildableReference>
@@ -65,7 +65,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6C05B89721AD1A8D009E9A98"
-            BuildableName = "RxGitLabKit_tvOS.framework"
+            BuildableName = "RxGitLabKit.framework"
             BlueprintName = "RxGitLabKit-tvOS"
             ReferencedContainer = "container:RxGitLabKit.xcodeproj">
          </BuildableReference>
@@ -83,7 +83,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6C05B89721AD1A8D009E9A98"
-            BuildableName = "RxGitLabKit_tvOS.framework"
+            BuildableName = "RxGitLabKit.framework"
             BlueprintName = "RxGitLabKit-tvOS"
             ReferencedContainer = "container:RxGitLabKit.xcodeproj">
          </BuildableReference>

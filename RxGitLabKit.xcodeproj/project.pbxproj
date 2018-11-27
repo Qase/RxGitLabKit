@@ -9,10 +9,7 @@
 /* Begin PBXBuildFile section */
 		6C05B84D21AC5063009E9A98 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CBD2B27211852DD007BA543 /* RxSwift.framework */; };
 		6C05B84E21AC506D009E9A98 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CBD2B26211852DD007BA543 /* RxCocoa.framework */; };
-		6C05B88F21AD1A63009E9A98 /* RxGitLabKit_watchOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C05B88D21AD1A63009E9A98 /* RxGitLabKit_watchOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C05B8A121AD1A8E009E9A98 /* RxGitLabKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C05B89821AD1A8D009E9A98 /* RxGitLabKit.framework */; };
-		6C05B8A621AD1A8E009E9A98 /* RxGitLabKit_tvOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C05B8A521AD1A8E009E9A98 /* RxGitLabKit_tvOSTests.swift */; };
-		6C05B8A821AD1A8E009E9A98 /* RxGitLabKit_tvOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C05B89A21AD1A8D009E9A98 /* RxGitLabKit_tvOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C05B8B121AD1AD8009E9A98 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C05B8AF21AD1AD8009E9A98 /* RxCocoa.framework */; };
 		6C05B8B221AD1AD8009E9A98 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C05B8B021AD1AD8009E9A98 /* RxSwift.framework */; };
 		6C05B8B821AD1BC0009E9A98 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C05B8B621AD1BC0009E9A98 /* RxCocoa.framework */; };
@@ -147,7 +144,6 @@
 		6C06A891212EA41D00686583 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C35DD11212B04A800D05B87 /* String+Extensions.swift */; };
 		6C06A892212EA41D00686583 /* RxGitLabAPIClientIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C35DD0F212AF9B200D05B87 /* RxGitLabAPIClientIntegrationTests.swift */; };
 		6C06A894212EA41D00686583 /* InputStream+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C35DD1E212C10B500D05B87 /* InputStream+Extensions.swift */; };
-		6C06A896212EA41D00686583 /* RxGitLabKit_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C35DD03212AEE3C00D05B87 /* RxGitLabKit_iOSTests.swift */; };
 		6C06A897212EA41D00686583 /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C35DD0D212AF78C00D05B87 /* MockURLProtocol.swift */; };
 		6C06A899212EA41D00686583 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CBD2B27211852DD007BA543 /* RxSwift.framework */; };
 		6C06A8A2212EA8A000686583 /* ProjectsEnpointGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C06A8A1212EA89F00686583 /* ProjectsEnpointGroup.swift */; };
@@ -189,7 +185,6 @@
 		6C54527721A196EB00B6BFA0 /* ShareGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C54527521A196EB00B6BFA0 /* ShareGroup.swift */; };
 		6C6EE57B218F6F23006C447E /* ProjectsEndpointGroupUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6EE57A218F6F23006C447E /* ProjectsEndpointGroupUnitTests.swift */; };
 		6C6EE57D218F6F7D006C447E /* EndpointGroupUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6EE57C218F6F7D006C447E /* EndpointGroupUnitTests.swift */; };
-		6C6EE58821907480006C447E /* RxGitLabKit_macOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6EE58721907480006C447E /* RxGitLabKit_macOSTests.swift */; };
 		6C6EE5902190749B006C447E /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C35DD0D212AF78C00D05B87 /* MockURLProtocol.swift */; };
 		6C6EE5912190749F006C447E /* GeneralMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAA9EFC21582492006F5B16 /* GeneralMocks.swift */; };
 		6C6EE5922190749F006C447E /* RxGitLabApiClientMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAA9EFD21582492006F5B16 /* RxGitLabApiClientMocks.swift */; };
@@ -234,6 +229,7 @@
 		6C6EE5C421908BFD006C447E /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C6EE5BF21908280006C447E /* RxBlocking.framework */; };
 		6C721A8F214A602100B85194 /* APIRequesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C721A8E214A602100B85194 /* APIRequesting.swift */; };
 		6C721A90214A602100B85194 /* APIRequesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C721A8E214A602100B85194 /* APIRequesting.swift */; };
+		6C7999EF21AD2204000148CD /* ProjectMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4370B6218B9A55002ACBDA /* ProjectMocks.swift */; };
 		6C98CE66217C6A050051569E /* CommitsMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C98CE65217C6A050051569E /* CommitsMocks.swift */; };
 		6C98CE68217C71260051569E /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C98CE67217C71260051569E /* Date+Extensions.swift */; };
 		6C98CE69217C71260051569E /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C98CE67217C71260051569E /* Date+Extensions.swift */; };
@@ -331,14 +327,11 @@
 
 /* Begin PBXFileReference section */
 		6C05B88B21AD1A63009E9A98 /* RxGitLabKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxGitLabKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6C05B88D21AD1A63009E9A98 /* RxGitLabKit_watchOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RxGitLabKit_watchOS.h; sourceTree = "<group>"; };
-		6C05B88E21AD1A63009E9A98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6C05B88E21AD1A63009E9A98 /* Info-watchOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-watchOS.plist"; sourceTree = "<group>"; };
 		6C05B89821AD1A8D009E9A98 /* RxGitLabKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxGitLabKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6C05B89A21AD1A8D009E9A98 /* RxGitLabKit_tvOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RxGitLabKit_tvOS.h; sourceTree = "<group>"; };
-		6C05B89B21AD1A8D009E9A98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6C05B89B21AD1A8D009E9A98 /* Info-tvOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-tvOS.plist"; sourceTree = "<group>"; };
 		6C05B8A021AD1A8D009E9A98 /* RxGitLabKit-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RxGitLabKit-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6C05B8A521AD1A8E009E9A98 /* RxGitLabKit_tvOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxGitLabKit_tvOSTests.swift; sourceTree = "<group>"; };
-		6C05B8A721AD1A8E009E9A98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6C05B8A721AD1A8E009E9A98 /* Info-tvOSTests.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-tvOSTests.plist"; sourceTree = "<group>"; };
 		6C05B8AF21AD1AD8009E9A98 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/tvOS/RxCocoa.framework; sourceTree = "<group>"; };
 		6C05B8B021AD1AD8009E9A98 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/tvOS/RxSwift.framework; sourceTree = "<group>"; };
 		6C05B8B621AD1BC0009E9A98 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/watchOS/RxCocoa.framework; sourceTree = "<group>"; };
@@ -349,8 +342,7 @@
 		6C06A8A1212EA89F00686583 /* ProjectsEnpointGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsEnpointGroup.swift; sourceTree = "<group>"; };
 		6C06A8A6212EB0C300686583 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		6C336E37216AA507009A8324 /* DateFormatter+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extensions.swift"; sourceTree = "<group>"; };
-		6C35DD03212AEE3C00D05B87 /* RxGitLabKit_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxGitLabKit_iOSTests.swift; sourceTree = "<group>"; };
-		6C35DD05212AEE3C00D05B87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6C35DD05212AEE3C00D05B87 /* Info-iOSTests.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-iOSTests.plist"; sourceTree = "<group>"; };
 		6C35DD0D212AF78C00D05B87 /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MockURLProtocol.swift; path = Tests/MockURLProtocol.swift; sourceTree = SOURCE_ROOT; };
 		6C35DD0F212AF9B200D05B87 /* RxGitLabAPIClientIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RxGitLabAPIClientIntegrationTests.swift; path = Tests/IntegrationTests/RxGitLabAPIClientIntegrationTests.swift; sourceTree = SOURCE_ROOT; };
 		6C35DD11212B04A800D05B87 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
@@ -378,8 +370,7 @@
 		6C6EE57A218F6F23006C447E /* ProjectsEndpointGroupUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProjectsEndpointGroupUnitTests.swift; path = Tests/UnitTests/ProjectsEndpointGroupUnitTests.swift; sourceTree = SOURCE_ROOT; };
 		6C6EE57C218F6F7D006C447E /* EndpointGroupUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointGroupUnitTests.swift; sourceTree = "<group>"; };
 		6C6EE58521907480006C447E /* RxGitLabKit-macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RxGitLabKit-macOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6C6EE58721907480006C447E /* RxGitLabKit_macOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxGitLabKit_macOSTests.swift; sourceTree = "<group>"; };
-		6C6EE58921907480006C447E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6C6EE58921907480006C447E /* Info-macOSTests.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-macOSTests.plist"; sourceTree = "<group>"; };
 		6C6EE5AA21908152006C447E /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 		6C6EE5AD21908165006C447E /* Diff.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diff.swift; sourceTree = "<group>"; };
 		6C6EE5B02190818B006C447E /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
@@ -510,42 +501,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6C05B88C21AD1A63009E9A98 /* RxGitLabKit-watchOS */ = {
-			isa = PBXGroup;
-			children = (
-				6C05B88D21AD1A63009E9A98 /* RxGitLabKit_watchOS.h */,
-				6C05B88E21AD1A63009E9A98 /* Info.plist */,
-			);
-			path = "RxGitLabKit-watchOS";
-			sourceTree = "<group>";
-		};
-		6C05B89921AD1A8D009E9A98 /* RxGitLabKit-tvOS */ = {
-			isa = PBXGroup;
-			children = (
-				6C05B89A21AD1A8D009E9A98 /* RxGitLabKit_tvOS.h */,
-				6C05B89B21AD1A8D009E9A98 /* Info.plist */,
-			);
-			path = "RxGitLabKit-tvOS";
-			sourceTree = "<group>";
-		};
-		6C05B8A421AD1A8E009E9A98 /* RxGitLabKit-tvOSTests */ = {
-			isa = PBXGroup;
-			children = (
-				6C05B8A521AD1A8E009E9A98 /* RxGitLabKit_tvOSTests.swift */,
-				6C05B8A721AD1A8E009E9A98 /* Info.plist */,
-			);
-			path = "RxGitLabKit-tvOSTests";
-			sourceTree = "<group>";
-		};
-		6C35DD02212AEE3C00D05B87 /* RxGitLabKit-iOSTests */ = {
-			isa = PBXGroup;
-			children = (
-				6C35DD03212AEE3C00D05B87 /* RxGitLabKit_iOSTests.swift */,
-				6C35DD05212AEE3C00D05B87 /* Info.plist */,
-			);
-			path = "RxGitLabKit-iOSTests";
-			sourceTree = "<group>";
-		};
 		6C35DD0C212AF6DC00D05B87 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -571,11 +526,6 @@
 				6CBD2B3B21185332007BA543 /* Supporting Files */,
 				6C5401B82114468800631E21 /* Sources */,
 				6C35DD0C212AF6DC00D05B87 /* Tests */,
-				6C35DD02212AEE3C00D05B87 /* RxGitLabKit-iOSTests */,
-				6C6EE58621907480006C447E /* RxGitLabKit-macOSTests */,
-				6C05B88C21AD1A63009E9A98 /* RxGitLabKit-watchOS */,
-				6C05B89921AD1A8D009E9A98 /* RxGitLabKit-tvOS */,
-				6C05B8A421AD1A8E009E9A98 /* RxGitLabKit-tvOSTests */,
 				6C54015C211445D400631E21 /* Products */,
 				6C5401EE211459ED00631E21 /* Frameworks */,
 			);
@@ -668,13 +618,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		6C6EE58621907480006C447E /* RxGitLabKit-macOSTests */ = {
+		6C7999F021AD2381000148CD /* Plists */ = {
 			isa = PBXGroup;
 			children = (
-				6C6EE58721907480006C447E /* RxGitLabKit_macOSTests.swift */,
-				6C6EE58921907480006C447E /* Info.plist */,
+				6C35DD05212AEE3C00D05B87 /* Info-iOSTests.plist */,
+				6C6EE58921907480006C447E /* Info-macOSTests.plist */,
+				6C05B8A721AD1A8E009E9A98 /* Info-tvOSTests.plist */,
+				6C05B89B21AD1A8D009E9A98 /* Info-tvOS.plist */,
+				6C05B88E21AD1A63009E9A98 /* Info-watchOS.plist */,
+				6CE13F6621184ED300C92B7B /* Info-iOS.plist */,
+				6CBD2B3221185318007BA543 /* Info-macOS.plist */,
 			);
-			path = "RxGitLabKit-macOSTests";
+			path = Plists;
 			sourceTree = "<group>";
 		};
 		6C98CE62217C666F0051569E /* IntegrationTests */ = {
@@ -720,8 +675,7 @@
 		6CBD2B3B21185332007BA543 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				6CE13F6621184ED300C92B7B /* Info-iOS.plist */,
-				6CBD2B3221185318007BA543 /* Info-macOS.plist */,
+				6C7999F021AD2381000148CD /* Plists */,
 				6CE13F6521184ED300C92B7B /* RxGitLabKit.h */,
 				6C5401D321144B7500631E21 /* Package.swift */,
 				6C35DD11212B04A800D05B87 /* String+Extensions.swift */,
@@ -764,7 +718,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C05B88F21AD1A63009E9A98 /* RxGitLabKit_watchOS.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -772,7 +725,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C05B8A821AD1A8E009E9A98 /* RxGitLabKit_tvOS.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -972,10 +924,10 @@
 			targets = (
 				6CE13F6221184ED200C92B7B /* RxGitLabKit-iOS */,
 				6CBD2B2E21185318007BA543 /* RxGitLabKit-macOS */,
-				6C06A88D212EA41D00686583 /* RxGitLabKit-iOSTests */,
-				6C6EE58421907480006C447E /* RxGitLabKit-macOSTests */,
 				6C05B88A21AD1A63009E9A98 /* RxGitLabKit-watchOS */,
 				6C05B89721AD1A8D009E9A98 /* RxGitLabKit-tvOS */,
+				6C06A88D212EA41D00686583 /* RxGitLabKit-iOSTests */,
+				6C6EE58421907480006C447E /* RxGitLabKit-macOSTests */,
 				6C05B89F21AD1A8D009E9A98 /* RxGitLabKit-tvOSTests */,
 			);
 		};
@@ -1286,7 +1238,6 @@
 				6C05B94F21AD1D92009E9A98 /* CommitsEndpointGroupUnitTests.swift in Sources */,
 				6C05B93021AD1D79009E9A98 /* ProjectMocks.swift in Sources */,
 				6C05B92A21AD1D79009E9A98 /* ModelMocks.swift in Sources */,
-				6C05B8A621AD1A8E009E9A98 /* RxGitLabKit_tvOSTests.swift in Sources */,
 				6C05B92E21AD1D79009E9A98 /* PaginatorMocks.swift in Sources */,
 				6C05B92C21AD1D79009E9A98 /* MultipleResponseMockURLSession.swift in Sources */,
 				6C05B92F21AD1D79009E9A98 /* AuthenticationMocks.swift in Sources */,
@@ -1329,9 +1280,9 @@
 				6C05B8C121AD1C13009E9A98 /* DateFormatter+Extensions.swift in Sources */,
 				6CDC4910218110630027063B /* MultipleResponseMockURLSession.swift in Sources */,
 				6C98CE66217C6A050051569E /* CommitsMocks.swift in Sources */,
-				6C06A896212EA41D00686583 /* RxGitLabKit_iOSTests.swift in Sources */,
 				6CAA9EFE21582492006F5B16 /* GeneralMocks.swift in Sources */,
 				6CE95EBF2161811D00EDAE16 /* PaginatorIntegrationTests.swift in Sources */,
+				6C7999EF21AD2204000148CD /* ProjectMocks.swift in Sources */,
 				6CE95EE82166A3C800EDAE16 /* CommitTests.swift in Sources */,
 				6CFBFCDF213298A4001F4391 /* DevelopmentPlaygroundTests.swift in Sources */,
 				6CDC490C218063CB0027063B /* PaginatorMocks.swift in Sources */,
@@ -1365,7 +1316,6 @@
 				6C6EE59E219074A7006C447E /* RxGitLabAPIClientUnitTests.swift in Sources */,
 				6C6EE5952190749F006C447E /* MultipleResponseMockURLSession.swift in Sources */,
 				6C6EE5982190749F006C447E /* AuthenticationMocks.swift in Sources */,
-				6C6EE58821907480006C447E /* RxGitLabKit_macOSTests.swift in Sources */,
 				6C6EE5A1219074A7006C447E /* ProjectsEndpointGroupUnitTests.swift in Sources */,
 				6C6EE5922190749F006C447E /* RxGitLabApiClientMocks.swift in Sources */,
 				6C6EE5962190749F006C447E /* CommitsMocks.swift in Sources */,
@@ -1547,7 +1497,7 @@
 				);
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = "RxGitLabKit-watchOS/Info.plist";
+				INFOPLIST_FILE = "Supporting Files/Plists/Info-watchOS.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1604,7 +1554,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = "RxGitLabKit-watchOS/Info.plist";
+				INFOPLIST_FILE = "Supporting Files/Plists/Info-watchOS.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1666,7 +1616,7 @@
 				);
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = "RxGitLabKit-tvOS/Info.plist";
+				INFOPLIST_FILE = "Supporting Files/Plists/Info-tvOS.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1722,7 +1672,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = "RxGitLabKit-tvOS/Info.plist";
+				INFOPLIST_FILE = "Supporting Files/Plists/Info-tvOS.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1779,7 +1729,7 @@
 				);
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = "RxGitLabKit-tvOSTests/Info.plist";
+				INFOPLIST_FILE = "Supporting Files/Plists/Info-tvOSTests.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1826,7 +1776,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = "RxGitLabKit-tvOSTests/Info.plist";
+				INFOPLIST_FILE = "Supporting Files/Plists/Info-tvOSTests.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1904,7 +1854,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "RxGitLabKit-iOSTests/Info.plist";
+				INFOPLIST_FILE = "Supporting Files/Plists/Info-iOSTests.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1975,7 +1925,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "RxGitLabKit-iOSTests/Info.plist";
+				INFOPLIST_FILE = "Supporting Files/Plists/Info-iOSTests.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2118,7 +2068,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "RxGitLabKit-macOSTests/Info.plist";
+				INFOPLIST_FILE = "Supporting Files/Plists/Info-macOSTests.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -2189,7 +2139,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "RxGitLabKit-macOSTests/Info.plist";
+				INFOPLIST_FILE = "Supporting Files/Plists/Info-macOSTests.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -2271,7 +2221,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "Supporting Files/Info-macOS.plist";
+				INFOPLIST_FILE = "Supporting Files/Plists/Info-macOS.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2351,7 +2301,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "Supporting Files/Info-macOS.plist";
+				INFOPLIST_FILE = "Supporting Files/Plists/Info-macOS.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2434,7 +2384,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "Supporting Files/Info-iOS.plist";
+				INFOPLIST_FILE = "Supporting Files/Plists/Info-iOS.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2513,7 +2463,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "Supporting Files/Info-iOS.plist";
+				INFOPLIST_FILE = "Supporting Files/Plists/Info-iOS.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
