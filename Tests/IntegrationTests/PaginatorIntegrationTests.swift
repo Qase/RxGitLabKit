@@ -12,29 +12,18 @@ import RxSwift
 import RxBlocking
 import RxTest
 
-class PaginatorIntegrationTests: XCTestCase {
+class PaginatorIntegrationTests: BaseIntegrationTestCase {
 
-  private var client: RxGitLabAPIClient!
-  private let hostURL = URL(string: "https://gitlab.fel.cvut.cz")!
+
   private let timeoutInSeconds = TimeInterval(5)
-  private let disposeBag = DisposeBag()
 
   override func setUp() {
     super.setUp()
-    //    URLProtocol.registerClass(MockURLProtocol.self)
-    client = RxGitLabAPIClient(with: hostURL)
-    client.oAuthTokenVariable.value = AuthenticationMocks.oAuthToken
-
-    // Put setup code here. This method is called before the invocation of each test method in the class.
-  }
-
-  override func tearDown() {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    super.tearDown()
+//    client.oAuthTokenVariable.value = AuthenticationMocks.oAuthToken
   }
 
   func testLoadAll() {
-    let paginator = client.users.getUsers(page: 1, perPage: 100)
+    let paginator = client.users.getUsers(page: 1, perPage: 5)
     let loadAllObservable = paginator.loadAll()
     let totalObservable = paginator.totalItems
     
@@ -50,8 +39,9 @@ class PaginatorIntegrationTests: XCTestCase {
       XCTFail(error.localizedDescription)
     }
 
-    // toBlocking doesn't work for some reason
-    let result = loadAllObservable.toBlocking().materialize()
+    let result = loadAllObservable
+      .toBlocking()
+      .materialize()
     switch result {
     case .completed(elements: let elements):
       XCTAssertEqual(elements[0].count, total)

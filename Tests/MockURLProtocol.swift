@@ -1,6 +1,6 @@
 //
 //  MockURLProtocol.swift
-//  RxGitLabKit-iOSTests
+//  RxGitLabKit
 //
 //  Created by Dagy Tran on 20/08/2018.
 //

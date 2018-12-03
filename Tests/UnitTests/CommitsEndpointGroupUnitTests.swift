@@ -11,10 +11,7 @@ import RxSwift
 import RxBlocking
 import RxTest
 
-class CommitsEndpointGroupUnitTests: EndpointGroupUnitTests {
-
-  override func tearDown() {
-  }
+class CommitsEndpointGroupUnitTests: EndpointGroupUnitTestCase {
 
   func testGetCommits() {
     let request = URLRequest(url: hostAPIURL.appendingPathComponent(CommitsEndpointGroup.Endpoints.commits(projectID: CommitsMocks.mockProjectID).url))
@@ -325,7 +322,7 @@ class CommitsEndpointGroupUnitTests: EndpointGroupUnitTests {
     }
   }
 
-  func getMergeRequests() {
+  func testGetMergeRequests() {
     mockSession.nextData = CommitsMocks.mergeRequestsData
     let statuses = client.commits.getMergeRequests(projectID: CommitsMocks.mockProjectID, sha: "ed899a2f4b50b4370feeea94676502b42383c746")
     let result = statuses

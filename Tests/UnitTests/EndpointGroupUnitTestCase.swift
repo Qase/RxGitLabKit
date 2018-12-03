@@ -11,7 +11,7 @@ import RxSwift
 import RxBlocking
 import RxTest
 
-class EndpointGroupUnitTests: XCTestCase {
+class EndpointGroupUnitTestCase: XCTestCase {
 
   var client: RxGitLabAPIClient!
   let hostURL = URL(string: "https://gitlab.test.com")!

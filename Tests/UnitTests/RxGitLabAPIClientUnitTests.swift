@@ -27,7 +27,7 @@ class RxGitLabAPIClientUnitTests: XCTestCase {
   func testLogin() {
     mockSession.nextData = AuthenticationMocks.oAuthResponseData
     client.logIn(username: AuthenticationMocks.username, password: AuthenticationMocks.password)
-      let result = client.oAuthTokenVariable.asObservable()
+      let result = client.hostCommunicator.oAuthTokenVariable.asObservable()
         .take(1)
         .toBlocking()
         .materialize()

@@ -11,7 +11,7 @@ import RxSwift
 import RxBlocking
 import RxTest
 
-class ProjectsEndpointGroupUnitTests: EndpointGroupUnitTests {
+class ProjectsEndpointGroupUnitTests: EndpointGroupUnitTestCase {
 
   func testGetLanguages() {
     mockSession.nextData = ProjectMocks.languagesData

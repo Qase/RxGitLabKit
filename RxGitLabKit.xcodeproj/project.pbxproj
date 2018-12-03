@@ -49,7 +49,6 @@
 		6C05B8DB21AD1C42009E9A98 /* AuthenticationEndpointGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBD2B552122F46D007BA543 /* AuthenticationEndpointGroup.swift */; };
 		6C05B8DC21AD1C42009E9A98 /* RepositoriesEndpointGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBD2B582122F841007BA543 /* RepositoriesEndpointGroup.swift */; };
 		6C05B8DD21AD1C42009E9A98 /* ProjectsEnpointGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C06A8A1212EA89F00686583 /* ProjectsEnpointGroup.swift */; };
-		6C05B8DE21AD1C42009E9A98 /* RepositoriesEnpointGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C54518B21A016FD00B6BFA0 /* RepositoriesEnpointGroup.swift */; };
 		6C05B8DF21AD1C42009E9A98 /* EndpointGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBD2B482118812A007BA543 /* EndpointGroup.swift */; };
 		6C05B8E021AD1C42009E9A98 /* CommitsEndpointGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBD2B4C21188410007BA543 /* CommitsEndpointGroup.swift */; };
 		6C05B8E121AD1C42009E9A98 /* MembersEndpointGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CFBFCE021329D2D001F4391 /* MembersEndpointGroup.swift */; };
@@ -57,7 +56,6 @@
 		6C05B8E321AD1C42009E9A98 /* AuthenticationEndpointGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBD2B552122F46D007BA543 /* AuthenticationEndpointGroup.swift */; };
 		6C05B8E421AD1C42009E9A98 /* RepositoriesEndpointGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBD2B582122F841007BA543 /* RepositoriesEndpointGroup.swift */; };
 		6C05B8E521AD1C42009E9A98 /* ProjectsEnpointGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C06A8A1212EA89F00686583 /* ProjectsEnpointGroup.swift */; };
-		6C05B8E621AD1C42009E9A98 /* RepositoriesEnpointGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C54518B21A016FD00B6BFA0 /* RepositoriesEnpointGroup.swift */; };
 		6C05B8E721AD1C4B009E9A98 /* Commit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5401E62114593600631E21 /* Commit.swift */; };
 		6C05B8E821AD1C4B009E9A98 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6EE5AA21908152006C447E /* Action.swift */; };
 		6C05B8E921AD1C4B009E9A98 /* Diff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6EE5AD21908165006C447E /* Diff.swift */; };
@@ -135,10 +133,9 @@
 		6C05B94A21AD1D92009E9A98 /* HTTPClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3E690C2179FB010082C483 /* HTTPClientTests.swift */; };
 		6C05B94B21AD1D92009E9A98 /* RxGitLabAPIClientUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC3DB0C2189BDBB004677C7 /* RxGitLabAPIClientUnitTests.swift */; };
 		6C05B94C21AD1D92009E9A98 /* PaginatorUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDC490D218064E60027063B /* PaginatorUnitTests.swift */; };
-		6C05B94D21AD1D92009E9A98 /* EndpointGroupUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6EE57C218F6F7D006C447E /* EndpointGroupUnitTests.swift */; };
+		6C05B94D21AD1D92009E9A98 /* EndpointGroupUnitTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6EE57C218F6F7D006C447E /* EndpointGroupUnitTestCase.swift */; };
 		6C05B94E21AD1D92009E9A98 /* ProjectsEndpointGroupUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6EE57A218F6F23006C447E /* ProjectsEndpointGroupUnitTests.swift */; };
 		6C05B94F21AD1D92009E9A98 /* CommitsEndpointGroupUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3E690A21790E8C0082C483 /* CommitsEndpointGroupUnitTests.swift */; };
-		6C05B95021AD1D92009E9A98 /* DevelopmentPlaygroundTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CFBFCDE213298A4001F4391 /* DevelopmentPlaygroundTests.swift */; };
 		6C05B95121AD1D97009E9A98 /* RxGitLabAPIClientIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C35DD0F212AF9B200D05B87 /* RxGitLabAPIClientIntegrationTests.swift */; };
 		6C05B95221AD1D97009E9A98 /* PaginatorIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE95EBE2161811D00EDAE16 /* PaginatorIntegrationTests.swift */; };
 		6C06A891212EA41D00686583 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C35DD11212B04A800D05B87 /* String+Extensions.swift */; };
@@ -175,16 +172,41 @@
 		6C4370BC218B9AF9002ACBDA /* ProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4370B9218B9A86002ACBDA /* ProjectTests.swift */; };
 		6C4370BE218BA777002ACBDA /* ProjectHook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4370BD218BA777002ACBDA /* ProjectHook.swift */; };
 		6C4370BF218BA777002ACBDA /* ProjectHook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4370BD218BA777002ACBDA /* ProjectHook.swift */; };
-		6C54518C21A016FD00B6BFA0 /* RepositoriesEnpointGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C54518B21A016FD00B6BFA0 /* RepositoriesEnpointGroup.swift */; };
-		6C54518D21A016FD00B6BFA0 /* RepositoriesEnpointGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C54518B21A016FD00B6BFA0 /* RepositoriesEnpointGroup.swift */; };
 		6C54518F21A024C300B6BFA0 /* Comparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C54518E21A024C300B6BFA0 /* Comparison.swift */; };
 		6C54519021A024C300B6BFA0 /* Comparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C54518E21A024C300B6BFA0 /* Comparison.swift */; };
 		6C54519221A0261E00B6BFA0 /* FileInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C54519121A0261E00B6BFA0 /* FileInfo.swift */; };
 		6C54519321A0261E00B6BFA0 /* FileInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C54519121A0261E00B6BFA0 /* FileInfo.swift */; };
 		6C54527621A196EB00B6BFA0 /* ShareGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C54527521A196EB00B6BFA0 /* ShareGroup.swift */; };
 		6C54527721A196EB00B6BFA0 /* ShareGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C54527521A196EB00B6BFA0 /* ShareGroup.swift */; };
+		6C5D680D21AECF4300326012 /* XCTest+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D680B21AECE0300326012 /* XCTest+Extensions.swift */; };
+		6C5D680E21AECF4400326012 /* XCTest+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D680B21AECE0300326012 /* XCTest+Extensions.swift */; };
+		6C5D680F21AECF4400326012 /* XCTest+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D680B21AECE0300326012 /* XCTest+Extensions.swift */; };
+		6C5D681121AED38B00326012 /* UsersEndpointGroupIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D681021AED38B00326012 /* UsersEndpointGroupIntegrationTests.swift */; };
+		6C5D681221AED38B00326012 /* UsersEndpointGroupIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D681021AED38B00326012 /* UsersEndpointGroupIntegrationTests.swift */; };
+		6C5D681321AED38B00326012 /* UsersEndpointGroupIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D681021AED38B00326012 /* UsersEndpointGroupIntegrationTests.swift */; };
+		6C5D681521AFF50100326012 /* MembersEndpointGroupIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D681421AFF50100326012 /* MembersEndpointGroupIntegrationTests.swift */; };
+		6C5D681621AFF50100326012 /* MembersEndpointGroupIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D681421AFF50100326012 /* MembersEndpointGroupIntegrationTests.swift */; };
+		6C5D681721AFF50100326012 /* MembersEndpointGroupIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D681421AFF50100326012 /* MembersEndpointGroupIntegrationTests.swift */; };
+		6C5D681921AFF57100326012 /* AuthenticationEndpointGroupIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D681821AFF57100326012 /* AuthenticationEndpointGroupIntegrationTests.swift */; };
+		6C5D681A21AFF57100326012 /* AuthenticationEndpointGroupIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D681821AFF57100326012 /* AuthenticationEndpointGroupIntegrationTests.swift */; };
+		6C5D681B21AFF57100326012 /* AuthenticationEndpointGroupIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D681821AFF57100326012 /* AuthenticationEndpointGroupIntegrationTests.swift */; };
+		6C5D681D21AFF67E00326012 /* RepositoriesEndpointGroupIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D681C21AFF67E00326012 /* RepositoriesEndpointGroupIntegrationTests.swift */; };
+		6C5D681E21AFF67E00326012 /* RepositoriesEndpointGroupIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D681C21AFF67E00326012 /* RepositoriesEndpointGroupIntegrationTests.swift */; };
+		6C5D681F21AFF67E00326012 /* RepositoriesEndpointGroupIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D681C21AFF67E00326012 /* RepositoriesEndpointGroupIntegrationTests.swift */; };
+		6C5D682121AFF9AF00326012 /* AuthenticationEndpointGroupUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D682021AFF9AF00326012 /* AuthenticationEndpointGroupUnitTests.swift */; };
+		6C5D682221AFF9AF00326012 /* AuthenticationEndpointGroupUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D682021AFF9AF00326012 /* AuthenticationEndpointGroupUnitTests.swift */; };
+		6C5D682321AFF9AF00326012 /* AuthenticationEndpointGroupUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D682021AFF9AF00326012 /* AuthenticationEndpointGroupUnitTests.swift */; };
+		6C5D682521AFFA5400326012 /* MembersEndpointGroupUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D682421AFFA5400326012 /* MembersEndpointGroupUnitTests.swift */; };
+		6C5D682621AFFA5400326012 /* MembersEndpointGroupUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D682421AFFA5400326012 /* MembersEndpointGroupUnitTests.swift */; };
+		6C5D682721AFFA5400326012 /* MembersEndpointGroupUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D682421AFFA5400326012 /* MembersEndpointGroupUnitTests.swift */; };
+		6C5D682921AFFC1400326012 /* RepositoriesEndpointGroupUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D682821AFFC1300326012 /* RepositoriesEndpointGroupUnitTests.swift */; };
+		6C5D682A21AFFC1400326012 /* RepositoriesEndpointGroupUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D682821AFFC1300326012 /* RepositoriesEndpointGroupUnitTests.swift */; };
+		6C5D682B21AFFC1400326012 /* RepositoriesEndpointGroupUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D682821AFFC1300326012 /* RepositoriesEndpointGroupUnitTests.swift */; };
+		6C5D682D21AFFDCB00326012 /* UsersEndpointGroupUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D682C21AFFDCB00326012 /* UsersEndpointGroupUnitTests.swift */; };
+		6C5D682E21AFFDCB00326012 /* UsersEndpointGroupUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D682C21AFFDCB00326012 /* UsersEndpointGroupUnitTests.swift */; };
+		6C5D682F21AFFDCB00326012 /* UsersEndpointGroupUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D682C21AFFDCB00326012 /* UsersEndpointGroupUnitTests.swift */; };
 		6C6EE57B218F6F23006C447E /* ProjectsEndpointGroupUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6EE57A218F6F23006C447E /* ProjectsEndpointGroupUnitTests.swift */; };
-		6C6EE57D218F6F7D006C447E /* EndpointGroupUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6EE57C218F6F7D006C447E /* EndpointGroupUnitTests.swift */; };
+		6C6EE57D218F6F7D006C447E /* EndpointGroupUnitTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6EE57C218F6F7D006C447E /* EndpointGroupUnitTestCase.swift */; };
 		6C6EE5902190749B006C447E /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C35DD0D212AF78C00D05B87 /* MockURLProtocol.swift */; };
 		6C6EE5912190749F006C447E /* GeneralMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAA9EFC21582492006F5B16 /* GeneralMocks.swift */; };
 		6C6EE5922190749F006C447E /* RxGitLabApiClientMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAA9EFD21582492006F5B16 /* RxGitLabApiClientMocks.swift */; };
@@ -201,10 +223,9 @@
 		6C6EE59D219074A7006C447E /* HTTPClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3E690C2179FB010082C483 /* HTTPClientTests.swift */; };
 		6C6EE59E219074A7006C447E /* RxGitLabAPIClientUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC3DB0C2189BDBB004677C7 /* RxGitLabAPIClientUnitTests.swift */; };
 		6C6EE59F219074A7006C447E /* PaginatorUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDC490D218064E60027063B /* PaginatorUnitTests.swift */; };
-		6C6EE5A0219074A7006C447E /* EndpointGroupUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6EE57C218F6F7D006C447E /* EndpointGroupUnitTests.swift */; };
+		6C6EE5A0219074A7006C447E /* EndpointGroupUnitTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6EE57C218F6F7D006C447E /* EndpointGroupUnitTestCase.swift */; };
 		6C6EE5A1219074A7006C447E /* ProjectsEndpointGroupUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6EE57A218F6F23006C447E /* ProjectsEndpointGroupUnitTests.swift */; };
 		6C6EE5A2219074A7006C447E /* CommitsEndpointGroupUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3E690A21790E8C0082C483 /* CommitsEndpointGroupUnitTests.swift */; };
-		6C6EE5A3219074A7006C447E /* DevelopmentPlaygroundTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CFBFCDE213298A4001F4391 /* DevelopmentPlaygroundTests.swift */; };
 		6C6EE5A4219074AB006C447E /* RxGitLabAPIClientIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C35DD0F212AF9B200D05B87 /* RxGitLabAPIClientIntegrationTests.swift */; };
 		6C6EE5A5219074AB006C447E /* PaginatorIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE95EBE2161811D00EDAE16 /* PaginatorIntegrationTests.swift */; };
 		6C6EE5A6219074E6006C447E /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C35DD11212B04A800D05B87 /* String+Extensions.swift */; };
@@ -230,6 +251,16 @@
 		6C721A8F214A602100B85194 /* APIRequesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C721A8E214A602100B85194 /* APIRequesting.swift */; };
 		6C721A90214A602100B85194 /* APIRequesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C721A8E214A602100B85194 /* APIRequesting.swift */; };
 		6C7999EF21AD2204000148CD /* ProjectMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4370B6218B9A55002ACBDA /* ProjectMocks.swift */; };
+		6C7999F221AD585B000148CD /* BaseIntegrationTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7999F121AD585B000148CD /* BaseIntegrationTestCase.swift */; };
+		6C7999F321AD585B000148CD /* BaseIntegrationTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7999F121AD585B000148CD /* BaseIntegrationTestCase.swift */; };
+		6C7999F421AD585B000148CD /* BaseIntegrationTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7999F121AD585B000148CD /* BaseIntegrationTestCase.swift */; };
+		6C7999F621ADE42D000148CD /* ProjectsEndpointGroupIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7999F521ADE42D000148CD /* ProjectsEndpointGroupIntegrationTests.swift */; };
+		6C7999F721ADE42D000148CD /* ProjectsEndpointGroupIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7999F521ADE42D000148CD /* ProjectsEndpointGroupIntegrationTests.swift */; };
+		6C7999F821ADE42D000148CD /* ProjectsEndpointGroupIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7999F521ADE42D000148CD /* ProjectsEndpointGroupIntegrationTests.swift */; };
+		6C7999FA21ADE743000148CD /* RxAtomic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C7999F921ADE743000148CD /* RxAtomic.framework */; };
+		6C7999FC21ADE80F000148CD /* CommitsEndpointGroupIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7999FB21ADE80F000148CD /* CommitsEndpointGroupIntegrationTests.swift */; };
+		6C7999FD21ADE80F000148CD /* CommitsEndpointGroupIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7999FB21ADE80F000148CD /* CommitsEndpointGroupIntegrationTests.swift */; };
+		6C7999FE21ADE80F000148CD /* CommitsEndpointGroupIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7999FB21ADE80F000148CD /* CommitsEndpointGroupIntegrationTests.swift */; };
 		6C98CE66217C6A050051569E /* CommitsMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C98CE65217C6A050051569E /* CommitsMocks.swift */; };
 		6C98CE68217C71260051569E /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C98CE67217C71260051569E /* Date+Extensions.swift */; };
 		6C98CE69217C71260051569E /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C98CE67217C71260051569E /* Date+Extensions.swift */; };
@@ -292,7 +323,6 @@
 		6CE95EFD2166AC9500EDAE16 /* ParsingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE95EFC2166AC9500EDAE16 /* ParsingError.swift */; };
 		6CE95EFE2166AC9500EDAE16 /* ParsingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE95EFC2166AC9500EDAE16 /* ParsingError.swift */; };
 		6CFBFCDD213293D2001F4391 /* RepositoriesEndpointGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBD2B582122F841007BA543 /* RepositoriesEndpointGroup.swift */; };
-		6CFBFCDF213298A4001F4391 /* DevelopmentPlaygroundTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CFBFCDE213298A4001F4391 /* DevelopmentPlaygroundTests.swift */; };
 		6CFBFCE121329D2D001F4391 /* MembersEndpointGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CFBFCE021329D2D001F4391 /* MembersEndpointGroup.swift */; };
 		6CFBFCE221329D2D001F4391 /* MembersEndpointGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CFBFCE021329D2D001F4391 /* MembersEndpointGroup.swift */; };
 		6CFBFCE42132AB6A001F4391 /* UsersEndpointGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CFBFCE32132AB6A001F4391 /* UsersEndpointGroup.swift */; };
@@ -363,12 +393,20 @@
 		6C5401D321144B7500631E21 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		6C5401E62114593600631E21 /* Commit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commit.swift; sourceTree = "<group>"; };
 		6C54020321145C2300631E21 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		6C54518B21A016FD00B6BFA0 /* RepositoriesEnpointGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesEnpointGroup.swift; sourceTree = "<group>"; };
 		6C54518E21A024C300B6BFA0 /* Comparison.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comparison.swift; sourceTree = "<group>"; };
 		6C54519121A0261E00B6BFA0 /* FileInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileInfo.swift; sourceTree = "<group>"; };
 		6C54527521A196EB00B6BFA0 /* ShareGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareGroup.swift; sourceTree = "<group>"; };
+		6C5D680B21AECE0300326012 /* XCTest+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTest+Extensions.swift"; sourceTree = "<group>"; };
+		6C5D681021AED38B00326012 /* UsersEndpointGroupIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersEndpointGroupIntegrationTests.swift; sourceTree = "<group>"; };
+		6C5D681421AFF50100326012 /* MembersEndpointGroupIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembersEndpointGroupIntegrationTests.swift; sourceTree = "<group>"; };
+		6C5D681821AFF57100326012 /* AuthenticationEndpointGroupIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationEndpointGroupIntegrationTests.swift; sourceTree = "<group>"; };
+		6C5D681C21AFF67E00326012 /* RepositoriesEndpointGroupIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesEndpointGroupIntegrationTests.swift; sourceTree = "<group>"; };
+		6C5D682021AFF9AF00326012 /* AuthenticationEndpointGroupUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationEndpointGroupUnitTests.swift; sourceTree = "<group>"; };
+		6C5D682421AFFA5400326012 /* MembersEndpointGroupUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembersEndpointGroupUnitTests.swift; sourceTree = "<group>"; };
+		6C5D682821AFFC1300326012 /* RepositoriesEndpointGroupUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesEndpointGroupUnitTests.swift; sourceTree = "<group>"; };
+		6C5D682C21AFFDCB00326012 /* UsersEndpointGroupUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersEndpointGroupUnitTests.swift; sourceTree = "<group>"; };
 		6C6EE57A218F6F23006C447E /* ProjectsEndpointGroupUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProjectsEndpointGroupUnitTests.swift; path = Tests/UnitTests/ProjectsEndpointGroupUnitTests.swift; sourceTree = SOURCE_ROOT; };
-		6C6EE57C218F6F7D006C447E /* EndpointGroupUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointGroupUnitTests.swift; sourceTree = "<group>"; };
+		6C6EE57C218F6F7D006C447E /* EndpointGroupUnitTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointGroupUnitTestCase.swift; sourceTree = "<group>"; };
 		6C6EE58521907480006C447E /* RxGitLabKit-macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RxGitLabKit-macOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C6EE58921907480006C447E /* Info-macOSTests.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-macOSTests.plist"; sourceTree = "<group>"; };
 		6C6EE5AA21908152006C447E /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
@@ -380,6 +418,10 @@
 		6C6EE5BD2190826E006C447E /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/Mac/RxTest.framework; sourceTree = "<group>"; };
 		6C6EE5BF21908280006C447E /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/Mac/RxBlocking.framework; sourceTree = "<group>"; };
 		6C721A8E214A602100B85194 /* APIRequesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequesting.swift; sourceTree = "<group>"; };
+		6C7999F121AD585B000148CD /* BaseIntegrationTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseIntegrationTestCase.swift; sourceTree = "<group>"; };
+		6C7999F521ADE42D000148CD /* ProjectsEndpointGroupIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsEndpointGroupIntegrationTests.swift; sourceTree = "<group>"; };
+		6C7999F921ADE743000148CD /* RxAtomic.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxAtomic.framework; path = Carthage/Build/Mac/RxAtomic.framework; sourceTree = "<group>"; };
+		6C7999FB21ADE80F000148CD /* CommitsEndpointGroupIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitsEndpointGroupIntegrationTests.swift; sourceTree = "<group>"; };
 		6C8F9C4721147868002D23E7 /* RxGitLabAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxGitLabAPIClient.swift; sourceTree = "<group>"; };
 		6C98CE65217C6A050051569E /* CommitsMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitsMocks.swift; sourceTree = "<group>"; };
 		6C98CE67217C71260051569E /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
@@ -422,7 +464,6 @@
 		6CE95EE72166A3C800EDAE16 /* CommitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitTests.swift; sourceTree = "<group>"; };
 		6CE95EE92166A50C00EDAE16 /* ModelMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelMocks.swift; sourceTree = "<group>"; };
 		6CE95EFC2166AC9500EDAE16 /* ParsingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsingError.swift; sourceTree = "<group>"; };
-		6CFBFCDE213298A4001F4391 /* DevelopmentPlaygroundTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DevelopmentPlaygroundTests.swift; path = Tests/UnitTests/DevelopmentPlaygroundTests.swift; sourceTree = SOURCE_ROOT; };
 		6CFBFCE021329D2D001F4391 /* MembersEndpointGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembersEndpointGroup.swift; sourceTree = "<group>"; };
 		6CFBFCE32132AB6A001F4391 /* UsersEndpointGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersEndpointGroup.swift; sourceTree = "<group>"; };
 		6CFBFCE62132B5E4001F4391 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -473,10 +514,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C6EE5C421908BFD006C447E /* RxBlocking.framework in Frameworks */,
-				6C6EE5C321908BF2006C447E /* RxTest.framework in Frameworks */,
 				6C6EE5BC21908261006C447E /* RxSwift.framework in Frameworks */,
 				6C6EE5C121908295006C447E /* RxCocoa.framework in Frameworks */,
+				6C7999FA21ADE743000148CD /* RxAtomic.framework in Frameworks */,
+				6C6EE5C421908BFD006C447E /* RxBlocking.framework in Frameworks */,
+				6C6EE5C321908BF2006C447E /* RxTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -508,6 +550,7 @@
 				6CAA9EFB21582492006F5B16 /* Mocks */,
 				6C98CE64217C668C0051569E /* UnitTests */,
 				6C98CE62217C666F0051569E /* IntegrationTests */,
+				6C5D680B21AECE0300326012 /* XCTest+Extensions.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -600,6 +643,7 @@
 		6C5401EE211459ED00631E21 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6C7999F921ADE743000148CD /* RxAtomic.framework */,
 				6C05B92521AD1D54009E9A98 /* RxBlocking.framework */,
 				6C05B92421AD1D53009E9A98 /* RxTest.framework */,
 				6C05B8AF21AD1AD8009E9A98 /* RxCocoa.framework */,
@@ -635,8 +679,15 @@
 		6C98CE62217C666F0051569E /* IntegrationTests */ = {
 			isa = PBXGroup;
 			children = (
+				6C7999F121AD585B000148CD /* BaseIntegrationTestCase.swift */,
 				6C35DD0F212AF9B200D05B87 /* RxGitLabAPIClientIntegrationTests.swift */,
+				6C5D681821AFF57100326012 /* AuthenticationEndpointGroupIntegrationTests.swift */,
+				6C7999FB21ADE80F000148CD /* CommitsEndpointGroupIntegrationTests.swift */,
+				6C5D681421AFF50100326012 /* MembersEndpointGroupIntegrationTests.swift */,
 				6CE95EBE2161811D00EDAE16 /* PaginatorIntegrationTests.swift */,
+				6C7999F521ADE42D000148CD /* ProjectsEndpointGroupIntegrationTests.swift */,
+				6C5D681C21AFF67E00326012 /* RepositoriesEndpointGroupIntegrationTests.swift */,
+				6C5D681021AED38B00326012 /* UsersEndpointGroupIntegrationTests.swift */,
 			);
 			path = IntegrationTests;
 			sourceTree = "<group>";
@@ -645,13 +696,16 @@
 			isa = PBXGroup;
 			children = (
 				6CE95EEB2166A58100EDAE16 /* Models */,
+				6C6EE57C218F6F7D006C447E /* EndpointGroupUnitTestCase.swift */,
+				6C5D682021AFF9AF00326012 /* AuthenticationEndpointGroupUnitTests.swift */,
 				6C3E690C2179FB010082C483 /* HTTPClientTests.swift */,
 				6CC3DB0C2189BDBB004677C7 /* RxGitLabAPIClientUnitTests.swift */,
-				6CDC490D218064E60027063B /* PaginatorUnitTests.swift */,
-				6C6EE57C218F6F7D006C447E /* EndpointGroupUnitTests.swift */,
-				6C6EE57A218F6F23006C447E /* ProjectsEndpointGroupUnitTests.swift */,
 				6C3E690A21790E8C0082C483 /* CommitsEndpointGroupUnitTests.swift */,
-				6CFBFCDE213298A4001F4391 /* DevelopmentPlaygroundTests.swift */,
+				6C5D682421AFFA5400326012 /* MembersEndpointGroupUnitTests.swift */,
+				6CDC490D218064E60027063B /* PaginatorUnitTests.swift */,
+				6C6EE57A218F6F23006C447E /* ProjectsEndpointGroupUnitTests.swift */,
+				6C5D682821AFFC1300326012 /* RepositoriesEndpointGroupUnitTests.swift */,
+				6C5D682C21AFFDCB00326012 /* UsersEndpointGroupUnitTests.swift */,
 			);
 			path = UnitTests;
 			sourceTree = "<group>";
@@ -690,13 +744,12 @@
 			isa = PBXGroup;
 			children = (
 				6CBD2B482118812A007BA543 /* EndpointGroup.swift */,
+				6CBD2B552122F46D007BA543 /* AuthenticationEndpointGroup.swift */,
 				6CBD2B4C21188410007BA543 /* CommitsEndpointGroup.swift */,
 				6CFBFCE021329D2D001F4391 /* MembersEndpointGroup.swift */,
-				6CFBFCE32132AB6A001F4391 /* UsersEndpointGroup.swift */,
-				6CBD2B552122F46D007BA543 /* AuthenticationEndpointGroup.swift */,
-				6CBD2B582122F841007BA543 /* RepositoriesEndpointGroup.swift */,
 				6C06A8A1212EA89F00686583 /* ProjectsEnpointGroup.swift */,
-				6C54518B21A016FD00B6BFA0 /* RepositoriesEnpointGroup.swift */,
+				6CBD2B582122F841007BA543 /* RepositoriesEndpointGroup.swift */,
+				6CFBFCE32132AB6A001F4391 /* UsersEndpointGroup.swift */,
 			);
 			path = Endpoints;
 			sourceTree = "<group>";
@@ -1075,6 +1128,7 @@
 				"$(SRCROOT)/Carthage/Build/Mac/RxCocoa.framework",
 				"$(SRCROOT)/Carthage/Build/Mac/RxSwift.framework",
 				"$(SRCROOT)/Carthage/Build/Mac/RxTest.framework",
+				"$(SRCROOT)/Carthage/Build/Mac/RxAtomic.framework",
 			);
 			name = "Run Script";
 			outputFileListPaths = (
@@ -1144,7 +1198,6 @@
 				6C05B8D721AD1C42009E9A98 /* EndpointGroup.swift in Sources */,
 				6C05B8EE21AD1C4B009E9A98 /* UserStatus.swift in Sources */,
 				6C05B8F321AD1C4B009E9A98 /* Authentication.swift in Sources */,
-				6C05B8DE21AD1C42009E9A98 /* RepositoriesEnpointGroup.swift in Sources */,
 				6C05B8C821AD1C21009E9A98 /* NetworkingProtocols.swift in Sources */,
 				6C05B8F121AD1C4B009E9A98 /* LastPipeline.swift in Sources */,
 				6C05B8FD21AD1C4B009E9A98 /* AccessLevel.swift in Sources */,
@@ -1199,7 +1252,6 @@
 				6C05B8DF21AD1C42009E9A98 /* EndpointGroup.swift in Sources */,
 				6C05B90B21AD1C4C009E9A98 /* UserStatus.swift in Sources */,
 				6C05B91021AD1C4C009E9A98 /* Authentication.swift in Sources */,
-				6C05B8E621AD1C42009E9A98 /* RepositoriesEnpointGroup.swift in Sources */,
 				6C05B8C921AD1C22009E9A98 /* NetworkingProtocols.swift in Sources */,
 				6C05B90E21AD1C4C009E9A98 /* LastPipeline.swift in Sources */,
 				6C05B91A21AD1C4C009E9A98 /* AccessLevel.swift in Sources */,
@@ -1234,28 +1286,39 @@
 			files = (
 				6C05B94B21AD1D92009E9A98 /* RxGitLabAPIClientUnitTests.swift in Sources */,
 				6C05B92821AD1D79009E9A98 /* GeneralMocks.swift in Sources */,
-				6C05B94D21AD1D92009E9A98 /* EndpointGroupUnitTests.swift in Sources */,
+				6C05B94D21AD1D92009E9A98 /* EndpointGroupUnitTestCase.swift in Sources */,
+				6C7999F421AD585B000148CD /* BaseIntegrationTestCase.swift in Sources */,
 				6C05B94F21AD1D92009E9A98 /* CommitsEndpointGroupUnitTests.swift in Sources */,
 				6C05B93021AD1D79009E9A98 /* ProjectMocks.swift in Sources */,
 				6C05B92A21AD1D79009E9A98 /* ModelMocks.swift in Sources */,
 				6C05B92E21AD1D79009E9A98 /* PaginatorMocks.swift in Sources */,
 				6C05B92C21AD1D79009E9A98 /* MultipleResponseMockURLSession.swift in Sources */,
+				6C7999F821ADE42D000148CD /* ProjectsEndpointGroupIntegrationTests.swift in Sources */,
 				6C05B92F21AD1D79009E9A98 /* AuthenticationMocks.swift in Sources */,
-				6C05B95021AD1D92009E9A98 /* DevelopmentPlaygroundTests.swift in Sources */,
+				6C5D682321AFF9AF00326012 /* AuthenticationEndpointGroupUnitTests.swift in Sources */,
+				6C5D682F21AFFDCB00326012 /* UsersEndpointGroupUnitTests.swift in Sources */,
 				6C05B94C21AD1D92009E9A98 /* PaginatorUnitTests.swift in Sources */,
 				6C05B95221AD1D97009E9A98 /* PaginatorIntegrationTests.swift in Sources */,
+				6C5D682721AFFA5400326012 /* MembersEndpointGroupUnitTests.swift in Sources */,
+				6C5D680F21AECF4400326012 /* XCTest+Extensions.swift in Sources */,
+				6C5D681321AED38B00326012 /* UsersEndpointGroupIntegrationTests.swift in Sources */,
 				6C05B92B21AD1D79009E9A98 /* MockURLSession.swift in Sources */,
 				6C05B92D21AD1D79009E9A98 /* CommitsMocks.swift in Sources */,
 				6C05B94A21AD1D92009E9A98 /* HTTPClientTests.swift in Sources */,
 				6C05B8BD21AD1C0C009E9A98 /* String+Extensions.swift in Sources */,
 				6C05B94E21AD1D92009E9A98 /* ProjectsEndpointGroupUnitTests.swift in Sources */,
+				6C5D681721AFF50100326012 /* MembersEndpointGroupIntegrationTests.swift in Sources */,
 				6C05B95121AD1D97009E9A98 /* RxGitLabAPIClientIntegrationTests.swift in Sources */,
+				6C5D682B21AFFC1400326012 /* RepositoriesEndpointGroupUnitTests.swift in Sources */,
 				6C05B8C021AD1C10009E9A98 /* InputStream+Extensions.swift in Sources */,
 				6C05B94121AD1D8D009E9A98 /* CommitTests.swift in Sources */,
 				6C05B8BA21AD1BD0009E9A98 /* MockURLProtocol.swift in Sources */,
+				6C7999FE21ADE80F000148CD /* CommitsEndpointGroupIntegrationTests.swift in Sources */,
 				6C05B8C421AD1C15009E9A98 /* DateFormatter+Extensions.swift in Sources */,
 				6C05B8C721AD1C19009E9A98 /* Date+Extensions.swift in Sources */,
+				6C5D681B21AFF57100326012 /* AuthenticationEndpointGroupIntegrationTests.swift in Sources */,
 				6C05B94321AD1D8D009E9A98 /* UsersTests.swift in Sources */,
+				6C5D681F21AFF67E00326012 /* RepositoriesEndpointGroupIntegrationTests.swift in Sources */,
 				6C05B92921AD1D79009E9A98 /* RxGitLabApiClientMocks.swift in Sources */,
 				6C05B94221AD1D8D009E9A98 /* ProjectTests.swift in Sources */,
 			);
@@ -1268,27 +1331,38 @@
 				6CE95EEA2166A50C00EDAE16 /* ModelMocks.swift in Sources */,
 				6C06A891212EA41D00686583 /* String+Extensions.swift in Sources */,
 				6C06A892212EA41D00686583 /* RxGitLabAPIClientIntegrationTests.swift in Sources */,
+				6C7999F221AD585B000148CD /* BaseIntegrationTestCase.swift in Sources */,
 				6CE95EC1216181B000EDAE16 /* UsersTests.swift in Sources */,
 				6C3E6905217872FE0082C483 /* MockURLSession.swift in Sources */,
 				6C6EE57B218F6F23006C447E /* ProjectsEndpointGroupUnitTests.swift in Sources */,
 				6CC3DB0D2189BDBB004677C7 /* RxGitLabAPIClientUnitTests.swift in Sources */,
 				6C3E690B21790E8C0082C483 /* CommitsEndpointGroupUnitTests.swift in Sources */,
+				6C7999F621ADE42D000148CD /* ProjectsEndpointGroupIntegrationTests.swift in Sources */,
 				6C98CE6A217C71260051569E /* Date+Extensions.swift in Sources */,
 				6CAA9EFF21582492006F5B16 /* RxGitLabApiClientMocks.swift in Sources */,
+				6C5D682D21AFFDCB00326012 /* UsersEndpointGroupUnitTests.swift in Sources */,
+				6C5D682121AFF9AF00326012 /* AuthenticationEndpointGroupUnitTests.swift in Sources */,
 				6C3E690D2179FB010082C483 /* HTTPClientTests.swift in Sources */,
+				6C5D682521AFFA5400326012 /* MembersEndpointGroupUnitTests.swift in Sources */,
 				6C06A894212EA41D00686583 /* InputStream+Extensions.swift in Sources */,
+				6C5D680D21AECF4300326012 /* XCTest+Extensions.swift in Sources */,
+				6C5D681121AED38B00326012 /* UsersEndpointGroupIntegrationTests.swift in Sources */,
 				6C05B8C121AD1C13009E9A98 /* DateFormatter+Extensions.swift in Sources */,
 				6CDC4910218110630027063B /* MultipleResponseMockURLSession.swift in Sources */,
 				6C98CE66217C6A050051569E /* CommitsMocks.swift in Sources */,
 				6CAA9EFE21582492006F5B16 /* GeneralMocks.swift in Sources */,
 				6CE95EBF2161811D00EDAE16 /* PaginatorIntegrationTests.swift in Sources */,
+				6C5D681521AFF50100326012 /* MembersEndpointGroupIntegrationTests.swift in Sources */,
+				6C5D682921AFFC1400326012 /* RepositoriesEndpointGroupUnitTests.swift in Sources */,
 				6C7999EF21AD2204000148CD /* ProjectMocks.swift in Sources */,
 				6CE95EE82166A3C800EDAE16 /* CommitTests.swift in Sources */,
-				6CFBFCDF213298A4001F4391 /* DevelopmentPlaygroundTests.swift in Sources */,
 				6CDC490C218063CB0027063B /* PaginatorMocks.swift in Sources */,
+				6C7999FC21ADE80F000148CD /* CommitsEndpointGroupIntegrationTests.swift in Sources */,
 				6CC3DB0F2189C07A004677C7 /* AuthenticationMocks.swift in Sources */,
 				6CDC490E218064E60027063B /* PaginatorUnitTests.swift in Sources */,
-				6C6EE57D218F6F7D006C447E /* EndpointGroupUnitTests.swift in Sources */,
+				6C5D681921AFF57100326012 /* AuthenticationEndpointGroupIntegrationTests.swift in Sources */,
+				6C6EE57D218F6F7D006C447E /* EndpointGroupUnitTestCase.swift in Sources */,
+				6C5D681D21AFF67E00326012 /* RepositoriesEndpointGroupIntegrationTests.swift in Sources */,
 				6C4370BC218B9AF9002ACBDA /* ProjectTests.swift in Sources */,
 				6C06A897212EA41D00686583 /* MockURLProtocol.swift in Sources */,
 			);
@@ -1298,30 +1372,41 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C6EE5A0219074A7006C447E /* EndpointGroupUnitTests.swift in Sources */,
+				6C6EE5A0219074A7006C447E /* EndpointGroupUnitTestCase.swift in Sources */,
 				6C6EE5A5219074AB006C447E /* PaginatorIntegrationTests.swift in Sources */,
 				6C6EE5972190749F006C447E /* PaginatorMocks.swift in Sources */,
+				6C7999F321AD585B000148CD /* BaseIntegrationTestCase.swift in Sources */,
 				6C6EE5942190749F006C447E /* MockURLSession.swift in Sources */,
 				6C6EE5A6219074E6006C447E /* String+Extensions.swift in Sources */,
 				6C6EE5A4219074AB006C447E /* RxGitLabAPIClientIntegrationTests.swift in Sources */,
-				6C6EE5A3219074A7006C447E /* DevelopmentPlaygroundTests.swift in Sources */,
 				6C6EE5912190749F006C447E /* GeneralMocks.swift in Sources */,
+				6C7999F721ADE42D000148CD /* ProjectsEndpointGroupIntegrationTests.swift in Sources */,
 				6C6EE59F219074A7006C447E /* PaginatorUnitTests.swift in Sources */,
 				6C6EE59B219074A7006C447E /* ProjectTests.swift in Sources */,
+				6C5D682221AFF9AF00326012 /* AuthenticationEndpointGroupUnitTests.swift in Sources */,
+				6C5D682E21AFFDCB00326012 /* UsersEndpointGroupUnitTests.swift in Sources */,
 				6C6EE5932190749F006C447E /* ModelMocks.swift in Sources */,
 				6C6EE5A9219074E6006C447E /* Date+Extensions.swift in Sources */,
+				6C5D682621AFFA5400326012 /* MembersEndpointGroupUnitTests.swift in Sources */,
+				6C5D680E21AECF4400326012 /* XCTest+Extensions.swift in Sources */,
+				6C5D681221AED38B00326012 /* UsersEndpointGroupIntegrationTests.swift in Sources */,
 				6C6EE59D219074A7006C447E /* HTTPClientTests.swift in Sources */,
 				6C6EE59A219074A7006C447E /* CommitTests.swift in Sources */,
 				6C6EE5992190749F006C447E /* ProjectMocks.swift in Sources */,
 				6C6EE59E219074A7006C447E /* RxGitLabAPIClientUnitTests.swift in Sources */,
 				6C6EE5952190749F006C447E /* MultipleResponseMockURLSession.swift in Sources */,
+				6C5D681621AFF50100326012 /* MembersEndpointGroupIntegrationTests.swift in Sources */,
 				6C6EE5982190749F006C447E /* AuthenticationMocks.swift in Sources */,
+				6C5D682A21AFFC1400326012 /* RepositoriesEndpointGroupUnitTests.swift in Sources */,
 				6C6EE5A1219074A7006C447E /* ProjectsEndpointGroupUnitTests.swift in Sources */,
 				6C6EE5922190749F006C447E /* RxGitLabApiClientMocks.swift in Sources */,
 				6C6EE5962190749F006C447E /* CommitsMocks.swift in Sources */,
+				6C7999FD21ADE80F000148CD /* CommitsEndpointGroupIntegrationTests.swift in Sources */,
 				6C6EE59C219074A7006C447E /* UsersTests.swift in Sources */,
 				6C6EE5A7219074E6006C447E /* InputStream+Extensions.swift in Sources */,
+				6C5D681A21AFF57100326012 /* AuthenticationEndpointGroupIntegrationTests.swift in Sources */,
 				6C6EE5902190749B006C447E /* MockURLProtocol.swift in Sources */,
+				6C5D681E21AFF67E00326012 /* RepositoriesEndpointGroupIntegrationTests.swift in Sources */,
 				6C6EE5A8219074E6006C447E /* DateFormatter+Extensions.swift in Sources */,
 				6C6EE5A2219074A7006C447E /* CommitsEndpointGroupUnitTests.swift in Sources */,
 			);
@@ -1348,7 +1433,6 @@
 				6CBD2B51211894E4007BA543 /* Reference.swift in Sources */,
 				6C6EE5AC21908152006C447E /* Action.swift in Sources */,
 				6CFBFCE52132AB6A001F4391 /* UsersEndpointGroup.swift in Sources */,
-				6C54518D21A016FD00B6BFA0 /* RepositoriesEnpointGroup.swift in Sources */,
 				6C42B1EE219D70FD008E8726 /* Paginator.swift in Sources */,
 				6CBD2B3921185325007BA543 /* HTTPClient.swift in Sources */,
 				6C0BC3F52138159B0000FAAA /* Commit.swift in Sources */,
@@ -1403,7 +1487,6 @@
 				6C35DD1F212C10B500D05B87 /* InputStream+Extensions.swift in Sources */,
 				6C6EE5AB21908152006C447E /* Action.swift in Sources */,
 				6CBD2B532122F160007BA543 /* Authentication.swift in Sources */,
-				6C54518C21A016FD00B6BFA0 /* RepositoriesEnpointGroup.swift in Sources */,
 				6C42B1ED219D70FD008E8726 /* Paginator.swift in Sources */,
 				6CE13F6F21184EFE00C92B7B /* Commit.swift in Sources */,
 				6CFBFCE72132B5E4001F4391 /* User.swift in Sources */,
