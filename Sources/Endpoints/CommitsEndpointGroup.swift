@@ -212,7 +212,7 @@ public class CommitsEndpointGroup: EndpointGroup {
   ///   - Parameter sha: The commit has
   /// - Returns: A Comment
   public func getStatuses(projectID: Int, sha: String) -> Observable<[CommitStatus]> {
-    let apiRequest = APIRequest(path: Endpoints.statuses(projectID: projectID, sha: sha).url)
+    let apiRequest = APIRequest(path: Endpoints.statusesList(projectID: projectID, sha: sha).url)
     return object(for: apiRequest)
   }
 

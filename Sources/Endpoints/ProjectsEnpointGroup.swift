@@ -127,10 +127,6 @@ public class ProjectsEnpointGroup: EndpointGroup {
   ///     - **min_access_level: Integer** -   Limit by current user minimal access level
   ///
   /// - Returns: An observable of list of projects in a project
-  public func getProject(projectID: Int, parameters: QueryParameters? = nil) -> Observable<Project> {
-    let request = APIRequest(path: Endpoints.project(projectID: projectID).url, parameters: parameters)
-    return object(for: request)
-  }
 
   public func getProjects(parameters: QueryParameters? = nil, page: Int = 1, perPage: Int = RxGitLabAPIClient.defaultPerPage) -> Observable<[Project]> {
     var queryParams = parameters ?? QueryParameters()
@@ -152,8 +148,8 @@ public class ProjectsEnpointGroup: EndpointGroup {
   /// Get a specific project. This endpoint can be accessed without authentication if the project is publicly accessible.
   /// - Parameter projectID: ID of the project
   /// - Returns: An observable of `Project`
-  public func getProject(projectID: Int) -> Observable<Project> {
-    let apiRequest = APIRequest(path: Endpoints.project(projectID: projectID).url)
+  public func getProject(projectID: Int, parameters: QueryParameters? = nil) -> Observable<Project> {
+    let apiRequest = APIRequest(path: Endpoints.project(projectID: projectID).url, parameters: parameters)
     return object(for: apiRequest)
   }
 
@@ -355,7 +351,7 @@ public class ProjectsEnpointGroup: EndpointGroup {
   /// - Parameter projectID: The ID or URL-encoded path of the project
   /// - Returns: An observable of a dictionary of languages
   public func getLanguages(projectID: Int ) -> Observable<[String: Double]> {
-    let apiRequest = APIRequest(path: Endpoints.unstar(projectID: projectID).url, method: .post)
+    let apiRequest = APIRequest(path: Endpoints.languages(projectID: projectID).url)
     return data(for: apiRequest).flatMap({ (data) -> Observable<[String: Double]> in
       return Observable<[String: Double]>.create { observer -> Disposable in
         do {

@@ -28,11 +28,25 @@ public class RxGitLabAPIClient {
     return hostCommunicator.hostURL
   }
   
-  private let hostCommunicator: HostCommunicator
+  internal let hostCommunicator: HostCommunicator
   
-  public var privateToken: String? = nil
+  public var privateToken: String? {
+    get {
+      return hostCommunicator.privateToken
+    }
+    set {
+      hostCommunicator.privateToken = newValue
+    }
+  }
   
-  public let oAuthTokenVariable = Variable<String?>(nil)
+  public var oAuthToken: String? {
+    get {
+      return hostCommunicator.oAuthTokenVariable.value
+    }
+    set {
+      hostCommunicator.oAuthTokenVariable.value = newValue
+    }
+  }
   
   private let disposeBag = DisposeBag()
 
@@ -95,30 +109,24 @@ public class RxGitLabAPIClient {
   
   private func setupBindings() {
     
-    oAuthTokenVariable.asObservable()
-      .bind(to: hostCommunicator.oAuthTokenVariable)
-      .disposed(by: disposeBag)
-    
-    let tokenObservable = loginPublishSubject.flatMap { (arg0) -> Observable<String?> in
+   loginPublishSubject
+    .flatMap { (arg0) -> Observable<String?> in
       let (username, password) = arg0
       return self.authentication.authenticate(username: username, password: password)
           .map { $0.oAuthToken }
       }
-      .share()
-
-    tokenObservable.bind(to: oAuthTokenVariable)
-      .disposed(by: disposeBag)
-    tokenObservable.bind(to: hostCommunicator.oAuthTokenVariable)
-      .disposed(by: disposeBag)
+    .bind(to: hostCommunicator.oAuthTokenVariable)
+    .disposed(by: disposeBag)
     
-    oAuthTokenVariable.asObservable()
+    hostCommunicator.oAuthTokenVariable.asObservable()
       .filter { $0 != nil }
       .flatMap { _ in self.users.getCurrentUser() }
       .bind(to: currentUserVariable)
       .disposed(by: disposeBag)
     
-    getCurrentUserTrigger.flatMap { self.users.getCurrentUser() }
-      .debug()
+    getCurrentUserTrigger
+      .flatMap { self.users.getCurrentUser() }
+//      .debug()
       .bind(to: currentUserVariable)
       .disposed(by: disposeBag)
   }
@@ -150,14 +158,13 @@ public class RxGitLabAPIClient {
   }
   
   public func logIn(oAuthToken: String) {
-    self.oAuthTokenVariable.value = oAuthToken
+    self.oAuthToken = oAuthToken
     getCurrentUserTrigger.onNext(())
   }
   
   public func logOut() {
-    oAuthTokenVariable.value = nil
+    oAuthToken = nil
     privateToken = nil
-    hostCommunicator.privateToken = nil
     currentUserVariable.value = nil
   }
 

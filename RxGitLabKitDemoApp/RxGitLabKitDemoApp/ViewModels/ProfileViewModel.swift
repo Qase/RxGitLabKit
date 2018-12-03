@@ -33,7 +33,7 @@ class ProfileViewModel: BaseViewModel {
         if let createdAt = user.createdAt {
           texts.append(("Created At", createdAt.asISO8601String))
         }
-        if let oAuthToken = self.gitlabClient.oAuthTokenVariable.value {
+        if let oAuthToken = self.gitlabClient.oAuthToken {
           texts.append(("OAuth Token", oAuthToken))
         }
         
