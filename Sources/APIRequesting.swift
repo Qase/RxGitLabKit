@@ -29,18 +29,21 @@ extension APIRequesting {
     let dateFormatter = ISO8601DateFormatter()
     // Input query items
     if !parameters.isEmpty {
-      components.queryItems = parameters.map { (key, value) -> URLQueryItem in
+      components.queryItems = parameters.map { (arg) -> [URLQueryItem] in
+        let (key, value) = arg
         switch value {
         case let bool as Bool:
-          return URLQueryItem(name: key, value: bool ? "true" : "false")
+          return [URLQueryItem(name: key, value: bool ? "true" : "false")]
         case let date as Date:
-          return URLQueryItem(name: key, value: dateFormatter.string(from: date))
+          return [URLQueryItem(name: key, value: dateFormatter.string(from: date))]
         case is Array<CustomStringConvertible>:
-          return URLQueryItem(name: key, value: (value as! Array<CustomStringConvertible>).map { "\($0)"}.joined(separator: ","))
+          return (value as! Array<CustomStringConvertible>).map {
+            URLQueryItem(name: "\(key)[]", value: $0 as? String)
+          }
         default:
-          return URLQueryItem(name: key, value: "\(value)")
+          return [URLQueryItem(name: key, value: "\(value)")]
         }
-      }
+        }.flatMap { $0 }
     }
 
     // Pagination query items
@@ -59,7 +62,7 @@ extension APIRequesting {
     guard let url = components.url else { return nil }
     var request = URLRequest(url: url)
     request.httpMethod = method.rawValue
-    if method == .post {
+    if method == .post || method == .put  {
       request.addValue("application/json", forHTTPHeaderField: "Content-Type")
     }
     request.allHTTPHeaderFields = header

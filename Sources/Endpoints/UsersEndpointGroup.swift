@@ -208,7 +208,7 @@ public class UsersEndpointGroup: EndpointGroup {
     return object(for: apiRequest)
   }
 
-  public func putStatus(status: CommitStatus) -> Observable<CommitStatus> {
+  public func putStatus(status: UserStatus) -> Observable<UserStatus> {
     do {
       let statusData = try JSONEncoder().encode(status)
       let apiRequest = APIRequest(path: Endpoints.status.url, method: .put, data: statusData)
@@ -328,7 +328,7 @@ public class UsersEndpointGroup: EndpointGroup {
       })
   }
 
-  public func getEmails() -> Observable<Email> {
+  public func getEmails() -> Observable<[Email]> {
     let apiRequest = APIRequest(path: Endpoints.emails.url)
     return object(for: apiRequest)
   }
@@ -390,7 +390,7 @@ public class UsersEndpointGroup: EndpointGroup {
 
     return response(for: apiRequest)
       .map({ ( response, data) -> Bool in
-        return response.statusCode == 204
+        return response.statusCode == 201
       })
   }
 

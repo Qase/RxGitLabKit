@@ -45,18 +45,19 @@ class PaginatorUnitTests: XCTestCase {
     let apiRequest = APIRequest(path: "/projects/\(mockProjectID)/repository/commits", method: .get)
     let paginator = Paginator<Commit>(communicator: hostCommunicator, apiRequest: apiRequest)
 
-    let expectation = XCTestExpectation(description: "result")
-    let bag = DisposeBag()
-    paginator.loadAll()
-      .subscribe(onNext: { commits in
-        XCTAssertEqual(commits.count, PaginatorMocks.totalElementsCount)
-        expectation.fulfill()
-      }, onError: { error in
-        expectation.fulfill()
-        XCTFail(error.localizedDescription)
-      })
-    .disposed(by: bag)
+    let result = paginator.loadAll()
+      .toBlocking()
+      .materialize()
 
-    wait(for: [expectation], timeout: 2)
+    switch result {
+    case .completed(elements: let elements):
+      guard let commits = elements.first else {
+        XCTFail("No commits received.")
+        return
+      }
+      XCTAssertEqual(commits.count, PaginatorMocks.commits.count)
+    case .failed(elements: _, error: let error):
+      XCTFail((error as? HTTPError)?.errorDescription ?? error.localizedDescription)
+    }
   }
 }

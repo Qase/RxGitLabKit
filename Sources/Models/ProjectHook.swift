@@ -35,32 +35,32 @@ public struct ProjectHook: Codable {
     case createdAt = "created_at"
   }
 
-  public init(from decoder: Decoder) throws {
-    let values = try decoder.container(keyedBy: CodingKeys.self)
-    id = try values.decodeIfPresent(Int.self, forKey: .id)
-    url = try values.decodeIfPresent(String.self, forKey: .url)
-    projectID = try values.decodeIfPresent(Int.self, forKey: .projectID)
-    pushEvents = try values.decodeIfPresent(Bool.self, forKey: .pushEvents)
-    pushEventsBranchFilter = try values.decodeIfPresent(String.self, forKey: .pushEventsBranchFilter)
-    issuesEvents = try values.decodeIfPresent(Bool.self, forKey: .issuesEvents)
-    confidentialIssuesEvents = try values.decodeIfPresent(Bool.self, forKey: .confidentialIssuesEvents)
-    mergeRequestsEvents = try values.decodeIfPresent(Bool.self, forKey: .mergeRequestsEvents)
-    tagPushEvents = try values.decodeIfPresent(Bool.self, forKey: .tagPushEvents)
-    noteEvents = try values.decodeIfPresent(Bool.self, forKey: .noteEvents)
-    jobEvents = try values.decodeIfPresent(Bool.self, forKey: .jobEvents)
-    pipelineEvents = try values.decodeIfPresent(Bool.self, forKey: .pipelineEvents)
-    wikiPageEvents = try values.decodeIfPresent(Bool.self, forKey: .wikiPageEvents)
-    enableSSLVerification = try values.decodeIfPresent(Bool.self, forKey: .enableSSLVerification)
-    createdAt = try ProjectHook.decodeDateIfPresent(values: values, forKey: .createdAt)
-  }
-
-  private static func decodeDateIfPresent(values: KeyedDecodingContainer<CodingKeys>, forKey key: CodingKeys) throws -> Date? {
-    let dateFormatter = DateFormatter.default
-    if let dateString = try values.decodeIfPresent(String.self, forKey: key), let date = dateFormatter.date(from: dateString) {
-      return date
-    } else {
-      return nil
-    }
-  }
+//  public init(from decoder: Decoder) throws {
+//    let values = try decoder.container(keyedBy: CodingKeys.self)
+//    id = try values.decodeIfPresent(Int.self, forKey: .id)
+//    url = try values.decodeIfPresent(String.self, forKey: .url)
+//    projectID = try values.decodeIfPresent(Int.self, forKey: .projectID)
+//    pushEvents = try values.decodeIfPresent(Bool.self, forKey: .pushEvents)
+//    pushEventsBranchFilter = try values.decodeIfPresent(String.self, forKey: .pushEventsBranchFilter)
+//    issuesEvents = try values.decodeIfPresent(Bool.self, forKey: .issuesEvents)
+//    confidentialIssuesEvents = try values.decodeIfPresent(Bool.self, forKey: .confidentialIssuesEvents)
+//    mergeRequestsEvents = try values.decodeIfPresent(Bool.self, forKey: .mergeRequestsEvents)
+//    tagPushEvents = try values.decodeIfPresent(Bool.self, forKey: .tagPushEvents)
+//    noteEvents = try values.decodeIfPresent(Bool.self, forKey: .noteEvents)
+//    jobEvents = try values.decodeIfPresent(Bool.self, forKey: .jobEvents)
+//    pipelineEvents = try values.decodeIfPresent(Bool.self, forKey: .pipelineEvents)
+//    wikiPageEvents = try values.decodeIfPresent(Bool.self, forKey: .wikiPageEvents)
+//    enableSSLVerification = try values.decodeIfPresent(Bool.self, forKey: .enableSSLVerification)
+//    createdAt = try ProjectHook.decodeDateIfPresent(values: values, forKey: .createdAt)
+//  }
+//
+//  private static func decodeDateIfPresent(values: KeyedDecodingContainer<CodingKeys>, forKey key: CodingKeys) throws -> Date? {
+//    let dateFormatter = DateFormatter.default
+//    if let dateString = try values.decodeIfPresent(String.self, forKey: key), let date = dateFormatter.date(from: dateString) {
+//      return date
+//    } else {
+//      return nil
+//    }
+//  }
 
 }

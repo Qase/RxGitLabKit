@@ -13,6 +13,7 @@ import RxSwift
 class RxGitLabAPIClientIntegrationTests: BaseIntegrationTestCase {
   
   func testLogin() {
+    client.logOut()
     client.logIn(username: "root", password: "admin12345")
     let result = client.hostCommunicator.oAuthTokenVariable.asObservable()
       .filter{ $0 != nil }
@@ -23,10 +24,9 @@ class RxGitLabAPIClientIntegrationTests: BaseIntegrationTestCase {
     switch result {
     case .completed(elements: let elements):
       XCTAssertNotNil(elements.first ?? nil)
-
       XCTAssertNil(client.privateToken)
     case .failed(elements: _, error: let error):
-      XCTFail(error.localizedDescription)
+      XCTFail((error as? HTTPError)?.errorDescription ?? error.localizedDescription)
     }
   }
 }

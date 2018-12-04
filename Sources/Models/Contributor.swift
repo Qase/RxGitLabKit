@@ -8,9 +8,9 @@
 import Foundation
 
 public struct Contributor: Codable {
-  let name: String
-  let email: String
-  let commits: Int
-  let additions: Int
-  let deletions: Int
+  public let name: String
+  public let email: String
+  public let commits: Int
+  public let additions: Int
+  public let deletions: Int
 }

@@ -12,41 +12,30 @@ import RxGitLabKit
 class UsersTests: XCTestCase {
 
 func testUserDecode() {
-    let user = """
-  {
-    "id": 1,
-    "username": "john_smith",
-    "name": "John Smith",
-    "state": "active",
-    "avatar_url": "http://localhost:3000/uploads/user/avatar/1/cd8.jpeg",
-    "web_url": "http://localhost:3000/john_smith",
-    "created_at": "2012-05-23T08:00:58.000Z",
-    "bio": null,
-    "location": null,
-    "skype": "",
-    "linkedin": "",
-    "twitter": "",
-    "website_url": "",
-    "organization": ""
-  }
-  """
-    let data = user.data(using: .utf8)!
+
+    let data = UserMocks.fullUserData
 
     let decoder = JSONDecoder()
     if let user = try? decoder.decode(User.self, from: data) {
-      XCTAssert(user.username == "john_smith")
-      XCTAssert(user.name == "John Smith")
+      XCTAssert(user.username == "freak4pc")
+      XCTAssert(user.name == "Shai Mishali")
       XCTAssert(user.state == "active")
-      XCTAssert(user.avatarUrl == "http://localhost:3000/uploads/user/avatar/1/cd8.jpeg")
-      XCTAssert(user.webUrl == "http://localhost:3000/john_smith")
+      XCTAssert(user.avatarUrl == "http://c20945ccd3bd/uploads/-/system/user/avatar/2/605076.jpeg")
+      XCTAssert(user.webUrl == "http://c20945ccd3bd/freak4pc")
       XCTAssert(user.bio == nil)
       XCTAssert(user.linkedin != nil && user.linkedin!.isEmpty)
 
       let timeZone = TimeZone(secondsFromGMT: 0)
       let calendar = Calendar(identifier: .gregorian)
-      let components = DateComponents(calendar: calendar, timeZone: timeZone, year: 2012, month: 5, day: 23, hour: 8, minute: 0, second: 58)
-      let date = calendar.date(from: components)!
-      XCTAssertEqual(user.createdAt, date)
+      var components = DateComponents(calendar: calendar, timeZone: timeZone, year: 2018, month: 10, day: 30, hour: 10, minute: 41, second: 22)
+      var date = calendar.date(from: components)!
+      XCTAssertDateEqual(user.createdAt, date)
+      
+      components = DateComponents(calendar: calendar, timeZone: timeZone, year: 2018, month: 10, day: 30, hour: 10, minute: 41, second: 22)
+      date = calendar.date(from: components)!
+      XCTAssertDateEqual(user.confirmedAt, date)
+      
+      
       } else {
       XCTFail("JSON Decode fail")
     }

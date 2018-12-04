@@ -11,20 +11,20 @@ import RxSwift
 public protocol Networking {
   func response(for request: URLRequest) -> Observable<(response: HTTPURLResponse, data: Data?)>
   func header(for request: URLRequest) -> Observable<Header>
-
+  
   func object<T: Codable>(for request: URLRequest) -> Observable<T>
   func data(for request: URLRequest) -> Observable<Data>
   func json(for request: URLRequest) -> Observable<JSONDictionary>
 }
 
 public class HTTPClient: Networking {
-
+  
   private let session: URLSessionProtocol
-
+  
   public init(using session: URLSessionProtocol) {
     self.session = session
   }
-
+  
   public static func response(for request: URLRequest, in session: URLSessionProtocol = URLSession.shared) -> Observable<(response: HTTPURLResponse, data: Data?)> {
     print("Request")
     debugPrint(request)
@@ -40,40 +40,40 @@ public class HTTPClient: Networking {
           observer.on(.error(error ?? HTTPError.noResponse))
           return
         }
-
+        
         guard let httpResponse = response as? HTTPURLResponse else {
           observer.on(.error(HTTPError.nonHTTPResponse(response: response)))
           return
         }
-
+        
         observer.on(.next((httpResponse, data)))
         observer.on(.completed)
       }
-
+      
       task.resume()
       return Disposables.create(with: task.cancel)
     }
   }
-
+  
   public static func header(for request: URLRequest, in session: URLSessionProtocol = URLSession.shared) -> Observable<Header> {
     return HTTPClient.response(for: request, in: session)
-      .flatMap { (response, _) -> Observable<Header> in
-
-        Observable.create { observer in
+      .flatMap { (response, data) -> Observable<Header> in
+        let errorMessage = (data != nil) ? String(data: data!, encoding: .utf8) : nil
+        return Observable.create { observer in
           switch response.statusCode {
           case 200..<300:
             observer.onNext(response.allHeaderFields as! Header)
             observer.onCompleted()
           case 400:
-            observer.onError(HTTPError.badRequest)
+            observer.onError(HTTPError.badRequest(message: errorMessage))
           case 401:
-            observer.onError(HTTPError.unauthorized)
+            observer.onError(HTTPError.unauthorized(message: errorMessage))
           case 403:
-            observer.onError(HTTPError.forbidden)
+            observer.onError(HTTPError.forbidden(message: errorMessage))
           case 404:
-            observer.onError(HTTPError.notFound)
+            observer.onError(HTTPError.notFound(message: errorMessage))
           case 500..<600:
-            observer.onError(HTTPError.serverFailure)
+            observer.onError(HTTPError.serverFailure(message: errorMessage))
           default:
             observer.onError(HTTPError.unknown(response.statusCode))
           }
@@ -81,29 +81,30 @@ public class HTTPClient: Networking {
         }
     }
   }
-
+  
   public static func data(for request: URLRequest, in session: URLSessionProtocol = URLSession.shared) -> Observable<Data> {
     return HTTPClient.response(for: request, in: session)
       .flatMap { (response, data) -> Observable<Data> in
         Observable.create { observer in
-          guard let data = data else {
-            observer.onError(HTTPError.noData)
-            return Disposables.create()
+          guard let data = data, let errorMessage = String(data: data, encoding: .utf8)
+            else {
+              observer.onError(HTTPError.noData)
+              return Disposables.create()
           }
           switch response.statusCode {
           case 200..<300:
             observer.onNext(data)
             observer.onCompleted()
           case 400:
-            observer.onError(HTTPError.badRequest)
+            observer.onError(HTTPError.badRequest(message: errorMessage))
           case 401:
-            observer.onError(HTTPError.unauthorized)
+            observer.onError(HTTPError.unauthorized(message: errorMessage))
           case 403:
-            observer.onError(HTTPError.forbidden)
+            observer.onError(HTTPError.forbidden(message: errorMessage))
           case 404:
-            observer.onError(HTTPError.notFound)
+            observer.onError(HTTPError.notFound(message: errorMessage))
           case 500..<600:
-            observer.onError(HTTPError.serverFailure)
+            observer.onError(HTTPError.serverFailure(message: errorMessage))
           default:
             observer.onError(HTTPError.unknown(response.statusCode))
           }
@@ -111,13 +112,14 @@ public class HTTPClient: Networking {
         }
     }
   }
-
+  
   public static func object<T>(for request: URLRequest, in session: URLSessionProtocol = URLSession.shared) -> Observable<T> where T: Decodable, T: Encodable {
     return HTTPClient.data(for: request, in: session)
       .flatMap { data -> Observable<T> in
         return Observable.create { observer in
           do {
             let decoder = JSONDecoder.init()
+            decoder.dateDecodingStrategy = .formatted(DateFormatter.default)
             let object = try decoder.decode(T.self, from: data)
             observer.onNext(object)
             observer.onCompleted()
@@ -125,12 +127,12 @@ public class HTTPClient: Networking {
             print(String(data: data, encoding: .utf8)!)
             observer.onError(HTTPError.parsingJSONFailure(error: error))
           }
-
+          
           return Disposables.create()
         }
     }
   }
-
+  
   public static func json(for request: URLRequest, in session: URLSessionProtocol = URLSession.shared) -> Observable<JSONDictionary> {
     return self.data(for: request, in: session)
       .flatMap { data -> Observable<JSONDictionary> in
@@ -146,23 +148,23 @@ public class HTTPClient: Networking {
         }
     }
   }
-
+  
   public func response(for request: URLRequest) -> Observable<(response: HTTPURLResponse, data: Data?)> {
     return HTTPClient.response(for: request, in: session)
   }
-
+  
   public func header(for request: URLRequest) -> Observable<Header> {
     return HTTPClient.header(for: request, in: session)
   }
-
+  
   public func data(for request: URLRequest) -> Observable<Data> {
     return HTTPClient.data(for: request, in: session)
   }
-
+  
   public func object<T>(for request: URLRequest) -> Observable<T> where T: Decodable, T: Encodable {
     return HTTPClient.object(for: request, in: session)
   }
-
+  
   public func json(for request: URLRequest) -> Observable<JSONDictionary> {
     return HTTPClient.json(for: request, in: session)
   }

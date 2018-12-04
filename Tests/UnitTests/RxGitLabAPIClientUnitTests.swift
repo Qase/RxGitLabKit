@@ -37,7 +37,7 @@ class RxGitLabAPIClientUnitTests: XCTestCase {
       XCTAssertNotNil(elements.first ?? nil)
       XCTAssertNil(client.privateToken)
     case .failed(elements: _, error: let error):
-      XCTFail(error.localizedDescription)
+      XCTFail((error as? HTTPError)?.errorDescription ?? error.localizedDescription)
     }
   }
 }

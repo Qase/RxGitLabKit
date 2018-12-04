@@ -137,23 +137,19 @@ class CommitTests: XCTestCase {
       return
     }
 
-    XCTAssertNil(newCommit.id)
     XCTAssertEqual(newCommit.branch, "master")
     XCTAssertEqual(newCommit.commitMessage, "some commit message")
     XCTAssertNil(newCommit.startBranch)
     XCTAssertNil(newCommit.authorEmail)
     XCTAssertNil(newCommit.authorName)
     XCTAssertNotNil(newCommit.actions)
-    XCTAssertEqual(newCommit.actions!.count, 5)
-    XCTAssertEqual(newCommit.actions![2].action, "move")
-    XCTAssertEqual(newCommit.actions![2].filePath, "foo/bar3")
-    XCTAssertEqual(newCommit.actions![2].previousPath, "foo/bar4")
-    XCTAssertEqual(newCommit.actions![2].content, "some content")
-
-    XCTAssertEqual(newCommit.actions![4].action, "chmod")
-
-    XCTAssertEqual(newCommit.actions![4].executeFileMode, true)
-
+    XCTAssertEqual(newCommit.actions.count, 5)
+    XCTAssertEqual(newCommit.actions[2].action, "move")
+    XCTAssertEqual(newCommit.actions[2].filePath, "foo/bar3")
+    XCTAssertEqual(newCommit.actions[2].previousPath, "foo/bar4")
+    XCTAssertEqual(newCommit.actions[2].content, "some content")
+    XCTAssertEqual(newCommit.actions[4].action, "chmod")
+    XCTAssertEqual(newCommit.actions[4].executeFileMode, true)
   }
 
   func testReferencesResponseDecoding() {
@@ -312,7 +308,7 @@ class CommitTests: XCTestCase {
       XCTAssertEqual(timeStats.humanTimeEstimate, 1)
       XCTAssertEqual(timeStats.humanTotalTimeSpent, 2)
     } catch (let error) {
-      XCTFail(error.localizedDescription)
+      XCTFail((error as? HTTPError)?.errorDescription ?? error.localizedDescription)
     }
   }
 

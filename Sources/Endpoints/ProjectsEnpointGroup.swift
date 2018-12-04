@@ -407,7 +407,7 @@ public class ProjectsEnpointGroup: EndpointGroup {
       jsonBody["expires_at"] = date.asISO8601String
     }
 
-    let apiRequest = APIRequest(path: Endpoints.star(projectID: projectID).url, method: .post, jsonBody: jsonBody)
+    let apiRequest = APIRequest(path: Endpoints.share(projectID: projectID).url, method: .post, jsonBody: jsonBody)
     return response(for: apiRequest)
       .map { ( response, _) -> HTTPURLResponse in
         return response
@@ -460,12 +460,11 @@ public class ProjectsEnpointGroup: EndpointGroup {
   ///   - projectID: The ID of a project hook
   ///   - hook: A Hook to be created
   /// - Returns: An observable of server HTTPURLResponse
-  public func postHook(projectID: Int, hook: ProjectHook) -> Observable<HTTPURLResponse> {
+  public func postHook(projectID: Int, hook: ProjectHook) -> Observable<ProjectHook> {
     do {
       let data = try JSONEncoder().encode(hook)
       let apiRequest = APIRequest(path: Endpoints.hooks(projectID: projectID).url, method: .post, data: data)
-      return response(for: apiRequest)
-        .map { (response, _) -> HTTPURLResponse in return response }
+      return object(for: apiRequest)
     } catch let error {
       return Observable.error(error)
     }
@@ -478,12 +477,11 @@ public class ProjectsEnpointGroup: EndpointGroup {
   ///   - projectID: The ID or URL-encoded path of the project
   ///   - hook: A hook to be updated
   /// - Returns: An observable of server HTTPURLResponse
-  public func putHook(projectID: Int, hook: ProjectHook) -> Observable<HTTPURLResponse> {
+  public func putHook(projectID: Int, hook: ProjectHook) -> Observable<ProjectHook> {
     do {
       let data = try JSONEncoder().encode(hook)
       let apiRequest = APIRequest(path: Endpoints.hook(projectID: projectID, hookID: hook.id!).url, method: .put, data: data)
-      return response(for: apiRequest)
-        .map { (response, _) -> HTTPURLResponse in return response }
+      return object(for: apiRequest)
     } catch let error {
       return Observable.error(error)
     }

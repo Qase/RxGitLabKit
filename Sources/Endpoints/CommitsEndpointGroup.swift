@@ -15,6 +15,7 @@ public class CommitsEndpointGroup: EndpointGroup {
     case single(projectID: Int, sha: String)
     case references(projectID: Int, sha: String)
     case cherryPick(projectID: Int, sha: String)
+    case revert(projectID: Int, sha: String)
     case diff(projectID: Int, sha: String)
     case comments(projectID: Int, sha: String)
     case statusesList(projectID: Int, sha: String)
@@ -31,6 +32,8 @@ public class CommitsEndpointGroup: EndpointGroup {
         return "/projects/\(projectID)/repository/commits/\(sha)/refs"
       case .cherryPick(let projectID, let sha):
         return "/projects/\(projectID)/repository/commits/\(sha)/cherry_pick"
+      case .revert(let projectID, let sha):
+        return "/projects/\(projectID)/repository/commits/\(sha)/revert"
       case .diff(let projectID, let sha):
         return "/projects/\(projectID)/repository/commits/\(sha)/diff"
       case .comments(let projectID, let sha):
@@ -41,7 +44,6 @@ public class CommitsEndpointGroup: EndpointGroup {
         return "/projects/\(projectID)/statuses/\(sha)"
       case .mergeRequests(let projectID, let sha):
         return "/projects/\(projectID)/repository/commits/\(sha)/merge_requests"
-
       }
     }
   }
@@ -162,6 +164,18 @@ public class CommitsEndpointGroup: EndpointGroup {
     APIRequest(path: Endpoints.cherryPick(projectID: projectID, sha: sha).url, method: .post, jsonBody: ["branch" : branch])
     return object(for: apiRequest)
   }
+  
+  ///   Reverts a commit in a given branch.
+  ///
+  ///   - Parameter projectID: The ID or URL-encoded path of the project
+  ///   - Parameter sha: The commit has
+  ///   - Parameter branch: The name of the branch
+  /// - Returns: A Commit
+  public func revert(projectID: Int, sha: String, branch: String) -> Observable<Commit> {
+    let apiRequest =
+      APIRequest(path: Endpoints.revert(projectID: projectID, sha: sha).url, method: .post, jsonBody: ["branch" : branch])
+    return object(for: apiRequest)
+  }
 
   ///   Get the diff of a commit in a project.
   ///
@@ -221,7 +235,7 @@ public class CommitsEndpointGroup: EndpointGroup {
   ///   - Parameter projectID: The ID or URL-encoded path of the project owned by the
   ///   - Parameter sha: The commit has
   /// - Returns: A Status
-  public func postStatus(status: CommitStatus, projectID: Int, sha: String) -> Observable<CommitStatus> {
+  public func postStatus(status: BuildStatus, projectID: Int, sha: String) -> Observable<CommitStatus> {
     do {
     let apiRequest = APIRequest(path: Endpoints.statuses(projectID: projectID, sha: sha).url, method: .post, data: try JSONEncoder().encode(status))
       return object(for: apiRequest)

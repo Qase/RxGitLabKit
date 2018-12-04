@@ -90,17 +90,15 @@ public struct Commit: Codable, Equatable {
 }
 
 public struct NewCommit: Codable, Equatable {
-  public let id: String?
   public let branch: String
   public let commitMessage: String
   public let startBranch: String?
-  public let actions: [Action]?
+  public let actions: [Action]
   public let authorEmail: String?
   public let authorName: String?
   public let stats: Bool?
 
   enum CodingKeys: String, CodingKey {
-    case id
     case branch
     case commitMessage = "commit_message"
     case startBranch = "start_branch"
@@ -110,8 +108,7 @@ public struct NewCommit: Codable, Equatable {
     case stats
   }
 
-  public init(id: String? = nil, branch: String, commitMessage: String, startBranch: String? = nil, actions: [Action]? = nil, authorEmail: String? = nil, authorName: String? = nil, stats: Bool? = nil) {
-    self.id = id
+  public init(branch: String, commitMessage: String, startBranch: String? = nil, actions: [Action], authorEmail: String? = nil, authorName: String? = nil, stats: Bool? = nil) {
     self.branch = branch
     self.commitMessage = commitMessage
     self.startBranch = startBranch
@@ -122,13 +119,12 @@ public struct NewCommit: Codable, Equatable {
   }
 
   public static func == (lhs: NewCommit, rhs: NewCommit) -> Bool {
-    return lhs.id == rhs.id &&
-    lhs.branch == rhs.branch &&
-    lhs.commitMessage == rhs.commitMessage &&
-    lhs.startBranch == rhs.startBranch &&
-    lhs.actions == rhs.actions &&
-    lhs.authorEmail == rhs.authorEmail &&
-    lhs.authorName == rhs.authorName &&
-    lhs.stats == rhs.stats
+    return lhs.branch == rhs.branch &&
+      lhs.commitMessage == rhs.commitMessage &&
+      lhs.startBranch == rhs.startBranch &&
+      lhs.actions == rhs.actions &&
+      lhs.authorEmail == rhs.authorEmail &&
+      lhs.authorName == rhs.authorName &&
+      lhs.stats == rhs.stats
   }
 }

@@ -30,7 +30,7 @@ class AuthenticationEndpointGroupIntegrationTests: BaseIntegrationTestCase {
         XCTFail("Authentication is nil.")
       }
     case .failed(elements: _, error: let error):
-      XCTFail(error.localizedDescription)
+      XCTFail((error as? HTTPError)?.errorDescription ?? error.localizedDescription)
     }
   }
 }

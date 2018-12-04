@@ -17,8 +17,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6C6EE58421907480006C447E"
-               BuildableName = "RxGitLabKit-macOSTests.xctest"
-               BlueprintName = "RxGitLabKit-macOSTests"
+               BuildableName = "RxGitLabKit-macOSAllTests.xctest"
+               BlueprintName = "RxGitLabKit-macOSAllTests"
                ReferencedContainer = "container:RxGitLabKit.xcodeproj">
             </BuildableReference>
          </TestableReference>

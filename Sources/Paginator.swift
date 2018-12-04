@@ -74,7 +74,7 @@ public class Paginator<T: Codable> {
 
   // MARK: Functions
   public func loadAll() -> Observable<[T]> {
-    return totalPages.flatMap { self[1...$0] }
+    return totalPages.flatMap { $0 > 1 ? self[1...$0] : self[1] }
   }
 
   private func loadPage(page: Int) -> Observable<[T]> {

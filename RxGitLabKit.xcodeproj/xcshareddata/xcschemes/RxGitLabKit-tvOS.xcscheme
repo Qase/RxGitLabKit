@@ -33,8 +33,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6C05B89F21AD1A8D009E9A98"
-               BuildableName = "RxGitLabKit-tvOSTests.xctest"
-               BlueprintName = "RxGitLabKit-tvOSTests"
+               BuildableName = "RxGitLabKit-tvOSAllTests.xctest"
+               BlueprintName = "RxGitLabKit-tvOSAllTests"
                ReferencedContainer = "container:RxGitLabKit.xcodeproj">
             </BuildableReference>
          </TestableReference>

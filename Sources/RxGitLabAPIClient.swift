@@ -82,6 +82,10 @@ public class RxGitLabAPIClient {
     return createAndSubscribeEndpointGroup()
   }()
 
+  public lazy var members: MembersEndpointGroup = {
+    return createAndSubscribeEndpointGroup()
+  }()
+  
   // MARK: Init
   
   public init(with hostCommunicator: HostCommunicator) {

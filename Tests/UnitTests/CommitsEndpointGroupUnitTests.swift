@@ -39,7 +39,7 @@ class CommitsEndpointGroupUnitTests: EndpointGroupUnitTestCase {
       XCTAssertEqual(firstCommit.shortId, "ed899a2f4b5")
       XCTAssertEqual(firstCommit.authorName, "Dmitriy Zaporozhets")
     case .failed(elements: _, error: let error):
-      XCTFail(error.localizedDescription)
+      XCTFail((error as? HTTPError)?.errorDescription ?? error.localizedDescription)
     }
   }
 
@@ -86,7 +86,7 @@ class CommitsEndpointGroupUnitTests: EndpointGroupUnitTestCase {
       XCTAssertEqual(commit.authoredDate, date)
       XCTAssertEqual(commit.committedDate, date)
     case .failed(elements: _, error: let error):
-      XCTFail(error.localizedDescription)
+      XCTFail((error as? HTTPError)?.errorDescription ?? error.localizedDescription)
     }
   }
 
@@ -129,7 +129,7 @@ class CommitsEndpointGroupUnitTests: EndpointGroupUnitTestCase {
       XCTAssertEqual(dict["commit_message"]! as! String, "some commit message")
       XCTAssertEqual((dict["actions"]! as! [Any]).count, 5)
     case .failed(elements: _, error: let error):
-      XCTFail(error.localizedDescription)
+      XCTFail((error as? HTTPError)?.errorDescription ?? error.localizedDescription)
     }
 
   }
@@ -152,7 +152,7 @@ class CommitsEndpointGroupUnitTests: EndpointGroupUnitTestCase {
       XCTAssertEqual(references[3].type, "tag")
       XCTAssertEqual(references[3].name, "v1.1.0")
     case .failed(elements: _, error: let error):
-      XCTFail(error.localizedDescription)
+      XCTFail((error as? HTTPError)?.errorDescription ?? error.localizedDescription)
     }
   }
 
@@ -187,7 +187,7 @@ class CommitsEndpointGroupUnitTests: EndpointGroupUnitTestCase {
       XCTAssertEqual(commit.shortId, "8b090c1b")
 
     case .failed(elements: _, error: let error):
-      XCTFail(error.localizedDescription)
+      XCTFail((error as? HTTPError)?.errorDescription ?? error.localizedDescription)
     }
   }
 
@@ -211,7 +211,7 @@ class CommitsEndpointGroupUnitTests: EndpointGroupUnitTestCase {
       XCTAssertEqual(author.username, "admin")
       XCTAssertEqual(author.email, "admin@local.host")
     case .failed(elements: _, error: let error):
-      XCTFail(error.localizedDescription)
+      XCTFail((error as? HTTPError)?.errorDescription ?? error.localizedDescription)
     }
   }
 
@@ -254,7 +254,7 @@ class CommitsEndpointGroupUnitTests: EndpointGroupUnitTestCase {
       XCTAssertEqual(comment.createdAt, date)
 
     case .failed(elements: _, error: let error):
-      XCTFail(error.localizedDescription)
+      XCTFail((error as? HTTPError)?.errorDescription ?? error.localizedDescription)
     }
   }
 
@@ -289,7 +289,7 @@ class CommitsEndpointGroupUnitTests: EndpointGroupUnitTestCase {
       XCTAssertEqual(author.webUrl, "https://gitlab.example.com/thedude")
       XCTAssertEqual(author.avatarUrl, "https://gitlab.example.com/uploads/user/avatar/28/The-Big-Lebowski-400-400.png")
     case .failed(elements: _, error: let error):
-      XCTFail(error.localizedDescription)
+      XCTFail((error as? HTTPError)?.errorDescription ?? error.localizedDescription)
     }
   }
 
@@ -298,7 +298,7 @@ class CommitsEndpointGroupUnitTests: EndpointGroupUnitTestCase {
     let projectID = CommitsMocks.mockProjectID
     let sha = "18f3e63d05582537db6d183d9d557be09e1f90c8"
 
-    let status = CommitStatus(status: "success")
+    let status = BuildStatus(state: BuildStatus.State.canceled.rawValue, ref: nil, name: nil, targetURL: nil, description: nil, coverage: nil)
     let result = client.commits.postStatus(status: status, projectID: projectID, sha: sha)
       .toBlocking(timeout: 1)
       .materialize()
@@ -318,7 +318,7 @@ class CommitsEndpointGroupUnitTests: EndpointGroupUnitTestCase {
 
       XCTAssertEqual(status.status, "success")
     case .failed(elements: _, error: let error):
-      XCTFail(error.localizedDescription)
+      XCTFail((error as? HTTPError)?.errorDescription ?? error.localizedDescription)
     }
   }
 
@@ -365,7 +365,7 @@ class CommitsEndpointGroupUnitTests: EndpointGroupUnitTestCase {
       XCTAssertEqual(timeStats.humanTimeEstimate, 1)
       XCTAssertEqual(timeStats.humanTotalTimeSpent, 2)
     case .failed(elements: _, error: let error):
-      XCTFail(error.localizedDescription)
+      XCTFail((error as? HTTPError)?.errorDescription ?? error.localizedDescription)
     }
   }
 

@@ -35,22 +35,22 @@ public enum HTTPMethod: String {
 
 public enum HTTPError: Error {
   /// Bad Request - 400
-  case badRequest
+  case badRequest(message: String?)
 
   /// Unauthorized Access - 401
-  case unauthorized
+  case unauthorized(message: String?)
 
   /// Forbidden Access - 403
-  case forbidden
+  case forbidden(message: String?)
 
   /// Requested resource could not be found - 404
-  case notFound
+  case notFound(message: String?)
 
   /// A request method is not supported - 405
-  case methodNotAllowed
+  case methodNotAllowed(message: String?)
 
   /// Server failed to fulfill a request - 5xx
-  case serverFailure
+  case serverFailure(message: String?)
 
   /// Unknown Error
   case unknown(Int?)
@@ -72,20 +72,21 @@ public enum HTTPError: Error {
 }
 
 extension HTTPError: LocalizedError {
+  
   public var errorDescription: String? {
     switch self {
-    case .badRequest:
-      return NSLocalizedString("Bad Request", comment: "Bad") // 400
-    case .unauthorized:
-      return NSLocalizedString("Unauthorized", comment: "Unauthorized") // 401
-    case .forbidden:
-      return NSLocalizedString("Forbidden", comment: "Forbidden") // 403
-    case .notFound:
-      return NSLocalizedString("Not Found", comment: "Not") // 404
-    case .methodNotAllowed:
-      return NSLocalizedString("Method Not Allowed", comment: "Method") // 405
-    case .serverFailure:
-      return NSLocalizedString("Server Failure", comment: "Server") // 5xx
+    case .badRequest(let message):
+      return NSLocalizedString("Bad Request: \(message ?? "")", comment: "Bad Request") // 400
+    case .unauthorized(let message):
+      return NSLocalizedString("Unauthorized: \(message ?? "")", comment: "Unauthorized") // 401
+    case .forbidden(let message):
+      return NSLocalizedString("Forbidden: \(message ?? "")", comment: "Forbidden") // 403
+    case .notFound(let message):
+      return NSLocalizedString("Not Found: \(message ?? "")", comment: "Not Found") // 404
+    case .methodNotAllowed(let message):
+      return NSLocalizedString("Method Not Allowed: \(message ?? "")", comment: "Method Not Allowed") // 405
+    case .serverFailure(let message):
+      return NSLocalizedString("Server Failure: \(message ?? "")", comment: "Server failure") // 5xx
     case .unknown(let code):
       return NSLocalizedString("Unknown: \(code ?? -1)", comment: "Unknown: \(code ?? -1)")
     case .parsingJSONFailure(let error):

@@ -51,7 +51,7 @@ class HTTPClientTests: XCTestCase {
       let receivedData = pair.1
       XCTAssertEqual(nextData, receivedData)
     case .failed(elements: _, error: let error):
-      XCTFail(error.localizedDescription)
+      XCTFail((error as? HTTPError)?.errorDescription ?? error.localizedDescription)
     }
   }
 
@@ -127,22 +127,22 @@ class HTTPClientTests: XCTestCase {
       XCTAssertEqual(header["X-Total"], "3016")
       XCTAssertEqual(header["X-Total-Pages"], "31")
     case .failed(elements: _, error: let error):
-      XCTFail(error.localizedDescription)
+      XCTFail((error as? HTTPError)?.errorDescription ?? error.localizedDescription)
     }
   }
 
   func testHeaderErrorCodes() {
     let response = URLResponse(url: mockURL, mimeType: nil, expectedContentLength: 1, textEncodingName: nil)
-
+    
     let responses: [(URLResponse?, HTTPError)] = [
       (nil, HTTPError.noResponse),
       (response, HTTPError.nonHTTPResponse(response: response)),
-      (HTTPURLResponse(url: mockURL, statusCode: 400, httpVersion: nil, headerFields: nil), HTTPError.badRequest),
-      (HTTPURLResponse(url: mockURL, statusCode: 401, httpVersion: nil, headerFields: nil), HTTPError.unauthorized),
-      (HTTPURLResponse(url: mockURL, statusCode: 403, httpVersion: nil, headerFields: nil), HTTPError.forbidden),
-      (HTTPURLResponse(url: mockURL, statusCode: 404, httpVersion: nil, headerFields: nil), HTTPError.notFound),
-      (HTTPURLResponse(url: mockURL, statusCode: 500, httpVersion: nil, headerFields: nil), HTTPError.serverFailure),
-      (HTTPURLResponse(url: mockURL, statusCode: 550, httpVersion: nil, headerFields: nil), HTTPError.serverFailure),
+      (HTTPURLResponse(url: mockURL, statusCode: 400, httpVersion: nil, headerFields: nil), HTTPError.badRequest(message: nil)),
+      (HTTPURLResponse(url: mockURL, statusCode: 401, httpVersion: nil, headerFields: nil), HTTPError.unauthorized(message: nil)),
+      (HTTPURLResponse(url: mockURL, statusCode: 403, httpVersion: nil, headerFields: nil), HTTPError.forbidden(message: nil)),
+      (HTTPURLResponse(url: mockURL, statusCode: 404, httpVersion: nil, headerFields: nil), HTTPError.notFound(message: nil)),
+      (HTTPURLResponse(url: mockURL, statusCode: 500, httpVersion: nil, headerFields: nil), HTTPError.serverFailure(message: nil)),
+      (HTTPURLResponse(url: mockURL, statusCode: 550, httpVersion: nil, headerFields: nil), HTTPError.serverFailure(message: nil)),
       (HTTPURLResponse(url: mockURL, statusCode: 1, httpVersion: nil, headerFields: nil), HTTPError.unknown(1)),
       (HTTPURLResponse(url: mockURL, statusCode: 100, httpVersion: nil, headerFields: nil), HTTPError.unknown(100))
       ]
@@ -184,9 +184,10 @@ class HTTPClientTests: XCTestCase {
   }
 
   func testDataErrorCodes() {
-    let mockData = """
-    { "hello": "world" }
-    """.data()
+    let mockResponse = """
+    { "message": "something went wrong" }
+    """
+    let mockData = mockResponse.data()
 
     let nonHTTPResponse = URLResponse(url: mockURL, mimeType: nil, expectedContentLength: 1, textEncodingName: nil)
 
@@ -194,12 +195,12 @@ class HTTPClientTests: XCTestCase {
       (nil, mockData, HTTPError.noResponse),
       (nonHTTPResponse, mockData, HTTPError.nonHTTPResponse(response: nonHTTPResponse)),
       (HTTPURLResponse(url: mockURL, statusCode: 200, httpVersion: nil, headerFields: nil), nil, HTTPError.noData),
-      (HTTPURLResponse(url: mockURL, statusCode: 400, httpVersion: nil, headerFields: nil), mockData, HTTPError.badRequest),
-      (HTTPURLResponse(url: mockURL, statusCode: 401, httpVersion: nil, headerFields: nil), mockData, HTTPError.unauthorized),
-      (HTTPURLResponse(url: mockURL, statusCode: 403, httpVersion: nil, headerFields: nil), mockData, HTTPError.forbidden),
-      (HTTPURLResponse(url: mockURL, statusCode: 404, httpVersion: nil, headerFields: nil), mockData, HTTPError.notFound),
-      (HTTPURLResponse(url: mockURL, statusCode: 500, httpVersion: nil, headerFields: nil), mockData, HTTPError.serverFailure),
-      (HTTPURLResponse(url: mockURL, statusCode: 550, httpVersion: nil, headerFields: nil), mockData, HTTPError.serverFailure),
+      (HTTPURLResponse(url: mockURL, statusCode: 400, httpVersion: nil, headerFields: nil), mockData, HTTPError.badRequest(message: mockResponse)),
+      (HTTPURLResponse(url: mockURL, statusCode: 401, httpVersion: nil, headerFields: nil), mockData, HTTPError.unauthorized(message: mockResponse)),
+      (HTTPURLResponse(url: mockURL, statusCode: 403, httpVersion: nil, headerFields: nil), mockData, HTTPError.forbidden(message: mockResponse)),
+      (HTTPURLResponse(url: mockURL, statusCode: 404, httpVersion: nil, headerFields: nil), mockData, HTTPError.notFound(message: mockResponse)),
+      (HTTPURLResponse(url: mockURL, statusCode: 500, httpVersion: nil, headerFields: nil), mockData, HTTPError.serverFailure(message: mockResponse)),
+      (HTTPURLResponse(url: mockURL, statusCode: 550, httpVersion: nil, headerFields: nil), mockData, HTTPError.serverFailure(message: mockResponse)),
       (HTTPURLResponse(url: mockURL, statusCode: 1, httpVersion: nil, headerFields: nil), mockData, HTTPError.unknown(1)),
       (HTTPURLResponse(url: mockURL, statusCode: 100, httpVersion: nil, headerFields: nil), mockData, HTTPError.unknown(100))
       ]
@@ -261,9 +262,10 @@ class HTTPClientTests: XCTestCase {
   }
 
   func testObjectErrorCodes() {
-    let mockData = """
-    { "key": "hello world" }
-    """.data()
+    let mockResponse = """
+    { "message": "something went wrong" }
+    """
+    let mockData = mockResponse.data()
 
     let nonHTTPResponse = URLResponse(url: mockURL, mimeType: nil, expectedContentLength: 1, textEncodingName: nil)
 
@@ -271,12 +273,12 @@ class HTTPClientTests: XCTestCase {
       (nil, mockData, HTTPError.noResponse),
       (nonHTTPResponse, mockData, HTTPError.nonHTTPResponse(response: nonHTTPResponse)),
       (HTTPURLResponse(url: mockURL, statusCode: 200, httpVersion: nil, headerFields: nil), nil, HTTPError.noData),
-      (HTTPURLResponse(url: mockURL, statusCode: 400, httpVersion: nil, headerFields: nil), mockData, HTTPError.badRequest),
-      (HTTPURLResponse(url: mockURL, statusCode: 401, httpVersion: nil, headerFields: nil), mockData, HTTPError.unauthorized),
-      (HTTPURLResponse(url: mockURL, statusCode: 403, httpVersion: nil, headerFields: nil), mockData, HTTPError.forbidden),
-      (HTTPURLResponse(url: mockURL, statusCode: 404, httpVersion: nil, headerFields: nil), mockData, HTTPError.notFound),
-      (HTTPURLResponse(url: mockURL, statusCode: 500, httpVersion: nil, headerFields: nil), mockData, HTTPError.serverFailure),
-      (HTTPURLResponse(url: mockURL, statusCode: 550, httpVersion: nil, headerFields: nil), mockData, HTTPError.serverFailure),
+      (HTTPURLResponse(url: mockURL, statusCode: 400, httpVersion: nil, headerFields: nil), mockData, HTTPError.badRequest(message: mockResponse)),
+      (HTTPURLResponse(url: mockURL, statusCode: 401, httpVersion: nil, headerFields: nil), mockData, HTTPError.unauthorized(message: mockResponse)),
+      (HTTPURLResponse(url: mockURL, statusCode: 403, httpVersion: nil, headerFields: nil), mockData, HTTPError.forbidden(message: mockResponse)),
+      (HTTPURLResponse(url: mockURL, statusCode: 404, httpVersion: nil, headerFields: nil), mockData, HTTPError.notFound(message: mockResponse)),
+      (HTTPURLResponse(url: mockURL, statusCode: 500, httpVersion: nil, headerFields: nil), mockData, HTTPError.serverFailure(message: mockResponse)),
+      (HTTPURLResponse(url: mockURL, statusCode: 550, httpVersion: nil, headerFields: nil), mockData, HTTPError.serverFailure(message: mockResponse)),
       (HTTPURLResponse(url: mockURL, statusCode: 1, httpVersion: nil, headerFields: nil), mockData, HTTPError.unknown(1)),
       (HTTPURLResponse(url: mockURL, statusCode: 100, httpVersion: nil, headerFields: nil), mockData, HTTPError.unknown(100))
       ]
@@ -352,9 +354,10 @@ class HTTPClientTests: XCTestCase {
   }
 
   func testJSONErrorCodes() {
-    let mockData = """
-    { "key": "hello world" }
-    """.data()
+    let mockResponse = """
+    { "message": "something went wrong" }
+    """
+    let mockData = mockResponse.data()
 
     let nonHTTPResponse = URLResponse(url: mockURL, mimeType: nil, expectedContentLength: 1, textEncodingName: nil)
 
@@ -362,12 +365,12 @@ class HTTPClientTests: XCTestCase {
       (nil, mockData, HTTPError.noResponse),
       (nonHTTPResponse, mockData, HTTPError.nonHTTPResponse(response: nonHTTPResponse)),
       (HTTPURLResponse(url: mockURL, statusCode: 200, httpVersion: nil, headerFields: nil), nil, HTTPError.noData),
-      (HTTPURLResponse(url: mockURL, statusCode: 400, httpVersion: nil, headerFields: nil), mockData, HTTPError.badRequest),
-      (HTTPURLResponse(url: mockURL, statusCode: 401, httpVersion: nil, headerFields: nil), mockData, HTTPError.unauthorized),
-      (HTTPURLResponse(url: mockURL, statusCode: 403, httpVersion: nil, headerFields: nil), mockData, HTTPError.forbidden),
-      (HTTPURLResponse(url: mockURL, statusCode: 404, httpVersion: nil, headerFields: nil), mockData, HTTPError.notFound),
-      (HTTPURLResponse(url: mockURL, statusCode: 500, httpVersion: nil, headerFields: nil), mockData, HTTPError.serverFailure),
-      (HTTPURLResponse(url: mockURL, statusCode: 550, httpVersion: nil, headerFields: nil), mockData, HTTPError.serverFailure),
+      (HTTPURLResponse(url: mockURL, statusCode: 400, httpVersion: nil, headerFields: nil), mockData, HTTPError.badRequest(message: mockResponse)),
+      (HTTPURLResponse(url: mockURL, statusCode: 401, httpVersion: nil, headerFields: nil), mockData, HTTPError.unauthorized(message: mockResponse)),
+      (HTTPURLResponse(url: mockURL, statusCode: 403, httpVersion: nil, headerFields: nil), mockData, HTTPError.forbidden(message: mockResponse)),
+      (HTTPURLResponse(url: mockURL, statusCode: 404, httpVersion: nil, headerFields: nil), mockData, HTTPError.notFound(message: mockResponse)),
+      (HTTPURLResponse(url: mockURL, statusCode: 500, httpVersion: nil, headerFields: nil), mockData, HTTPError.serverFailure(message: mockResponse)),
+      (HTTPURLResponse(url: mockURL, statusCode: 550, httpVersion: nil, headerFields: nil), mockData, HTTPError.serverFailure(message: mockResponse)),
       (HTTPURLResponse(url: mockURL, statusCode: 1, httpVersion: nil, headerFields: nil), mockData, HTTPError.unknown(1)),
       (HTTPURLResponse(url: mockURL, statusCode: 100, httpVersion: nil, headerFields: nil), mockData, HTTPError.unknown(100))
       ]
