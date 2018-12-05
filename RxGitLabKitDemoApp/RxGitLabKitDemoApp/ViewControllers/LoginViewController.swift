@@ -41,6 +41,7 @@ class LoginViewController: BaseViewController {
     
     let hostTextField = createTextFieldWithRoundedCorners()
     self.hostTextField = hostTextField
+    hostTextField.text = "http://192.168.84.163:80"
     let userNameTextField = createTextFieldWithRoundedCorners()
     userNameTextField.textContentType = .username
     self.userNameTextField = userNameTextField
@@ -49,6 +50,7 @@ class LoginViewController: BaseViewController {
     passwordTextField.textContentType = .password
     self.passwordTextField = passwordTextField
     let privateTokenField = createTextFieldWithRoundedCorners()
+    privateTokenField.text = "pxu4zszRBBoEe9bsybGc"
     self.privateTokenField = privateTokenField
     let oAuthTokenTextField = createTextFieldWithRoundedCorners()
     self.oAuthTokenTextField = oAuthTokenTextField

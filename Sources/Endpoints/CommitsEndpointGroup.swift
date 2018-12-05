@@ -84,10 +84,10 @@ public class CommitsEndpointGroup: EndpointGroup {
   ///     - **with_stats: Boolean** - Stats about each commit will be added to the response
   ///
   /// - Returns: A Paginator of commits
-  public func getCommits(projectID: Int, parameters: QueryParameters? = nil) -> Paginator<Commit> {
+  public func getCommits(projectID: Int, perPage: Int =  RxGitLabAPIClient.defaultPerPage, parameters: QueryParameters? = nil) -> Paginator<Commit> {
     let apiRequest = APIRequest(path: Endpoints.commits(projectID: projectID).url, method: .get, parameters: parameters)
     
-    let paginator = Paginator<Commit>(communicator: hostCommunicator, apiRequest: apiRequest)
+    let paginator = Paginator<Commit>(communicator: hostCommunicator, apiRequest: apiRequest, perPage: perPage)
     return paginator
   }
 

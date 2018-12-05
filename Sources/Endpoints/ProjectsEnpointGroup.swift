@@ -160,7 +160,6 @@ public class ProjectsEnpointGroup: EndpointGroup {
   ///   - userID: ID of the user
   ///   - parameters: Query Parameters - See description
   ///   - page: The page number
-  ///   - perPage: Maximum item count per page
   ///
   /// **Query Parameters:**
   /// - Optional:
@@ -180,7 +179,7 @@ public class ProjectsEnpointGroup: EndpointGroup {
   ///   - **with_merge_requests_enabled: Boolean** - Limit by enabled merge requests feature
   ///   - **min_access_level: Integer** - Limit by current user minimal access level
   /// - Returns: An observable of list of Project
-  public func getUserProjects(userID: Int, parameters: QueryParameters? = nil, page: Int = 1, perPage: Int = RxGitLabAPIClient.defaultPerPage) -> Observable<[Project]> {
+  public func getUserProjects(userID: Int, parameters: QueryParameters? = nil, page: Int = 1) -> Observable<[Project]> {
     let request = APIRequest(path: Endpoints.userProjects(userID: userID).url, parameters: parameters)
     return object(for: request)
   }
