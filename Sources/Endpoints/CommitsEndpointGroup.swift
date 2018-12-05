@@ -10,7 +10,7 @@ import RxSwift
 
 public class CommitsEndpointGroup: EndpointGroup {
 
-  public enum Endpoints {
+  internal enum Endpoints {
     case commits(projectID: Int)
     case single(projectID: Int, sha: String)
     case references(projectID: Int, sha: String)

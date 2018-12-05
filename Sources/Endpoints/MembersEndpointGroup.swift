@@ -10,7 +10,7 @@ import RxSwift
 
 public class MembersEndpointGroup: EndpointGroup {
 
-  public enum Endpoints {
+  internal enum Endpoints {
     case groupMember(groupID: Int, userID: Int)
     case groupMembers(groupID: Int)
     case allGroupMembers(groupID: Int)

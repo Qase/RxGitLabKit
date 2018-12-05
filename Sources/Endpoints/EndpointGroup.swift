@@ -16,7 +16,7 @@ public class EndpointGroup {
   public let perPage = Variable<Int>(100)
 
 
-  public enum Enpoints {}
+  internal enum Enpoints {}
 
   public required init(with hostCommunicator: HostCommunicator) {
     self.hostCommunicator = hostCommunicator

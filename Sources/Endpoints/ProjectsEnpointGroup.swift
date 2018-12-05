@@ -27,7 +27,7 @@ import RxSwift
  */
 public class ProjectsEnpointGroup: EndpointGroup {
 
-  public enum Endpoints {
+  internal enum Endpoints {
     case project(projectID: Int)
     case projects
     case userProjects(userID: Int)

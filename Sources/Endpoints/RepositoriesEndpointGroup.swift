@@ -10,7 +10,7 @@ import RxSwift
 
 public class RepositoriesEndpointGroup: EndpointGroup {
   
-  public enum Endpoints {
+  internal enum Endpoints {
     case tree(projectID: Int)
     case blobs(projectID: Int, sha: String)
     case blobsRaw(projectID: Int, sha: String)

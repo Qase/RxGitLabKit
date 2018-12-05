@@ -10,7 +10,7 @@ import RxSwift
 
 public class AuthenticationEndpointGroup: EndpointGroup {
 
-  public enum Endpoints {
+  internal enum Endpoints {
     case token
 
     public var url: String {
