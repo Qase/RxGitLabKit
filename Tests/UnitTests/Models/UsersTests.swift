@@ -10,12 +10,16 @@ import XCTest
 import RxGitLabKit
 
 class UsersTests: XCTestCase {
+  
+  let decoder: JSONDecoder = {
+    let decoder = JSONDecoder()
+    decoder.dateDecodingStrategy = .formatted(DateFormatter.default)
+    return decoder
+  }()
 
 func testUserDecode() {
 
     let data = UserMocks.fullUserData
-
-    let decoder = JSONDecoder()
     if let user = try? decoder.decode(User.self, from: data) {
       XCTAssert(user.username == "freak4pc")
       XCTAssert(user.name == "Shai Mishali")

@@ -50,31 +50,4 @@ public struct CommitStatus: Codable {
     self.ref = ref
     self.coverage = coverage
   }
-
-  public init(from decoder: Decoder) throws {
-    let values = try decoder.container(keyedBy: CodingKeys.self)
-    id = try values.decode(Int.self, forKey: .id)
-    status = try values.decodeIfPresent(String.self, forKey: .status)
-    startedAt = try CommitStatus.decodeDateIfPresent(values: values, forKey: .startedAt)
-    allowFailure = try values.decodeIfPresent(Bool.self, forKey: .allowFailure)
-    name = try values.decodeIfPresent(String.self, forKey: .name)
-    author = try values.decodeIfPresent(User.self, forKey: .author)
-    description = try values.decodeIfPresent(String.self, forKey: .description)
-    sha = try values.decodeIfPresent(String.self, forKey: .sha)
-    targetURL = try values.decodeIfPresent(String.self, forKey: .targetURL)
-    finishedAt = try CommitStatus.decodeDateIfPresent(values: values, forKey: .finishedAt)
-    ref = try values.decodeIfPresent(String.self, forKey: .ref)
-    createdAt = try CommitStatus.decodeDateIfPresent(values: values, forKey: .createdAt)
-    coverage = try values.decodeIfPresent(Double.self, forKey: .coverage)
-
-  }
-
-  private static func decodeDateIfPresent(values: KeyedDecodingContainer<CodingKeys>, forKey key: CodingKeys) throws -> Date? {
-    let dateFormatter = DateFormatter.default
-    if let dateString = try values.decodeIfPresent(String.self, forKey: key), let date = dateFormatter.date(from: dateString) {
-      return date
-    } else {
-      return nil
-    }
-  }
 }

@@ -59,34 +59,6 @@ public struct Commit: Codable, Equatable {
     case stats
     case status
   }
-
-  public init(from decoder: Decoder) throws {
-    let values = try decoder.container(keyedBy: CodingKeys.self)
-    id = try values.decode(String.self, forKey: .id)
-    shortId = try values.decode(String.self, forKey: .shortId)
-    title = try values.decodeIfPresent(String.self, forKey: .title)
-    authorName = try values.decode(String.self, forKey: .authorName)
-    authorEmail = try values.decodeIfPresent(String.self, forKey: .authorEmail)
-    committerName = try values.decode(String.self, forKey: .committerName)
-    committerEmail = try values.decode(String.self, forKey: .committerEmail)
-    message = try values.decodeIfPresent(String.self, forKey: .message)
-    parentIds = try values.decodeIfPresent([String].self, forKey: .parentIds)
-    lastPipeline = try values.decodeIfPresent(LastPipeline.self, forKey: .lastPipeline)
-    stats = try values.decodeIfPresent(Stats.self, forKey: .stats)
-    status = try values.decodeIfPresent(String.self, forKey: .status)
-    authoredDate = try Commit.decodeDateIfPresent(values: values, forKey: .authoredDate)
-    committedDate = try Commit.decodeDateIfPresent(values: values, forKey: .committedDate)
-    createdAt = try Commit.decodeDateIfPresent(values: values, forKey: .createdAt)
-  }
-
-  private static func decodeDateIfPresent(values: KeyedDecodingContainer<CodingKeys>, forKey key: CodingKeys) throws -> Date? {
-    let dateFormatter = DateFormatter.default
-    if let dateString = try values.decodeIfPresent(String.self, forKey: key), let date = dateFormatter.date(from: dateString) {
-      return date
-    } else {
-      return nil
-    }
-  }
 }
 
 public struct NewCommit: Codable, Equatable {

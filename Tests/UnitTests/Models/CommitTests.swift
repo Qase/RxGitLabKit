@@ -10,7 +10,12 @@ import RxGitLabKit
 
 class CommitTests: XCTestCase {
 
-  private let decoder = JSONDecoder()
+  private let decoder: JSONDecoder = {
+    let decoder = JSONDecoder()
+    decoder.dateDecodingStrategy = .formatted(DateFormatter.default)
+    return decoder
+  }()
+  
   private let calendar = Calendar(identifier: .gregorian)
 
   func testCommitDecoding() {
@@ -315,7 +320,6 @@ class CommitTests: XCTestCase {
   func testDecodingAllCommits() {
     var index = 0
     do {
-      let decoder = JSONDecoder()
       for data in CommitsMocks.commitData {
         _ = try decoder.decode(Commit.self, from: data)
         index += 1

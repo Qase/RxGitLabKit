@@ -10,7 +10,11 @@ import RxGitLabKit
 
 class ProjectTests: XCTestCase {
 
-  private let decoder = JSONDecoder()
+  private let decoder: JSONDecoder = {
+    let decoder = JSONDecoder()
+    decoder.dateDecodingStrategy = .formatted(DateFormatter.default)
+    return decoder
+  }()
   private let calendar = Calendar(identifier: .gregorian)
 
   func testProjectDecode() {
