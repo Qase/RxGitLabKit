@@ -171,6 +171,12 @@
 		6C4370BC218B9AF9002ACBDA /* ProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4370B9218B9A86002ACBDA /* ProjectTests.swift */; };
 		6C4370BE218BA777002ACBDA /* ProjectHook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4370BD218BA777002ACBDA /* ProjectHook.swift */; };
 		6C4370BF218BA777002ACBDA /* ProjectHook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4370BD218BA777002ACBDA /* ProjectHook.swift */; };
+		6C4446E221B7E78A00341672 /* PerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4446E121B7E78A00341672 /* PerformanceTests.swift */; };
+		6C4446E521B7E78A00341672 /* PerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4446E121B7E78A00341672 /* PerformanceTests.swift */; };
+		6C4446E621B7E78A00341672 /* PerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4446E121B7E78A00341672 /* PerformanceTests.swift */; };
+		6C4446E721B7E78A00341672 /* PerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4446E121B7E78A00341672 /* PerformanceTests.swift */; };
+		6C4446E821B7E79000341672 /* PerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4446E121B7E78A00341672 /* PerformanceTests.swift */; };
+		6C4446F221B8078E00341672 /* PerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4446E121B7E78A00341672 /* PerformanceTests.swift */; };
 		6C54518F21A024C300B6BFA0 /* Comparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C54518E21A024C300B6BFA0 /* Comparison.swift */; };
 		6C54519021A024C300B6BFA0 /* Comparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C54518E21A024C300B6BFA0 /* Comparison.swift */; };
 		6C54519221A0261E00B6BFA0 /* FileInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C54519121A0261E00B6BFA0 /* FileInfo.swift */; };
@@ -609,6 +615,7 @@
 		6C4370B6218B9A55002ACBDA /* ProjectMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectMocks.swift; sourceTree = "<group>"; };
 		6C4370B9218B9A86002ACBDA /* ProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTests.swift; sourceTree = "<group>"; };
 		6C4370BD218BA777002ACBDA /* ProjectHook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectHook.swift; sourceTree = "<group>"; };
+		6C4446E121B7E78A00341672 /* PerformanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PerformanceTests.swift; path = Tests/IntegrationTests/PerformanceTests.swift; sourceTree = SOURCE_ROOT; };
 		6C5401D321144B7500631E21 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		6C5401E62114593600631E21 /* Commit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commit.swift; sourceTree = "<group>"; };
 		6C54020321145C2300631E21 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -627,15 +634,10 @@
 		6C5D684221B695DE00326012 /* RxGitLabKit_iOSUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxGitLabKit_iOSUnitTests.swift; sourceTree = "<group>"; };
 		6C5D684421B695DE00326012 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6C5D689A21B696F000326012 /* RxGitLabKit-iOSIntegrationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RxGitLabKit-iOSIntegrationTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6C5D689B21B696F000326012 /* RxGitLabKit-iOSUnitTests copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "RxGitLabKit-iOSUnitTests copy-Info.plist"; path = "/Users/dagytran/Developer/RxGitLabKit/RxGitLabKit-iOSUnitTests copy-Info.plist"; sourceTree = "<absolute>"; };
 		6C5D68E921B6993000326012 /* RxGitLabKit-macOSUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RxGitLabKit-macOSUnitTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6C5D68EA21B6993100326012 /* RxGitLabKit-macOSTests copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "RxGitLabKit-macOSTests copy-Info.plist"; path = "/Users/dagytran/Developer/RxGitLabKit/RxGitLabKit-macOSTests copy-Info.plist"; sourceTree = "<absolute>"; };
 		6C5D692021B6993900326012 /* RxGitLabKit-macOSIntegrationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RxGitLabKit-macOSIntegrationTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6C5D692121B6993A00326012 /* RxGitLabKit-macOSTests copy copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "RxGitLabKit-macOSTests copy copy-Info.plist"; path = "/Users/dagytran/Developer/RxGitLabKit/RxGitLabKit-macOSTests copy copy-Info.plist"; sourceTree = "<absolute>"; };
 		6C5D695721B6996100326012 /* RxGitLabKit-tvOSUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RxGitLabKit-tvOSUnitTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6C5D695821B6996200326012 /* RxGitLabKit-tvOSAllTests copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "RxGitLabKit-tvOSAllTests copy-Info.plist"; path = "/Users/dagytran/Developer/RxGitLabKit/RxGitLabKit-tvOSAllTests copy-Info.plist"; sourceTree = "<absolute>"; };
 		6C5D698E21B6996400326012 /* RxGitLabKit-tvOSIntegrationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RxGitLabKit-tvOSIntegrationTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6C5D698F21B6996500326012 /* RxGitLabKit-tvOSAllTests copy 2-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "RxGitLabKit-tvOSAllTests copy 2-Info.plist"; path = "/Users/dagytran/Developer/RxGitLabKit/RxGitLabKit-tvOSAllTests copy 2-Info.plist"; sourceTree = "<absolute>"; };
 		6C6EE57C218F6F7D006C447E /* EndpointGroupUnitTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointGroupUnitTestCase.swift; sourceTree = "<group>"; };
 		6C6EE58521907480006C447E /* RxGitLabKit-macOSAllTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RxGitLabKit-macOSAllTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C6EE58921907480006C447E /* Info-macOSTests.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-macOSTests.plist"; sourceTree = "<group>"; };
@@ -874,11 +876,6 @@
 				6C5D684121B695DE00326012 /* RxGitLabKit-iOSUnitTests */,
 				6C54015C211445D400631E21 /* Products */,
 				6C5401EE211459ED00631E21 /* Frameworks */,
-				6C5D689B21B696F000326012 /* RxGitLabKit-iOSUnitTests copy-Info.plist */,
-				6C5D68EA21B6993100326012 /* RxGitLabKit-macOSTests copy-Info.plist */,
-				6C5D692121B6993A00326012 /* RxGitLabKit-macOSTests copy copy-Info.plist */,
-				6C5D695821B6996200326012 /* RxGitLabKit-tvOSAllTests copy-Info.plist */,
-				6C5D698F21B6996500326012 /* RxGitLabKit-tvOSAllTests copy 2-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1003,6 +1000,7 @@
 		6C98CE62217C666F0051569E /* IntegrationTests */ = {
 			isa = PBXGroup;
 			children = (
+				6C4446E121B7E78A00341672 /* PerformanceTests.swift */,
 				6C7999F121AD585B000148CD /* BaseIntegrationTestCase.swift */,
 				6C35DD0F212AF9B200D05B87 /* RxGitLabAPIClientIntegrationTests.swift */,
 				6C5D681821AFF57100326012 /* AuthenticationEndpointGroupIntegrationTests.swift */,
@@ -1903,6 +1901,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C5D683421B53F8C00326012 /* UserMocks.swift in Sources */,
+				6C4446E621B7E78A00341672 /* PerformanceTests.swift in Sources */,
 				6C05B94B21AD1D92009E9A98 /* RxGitLabAPIClientUnitTests.swift in Sources */,
 				6C05B92821AD1D79009E9A98 /* GeneralMocks.swift in Sources */,
 				6C05B94D21AD1D92009E9A98 /* EndpointGroupUnitTestCase.swift in Sources */,
@@ -1944,6 +1943,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C5D683221B53F8C00326012 /* UserMocks.swift in Sources */,
+				6C4446E221B7E78A00341672 /* PerformanceTests.swift in Sources */,
 				6CE95EEA2166A50C00EDAE16 /* ModelMocks.swift in Sources */,
 				6C06A891212EA41D00686583 /* String+Extensions.swift in Sources */,
 				6C06A892212EA41D00686583 /* RxGitLabAPIClientIntegrationTests.swift in Sources */,
@@ -2034,6 +2034,7 @@
 				6C5D688321B696F000326012 /* CommitsMocks.swift in Sources */,
 				6C5D68B021B6972200326012 /* ProjectsEndpointGroupIntegrationTests.swift in Sources */,
 				6C5D688421B696F000326012 /* GeneralMocks.swift in Sources */,
+				6C4446F221B8078E00341672 /* PerformanceTests.swift in Sources */,
 				6C5D68AB21B6972200326012 /* RxGitLabAPIClientIntegrationTests.swift in Sources */,
 				6C5D68AC21B6972200326012 /* AuthenticationEndpointGroupIntegrationTests.swift in Sources */,
 				6C5D688521B696F000326012 /* RxGitLabKit_iOSUnitTests.swift in Sources */,
@@ -2092,6 +2093,7 @@
 				6C5D68F721B6993900326012 /* GeneralMocks.swift in Sources */,
 				6C5D68F821B6993900326012 /* ProjectsEndpointGroupIntegrationTests.swift in Sources */,
 				6C5D68FD21B6993900326012 /* ModelMocks.swift in Sources */,
+				6C4446E521B7E78A00341672 /* PerformanceTests.swift in Sources */,
 				6C5D68FE21B6993900326012 /* Date+Extensions.swift in Sources */,
 				6C5D690021B6993900326012 /* XCTest+Extensions.swift in Sources */,
 				6C5D690121B6993900326012 /* UsersEndpointGroupIntegrationTests.swift in Sources */,
@@ -2156,6 +2158,7 @@
 				6C5D696721B6996400326012 /* ProjectsEndpointGroupIntegrationTests.swift in Sources */,
 				6C5D696821B6996400326012 /* AuthenticationMocks.swift in Sources */,
 				6C5D696C21B6996400326012 /* PaginatorIntegrationTests.swift in Sources */,
+				6C4446E721B7E78A00341672 /* PerformanceTests.swift in Sources */,
 				6C5D696E21B6996400326012 /* XCTest+Extensions.swift in Sources */,
 				6C5D696F21B6996400326012 /* UsersEndpointGroupIntegrationTests.swift in Sources */,
 				6C5D697021B6996400326012 /* MockURLSession.swift in Sources */,
@@ -2179,6 +2182,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C5D683321B53F8C00326012 /* UserMocks.swift in Sources */,
+				6C4446E821B7E79000341672 /* PerformanceTests.swift in Sources */,
 				6C6EE5A0219074A7006C447E /* EndpointGroupUnitTestCase.swift in Sources */,
 				6C6EE5A5219074AB006C447E /* PaginatorIntegrationTests.swift in Sources */,
 				6C6EE5972190749F006C447E /* PaginatorMocks.swift in Sources */,
@@ -2961,7 +2965,7 @@
 				);
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = "RxGitLabKit-iOSUnitTests/Info.plist";
+				INFOPLIST_FILE = "Supporting Files/Plists/Info-iOSTests.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3008,7 +3012,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = "RxGitLabKit-iOSUnitTests/Info.plist";
+				INFOPLIST_FILE = "Supporting Files/Plists/Info-iOSTests.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3061,7 +3065,7 @@
 				);
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = "RxGitLabKit-iOSUnitTests copy-Info.plist";
+				INFOPLIST_FILE = "Supporting Files/Plists/Info-iOSTests.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3108,7 +3112,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = "RxGitLabKit-iOSUnitTests copy-Info.plist";
+				INFOPLIST_FILE = "Supporting Files/Plists/Info-iOSTests.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3186,7 +3190,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "RxGitLabKit-macOSTests copy-Info.plist";
+				INFOPLIST_FILE = "Supporting Files/Plists/Info-macOSTests.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -3257,7 +3261,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "RxGitLabKit-macOSTests copy-Info.plist";
+				INFOPLIST_FILE = "Supporting Files/Plists/Info-macOSTests.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -3333,7 +3337,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "RxGitLabKit-macOSTests copy copy-Info.plist";
+				INFOPLIST_FILE = "Supporting Files/Plists/Info-macOSTests.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -3404,7 +3408,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "RxGitLabKit-macOSTests copy copy-Info.plist";
+				INFOPLIST_FILE = "Supporting Files/Plists/Info-macOSTests.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -3455,7 +3459,7 @@
 				);
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = "RxGitLabKit-tvOSAllTests copy-Info.plist";
+				INFOPLIST_FILE = "Supporting Files/Plists/Info-tvOSTests.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -3502,7 +3506,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = "RxGitLabKit-tvOSAllTests copy-Info.plist";
+				INFOPLIST_FILE = "Supporting Files/Plists/Info-tvOSTests.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -3555,7 +3559,7 @@
 				);
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = "RxGitLabKit-tvOSAllTests copy 2-Info.plist";
+				INFOPLIST_FILE = "Supporting Files/Plists/Info-tvOSTests.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -3602,7 +3606,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = "RxGitLabKit-tvOSAllTests copy 2-Info.plist";
+				INFOPLIST_FILE = "Supporting Files/Plists/Info-tvOSTests.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
