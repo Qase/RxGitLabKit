@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>UsersEndpointGroup Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/UsersEndpointGroup" class="dashAnchor"></a>
+    <a title="UsersEndpointGroup Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (14% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        UsersEndpointGroup Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AuthenticationEndpointGroup.html">AuthenticationEndpointGroup</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CommitsEndpointGroup.html">CommitsEndpointGroup</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EndpointGroup.html">EndpointGroup</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/HTTPClient.html">HTTPClient</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/HostCommunicator.html">HostCommunicator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MembersEndpointGroup.html">MembersEndpointGroup</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Paginator.html">Paginator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ProjectsEnpointGroup.html">ProjectsEnpointGroup</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RepositoriesEndpointGroup.html">RepositoriesEndpointGroup</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RxGitLabAPIClient.html">RxGitLabAPIClient</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UsersEndpointGroup.html">UsersEndpointGroup</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/AccessLevel.html">AccessLevel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/HTTPError.html">HTTPError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/HTTPMethod.html">HTTPMethod</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/HeaderKeys.html">HeaderKeys</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ParsingError.html">ParsingError</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/DateFormatter.html">DateFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/InputStream.html">InputStream</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/URLSession.html">URLSession</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/APIRequesting.html">APIRequesting</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/Networking.html">Networking</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/URLSessionDataTaskProtocol.html">URLSessionDataTaskProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/URLSessionProtocol.html">URLSessionProtocol</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/APIRequest.html">APIRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Action.html">Action</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Authentication.html">Authentication</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/BuildStatus.html">BuildStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/BuildStatus/State.html">– State</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Comment.html">Comment</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Commit.html">Commit</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CommitStatus.html">CommitStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs.html#/s:11RxGitLabKit10ComparisonV">Comparison</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Contributor.html">Contributor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Diff.html">Diff</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Email.html">Email</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs.html#/s:11RxGitLabKit8FileInfoV">FileInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Identities.html">Identities</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ImpersonationToken.html">ImpersonationToken</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/LastPipeline.html">LastPipeline</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Links.html">Links</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Member.html">Member</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/MergeRequest.html">MergeRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Namespace.html">Namespace</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/NewCommit.html">NewCommit</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Project.html">Project</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ProjectHook.html">ProjectHook</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ProjectStatistics.html">ProjectStatistics</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Reference.html">Reference</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs.html#/s:11RxGitLabKit10ShareGroupV">ShareGroup</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Stats.html">Stats</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TimeStats.html">TimeStats</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs.html#/s:11RxGitLabKit8TreeNodeV">TreeNode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/User.html">User</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/UserKey.html">UserKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/UserStatus.html">UserStatus</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Typealiases.html">Type Aliases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:11RxGitLabKit6Headera">Header</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:11RxGitLabKit14JSONDictionarya">JSONDictionary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:11RxGitLabKit15QueryParametersa">QueryParameters</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>UsersEndpointGroup</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">UsersEndpointGroup</span> <span class="p">:</span> <span class="kt"><a href="../Classes/EndpointGroup.html">EndpointGroup</a></span></code></pre>
+
+                </div>
+              </div>
+            <p>Undocumented</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit18UsersEndpointGroupC03getE04page7perPage10parametersAA9PaginatorCyAA4UserVGSi_SiSDySSypGSgtF"></a>
+                    <a name="//apple_ref/swift/Method/getUsers(page:perPage:parameters:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit18UsersEndpointGroupC03getE04page7perPage10parametersAA9PaginatorCyAA4UserVGSi_SiSDySSypGSgtF">getUsers(page:perPage:parameters:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getUsers</span><span class="p">(</span><span class="nv">page</span><span class="p">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nv">perPage</span><span class="p">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="kt"><a href="../Classes/RxGitLabAPIClient.html">RxGitLabAPIClient</a></span><span class="o">.</span><span class="n">defaultPerPage</span><span class="p">,</span> <span class="nv">parameters</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:11RxGitLabKit15QueryParametersa">QueryParameters</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/Paginator.html">Paginator</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/User.html">User</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit18UsersEndpointGroupC7getUser6userID10parameters0A5Swift10ObservableCyAA0I0VSgGSi_SDySSypGSgtF"></a>
+                    <a name="//apple_ref/swift/Method/getUser(userID:parameters:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit18UsersEndpointGroupC7getUser6userID10parameters0A5Swift10ObservableCyAA0I0VSgGSi_SDySSypGSgtF">getUser(userID:parameters:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get a single user.</p>
+
+<ul>
+<li><strong>Query Parameters:</strong>
+
+<ul>
+<li>email (required) - Email</li>
+<li>password (optional) - Password</li>
+<li>reset_password (optional) - Send user password reset link - true or false(default)</li>
+<li>username (required) - Username</li>
+<li>name (required) - Name</li>
+<li>skype (optional) - Skype ID</li>
+<li>linkedin (optional) - LinkedIn</li>
+<li>twitter (optional) - Twitter account</li>
+<li>website_url (optional) - Website URL</li>
+<li>organization (optional) - Organization name</li>
+<li>projects_limit (optional) - Number of projects user can create</li>
+<li>extern_uid (optional) - External UID</li>
+<li>provider (optional) - External provider name</li>
+<li>bio (optional) - User’s biography</li>
+<li>location (optional) - User’s location</li>
+<li>public_email (optional) - The public email of the user</li>
+<li>admin (optional) - User is admin - true or false (default)</li>
+<li>can_create_group (optional) - User can create groups - true or false</li>
+<li>skip_confirmation (optional) - Skip confirmation - true or false (default)</li>
+<li>external (optional) - Flags the user as external - true or false(default)</li>
+<li>avatar (optional) - Image file for user’s avatar</li>
+<li>private_profile (optional) - User’s profile is private - true or false</li>
+</ul></li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getUser</span><span class="p">(</span><span class="nv">userID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">parameters</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:11RxGitLabKit15QueryParametersa">QueryParameters</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/User.html">User</a></span><span class="p">?</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>parameters</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Query Parameters [String: Any]</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>returns and observable of User?</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit18UsersEndpointGroupC8postUser4user0A5Swift10ObservableCyAA0I0VGAJ_tF"></a>
+                    <a name="//apple_ref/swift/Method/postUser(user:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit18UsersEndpointGroupC8postUser4user0A5Swift10ObservableCyAA0I0VGAJ_tF">postUser(user:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">postUser</span><span class="p">(</span><span class="nv">user</span><span class="p">:</span> <span class="kt"><a href="../Structs/User.html">User</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/User.html">User</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit18UsersEndpointGroupC7putUser6userID10parameters0A5Swift10ObservableCyAA0I0VGSi_SDySSypGSgtF"></a>
+                    <a name="//apple_ref/swift/Method/putUser(userID:parameters:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit18UsersEndpointGroupC7putUser6userID10parameters0A5Swift10ObservableCyAA0I0VGSi_SDySSypGSgtF">putUser(userID:parameters:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Modifies an existing user. Only administrators can change attributes of a user.</p>
+
+<ul>
+<li><strong>Query Parameters:</strong>
+
+<ul>
+<li>email - Email</li>
+<li>username - Username</li>
+<li>name - Name</li>
+<li>password - Password</li>
+<li>skype - Skype ID</li>
+<li>linkedin - LinkedIn</li>
+<li>twitter - Twitter account</li>
+<li>website_url - Website URL</li>
+<li>organization - Organization name</li>
+<li>projects_limit - Limit projects each user can create</li>
+<li>extern_uid - External UID</li>
+<li>provider - External provider name</li>
+<li>bio - User’s biography</li>
+<li>location (optional) - User’s location</li>
+<li>public_email (optional) - The public email of the user</li>
+<li>admin (optional) - User is admin - true or false (default)</li>
+<li>can_create_group (optional) - User can create groups - true or false</li>
+<li>skip_reconfirmation (optional) - Skip reconfirmation - true or false (default)</li>
+<li>external (optional) - Flags the user as external - true or false(default)</li>
+<li>avatar (optional) - Image file for user’s avatar</li>
+<li>private_profile (optional) - User’s profile is private - true or false</li>
+</ul></li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">putUser</span><span class="p">(</span><span class="nv">userID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">parameters</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:11RxGitLabKit15QueryParametersa">QueryParameters</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/User.html">User</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>parameters</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Query Parameters [String: Any]</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>returns and observable of User?</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit18UsersEndpointGroupC10deleteUser6userID10parameters0A5Swift10ObservableCySbGSi_SDySSypGSgtF"></a>
+                    <a name="//apple_ref/swift/Method/deleteUser(userID:parameters:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit18UsersEndpointGroupC10deleteUser6userID10parameters0A5Swift10ObservableCySbGSi_SDySSypGSgtF">deleteUser(userID:parameters:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Deletes a user. Available only for administrators. This returns a <code>204 No Content</code> status code if the operation was successfully or <code>404</code> if the resource was not found.</p>
+
+<ul>
+<li><strong>Query Parameters:</strong>
+
+<ul>
+<li>email - Email</li>
+<li>username - Username</li>
+</ul></li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">deleteUser</span><span class="p">(</span><span class="nv">userID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">parameters</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:11RxGitLabKit15QueryParametersa">QueryParameters</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>parameters</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Query Parameters [String: Any]</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit18UsersEndpointGroupC14getCurrentUser0A5Swift10ObservableCyAA0J0VSgGyF"></a>
+                    <a name="//apple_ref/swift/Method/getCurrentUser()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit18UsersEndpointGroupC14getCurrentUser0A5Swift10ObservableCyAA0J0VSgGyF">getCurrentUser()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getCurrentUser</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/User.html">User</a></span><span class="p">?</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit18UsersEndpointGroupC9getStatus0A5Swift10ObservableCyAA04UserI0VGyF"></a>
+                    <a name="//apple_ref/swift/Method/getStatus()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit18UsersEndpointGroupC9getStatus0A5Swift10ObservableCyAA04UserI0VGyF">getStatus()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getStatus</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/UserStatus.html">UserStatus</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit18UsersEndpointGroupC03getE6Status6userID0A5Swift10ObservableCyAA04UserI0VGSi_tF"></a>
+                    <a name="//apple_ref/swift/Method/getUsersStatus(userID:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit18UsersEndpointGroupC03getE6Status6userID0A5Swift10ObservableCyAA04UserI0VGSi_tF">getUsersStatus(userID:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getUsersStatus</span><span class="p">(</span><span class="nv">userID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/UserStatus.html">UserStatus</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit18UsersEndpointGroupC03getE6Status8username0A5Swift10ObservableCyAA04UserI0VGSS_tF"></a>
+                    <a name="//apple_ref/swift/Method/getUsersStatus(username:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit18UsersEndpointGroupC03getE6Status8username0A5Swift10ObservableCyAA04UserI0VGSS_tF">getUsersStatus(username:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getUsersStatus</span><span class="p">(</span><span class="nv">username</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/UserStatus.html">UserStatus</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit18UsersEndpointGroupC9putStatus6status0A5Swift10ObservableCyAA04UserI0VGAJ_tF"></a>
+                    <a name="//apple_ref/swift/Method/putStatus(status:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit18UsersEndpointGroupC9putStatus6status0A5Swift10ObservableCyAA04UserI0VGAJ_tF">putStatus(status:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">putStatus</span><span class="p">(</span><span class="nv">status</span><span class="p">:</span> <span class="kt"><a href="../Structs/UserStatus.html">UserStatus</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/UserStatus.html">UserStatus</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit18UsersEndpointGroupC10getSSHKeys0A5Swift10ObservableCySayAA7UserKeyVGGyF"></a>
+                    <a name="//apple_ref/swift/Method/getSSHKeys()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit18UsersEndpointGroupC10getSSHKeys0A5Swift10ObservableCySayAA7UserKeyVGGyF">getSSHKeys()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getSSHKeys</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Structs/UserKey.html">UserKey</a></span><span class="p">]</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit18UsersEndpointGroupC03getE7SSHKeys6userID0A5Swift10ObservableCySayAA7UserKeyVGGSi_tF"></a>
+                    <a name="//apple_ref/swift/Method/getUsersSSHKeys(userID:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit18UsersEndpointGroupC03getE7SSHKeys6userID0A5Swift10ObservableCySayAA7UserKeyVGGSi_tF">getUsersSSHKeys(userID:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getUsersSSHKeys</span><span class="p">(</span><span class="nv">userID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Structs/UserKey.html">UserKey</a></span><span class="p">]</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit18UsersEndpointGroupC9getSSHKey5keyID0A5Swift10ObservableCyAA7UserKeyVGSi_tF"></a>
+                    <a name="//apple_ref/swift/Method/getSSHKey(keyID:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit18UsersEndpointGroupC9getSSHKey5keyID0A5Swift10ObservableCyAA7UserKeyVGSi_tF">getSSHKey(keyID:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getSSHKey</span><span class="p">(</span><span class="nv">keyID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/UserKey.html">UserKey</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit18UsersEndpointGroupC10postSSHKey3key0A5Swift10ObservableCyAA7UserKeyVGAJ_tF"></a>
+                    <a name="//apple_ref/swift/Method/postSSHKey(key:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit18UsersEndpointGroupC10postSSHKey3key0A5Swift10ObservableCyAA7UserKeyVGAJ_tF">postSSHKey(key:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">postSSHKey</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Structs/UserKey.html">UserKey</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/UserKey.html">UserKey</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit18UsersEndpointGroupC17postSSHKeyForUser3key6userID0A5Swift10ObservableCyAA0K3KeyVGAK_SitF"></a>
+                    <a name="//apple_ref/swift/Method/postSSHKeyForUser(key:userID:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit18UsersEndpointGroupC17postSSHKeyForUser3key6userID0A5Swift10ObservableCyAA0K3KeyVGAK_SitF">postSSHKeyForUser(key:userID:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">postSSHKeyForUser</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Structs/UserKey.html">UserKey</a></span><span class="p">,</span> <span class="nv">userID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/UserKey.html">UserKey</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit18UsersEndpointGroupC12deleteSSHKey5keyID10parameters0A5Swift10ObservableCySbGSi_SDySSypGSgtF"></a>
+                    <a name="//apple_ref/swift/Method/deleteSSHKey(keyID:parameters:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit18UsersEndpointGroupC12deleteSSHKey5keyID10parameters0A5Swift10ObservableCySbGSi_SDySSypGSgtF">deleteSSHKey(keyID:parameters:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">deleteSSHKey</span><span class="p">(</span><span class="nv">keyID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">parameters</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:11RxGitLabKit15QueryParametersa">QueryParameters</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit18UsersEndpointGroupC06deleteE6SSHKey6userID03keyK010parameters0A5Swift10ObservableCySbGSi_SiSDySSypGSgtF"></a>
+                    <a name="//apple_ref/swift/Method/deleteUsersSSHKey(userID:keyID:parameters:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit18UsersEndpointGroupC06deleteE6SSHKey6userID03keyK010parameters0A5Swift10ObservableCySbGSi_SiSDySSypGSgtF">deleteUsersSSHKey(userID:keyID:parameters:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">deleteUsersSSHKey</span><span class="p">(</span><span class="nv">userID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">keyID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">parameters</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:11RxGitLabKit15QueryParametersa">QueryParameters</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit18UsersEndpointGroupC10getGPGKeys0A5Swift10ObservableCySayAA7UserKeyVGGyF"></a>
+                    <a name="//apple_ref/swift/Method/getGPGKeys()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit18UsersEndpointGroupC10getGPGKeys0A5Swift10ObservableCySayAA7UserKeyVGGyF">getGPGKeys()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getGPGKeys</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Structs/UserKey.html">UserKey</a></span><span class="p">]</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit18UsersEndpointGroupC9getGPGKey5keyID0A5Swift10ObservableCySayAA7UserKeyVGGSi_tF"></a>
+                    <a name="//apple_ref/swift/Method/getGPGKey(keyID:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit18UsersEndpointGroupC9getGPGKey5keyID0A5Swift10ObservableCySayAA7UserKeyVGGSi_tF">getGPGKey(keyID:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getGPGKey</span><span class="p">(</span><span class="nv">keyID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Structs/UserKey.html">UserKey</a></span><span class="p">]</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit18UsersEndpointGroupC10postGPGKey3key0A5Swift10ObservableCyAA7UserKeyVGAJ_tF"></a>
+                    <a name="//apple_ref/swift/Method/postGPGKey(key:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit18UsersEndpointGroupC10postGPGKey3key0A5Swift10ObservableCyAA7UserKeyVGAJ_tF">postGPGKey(key:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">postGPGKey</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Structs/UserKey.html">UserKey</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/UserKey.html">UserKey</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit18UsersEndpointGroupC12deleteGPGKey5keyID10parameters0A5Swift10ObservableCySbGSi_SDySSypGSgtF"></a>
+                    <a name="//apple_ref/swift/Method/deleteGPGKey(keyID:parameters:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit18UsersEndpointGroupC12deleteGPGKey5keyID10parameters0A5Swift10ObservableCySbGSi_SDySSypGSgtF">deleteGPGKey(keyID:parameters:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">deleteGPGKey</span><span class="p">(</span><span class="nv">keyID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">parameters</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:11RxGitLabKit15QueryParametersa">QueryParameters</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit18UsersEndpointGroupC03getE7GPGKeys6userID0A5Swift10ObservableCySayAA7UserKeyVGGSi_tF"></a>
+                    <a name="//apple_ref/swift/Method/getUsersGPGKeys(userID:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit18UsersEndpointGroupC03getE7GPGKeys6userID0A5Swift10ObservableCySayAA7UserKeyVGGSi_tF">getUsersGPGKeys(userID:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getUsersGPGKeys</span><span class="p">(</span><span class="nv">userID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Structs/UserKey.html">UserKey</a></span><span class="p">]</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit18UsersEndpointGroupC16getGPGKeyForUser6userID03keyM00A5Swift10ObservableCySayAA0K3KeyVGGSi_SitF"></a>
+                    <a name="//apple_ref/swift/Method/getGPGKeyForUser(userID:keyID:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit18UsersEndpointGroupC16getGPGKeyForUser6userID03keyM00A5Swift10ObservableCySayAA0K3KeyVGGSi_SitF">getGPGKeyForUser(userID:keyID:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getGPGKeyForUser</span><span class="p">(</span><span class="nv">userID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">keyID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Structs/UserKey.html">UserKey</a></span><span class="p">]</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit18UsersEndpointGroupC14postUserGPGKey3key6userID0A5Swift10ObservableCyAA0I3KeyVGAK_SitF"></a>
+                    <a name="//apple_ref/swift/Method/postUserGPGKey(key:userID:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit18UsersEndpointGroupC14postUserGPGKey3key6userID0A5Swift10ObservableCyAA0I3KeyVGAK_SitF">postUserGPGKey(key:userID:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">postUserGPGKey</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Structs/UserKey.html">UserKey</a></span><span class="p">,</span> <span class="nv">userID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/UserKey.html">UserKey</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit18UsersEndpointGroupC06deleteE6GPGKey6userID03keyK010parameters0A5Swift10ObservableCySbGSi_SiSDySSypGSgtF"></a>
+                    <a name="//apple_ref/swift/Method/deleteUsersGPGKey(userID:keyID:parameters:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit18UsersEndpointGroupC06deleteE6GPGKey6userID03keyK010parameters0A5Swift10ObservableCySbGSi_SiSDySSypGSgtF">deleteUsersGPGKey(userID:keyID:parameters:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">deleteUsersGPGKey</span><span class="p">(</span><span class="nv">userID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">keyID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">parameters</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:11RxGitLabKit15QueryParametersa">QueryParameters</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit18UsersEndpointGroupC9getEmails0A5Swift10ObservableCySayAA5EmailVGGyF"></a>
+                    <a name="//apple_ref/swift/Method/getEmails()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit18UsersEndpointGroupC9getEmails0A5Swift10ObservableCySayAA5EmailVGGyF">getEmails()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getEmails</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Structs/Email.html">Email</a></span><span class="p">]</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit18UsersEndpointGroupC8getEmail7emailID0A5Swift10ObservableCyAA0I0VGSi_tF"></a>
+                    <a name="//apple_ref/swift/Method/getEmail(emailID:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit18UsersEndpointGroupC8getEmail7emailID0A5Swift10ObservableCyAA0I0VGSi_tF">getEmail(emailID:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getEmail</span><span class="p">(</span><span class="nv">emailID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/Email.html">Email</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit18UsersEndpointGroupC9postEmail5email0A5Swift10ObservableCyAA0I0VGAJ_tF"></a>
+                    <a name="//apple_ref/swift/Method/postEmail(email:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit18UsersEndpointGroupC9postEmail5email0A5Swift10ObservableCyAA0I0VGAJ_tF">postEmail(email:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">postEmail</span><span class="p">(</span><span class="nv">email</span><span class="p">:</span> <span class="kt"><a href="../Structs/Email.html">Email</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/Email.html">Email</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit18UsersEndpointGroupC11deleteEmail7emailID0A5Swift10ObservableCySbGSi_tF"></a>
+                    <a name="//apple_ref/swift/Method/deleteEmail(emailID:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit18UsersEndpointGroupC11deleteEmail7emailID0A5Swift10ObservableCySbGSi_tF">deleteEmail(emailID:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">deleteEmail</span><span class="p">(</span><span class="nv">emailID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit18UsersEndpointGroupC04postE5Email5email6userID0A5Swift10ObservableCyAA0I0VGAK_SitF"></a>
+                    <a name="//apple_ref/swift/Method/postUsersEmail(email:userID:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit18UsersEndpointGroupC04postE5Email5email6userID0A5Swift10ObservableCyAA0I0VGAK_SitF">postUsersEmail(email:userID:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">postUsersEmail</span><span class="p">(</span><span class="nv">email</span><span class="p">:</span> <span class="kt"><a href="../Structs/Email.html">Email</a></span><span class="p">,</span> <span class="nv">userID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/Email.html">Email</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit18UsersEndpointGroupC06deleteE5Email6userID05emailK00A5Swift10ObservableCySbGSi_SitF"></a>
+                    <a name="//apple_ref/swift/Method/deleteUsersEmail(userID:emailID:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit18UsersEndpointGroupC06deleteE5Email6userID05emailK00A5Swift10ObservableCySbGSi_SitF">deleteUsersEmail(userID:emailID:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">deleteUsersEmail</span><span class="p">(</span><span class="nv">userID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">emailID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit18UsersEndpointGroupC9blockUser6userID0A5Swift10ObservableCySbGSi_tF"></a>
+                    <a name="//apple_ref/swift/Method/blockUser(userID:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit18UsersEndpointGroupC9blockUser6userID0A5Swift10ObservableCySbGSi_tF">blockUser(userID:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">blockUser</span><span class="p">(</span><span class="nv">userID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit18UsersEndpointGroupC11unBlockUser6userID0A5Swift10ObservableCySbGSi_tF"></a>
+                    <a name="//apple_ref/swift/Method/unBlockUser(userID:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit18UsersEndpointGroupC11unBlockUser6userID0A5Swift10ObservableCySbGSi_tF">unBlockUser(userID:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">unBlockUser</span><span class="p">(</span><span class="nv">userID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit18UsersEndpointGroupC22getImpersonationTokens6userID0A5Swift10ObservableCySayAA0I5TokenVGGSi_tF"></a>
+                    <a name="//apple_ref/swift/Method/getImpersonationTokens(userID:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit18UsersEndpointGroupC22getImpersonationTokens6userID0A5Swift10ObservableCySayAA0I5TokenVGGSi_tF">getImpersonationTokens(userID:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getImpersonationTokens</span><span class="p">(</span><span class="nv">userID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Structs/ImpersonationToken.html">ImpersonationToken</a></span><span class="p">]</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit18UsersEndpointGroupC03getE18ImpersonationToken6userID05tokenL00A5Swift10ObservableCySayAA0iJ0VGGSi_SitF"></a>
+                    <a name="//apple_ref/swift/Method/getUsersImpersonationToken(userID:tokenID:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit18UsersEndpointGroupC03getE18ImpersonationToken6userID05tokenL00A5Swift10ObservableCySayAA0iJ0VGGSi_SitF">getUsersImpersonationToken(userID:tokenID:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getUsersImpersonationToken</span><span class="p">(</span><span class="nv">userID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">tokenID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Structs/ImpersonationToken.html">ImpersonationToken</a></span><span class="p">]</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit18UsersEndpointGroupC22postImpersonationToken5token6userID0A5Swift10ObservableCyAA0iJ0VGAK_SitF"></a>
+                    <a name="//apple_ref/swift/Method/postImpersonationToken(token:userID:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit18UsersEndpointGroupC22postImpersonationToken5token6userID0A5Swift10ObservableCyAA0iJ0VGAK_SitF">postImpersonationToken(token:userID:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">postImpersonationToken</span><span class="p">(</span><span class="nv">token</span><span class="p">:</span> <span class="kt"><a href="../Structs/ImpersonationToken.html">ImpersonationToken</a></span><span class="p">,</span> <span class="nv">userID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/ImpersonationToken.html">ImpersonationToken</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2018 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2018-12-05)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

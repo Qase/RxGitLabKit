@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>RepositoriesEndpointGroup Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/RepositoriesEndpointGroup" class="dashAnchor"></a>
+    <a title="RepositoriesEndpointGroup Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (14% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        RepositoriesEndpointGroup Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AuthenticationEndpointGroup.html">AuthenticationEndpointGroup</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CommitsEndpointGroup.html">CommitsEndpointGroup</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EndpointGroup.html">EndpointGroup</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/HTTPClient.html">HTTPClient</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/HostCommunicator.html">HostCommunicator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MembersEndpointGroup.html">MembersEndpointGroup</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Paginator.html">Paginator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ProjectsEnpointGroup.html">ProjectsEnpointGroup</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RepositoriesEndpointGroup.html">RepositoriesEndpointGroup</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RxGitLabAPIClient.html">RxGitLabAPIClient</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UsersEndpointGroup.html">UsersEndpointGroup</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/AccessLevel.html">AccessLevel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/HTTPError.html">HTTPError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/HTTPMethod.html">HTTPMethod</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/HeaderKeys.html">HeaderKeys</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ParsingError.html">ParsingError</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/DateFormatter.html">DateFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/InputStream.html">InputStream</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/URLSession.html">URLSession</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/APIRequesting.html">APIRequesting</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/Networking.html">Networking</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/URLSessionDataTaskProtocol.html">URLSessionDataTaskProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/URLSessionProtocol.html">URLSessionProtocol</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/APIRequest.html">APIRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Action.html">Action</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Authentication.html">Authentication</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/BuildStatus.html">BuildStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/BuildStatus/State.html">– State</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Comment.html">Comment</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Commit.html">Commit</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CommitStatus.html">CommitStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs.html#/s:11RxGitLabKit10ComparisonV">Comparison</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Contributor.html">Contributor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Diff.html">Diff</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Email.html">Email</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs.html#/s:11RxGitLabKit8FileInfoV">FileInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Identities.html">Identities</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ImpersonationToken.html">ImpersonationToken</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/LastPipeline.html">LastPipeline</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Links.html">Links</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Member.html">Member</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/MergeRequest.html">MergeRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Namespace.html">Namespace</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/NewCommit.html">NewCommit</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Project.html">Project</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ProjectHook.html">ProjectHook</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ProjectStatistics.html">ProjectStatistics</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Reference.html">Reference</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs.html#/s:11RxGitLabKit10ShareGroupV">ShareGroup</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Stats.html">Stats</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TimeStats.html">TimeStats</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs.html#/s:11RxGitLabKit8TreeNodeV">TreeNode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/User.html">User</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/UserKey.html">UserKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/UserStatus.html">UserStatus</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Typealiases.html">Type Aliases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:11RxGitLabKit6Headera">Header</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:11RxGitLabKit14JSONDictionarya">JSONDictionary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:11RxGitLabKit15QueryParametersa">QueryParameters</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>RepositoriesEndpointGroup</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">RepositoriesEndpointGroup</span> <span class="p">:</span> <span class="kt"><a href="../Classes/EndpointGroup.html">EndpointGroup</a></span></code></pre>
+
+                </div>
+              </div>
+            <p>Undocumented</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit25RepositoriesEndpointGroupC7getTree9projectIDAA9PaginatorCyAA0I4NodeVGSi_tF"></a>
+                    <a name="//apple_ref/swift/Method/getTree(projectID:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit25RepositoriesEndpointGroupC7getTree9projectIDAA9PaginatorCyAA0I4NodeVGSi_tF">getTree(projectID:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get a list of repository files and directories in a project. This endpoint can be accessed without authentication if the repository is publicly accessible.</p>
+
+<p>This command provides essentially the same functionality as the <code>git ls-tree</code> command. For more information, see the section Tree Objects in the Git internals documentation.</p>
+
+<p><strong>Query Parameters:</strong></p>
+
+<ul>
+<li>id (required) - The ID or URL-encoded path of the project owned by the authenticated user</li>
+<li>path (optional) - The path inside repository. Used to get content of subdirectories</li>
+<li>ref (optional) - The name of a repository branch or tag or if not given the default branch</li>
+<li>recursive (optional) - Boolean value used to get a recursive tree (false by default)</li>
+<li>per_page (optional) - Number of results to show per page. If not specified, defaults to <code>20</code></li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getTree</span><span class="p">(</span><span class="nv">projectID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/Paginator.html">Paginator</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs.html#/s:11RxGitLabKit8TreeNodeV">TreeNode</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>projectID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The ID or URL-encoded path of the project</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An observable of TreeNodes</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit25RepositoriesEndpointGroupC7getBlob9projectID3sha0A5Swift10ObservableCy10Foundation4DataVGSi_SStF"></a>
+                    <a name="//apple_ref/swift/Method/getBlob(projectID:sha:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit25RepositoriesEndpointGroupC7getBlob9projectID3sha0A5Swift10ObservableCy10Foundation4DataVGSi_SStF">getBlob(projectID:sha:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getBlob</span><span class="p">(</span><span class="nv">projectID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">sha</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt">Data</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit25RepositoriesEndpointGroupC10getBlobRaw9projectID3sha0A5Swift10ObservableCy10Foundation4DataVGSi_SStF"></a>
+                    <a name="//apple_ref/swift/Method/getBlobRaw(projectID:sha:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit25RepositoriesEndpointGroupC10getBlobRaw9projectID3sha0A5Swift10ObservableCy10Foundation4DataVGSi_SStF">getBlobRaw(projectID:sha:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getBlobRaw</span><span class="p">(</span><span class="nv">projectID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">sha</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt">Data</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit25RepositoriesEndpointGroupC10getArchive9projectID6format0A5Swift10ObservableCy10Foundation4DataVGSi_SStF"></a>
+                    <a name="//apple_ref/swift/Method/getArchive(projectID:format:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit25RepositoriesEndpointGroupC10getArchive9projectID6format0A5Swift10ObservableCy10Foundation4DataVGSi_SStF">getArchive(projectID:format:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getArchive</span><span class="p">(</span><span class="nv">projectID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">format</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt">Data</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit25RepositoriesEndpointGroupC13getComparison9projectID4from2to0A5Swift10ObservableCyAA0I0VGSi_S2StF"></a>
+                    <a name="//apple_ref/swift/Method/getComparison(projectID:from:to:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit25RepositoriesEndpointGroupC13getComparison9projectID4from2to0A5Swift10ObservableCyAA0I0VGSi_S2StF">getComparison(projectID:from:to:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getComparison</span><span class="p">(</span><span class="nv">projectID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">from</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">to</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt"><a href="../Structs.html#/s:11RxGitLabKit10ComparisonV">Comparison</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit25RepositoriesEndpointGroupC15getContributors9projectIDAA9PaginatorCyAA11ContributorVGSi_tF"></a>
+                    <a name="//apple_ref/swift/Method/getContributors(projectID:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit25RepositoriesEndpointGroupC15getContributors9projectIDAA9PaginatorCyAA11ContributorVGSi_tF">getContributors(projectID:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getContributors</span><span class="p">(</span><span class="nv">projectID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/Paginator.html">Paginator</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/Contributor.html">Contributor</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit25RepositoriesEndpointGroupC12getMergeBase9projectID4refs0A5Swift10ObservableCyAA6CommitVGSi_SaySSGtF"></a>
+                    <a name="//apple_ref/swift/Method/getMergeBase(projectID:refs:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit25RepositoriesEndpointGroupC12getMergeBase9projectID4refs0A5Swift10ObservableCyAA6CommitVGSi_SaySSGtF">getMergeBase(projectID:refs:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getMergeBase</span><span class="p">(</span><span class="nv">projectID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">refs</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/Commit.html">Commit</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit25RepositoriesEndpointGroupC11getFileInfo9projectID8filePath3ref0A5Swift10ObservableCyAA0iJ0VGSi_S2StF"></a>
+                    <a name="//apple_ref/swift/Method/getFileInfo(projectID:filePath:ref:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit25RepositoriesEndpointGroupC11getFileInfo9projectID8filePath3ref0A5Swift10ObservableCyAA0iJ0VGSi_S2StF">getFileInfo(projectID:filePath:ref:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getFileInfo</span><span class="p">(</span><span class="nv">projectID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">filePath</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">ref</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt"><a href="../Structs.html#/s:11RxGitLabKit8FileInfoV">FileInfo</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit25RepositoriesEndpointGroupC7getFile9projectID8filePath3ref0A5Swift10ObservableCy10Foundation4DataVGSi_S2StF"></a>
+                    <a name="//apple_ref/swift/Method/getFile(projectID:filePath:ref:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit25RepositoriesEndpointGroupC7getFile9projectID8filePath3ref0A5Swift10ObservableCy10Foundation4DataVGSi_S2StF">getFile(projectID:filePath:ref:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getFile</span><span class="p">(</span><span class="nv">projectID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">filePath</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">ref</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt">Data</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit25RepositoriesEndpointGroupC8postFile4file9projectID0J4Path0A5Swift10ObservableCyAA0I4InfoVGAL_SiSStF"></a>
+                    <a name="//apple_ref/swift/Method/postFile(file:projectID:filePath:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit25RepositoriesEndpointGroupC8postFile4file9projectID0J4Path0A5Swift10ObservableCyAA0I4InfoVGAL_SiSStF">postFile(file:projectID:filePath:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">postFile</span><span class="p">(</span><span class="nv">file</span><span class="p">:</span> <span class="kt"><a href="../Structs.html#/s:11RxGitLabKit8FileInfoV">FileInfo</a></span><span class="p">,</span> <span class="nv">projectID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">filePath</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt"><a href="../Structs.html#/s:11RxGitLabKit8FileInfoV">FileInfo</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit25RepositoriesEndpointGroupC7putFile4file9projectID0J4Path0A5Swift10ObservableCyAA0I4InfoVGAL_SiSStF"></a>
+                    <a name="//apple_ref/swift/Method/putFile(file:projectID:filePath:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit25RepositoriesEndpointGroupC7putFile4file9projectID0J4Path0A5Swift10ObservableCyAA0I4InfoVGAL_SiSStF">putFile(file:projectID:filePath:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">putFile</span><span class="p">(</span><span class="nv">file</span><span class="p">:</span> <span class="kt"><a href="../Structs.html#/s:11RxGitLabKit8FileInfoV">FileInfo</a></span><span class="p">,</span> <span class="nv">projectID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">filePath</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt"><a href="../Structs.html#/s:11RxGitLabKit8FileInfoV">FileInfo</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit25RepositoriesEndpointGroupC10deleteFile4file9projectID0J4Path0A5Swift10ObservableCySo17NSHTTPURLResponseCGAA0I4InfoV_SiSStF"></a>
+                    <a name="//apple_ref/swift/Method/deleteFile(file:projectID:filePath:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit25RepositoriesEndpointGroupC10deleteFile4file9projectID0J4Path0A5Swift10ObservableCySo17NSHTTPURLResponseCGAA0I4InfoV_SiSStF">deleteFile(file:projectID:filePath:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">deleteFile</span><span class="p">(</span><span class="nv">file</span><span class="p">:</span> <span class="kt"><a href="../Structs.html#/s:11RxGitLabKit8FileInfoV">FileInfo</a></span><span class="p">,</span> <span class="nv">projectID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">filePath</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt">HTTPURLResponse</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2018 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2018-12-05)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
