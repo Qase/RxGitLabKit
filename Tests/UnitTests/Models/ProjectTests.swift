@@ -12,7 +12,7 @@ class ProjectTests: XCTestCase {
 
   private let decoder: JSONDecoder = {
     let decoder = JSONDecoder()
-    decoder.dateDecodingStrategy = .formatted(DateFormatter.default)
+    decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601full)
     return decoder
   }()
   private let calendar = Calendar(identifier: .gregorian)
@@ -121,7 +121,7 @@ class ProjectTests: XCTestCase {
       "group_id": 4,
       "group_access": 20
     ]
-    let formatter = DateFormatter.default
+    let formatter = DateFormatter.iso8601full
     let dateString = formatter.string(from: Date())
 
 //    if let date = expiresAt {

@@ -119,7 +119,7 @@ public class HTTPClient: Networking {
         return Observable.create { observer in
           do {
             let decoder = JSONDecoder.init()
-            decoder.dateDecodingStrategy = .formatted(DateFormatter.default)
+            decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601full)
             let object = try decoder.decode(T.self, from: data)
             observer.onNext(object)
             observer.onCompleted()

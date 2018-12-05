@@ -91,7 +91,7 @@ public struct MergeRequest: Codable {
   }
 
   private static func decodeDateIfPresent(values: KeyedDecodingContainer<CodingKeys>, forKey key: CodingKeys) throws -> Date? {
-    let dateFormatter = DateFormatter.default
+    let dateFormatter = DateFormatter.iso8601full
     if let dateString = try values.decodeIfPresent(String.self, forKey: key), let date = dateFormatter.date(from: dateString) {
       return date
     } else {

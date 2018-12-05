@@ -8,7 +8,7 @@
 import Foundation
 
 extension DateFormatter {
-  public static var `default`: DateFormatter {
+  public static var iso8601full: DateFormatter {
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
     return dateFormatter

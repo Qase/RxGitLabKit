@@ -1305,7 +1305,7 @@ class CommitsMocks {
 
   static let commits: [Commit] = commitJSONs.map { json in
     let decoder = JSONDecoder()
-    decoder.dateDecodingStrategy = .formatted(DateFormatter.default)
+    decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601full)
     return try! decoder.decode(Commit.self, from: json.data())
   }
 

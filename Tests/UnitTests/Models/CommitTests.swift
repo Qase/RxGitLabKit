@@ -12,7 +12,7 @@ class CommitTests: XCTestCase {
 
   private let decoder: JSONDecoder = {
     let decoder = JSONDecoder()
-    decoder.dateDecodingStrategy = .formatted(DateFormatter.default)
+    decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601full)
     return decoder
   }()
   
