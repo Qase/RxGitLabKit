@@ -92,111 +92,6 @@
       "warning": "undocumented"
     },
     {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/AuthenticationEndpointGroup.swift",
-      "line": 11,
-      "symbol": "AuthenticationEndpointGroup",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/AuthenticationEndpointGroup.swift",
-      "line": 24,
-      "symbol": "AuthenticationEndpointGroup.authenticate(username:password:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/CommitsEndpointGroup.swift",
-      "line": 11,
-      "symbol": "CommitsEndpointGroup",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/CommitsEndpointGroup.swift",
-      "line": 13,
-      "symbol": "CommitsEndpointGroup.Endpoints",
-      "symbol_kind": "source.lang.swift.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/CommitsEndpointGroup.swift",
-      "line": 14,
-      "symbol": "CommitsEndpointGroup.Endpoints.commits(projectID:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/CommitsEndpointGroup.swift",
-      "line": 15,
-      "symbol": "CommitsEndpointGroup.Endpoints.single(projectID:sha:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/CommitsEndpointGroup.swift",
-      "line": 16,
-      "symbol": "CommitsEndpointGroup.Endpoints.references(projectID:sha:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/CommitsEndpointGroup.swift",
-      "line": 17,
-      "symbol": "CommitsEndpointGroup.Endpoints.cherryPick(projectID:sha:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/CommitsEndpointGroup.swift",
-      "line": 18,
-      "symbol": "CommitsEndpointGroup.Endpoints.revert(projectID:sha:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/CommitsEndpointGroup.swift",
-      "line": 19,
-      "symbol": "CommitsEndpointGroup.Endpoints.diff(projectID:sha:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/CommitsEndpointGroup.swift",
-      "line": 20,
-      "symbol": "CommitsEndpointGroup.Endpoints.comments(projectID:sha:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/CommitsEndpointGroup.swift",
-      "line": 21,
-      "symbol": "CommitsEndpointGroup.Endpoints.statusesList(projectID:sha:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/CommitsEndpointGroup.swift",
-      "line": 22,
-      "symbol": "CommitsEndpointGroup.Endpoints.statuses(projectID:sha:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/CommitsEndpointGroup.swift",
-      "line": 23,
-      "symbol": "CommitsEndpointGroup.Endpoints.mergeRequests(projectID:sha:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/CommitsEndpointGroup.swift",
-      "line": 25,
-      "symbol": "CommitsEndpointGroup.Endpoints.url",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
       "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/EndpointGroup.swift",
       "line": 11,
       "symbol": "EndpointGroup",
@@ -247,421 +142,22 @@
     },
     {
       "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/MembersEndpointGroup.swift",
-      "line": 11,
-      "symbol": "MembersEndpointGroup",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/MembersEndpointGroup.swift",
-      "line": 13,
-      "symbol": "MembersEndpointGroup.Endpoints",
-      "symbol_kind": "source.lang.swift.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/MembersEndpointGroup.swift",
-      "line": 14,
-      "symbol": "MembersEndpointGroup.Endpoints.groupMember(groupID:userID:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/MembersEndpointGroup.swift",
-      "line": 15,
-      "symbol": "MembersEndpointGroup.Endpoints.groupMembers(groupID:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/MembersEndpointGroup.swift",
-      "line": 16,
-      "symbol": "MembersEndpointGroup.Endpoints.allGroupMembers(groupID:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/MembersEndpointGroup.swift",
-      "line": 18,
-      "symbol": "MembersEndpointGroup.Endpoints.projectMember(projectID:userID:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/MembersEndpointGroup.swift",
-      "line": 19,
-      "symbol": "MembersEndpointGroup.Endpoints.projectMembers(projectID:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/MembersEndpointGroup.swift",
-      "line": 20,
-      "symbol": "MembersEndpointGroup.Endpoints.allProjectMembers(projectID:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/MembersEndpointGroup.swift",
-      "line": 40,
-      "symbol": "MembersEndpointGroup.get(groupID:parameters:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/MembersEndpointGroup.swift",
-      "line": 46,
-      "symbol": "MembersEndpointGroup.get(projectID:parameters:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/MembersEndpointGroup.swift",
-      "line": 51,
+      "line": 87,
       "symbol": "MembersEndpointGroup.getSingle(groupID:userID:parameters:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/MembersEndpointGroup.swift",
-      "line": 56,
+      "line": 92,
       "symbol": "MembersEndpointGroup.getSingle(projectID:userID:parameters:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/ProjectsEnpointGroup.swift",
-      "line": 30,
-      "symbol": "ProjectsEnpointGroup.Endpoints",
-      "symbol_kind": "source.lang.swift.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/ProjectsEnpointGroup.swift",
-      "line": 31,
-      "symbol": "ProjectsEnpointGroup.Endpoints.project(projectID:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/ProjectsEnpointGroup.swift",
-      "line": 32,
-      "symbol": "ProjectsEnpointGroup.Endpoints.projects",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/ProjectsEnpointGroup.swift",
-      "line": 33,
-      "symbol": "ProjectsEnpointGroup.Endpoints.userProjects(userID:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/ProjectsEnpointGroup.swift",
-      "line": 34,
-      "symbol": "ProjectsEnpointGroup.Endpoints.projectUsers(projectID:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/ProjectsEnpointGroup.swift",
-      "line": 35,
-      "symbol": "ProjectsEnpointGroup.Endpoints.createUserProject(userID:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/ProjectsEnpointGroup.swift",
-      "line": 36,
-      "symbol": "ProjectsEnpointGroup.Endpoints.fork(projectID:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/ProjectsEnpointGroup.swift",
-      "line": 37,
-      "symbol": "ProjectsEnpointGroup.Endpoints.forks(projectID:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/ProjectsEnpointGroup.swift",
-      "line": 38,
-      "symbol": "ProjectsEnpointGroup.Endpoints.star(projectID:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/ProjectsEnpointGroup.swift",
-      "line": 39,
-      "symbol": "ProjectsEnpointGroup.Endpoints.unstar(projectID:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/ProjectsEnpointGroup.swift",
-      "line": 40,
-      "symbol": "ProjectsEnpointGroup.Endpoints.languages(projectID:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/ProjectsEnpointGroup.swift",
-      "line": 41,
-      "symbol": "ProjectsEnpointGroup.Endpoints.archive(projectID:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/ProjectsEnpointGroup.swift",
-      "line": 42,
-      "symbol": "ProjectsEnpointGroup.Endpoints.unarchive(projectID:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/ProjectsEnpointGroup.swift",
-      "line": 43,
-      "symbol": "ProjectsEnpointGroup.Endpoints.uploads(projectID:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/ProjectsEnpointGroup.swift",
-      "line": 44,
-      "symbol": "ProjectsEnpointGroup.Endpoints.share(projectID:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/ProjectsEnpointGroup.swift",
-      "line": 45,
-      "symbol": "ProjectsEnpointGroup.Endpoints.shareGroup(projectID:groupID:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/ProjectsEnpointGroup.swift",
-      "line": 46,
-      "symbol": "ProjectsEnpointGroup.Endpoints.hook(projectID:hookID:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/ProjectsEnpointGroup.swift",
-      "line": 47,
-      "symbol": "ProjectsEnpointGroup.Endpoints.hooks(projectID:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/ProjectsEnpointGroup.swift",
-      "line": 48,
-      "symbol": "ProjectsEnpointGroup.Endpoints.forkRelationship(projectID:forkedFromID:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/ProjectsEnpointGroup.swift",
-      "line": 49,
-      "symbol": "ProjectsEnpointGroup.Endpoints.housekeeping(projectID:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/ProjectsEnpointGroup.swift",
-      "line": 50,
-      "symbol": "ProjectsEnpointGroup.Endpoints.pushRule(projectID:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/ProjectsEnpointGroup.swift",
-      "line": 51,
-      "symbol": "ProjectsEnpointGroup.Endpoints.transfer(projectID:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/ProjectsEnpointGroup.swift",
-      "line": 52,
-      "symbol": "ProjectsEnpointGroup.Endpoints.mirrorPull(projectID:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/ProjectsEnpointGroup.swift",
-      "line": 53,
-      "symbol": "ProjectsEnpointGroup.Endpoints.snapshot(projectID:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/ProjectsEnpointGroup.swift",
-      "line": 140,
+      "line": 141,
       "symbol": "ProjectsEnpointGroup.getProjects(parameters:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/RepositoriesEndpointGroup.swift",
-      "line": 11,
-      "symbol": "RepositoriesEndpointGroup",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/RepositoriesEndpointGroup.swift",
-      "line": 13,
-      "symbol": "RepositoriesEndpointGroup.Endpoints",
-      "symbol_kind": "source.lang.swift.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/RepositoriesEndpointGroup.swift",
-      "line": 14,
-      "symbol": "RepositoriesEndpointGroup.Endpoints.tree(projectID:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/RepositoriesEndpointGroup.swift",
-      "line": 15,
-      "symbol": "RepositoriesEndpointGroup.Endpoints.blobs(projectID:sha:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/RepositoriesEndpointGroup.swift",
-      "line": 16,
-      "symbol": "RepositoriesEndpointGroup.Endpoints.blobsRaw(projectID:sha:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/RepositoriesEndpointGroup.swift",
-      "line": 17,
-      "symbol": "RepositoriesEndpointGroup.Endpoints.archive(projectID:format:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/RepositoriesEndpointGroup.swift",
-      "line": 18,
-      "symbol": "RepositoriesEndpointGroup.Endpoints.compare(projectID:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/RepositoriesEndpointGroup.swift",
-      "line": 19,
-      "symbol": "RepositoriesEndpointGroup.Endpoints.contributors(projectID:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/RepositoriesEndpointGroup.swift",
-      "line": 20,
-      "symbol": "RepositoriesEndpointGroup.Endpoints.mergeBase(projectID:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/RepositoriesEndpointGroup.swift",
-      "line": 21,
-      "symbol": "RepositoriesEndpointGroup.Endpoints.files(projectID:filePath:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/RepositoriesEndpointGroup.swift",
-      "line": 22,
-      "symbol": "RepositoriesEndpointGroup.Endpoints.filesRaw(projectID:filePath:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/RepositoriesEndpointGroup.swift",
-      "line": 23,
-      "symbol": "RepositoriesEndpointGroup.Endpoints.submodules(projectID:submodule:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/RepositoriesEndpointGroup.swift",
-      "line": 70,
-      "symbol": "RepositoriesEndpointGroup.getBlob(projectID:sha:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/RepositoriesEndpointGroup.swift",
-      "line": 75,
-      "symbol": "RepositoriesEndpointGroup.getBlobRaw(projectID:sha:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/RepositoriesEndpointGroup.swift",
-      "line": 80,
-      "symbol": "RepositoriesEndpointGroup.getArchive(projectID:format:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/RepositoriesEndpointGroup.swift",
-      "line": 85,
-      "symbol": "RepositoriesEndpointGroup.getComparison(projectID:from:to:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/RepositoriesEndpointGroup.swift",
-      "line": 90,
-      "symbol": "RepositoriesEndpointGroup.getContributors(projectID:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/RepositoriesEndpointGroup.swift",
-      "line": 95,
-      "symbol": "RepositoriesEndpointGroup.getMergeBase(projectID:refs:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/RepositoriesEndpointGroup.swift",
-      "line": 101,
-      "symbol": "RepositoriesEndpointGroup.getFileInfo(projectID:filePath:ref:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/RepositoriesEndpointGroup.swift",
-      "line": 106,
-      "symbol": "RepositoriesEndpointGroup.getFile(projectID:filePath:ref:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/RepositoriesEndpointGroup.swift",
-      "line": 111,
-      "symbol": "RepositoriesEndpointGroup.postFile(file:projectID:filePath:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/RepositoriesEndpointGroup.swift",
-      "line": 120,
-      "symbol": "RepositoriesEndpointGroup.putFile(file:projectID:filePath:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/RepositoriesEndpointGroup.swift",
-      "line": 128,
-      "symbol": "RepositoriesEndpointGroup.deleteFile(file:projectID:filePath:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
@@ -670,167 +166,6 @@
       "line": 11,
       "symbol": "UsersEndpointGroup",
       "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/UsersEndpointGroup.swift",
-      "line": 13,
-      "symbol": "UsersEndpointGroup.Endpoints",
-      "symbol_kind": "source.lang.swift.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/UsersEndpointGroup.swift",
-      "line": 14,
-      "symbol": "UsersEndpointGroup.Endpoints.currentUser",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/UsersEndpointGroup.swift",
-      "line": 15,
-      "symbol": "UsersEndpointGroup.Endpoints.status",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/UsersEndpointGroup.swift",
-      "line": 16,
-      "symbol": "UsersEndpointGroup.Endpoints.user(userID:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/UsersEndpointGroup.swift",
-      "line": 17,
-      "symbol": "UsersEndpointGroup.Endpoints.users",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/UsersEndpointGroup.swift",
-      "line": 18,
-      "symbol": "UsersEndpointGroup.Endpoints.usersStatus(userIDOrUsername:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/UsersEndpointGroup.swift",
-      "line": 20,
-      "symbol": "UsersEndpointGroup.Endpoints.sshKey(keyID:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/UsersEndpointGroup.swift",
-      "line": 21,
-      "symbol": "UsersEndpointGroup.Endpoints.sshKeys",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/UsersEndpointGroup.swift",
-      "line": 22,
-      "symbol": "UsersEndpointGroup.Endpoints.usersSSHKey(userID:keyID:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/UsersEndpointGroup.swift",
-      "line": 23,
-      "symbol": "UsersEndpointGroup.Endpoints.usersSSHKeys(userID:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/UsersEndpointGroup.swift",
-      "line": 25,
-      "symbol": "UsersEndpointGroup.Endpoints.gpgKey(keyID:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/UsersEndpointGroup.swift",
-      "line": 26,
-      "symbol": "UsersEndpointGroup.Endpoints.gpgKeys",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/UsersEndpointGroup.swift",
-      "line": 27,
-      "symbol": "UsersEndpointGroup.Endpoints.usersGPGKey(userID:keyID:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/UsersEndpointGroup.swift",
-      "line": 28,
-      "symbol": "UsersEndpointGroup.Endpoints.usersGPGKeys(userID:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/UsersEndpointGroup.swift",
-      "line": 30,
-      "symbol": "UsersEndpointGroup.Endpoints.email(emailID:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/UsersEndpointGroup.swift",
-      "line": 31,
-      "symbol": "UsersEndpointGroup.Endpoints.emails",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/UsersEndpointGroup.swift",
-      "line": 32,
-      "symbol": "UsersEndpointGroup.Endpoints.usersEmail(userID:emailID:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/UsersEndpointGroup.swift",
-      "line": 33,
-      "symbol": "UsersEndpointGroup.Endpoints.usersEmails(userID:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/UsersEndpointGroup.swift",
-      "line": 35,
-      "symbol": "UsersEndpointGroup.Endpoints.blockUser(userID:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/UsersEndpointGroup.swift",
-      "line": 36,
-      "symbol": "UsersEndpointGroup.Endpoints.unBlockUser(userID:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/UsersEndpointGroup.swift",
-      "line": 38,
-      "symbol": "UsersEndpointGroup.Endpoints.usersImpersonationToken(userID:impersonationTokenID:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/UsersEndpointGroup.swift",
-      "line": 39,
-      "symbol": "UsersEndpointGroup.Endpoints.usersImpersonationTokens(userID:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/UsersEndpointGroup.swift",
-      "line": 41,
-      "symbol": "UsersEndpointGroup.Endpoints.activities",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
@@ -844,223 +179,6 @@
       "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/UsersEndpointGroup.swift",
       "line": 133,
       "symbol": "UsersEndpointGroup.postUser(user:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/UsersEndpointGroup.swift",
-      "line": 191,
-      "symbol": "UsersEndpointGroup.getCurrentUser()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/UsersEndpointGroup.swift",
-      "line": 196,
-      "symbol": "UsersEndpointGroup.getStatus()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/UsersEndpointGroup.swift",
-      "line": 201,
-      "symbol": "UsersEndpointGroup.getUsersStatus(userID:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/UsersEndpointGroup.swift",
-      "line": 206,
-      "symbol": "UsersEndpointGroup.getUsersStatus(username:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/UsersEndpointGroup.swift",
-      "line": 211,
-      "symbol": "UsersEndpointGroup.putStatus(status:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/UsersEndpointGroup.swift",
-      "line": 221,
-      "symbol": "UsersEndpointGroup.getSSHKeys()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/UsersEndpointGroup.swift",
-      "line": 226,
-      "symbol": "UsersEndpointGroup.getUsersSSHKeys(userID:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/UsersEndpointGroup.swift",
-      "line": 231,
-      "symbol": "UsersEndpointGroup.getSSHKey(keyID:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/UsersEndpointGroup.swift",
-      "line": 236,
-      "symbol": "UsersEndpointGroup.postSSHKey(key:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/UsersEndpointGroup.swift",
-      "line": 246,
-      "symbol": "UsersEndpointGroup.postSSHKeyForUser(key:userID:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/UsersEndpointGroup.swift",
-      "line": 256,
-      "symbol": "UsersEndpointGroup.deleteSSHKey(keyID:parameters:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/UsersEndpointGroup.swift",
-      "line": 265,
-      "symbol": "UsersEndpointGroup.deleteUsersSSHKey(userID:keyID:parameters:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/UsersEndpointGroup.swift",
-      "line": 274,
-      "symbol": "UsersEndpointGroup.getGPGKeys()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/UsersEndpointGroup.swift",
-      "line": 279,
-      "symbol": "UsersEndpointGroup.getGPGKey(keyID:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/UsersEndpointGroup.swift",
-      "line": 284,
-      "symbol": "UsersEndpointGroup.postGPGKey(key:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/UsersEndpointGroup.swift",
-      "line": 294,
-      "symbol": "UsersEndpointGroup.deleteGPGKey(keyID:parameters:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/UsersEndpointGroup.swift",
-      "line": 303,
-      "symbol": "UsersEndpointGroup.getUsersGPGKeys(userID:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/UsersEndpointGroup.swift",
-      "line": 308,
-      "symbol": "UsersEndpointGroup.getGPGKeyForUser(userID:keyID:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/UsersEndpointGroup.swift",
-      "line": 313,
-      "symbol": "UsersEndpointGroup.postUserGPGKey(key:userID:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/UsersEndpointGroup.swift",
-      "line": 323,
-      "symbol": "UsersEndpointGroup.deleteUsersGPGKey(userID:keyID:parameters:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/UsersEndpointGroup.swift",
-      "line": 331,
-      "symbol": "UsersEndpointGroup.getEmails()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/UsersEndpointGroup.swift",
-      "line": 336,
-      "symbol": "UsersEndpointGroup.getEmail(emailID:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/UsersEndpointGroup.swift",
-      "line": 341,
-      "symbol": "UsersEndpointGroup.postEmail(email:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/UsersEndpointGroup.swift",
-      "line": 351,
-      "symbol": "UsersEndpointGroup.deleteEmail(emailID:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/UsersEndpointGroup.swift",
-      "line": 360,
-      "symbol": "UsersEndpointGroup.postUsersEmail(email:userID:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/UsersEndpointGroup.swift",
-      "line": 370,
-      "symbol": "UsersEndpointGroup.deleteUsersEmail(userID:emailID:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/UsersEndpointGroup.swift",
-      "line": 379,
-      "symbol": "UsersEndpointGroup.blockUser(userID:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/UsersEndpointGroup.swift",
-      "line": 388,
-      "symbol": "UsersEndpointGroup.unBlockUser(userID:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/UsersEndpointGroup.swift",
-      "line": 397,
-      "symbol": "UsersEndpointGroup.getImpersonationTokens(userID:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/UsersEndpointGroup.swift",
-      "line": 402,
-      "symbol": "UsersEndpointGroup.getUsersImpersonationToken(userID:tokenID:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/UsersEndpointGroup.swift",
-      "line": 407,
-      "symbol": "UsersEndpointGroup.postImpersonationToken(token:userID:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
@@ -1370,6 +488,41 @@
       "line": 29,
       "symbol": "Action.init(action:filePath:previousPath:content:encoding:lastCommitID:executeFileMode:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Activity.swift",
+      "line": null,
+      "symbol": "Activity",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Activity.swift",
+      "line": 10,
+      "symbol": "Activity",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Activity.swift",
+      "line": 11,
+      "symbol": "Activity.username",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Activity.swift",
+      "line": 12,
+      "symbol": "Activity.lastActivityOn",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Activity.swift",
+      "line": 13,
+      "symbol": "Activity.lastActivityAt",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
@@ -1989,6 +1142,13 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/File.swift",
+      "line": 10,
+      "symbol": "File",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/FileInfo.swift",
       "line": 10,
       "symbol": "FileInfo",
@@ -2147,13 +1307,6 @@
       "line": 12,
       "symbol": "Links.labels",
       "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Member.swift",
-      "line": null,
-      "symbol": "Member",
-      "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
     },
     {
@@ -3503,7 +2656,7 @@
     {
       "file": "/Users/dagytran/Developer/RxGitLabKit/Supporting Files/DateFormatter+Extensions.swift",
       "line": 11,
-      "symbol": "DateFormatter.default",
+      "symbol": "DateFormatter.iso8601full",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },

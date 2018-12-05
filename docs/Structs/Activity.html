@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>URLSessionDataTaskProtocol Protocol Reference</title>
+    <title>Activity Structure Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Protocol/URLSessionDataTaskProtocol" class="dashAnchor"></a>
-    <a title="URLSessionDataTaskProtocol Protocol Reference"></a>
+    <a name="//apple_ref/swift/Struct/Activity" class="dashAnchor"></a>
+    <a title="Activity Structure Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html"> Docs</a> (25% documented)</p>
@@ -21,7 +21,7 @@
       <p id="breadcrumbs">
         <a href="../index.html"> Reference</a>
         <img id="carat" src="../img/carat.png" />
-        URLSessionDataTaskProtocol Protocol Reference
+        Activity Structure Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -242,10 +242,10 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>URLSessionDataTaskProtocol</h1>
+            <h1>Activity</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">URLSessionDataTaskProtocol</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Activity</span> <span class="p">:</span> <span class="kt">Codable</span></code></pre>
 
                 </div>
               </div>
@@ -258,9 +258,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:11RxGitLabKit26URLSessionDataTaskProtocolP6resumeyyF"></a>
-                    <a name="//apple_ref/swift/Method/resume()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:11RxGitLabKit26URLSessionDataTaskProtocolP6resumeyyF">resume()</a>
+                    <a name="/s:11RxGitLabKit8ActivityV8usernameSSvp"></a>
+                    <a name="//apple_ref/swift/Property/username" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit8ActivityV8usernameSSvp">username</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -275,7 +275,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">resume</span><span class="p">()</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">username</span><span class="p">:</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>
@@ -285,9 +285,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:11RxGitLabKit26URLSessionDataTaskProtocolP6cancelyyF"></a>
-                    <a name="//apple_ref/swift/Method/cancel()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:11RxGitLabKit26URLSessionDataTaskProtocolP6cancelyyF">cancel()</a>
+                    <a name="/s:11RxGitLabKit8ActivityV04lastE2On10Foundation4DateVSgvp"></a>
+                    <a name="//apple_ref/swift/Property/lastActivityOn" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit8ActivityV04lastE2On10Foundation4DateVSgvp">lastActivityOn</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -302,7 +302,64 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">cancel</span><span class="p">()</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">lastActivityOn</span><span class="p">:</span> <span class="kt">Date</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit8ActivityV04lastE2At10Foundation4DateVSgvp"></a>
+                    <a name="//apple_ref/swift/Property/lastActivityAt" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit8ActivityV04lastE2At10Foundation4DateVSgvp">lastActivityAt</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">lastActivityAt</span><span class="p">:</span> <span class="kt">Date</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:Se4fromxs7Decoder_p_tKcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(from:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:Se4fromxs7Decoder_p_tKcfc">init(from:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">from</span> <span class="nv">decoder</span><span class="p">:</span> <span class="kt">Decoder</span><span class="p">)</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>

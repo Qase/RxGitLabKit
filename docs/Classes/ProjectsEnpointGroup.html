@@ -14,7 +14,7 @@
     <a title="ProjectsEnpointGroup Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html"> Docs</a> (14% documented)</p>
+        <p><a href="../index.html"> Docs</a> (25% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -126,6 +126,9 @@
                 <a href="../Structs/Action.html">Action</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Structs/Activity.html">Activity</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Structs/Authentication.html">Authentication</a>
               </li>
               <li class="nav-group-task">
@@ -154,6 +157,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/Email.html">Email</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/File.html">File</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs.html#/s:11RxGitLabKit8FileInfoV">FileInfo</a>
@@ -243,7 +249,7 @@
 
                 </div>
               </div>
-            <p>This EndpointGroup communicates with Projects API (<a href="https://docs.gitlab.com/ce/api/projects.html">https://docs.gitlab.com/ce/api/projects.html</a>)</p>
+            <p>This EndpointGroup communicates with <a href="https://docs.gitlab.com/ee/api/projects.html">Projects API</a></p>
 <h1 id='projects-api' class='heading'>Projects API</h1>
 <h2 id='project-visibility-level' class='heading'>Project visibility level</h2>
 
@@ -284,14 +290,12 @@
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>List all projects
-  Get a list of all visible projects across GitLab for the authenticated user. When accessed without authentication, only public projects with “simple” fields are returned.</p>
+Get a list of all visible projects across GitLab for the authenticated user. When accessed without authentication, only public projects with “simple” fields are returned.</p>
 
 <p><strong>Query Parameters:</strong></p>
 
 <ul>
-<li><p>Optional:</p>
-
-<ul>
+<li>Optional:</li>
 <li><strong>archived: Boolean</strong> -   Limit by archived status</li>
 <li><strong>visibility: String</strong> -   Limit by visibility public, internal, or private</li>
 <li><strong>order_by: String</strong> -   Return projects ordered by id, name, path, created_at, updated_at, or last_activity_at fields. Default is created_at</li>
@@ -307,8 +311,7 @@
 <li><strong>with_merge_requests_enabled: Boolean</strong> -   Limit by enabled merge requests feature</li>
 <li><strong>wiki_checksum_failed: Boolean</strong> -   Limit projects where the wiki checksum calculation has failed (Introduced in GitLab Premium 11.2)</li>
 <li><strong>repository_checksum_failed: Boolean</strong> -   Limit projects where the repository checksum calculation has failed (Introduced in GitLab Premium 11.2)</li>
-<li><strong>min_access_level: Integer</strong> -   Limit by current user minimal access level</li>
-</ul></li>
+<li><p><strong>min_access_level: Integer</strong> -   Limit by current user minimal access level</p></li>
 </ul>
 
                       </div>
@@ -322,7 +325,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>An observable of list of projects in a project</p>
+                        <p>An <code>Observable</code> of list of projects in a project</p>
                       </div>
                     </section>
                   </div>
@@ -401,7 +404,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>An observable of <code><a href="../Structs/Project.html">Project</a></code></p>
+                        <p>An <code>Observable</code> of <code><a href="../Structs/Project.html">Project</a></code></p>
                       </div>
                     </section>
                   </div>
@@ -423,10 +426,7 @@
 
 <p>Get the users list of a project. The pagination parameters page and per_page can be used to restrict the list of references.</p>
 
-<p><strong>Query Parameters:</strong></p>
-
-<ul>
-<li>Optional:
+<p><strong>Optional Query Parameters:</strong></p>
 
 <ul>
 <li><strong>user_id: String</strong> - The ID or username of the user</li>
@@ -444,7 +444,6 @@
 <li><strong>with_issues_enabled: Boolean</strong> - Limit by enabled issues feature</li>
 <li><strong>with_merge_requests_enabled: Boolean</strong> - Limit by enabled merge requests feature</li>
 <li><strong>min_access_level: Integer</strong> - Limit by current user minimal access level</li>
-</ul></li>
 </ul>
 
                       </div>
@@ -480,7 +479,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>Query Parameters - See description</p>
+                                  <p>See Query Parameters in the description</p>
                                 </div>
                               </td>
                             </tr>
@@ -501,7 +500,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>An observable of list of Project</p>
+                        <p>An <code>Observable</code> of list of <code><a href="../Structs/Project.html">Project</a></code></p>
                       </div>
                     </section>
                   </div>
@@ -523,10 +522,7 @@
 
 <p>Get the paginator of users list of a project.</p>
 
-<p><strong>Query Parameters:</strong></p>
-
-<ul>
-<li>Optional:
+<p><strong>Optinal Query Parameters:</strong></p>
 
 <ul>
 <li><strong>user_id: String</strong> - The ID or username of the user</li>
@@ -544,7 +540,6 @@
 <li><strong>with_issues_enabled: Boolean</strong> - Limit by enabled issues feature</li>
 <li><strong>with_merge_requests_enabled: Boolean</strong> - Limit by enabled merge requests feature</li>
 <li><strong>min_access_level: Integer</strong> - Limit by current user minimal access level</li>
-</ul></li>
 </ul>
 
                       </div>
@@ -575,24 +570,12 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>page</em>
+                                <em>parameters</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>The page number</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>perPage</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>Maximum item count per page</p>
+                                  <p>Query Parameters - See description</p>
                                 </div>
                               </td>
                             </tr>
@@ -601,7 +584,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>An observable of list of Project</p>
+                        <p>An <code><a href="../Classes/Paginator.html">Paginator</a></code> of type <code><a href="../Structs/Project.html">Project</a></code></p>
                       </div>
                     </section>
                   </div>
@@ -623,6 +606,10 @@
 
 <p>Get the users list of a project.</p>
 
+<ul>
+<li>projectID: The ID or URL-encoded path of the project</li>
+</ul>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -633,27 +620,8 @@
                         </div>
                       </div>
                       <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>projectID</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The ID or URL-encoded path of the project</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div>
                         <h4>Return Value</h4>
-                        <p>An observable of list of Users</p>
+                        <p>An <code>Observable</code> of list of Users</p>
                       </div>
                     </section>
                   </div>
@@ -757,7 +725,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>An observable of server HTTPURLResponse</p>
+                        <p>An <code>Observable</code> of server <code>HTTPURLResponse</code></p>
                       </div>
                     </section>
                   </div>
@@ -779,6 +747,11 @@
 
 <p>Creates a new project owned by the specified user. Available <strong>only for admins</strong>.</p>
 
+<ul>
+<li>project: A Project Object</li>
+<li>userID: The user ID of the project owner</li>
+</ul>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -789,39 +762,8 @@
                         </div>
                       </div>
                       <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>project</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>A Project Object</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>userID</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The user ID of the project owner</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div>
                         <h4>Return Value</h4>
-                        <p>An observable of the posted Project</p>
+                        <p>An <code>Observable</code> of the posted Project</p>
                       </div>
                     </section>
                   </div>
@@ -873,7 +815,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>An observable of Project</p>
+                        <p>An <code>Observable</code> of Project</p>
                       </div>
                     </section>
                   </div>
@@ -896,6 +838,11 @@
 <p>Forks a project into the user namespace of the authenticated user or the one provided.
 The forking operation for a project is asynchronous and is completed in a background job. The request will return immediately. To determine whether the fork of the project has completed, query the <code>import_status</code> for the new project.</p>
 
+<ul>
+<li>projectID: The ID or URL-encoded path of the project</li>
+<li>namespace: The ID or path of the namespace that the project will be forked to</li>
+</ul>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -906,39 +853,8 @@ The forking operation for a project is asynchronous and is completed in a backgr
                         </div>
                       </div>
                       <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>projectID</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The ID or URL-encoded path of the project</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>namespace</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The ID or path of the namespace that the project will be forked to</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div>
                         <h4>Return Value</h4>
-                        <p>An observable of server HTTPURLResponse</p>
+                        <p>An <code>Observable</code> of server <code>HTTPURLResponse</code></p>
                       </div>
                     </section>
                   </div>
@@ -961,9 +877,8 @@ The forking operation for a project is asynchronous and is completed in a backgr
 <p>List the projects accessible to the calling user that have an established, forked relationship with the specified project</p>
 
 <ul>
-<li>Optional:
-
-<ul>
+<li>projectID: projectID descriptionThe ID or URL-encoded path of the project</li>
+<li>Optional:</li>
 <li><strong>archived: Boolean</strong> - Limit by archived status</li>
 <li><strong>visibility: String</strong> - Limit by visibility public, internal, or private</li>
 <li><strong>order_by: String</strong> - Return projects ordered by id, name, path, created_at, updated_at, or last_activity_at fields. Default is created_at</li>
@@ -978,7 +893,6 @@ The forking operation for a project is asynchronous and is completed in a backgr
 <li><strong>with_issues_enabled: Boolean</strong> - Limit by enabled issues feature</li>
 <li><strong>with_merge_requests_enabled: Boolean</strong> - Limit by enabled merge requests feature</li>
 <li><strong>min_access_level: Integer</strong> - Limit by current user minimal access level</li>
-</ul></li>
 </ul>
 
                       </div>
@@ -991,92 +905,8 @@ The forking operation for a project is asynchronous and is completed in a backgr
                         </div>
                       </div>
                       <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>projectID</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>projectID descriptionThe ID or URL-encoded path of the project</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>parameters</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>Query Parameters - See description
-<strong>Query Parameters:</strong></p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div>
                         <h4>Return Value</h4>
-                        <p>An observable of list of projects</p>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:11RxGitLabKit20ProjectsEnpointGroupC11starProject9projectID0A5Swift10ObservableCyAA0I0VGSi_tF"></a>
-                    <a name="//apple_ref/swift/Method/starProject(projectID:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:11RxGitLabKit20ProjectsEnpointGroupC11starProject9projectID0A5Swift10ObservableCyAA0I0VGSi_tF">starProject(projectID:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Star a project</p>
-
-<p>Stars a given project. Returns status code <code>304</code> if the project is already starred.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">starProject</span><span class="p">(</span><span class="nv">projectID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/Project.html">Project</a></span><span class="o">&gt;</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>projectID</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The ID or URL-encoded path of the project</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div>
-                        <h4>Return Value</h4>
-                        <p>An observable of a starred project</p>
+                        <p>An <code>Observable</code> of list of projects</p>
                       </div>
                     </section>
                   </div>
@@ -1094,7 +924,11 @@ The forking operation for a project is asynchronous and is completed in a backgr
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Unstar a project</p>
+                        <p>Star a project</p>
+
+<p>Stars a given project. Returns status code <code>304</code> if the project is already starred.</p>
+
+<p>Unstar a project</p>
 
 <p>Unstars a given project. Returns status code <code>304</code> if the project is not starred.</p>
 
@@ -1123,12 +957,24 @@ The forking operation for a project is asynchronous and is completed in a backgr
                                 </div>
                               </td>
                             </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>projectID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The ID or URL-encoded path of the project</p>
+                                </div>
+                              </td>
+                            </tr>
                           </tbody>
                         </table>
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>An observable of a starred project</p>
+                        <p>An <code>Observable</code> of a starred project</p>
                       </div>
                     </section>
                   </div>
@@ -1180,7 +1026,7 @@ The forking operation for a project is asynchronous and is completed in a backgr
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>An observable of a dictionary of languages</p>
+                        <p>An <code>Observable</code> of a dictionary of languages</p>
                       </div>
                     </section>
                   </div>
@@ -1232,7 +1078,7 @@ The forking operation for a project is asynchronous and is completed in a backgr
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>An observable of a project</p>
+                        <p>An <code>Observable</code> of a project</p>
                       </div>
                     </section>
                   </div>
@@ -1284,7 +1130,7 @@ The forking operation for a project is asynchronous and is completed in a backgr
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>An observable of a project</p>
+                        <p>An <code>Observable</code> of a project</p>
                       </div>
                     </section>
                   </div>
@@ -1306,6 +1152,13 @@ The forking operation for a project is asynchronous and is completed in a backgr
 
 <p>Allow to share project with group.</p>
 
+<ul>
+<li>projectID: The ID or URL-encoded path of the project</li>
+<li>groupID: The ID of the group to share with</li>
+<li>groupAccess: The permissions level to grant the group</li>
+<li>expiresAt: Share expiration date</li>
+</ul>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -1316,63 +1169,8 @@ The forking operation for a project is asynchronous and is completed in a backgr
                         </div>
                       </div>
                       <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>projectID</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The ID or URL-encoded path of the project</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>groupID</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The ID of the group to share with</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>groupAccess</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The permissions level to grant the group</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>expiresAt</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>Share expiration date</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div>
                         <h4>Return Value</h4>
-                        <p>An observable of server HTTPURLResponse</p>
+                        <p>An <code>Observable</code> of server <code>HTTPURLResponse</code></p>
                       </div>
                     </section>
                   </div>
@@ -1394,6 +1192,11 @@ The forking operation for a project is asynchronous and is completed in a backgr
 
 <p>Unshare the project from the group. Returns <code>204</code> and no content on success.</p>
 
+<ul>
+<li>projectID: The ID or URL-encoded path of the project</li>
+<li>groupID: The ID of the group</li>
+</ul>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -1404,39 +1207,8 @@ The forking operation for a project is asynchronous and is completed in a backgr
                         </div>
                       </div>
                       <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>projectID</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The ID or URL-encoded path of the project</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>groupID</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The ID of the group</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div>
                         <h4>Return Value</h4>
-                        <p>An observable of server HTTPURLResponse</p>
+                        <p>An <code>Observable</code> of server <code>HTTPURLResponse</code></p>
                       </div>
                     </section>
                   </div>
@@ -1458,6 +1230,12 @@ The forking operation for a project is asynchronous and is completed in a backgr
 
 <p>Get a list of project hooks.</p>
 
+<ul>
+<li>projectID: The ID or URL-encoded path of the project</li>
+<li>page: The page number</li>
+<li>perPage: Maximum item count per page</li>
+</ul>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -1468,51 +1246,8 @@ The forking operation for a project is asynchronous and is completed in a backgr
                         </div>
                       </div>
                       <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>projectID</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The ID or URL-encoded path of the project</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>page</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The page number</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>perPage</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>Maximum item count per page</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div>
                         <h4>Return Value</h4>
-                        <p>A paginator of Hook</p>
+                        <p>A <code><a href="../Classes/Paginator.html">Paginator</a></code> of <code>Hook</code></p>
                       </div>
                     </section>
                   </div>
@@ -1534,6 +1269,11 @@ The forking operation for a project is asynchronous and is completed in a backgr
 
 <p>Get a specific hook for a project.</p>
 
+<ul>
+<li>projectID: The ID or URL-encoded path of the project</li>
+<li>hookID: The ID of a project hook</li>
+</ul>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -1544,39 +1284,8 @@ The forking operation for a project is asynchronous and is completed in a backgr
                         </div>
                       </div>
                       <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>projectID</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The ID or URL-encoded path of the project</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>hookID</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The ID of a project hook</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div>
                         <h4>Return Value</h4>
-                        <p>An observable of a ProjectHook</p>
+                        <p>An <code>Observable</code> of a <code><a href="../Structs/ProjectHook.html">ProjectHook</a></code></p>
                       </div>
                     </section>
                   </div>
@@ -1598,6 +1307,11 @@ The forking operation for a project is asynchronous and is completed in a backgr
 
 <p>Adds a hook to a specified project.</p>
 
+<ul>
+<li>projectID: The ID of a project hook</li>
+<li>hook: A Hook to be created</li>
+</ul>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -1608,39 +1322,8 @@ The forking operation for a project is asynchronous and is completed in a backgr
                         </div>
                       </div>
                       <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>projectID</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The ID of a project hook</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>hook</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>A Hook to be created</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div>
                         <h4>Return Value</h4>
-                        <p>An observable of server HTTPURLResponse</p>
+                        <p>An <code>Observable</code> of server <code>HTTPURLResponse</code></p>
                       </div>
                     </section>
                   </div>
@@ -1662,6 +1345,11 @@ The forking operation for a project is asynchronous and is completed in a backgr
 
 <p>Edits a hook for a specified project.</p>
 
+<ul>
+<li>projectID: The ID or URL-encoded path of the project</li>
+<li>hook: A hook to be updated</li>
+</ul>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -1672,39 +1360,8 @@ The forking operation for a project is asynchronous and is completed in a backgr
                         </div>
                       </div>
                       <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>projectID</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The ID or URL-encoded path of the project</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>hook</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>A hook to be updated</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div>
                         <h4>Return Value</h4>
-                        <p>An observable of server HTTPURLResponse</p>
+                        <p>An <code>Observable</code> of server <code>HTTPURLResponse</code></p>
                       </div>
                     </section>
                   </div>
@@ -1726,6 +1383,11 @@ The forking operation for a project is asynchronous and is completed in a backgr
 
 <p>Removes a hook from a project. This is an idempotent method and can be called multiple times. Either the hook is available or not.</p>
 
+<ul>
+<li><p>projectID: The ID or URL-encoded path of the project</p></li>
+<li><p>hookID: The ID of the project hook</p></li>
+</ul>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -1736,39 +1398,8 @@ The forking operation for a project is asynchronous and is completed in a backgr
                         </div>
                       </div>
                       <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>projectID</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The ID or URL-encoded path of the project</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>hookID</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The ID of the project hook</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div>
                         <h4>Return Value</h4>
-                        <p>An observable of server HTTPURLResponse</p>
+                        <p>An <code>Observable</code> of server <code>HTTPURLResponse</code></p>
                       </div>
                     </section>
                   </div>
@@ -1788,6 +1419,11 @@ The forking operation for a project is asynchronous and is completed in a backgr
                       <div class="abstract">
                         <p>Create a forked from/to relation between existing projects</p>
 
+<ul>
+<li>projectID: The ID or URL-encoded path of the project</li>
+<li>forkedFromID: The ID of the project that was forked from</li>
+</ul>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -1798,39 +1434,8 @@ The forking operation for a project is asynchronous and is completed in a backgr
                         </div>
                       </div>
                       <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>projectID</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The ID or URL-encoded path of the project</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>forkedFromID</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The ID of the project that was forked from</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div>
                         <h4>Return Value</h4>
-                        <p>An observable of server HTTPURLResponse</p>
+                        <p>An <code>Observable</code> of server <code>HTTPURLResponse</code></p>
                       </div>
                     </section>
                   </div>
@@ -1880,7 +1485,7 @@ The forking operation for a project is asynchronous and is completed in a backgr
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>An observable of server HTTPURLResponse</p>
+                        <p>An <code>Observable</code> of server <code>HTTPURLResponse</code></p>
                       </div>
                     </section>
                   </div>
@@ -1930,7 +1535,7 @@ The forking operation for a project is asynchronous and is completed in a backgr
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>An observable of server HTTPURLResponse</p>
+                        <p>An <code>Observable</code> of server <code>HTTPURLResponse</code></p>
                       </div>
                     </section>
                   </div>
@@ -1950,6 +1555,11 @@ The forking operation for a project is asynchronous and is completed in a backgr
                       <div class="abstract">
                         <p>Transfer a project to a new namespace</p>
 
+<ul>
+<li>projectID: The ID of the project</li>
+<li>namespace: The ID or path of the namespace to transfer to project to</li>
+</ul>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -1960,39 +1570,8 @@ The forking operation for a project is asynchronous and is completed in a backgr
                         </div>
                       </div>
                       <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>projectID</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The ID of the project</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>namespace</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The ID or path of the namespace to transfer to project to</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div>
                         <h4>Return Value</h4>
-                        <p>An observable of server HTTPURLResponse</p>
+                        <p>An <code>Observable</code> of server <code>HTTPURLResponse</code></p>
                       </div>
                     </section>
                   </div>

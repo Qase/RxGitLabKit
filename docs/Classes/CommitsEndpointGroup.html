@@ -14,7 +14,7 @@
     <a title="CommitsEndpointGroup Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html"> Docs</a> (14% documented)</p>
+        <p><a href="../index.html"> Docs</a> (25% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -126,6 +126,9 @@
                 <a href="../Structs/Action.html">Action</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Structs/Activity.html">Activity</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Structs/Authentication.html">Authentication</a>
               </li>
               <li class="nav-group-task">
@@ -154,6 +157,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/Email.html">Email</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/File.html">File</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs.html#/s:11RxGitLabKit8FileInfoV">FileInfo</a>
@@ -243,7 +249,7 @@
 
                 </div>
               </div>
-            <p>Undocumented</p>
+            <p>This EndpointGroup communicates with <a href="https://docs.gitlab.com/ee/api/commits.html">Commits API</a></p>
 
           </section>
           <section class="section task-group-section">
@@ -264,10 +270,7 @@
                       <div class="abstract">
                         <p>Get an observable of list of repository commits in a project.</p>
 
-<p><strong>Query Parameters:</strong></p>
-
-<ul>
-<li><p>Optional:</p>
+<p><strong>Optional Query Parameters:</strong></p>
 
 <ul>
 <li><strong>ref_name: String</strong> - The name of a repository branch or tag or if not given the default branch</li>
@@ -275,8 +278,7 @@
 <li><strong>until: String</strong> - Only commits before or on this date will be returned in ISO 8601 format YYYY-MM-DDTHH:MM:SSZ</li>
 <li><strong>path: String</strong> - The file path</li>
 <li><strong>all: Boolean</strong> - Retrieve every commit from the repository</li>
-<li><strong>with_stats: Boolean</strong> - Stats about each commit will be added to the response</li>
-</ul></li>
+<li><p><strong>with_stats: Boolean</strong> - Stats about each commit will be added to the response</p></li>
 </ul>
 
                       </div>
@@ -304,24 +306,12 @@
                                 </div>
                               </td>
                             </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>parameters</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>Query Parameters - See description</p>
-                                </div>
-                              </td>
-                            </tr>
                           </tbody>
                         </table>
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>An observable of list of repository commits in a project</p>
+                        <p>An <code>Observable</code> of list of repository <code><a href="../Structs/Commit.html">Commit</a></code>s in a project</p>
                       </div>
                     </section>
                   </div>
@@ -341,10 +331,7 @@
                       <div class="abstract">
                         <p>Get a paginator of list of repository commits in a project.</p>
 
-<p><strong>Query Parameters:</strong></p>
-
-<ul>
-<li><p>Optional:</p>
+<p><strong>Optional Query Parameters:</strong></p>
 
 <ul>
 <li><strong>ref_name: String</strong> - The name of a repository branch or tag or if not given the default branch</li>
@@ -352,8 +339,7 @@
 <li><strong>until: String</strong> - Only commits before or on this date will be returned in ISO 8601 format YYYY-MM-DDTHH:MM:SSZ</li>
 <li><strong>path: String</strong> - The file path</li>
 <li><strong>all: Boolean</strong> - Retrieve every commit from the repository</li>
-<li><strong>with_stats: Boolean</strong> - Stats about each commit will be added to the response</li>
-</ul></li>
+<li><p><strong>with_stats: Boolean</strong> - Stats about each commit will be added to the response</p></li>
 </ul>
 
                       </div>
@@ -361,7 +347,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getCommits</span><span class="p">(</span><span class="nv">projectID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">perPage</span><span class="p">:</span> <span class="kt">Int</span> <span class="o">=</span>  <span class="kt"><a href="../Classes/RxGitLabAPIClient.html">RxGitLabAPIClient</a></span><span class="o">.</span><span class="n">defaultPerPage</span><span class="p">,</span> <span class="nv">parameters</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:11RxGitLabKit15QueryParametersa">QueryParameters</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/Paginator.html">Paginator</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/Commit.html">Commit</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getCommits</span><span class="p">(</span><span class="nv">projectID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">perPage</span><span class="p">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="kt"><a href="../Classes/RxGitLabAPIClient.html">RxGitLabAPIClient</a></span><span class="o">.</span><span class="n">defaultPerPage</span><span class="p">,</span> <span class="nv">parameters</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:11RxGitLabKit15QueryParametersa">QueryParameters</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/Paginator.html">Paginator</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/Commit.html">Commit</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -378,18 +364,6 @@
                               <td>
                                 <div>
                                   <p>The ID or URL-encoded path of the project</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>parameters</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>Query Parameters - See description</p>
                                 </div>
                               </td>
                             </tr>
@@ -460,7 +434,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>An observable of accepted Commit</p>
+                        <p>An <code>Observable</code> of accepted Commit</p>
                       </div>
                     </section>
                   </div>
@@ -480,14 +454,10 @@
                       <div class="abstract">
                         <p>Get a specific commit identified by the commit hash or name of a branch or tag.</p>
 
-<p><strong>Query Parameters:</strong></p>
+<p><strong>Optional Query Parameters:</strong></p>
 
 <ul>
-<li><p>Optional:</p>
-
-<ul>
-<li><strong>stats: Bool</strong> - Include commit stats. Default is true</li>
-</ul></li>
+<li><p><strong>stats: Bool</strong> - Include commit stats. Default is true</p></li>
 </ul>
 
                       </div>
@@ -532,7 +502,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>An observable of Commit</p>
+                        <p>An <code>Observable</code> of <code><a href="../Structs/Commit.html">Commit</a></code></p>
                       </div>
                     </section>
                   </div>
@@ -552,14 +522,10 @@
                       <div class="abstract">
                         <p>Get all references (from branches or tags) a commit is pushed to. The pagination parameters page and per_page can be used to restrict the list of references.</p>
 
-<p><strong>Query Parameters:</strong></p>
+<p><strong>Optional Query Parameters:</strong></p>
 
 <ul>
-<li><p>Optional:</p>
-
-<ul>
-<li><strong>type: String</strong> - The scope of commits. Possible values <code>branch</code>, <code>tag</code>, <code>all</code>. Default is <code>all</code></li>
-</ul></li>
+<li><p><strong>type: String</strong> - The scope of commits. Possible values <code>branch</code>, <code>tag</code>, <code>all</code>. Default is <code>all</code></p></li>
 </ul>
 
                       </div>
@@ -604,7 +570,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>An observable of list of References</p>
+                        <p>An <code>Observable</code> of list of <code><a href="../Structs/Reference.html">Reference</a></code></p>
                       </div>
                     </section>
                   </div>
@@ -627,11 +593,8 @@
 <p><strong>Query Parameters:</strong></p>
 
 <ul>
-<li><p>Optional:</p>
-
-<ul>
-<li><strong>type: String</strong> - The scope of commits. Possible values <code>branch</code>, <code>tag</code>, <code>all</code>. Default is <code>all</code></li>
-</ul></li>
+<li>Optional:</li>
+<li><p><strong>type: String</strong> - The scope of commits. Possible values <code>branch</code>, <code>tag</code>, <code>all</code>. Default is <code>all</code></p></li>
 </ul>
 
                       </div>
@@ -676,7 +639,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>A Paginator of References</p>
+                        <p>A <code><a href="../Classes/Paginator.html">Paginator</a></code> of <code><a href="../Structs/Reference.html">Reference</a></code></p>
                       </div>
                     </section>
                   </div>
@@ -750,7 +713,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>A Commit</p>
+                        <p>An <code>Observable</code> of <code><a href="../Structs/Commit.html">Commit</a></code></p>
                       </div>
                     </section>
                   </div>
@@ -824,7 +787,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>A Commit</p>
+                        <p>An <code>Observable</code> of <code><a href="../Structs/Commit.html">Commit</a></code></p>
                       </div>
                     </section>
                   </div>
@@ -886,7 +849,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>A Diff</p>
+                        <p>An <code>Observable</code> of <code><a href="../Structs/Diff.html">Diff</a></code></p>
                       </div>
                     </section>
                   </div>
@@ -948,7 +911,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>A Comment</p>
+                        <p>An <code>Observable</code> of <code><a href="../Structs/Comment.html">Comment</a></code></p>
                       </div>
                     </section>
                   </div>
@@ -969,7 +932,7 @@
                         <p>Adds a comment to a commit.-</p>
 
 <p>In order to post a comment in a particular line of a particular file, you must specify the full commit SHA, the path, the <code>line</code> and <code>line_type</code> should be <code>new</code>.
-  The comment will be added at the end of the last commit if at least one of the cases below is valid:</p>
+The comment will be added at the end of the last commit if at least one of the cases below is valid:</p>
 
 <ul>
 <li>the <code>sha</code> is instead a branch or a tag and the <code>line</code> or <code>path</code> are invalid</li>
@@ -1032,7 +995,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>A Comment</p>
+                        <p>An <code>Observable</code> of <code><a href="../Structs/Comment.html">Comment</a></code></p>
                       </div>
                     </section>
                   </div>
@@ -1094,7 +1057,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>A Comment</p>
+                        <p>An <code>Observable</code> of <code><a href="../Structs/Comment.html">Comment</a></code></p>
                       </div>
                     </section>
                   </div>
@@ -1156,7 +1119,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>A Status</p>
+                        <p>An <code>Observable</code> of <code>Status</code></p>
                       </div>
                     </section>
                   </div>
@@ -1218,7 +1181,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>A list of MergeRequests</p>
+                        <p>An <code>Observable</code> of list of <code><a href="../Structs/MergeRequest.html">MergeRequest</a></code>s</p>
                       </div>
                     </section>
                   </div>

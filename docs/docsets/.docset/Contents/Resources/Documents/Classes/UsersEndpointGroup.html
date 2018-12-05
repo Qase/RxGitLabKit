@@ -14,7 +14,7 @@
     <a title="UsersEndpointGroup Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html"> Docs</a> (14% documented)</p>
+        <p><a href="../index.html"> Docs</a> (25% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -126,6 +126,9 @@
                 <a href="../Structs/Action.html">Action</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Structs/Activity.html">Activity</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Structs/Authentication.html">Authentication</a>
               </li>
               <li class="nav-group-task">
@@ -154,6 +157,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/Email.html">Email</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/File.html">File</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs.html#/s:11RxGitLabKit8FileInfoV">FileInfo</a>
@@ -528,7 +534,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Gets currently authenticated user.</p>
 
                       </div>
                       <div class="declaration">
@@ -538,6 +544,10 @@
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getCurrentUser</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/User.html">User</a></span><span class="p">?</span><span class="o">&gt;</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An <code>Observable</code> of a <code><a href="../Structs/User.html">User</a></code></p>
                       </div>
                     </section>
                   </div>
@@ -555,7 +565,9 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>User status</p>
+
+<p>Get the status of the currently signed in user.</p>
 
                       </div>
                       <div class="declaration">
@@ -565,6 +577,10 @@
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getStatus</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/UserStatus.html">UserStatus</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An <code>Observable</code> of a <code><a href="../Structs/UserStatus.html">UserStatus</a></code></p>
                       </div>
                     </section>
                   </div>
@@ -582,7 +598,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Get the status of a user</p>
 
                       </div>
                       <div class="declaration">
@@ -592,6 +608,29 @@
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getUsersStatus</span><span class="p">(</span><span class="nv">userID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/UserStatus.html">UserStatus</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>userID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The id of the user to get a status of</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An <code>Observable</code> of a <code><a href="../Structs/UserStatus.html">UserStatus</a></code></p>
                       </div>
                     </section>
                   </div>
@@ -609,7 +648,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Get the status of a user</p>
 
                       </div>
                       <div class="declaration">
@@ -619,6 +658,29 @@
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getUsersStatus</span><span class="p">(</span><span class="nv">username</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/UserStatus.html">UserStatus</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>username</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The username of the user to get a status of</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An <code>Observable</code> of a <code><a href="../Structs/UserStatus.html">UserStatus</a></code></p>
                       </div>
                     </section>
                   </div>
@@ -636,7 +698,9 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Set user status</p>
+
+<p>Set the status of the current user.</p>
 
                       </div>
                       <div class="declaration">
@@ -646,6 +710,29 @@
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">putStatus</span><span class="p">(</span><span class="nv">status</span><span class="p">:</span> <span class="kt"><a href="../Structs/UserStatus.html">UserStatus</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/UserStatus.html">UserStatus</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>status</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>UserStatus</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An <code>Observable</code> of a <code><a href="../Structs/UserStatus.html">UserStatus</a></code></p>
                       </div>
                     </section>
                   </div>
@@ -663,7 +750,9 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>List SSH keys</p>
+
+<p>Get a list of currently authenticated user’s SSH keys.</p>
 
                       </div>
                       <div class="declaration">
@@ -673,6 +762,10 @@
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getSSHKeys</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Structs/UserKey.html">UserKey</a></span><span class="p">]</span><span class="o">&gt;</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An <code>Observable</code> of a list of <code><a href="../Structs/UserKey.html">UserKey</a></code></p>
                       </div>
                     </section>
                   </div>
@@ -690,7 +783,9 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>List SSH keys for user</p>
+
+<p>Get a list of a specified user’s SSH keys.</p>
 
                       </div>
                       <div class="declaration">
@@ -700,6 +795,29 @@
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getUsersSSHKeys</span><span class="p">(</span><span class="nv">userID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Structs/UserKey.html">UserKey</a></span><span class="p">]</span><span class="o">&gt;</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>userID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>id of specified user</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An <code>Observable</code> of a list of <code><a href="../Structs/UserKey.html">UserKey</a></code></p>
                       </div>
                     </section>
                   </div>
@@ -717,7 +835,9 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Single SSH key</p>
+
+<p>Get a single key.</p>
 
                       </div>
                       <div class="declaration">
@@ -727,6 +847,29 @@
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getSSHKey</span><span class="p">(</span><span class="nv">keyID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/UserKey.html">UserKey</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>keyID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The ID of an SSH key</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An <code>Observable</code> of a <code><a href="../Structs/UserKey.html">UserKey</a></code></p>
                       </div>
                     </section>
                   </div>
@@ -744,7 +887,9 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Add SSH key</p>
+
+<p>Creates a new key owned by the currently authenticated user.</p>
 
                       </div>
                       <div class="declaration">
@@ -754,6 +899,29 @@
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">postSSHKey</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Structs/UserKey.html">UserKey</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/UserKey.html">UserKey</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>UserKey (<code>title</code> and <code>key</code> is required)</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An <code>Observable</code> of a <code><a href="../Structs/UserKey.html">UserKey</a></code></p>
                       </div>
                     </section>
                   </div>
@@ -771,7 +939,9 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Add SSH key</p>
+
+<p>Creates a new key owned by the currently authenticated user.</p>
 
                       </div>
                       <div class="declaration">
@@ -782,15 +952,38 @@
 
                         </div>
                       </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>UserKey (<code>title</code> and <code>key</code> is required)</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An <code>Observable</code> of a <code><a href="../Structs/UserKey.html">UserKey</a></code></p>
+                      </div>
                     </section>
                   </div>
                 </li>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:11RxGitLabKit18UsersEndpointGroupC12deleteSSHKey5keyID10parameters0A5Swift10ObservableCySbGSi_SDySSypGSgtF"></a>
-                    <a name="//apple_ref/swift/Method/deleteSSHKey(keyID:parameters:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:11RxGitLabKit18UsersEndpointGroupC12deleteSSHKey5keyID10parameters0A5Swift10ObservableCySbGSi_SDySSypGSgtF">deleteSSHKey(keyID:parameters:)</a>
+                    <a name="/s:11RxGitLabKit18UsersEndpointGroupC12deleteSSHKey5keyID0A5Swift10ObservableCySbGSi_tF"></a>
+                    <a name="//apple_ref/swift/Method/deleteSSHKey(keyID:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit18UsersEndpointGroupC12deleteSSHKey5keyID0A5Swift10ObservableCySbGSi_tF">deleteSSHKey(keyID:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -798,16 +991,41 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Delete SSH key for current user</p>
+
+<p>Deletes key owned by currently authenticated user. This returns a <code>204 No Content</code> status code if the operation was successfully or <code>404</code> if the resource was not found.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">deleteSSHKey</span><span class="p">(</span><span class="nv">keyID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">parameters</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:11RxGitLabKit15QueryParametersa">QueryParameters</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">deleteSSHKey</span><span class="p">(</span><span class="nv">keyID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>keyID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>SSH key ID</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An <code>Observable</code> of a <code>Bool</code> - <code>true</code> if the deletion was successful</p>
                       </div>
                     </section>
                   </div>
@@ -825,7 +1043,9 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Delete SSH key for given user</p>
+
+<p>Deletes key owned by a specified user. Available only for admin.</p>
 
                       </div>
                       <div class="declaration">
@@ -835,6 +1055,41 @@
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">deleteUsersSSHKey</span><span class="p">(</span><span class="nv">userID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">keyID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">parameters</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:11RxGitLabKit15QueryParametersa">QueryParameters</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>userID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>id of specified user</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>keyID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>SSH key ID</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An <code>Observable</code> of a <code><a href="../Structs/UserKey.html">UserKey</a></code></p>
                       </div>
                     </section>
                   </div>
@@ -852,7 +1107,9 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>List all GPG keys</p>
+
+<p>Get a list of currently authenticated user’s GPG keys.</p>
 
                       </div>
                       <div class="declaration">
@@ -863,15 +1120,19 @@
 
                         </div>
                       </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An <code>Observable</code> of a list of <code><a href="../Structs/UserKey.html">UserKey</a></code></p>
+                      </div>
                     </section>
                   </div>
                 </li>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:11RxGitLabKit18UsersEndpointGroupC9getGPGKey5keyID0A5Swift10ObservableCySayAA7UserKeyVGGSi_tF"></a>
+                    <a name="/s:11RxGitLabKit18UsersEndpointGroupC9getGPGKey5keyID0A5Swift10ObservableCyAA7UserKeyVGSi_tF"></a>
                     <a name="//apple_ref/swift/Method/getGPGKey(keyID:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:11RxGitLabKit18UsersEndpointGroupC9getGPGKey5keyID0A5Swift10ObservableCySayAA7UserKeyVGGSi_tF">getGPGKey(keyID:)</a>
+                    <a class="token" href="#/s:11RxGitLabKit18UsersEndpointGroupC9getGPGKey5keyID0A5Swift10ObservableCyAA7UserKeyVGSi_tF">getGPGKey(keyID:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -879,16 +1140,41 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Get a specific GPG key</p>
+
+<p>Get a specific GPG key of currently authenticated user.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getGPGKey</span><span class="p">(</span><span class="nv">keyID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Structs/UserKey.html">UserKey</a></span><span class="p">]</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getGPGKey</span><span class="p">(</span><span class="nv">keyID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/UserKey.html">UserKey</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>keyID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The ID of the GPG key</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An <code>Observable</code> of a <code><a href="../Structs/UserKey.html">UserKey</a></code></p>
                       </div>
                     </section>
                   </div>
@@ -906,7 +1192,9 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Add a GPG key</p>
+
+<p>Creates a new GPG key owned by the currently authenticated user.</p>
 
                       </div>
                       <div class="declaration">
@@ -917,15 +1205,38 @@
 
                         </div>
                       </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>UserKey (<code>key</code> is required)</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An <code>Observable</code> of a <code><a href="../Structs/UserKey.html">UserKey</a></code></p>
+                      </div>
                     </section>
                   </div>
                 </li>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:11RxGitLabKit18UsersEndpointGroupC12deleteGPGKey5keyID10parameters0A5Swift10ObservableCySbGSi_SDySSypGSgtF"></a>
-                    <a name="//apple_ref/swift/Method/deleteGPGKey(keyID:parameters:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:11RxGitLabKit18UsersEndpointGroupC12deleteGPGKey5keyID10parameters0A5Swift10ObservableCySbGSi_SDySSypGSgtF">deleteGPGKey(keyID:parameters:)</a>
+                    <a name="/s:11RxGitLabKit18UsersEndpointGroupC12deleteGPGKey5keyID0A5Swift10ObservableCySbGSi_tF"></a>
+                    <a name="//apple_ref/swift/Method/deleteGPGKey(keyID:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit18UsersEndpointGroupC12deleteGPGKey5keyID0A5Swift10ObservableCySbGSi_tF">deleteGPGKey(keyID:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -933,16 +1244,41 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Delete a GPG key</p>
+
+<p>Delete a GPG key owned by currently authenticated user.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">deleteGPGKey</span><span class="p">(</span><span class="nv">keyID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">parameters</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:11RxGitLabKit15QueryParametersa">QueryParameters</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">deleteGPGKey</span><span class="p">(</span><span class="nv">keyID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>keyID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The ID of the GPG key</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An <code>Observable</code> of a <code>Bool</code> - <code>true</code> if the deletion was successful</p>
                       </div>
                     </section>
                   </div>
@@ -960,7 +1296,9 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>List all GPG keys for given user</p>
+
+<p>Get a list of a specified user’s GPG keys. Available only for admins.</p>
 
                       </div>
                       <div class="declaration">
@@ -971,15 +1309,38 @@
 
                         </div>
                       </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>userID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The ID of the user</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An <code>Observable</code> of a <code><a href="../Structs/UserKey.html">UserKey</a></code></p>
+                      </div>
                     </section>
                   </div>
                 </li>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:11RxGitLabKit18UsersEndpointGroupC16getGPGKeyForUser6userID03keyM00A5Swift10ObservableCySayAA0K3KeyVGGSi_SitF"></a>
+                    <a name="/s:11RxGitLabKit18UsersEndpointGroupC16getGPGKeyForUser6userID03keyM00A5Swift10ObservableCyAA0K3KeyVGSi_SitF"></a>
                     <a name="//apple_ref/swift/Method/getGPGKeyForUser(userID:keyID:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:11RxGitLabKit18UsersEndpointGroupC16getGPGKeyForUser6userID03keyM00A5Swift10ObservableCySayAA0K3KeyVGGSi_SitF">getGPGKeyForUser(userID:keyID:)</a>
+                    <a class="token" href="#/s:11RxGitLabKit18UsersEndpointGroupC16getGPGKeyForUser6userID03keyM00A5Swift10ObservableCyAA0K3KeyVGSi_SitF">getGPGKeyForUser(userID:keyID:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -987,16 +1348,53 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Get a specific GPG key for a given user</p>
+
+<p>Get a specific GPG key for a given user. Available only for admins.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getGPGKeyForUser</span><span class="p">(</span><span class="nv">userID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">keyID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Structs/UserKey.html">UserKey</a></span><span class="p">]</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getGPGKeyForUser</span><span class="p">(</span><span class="nv">userID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">keyID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/UserKey.html">UserKey</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>userID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The ID of the user</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>keyID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The ID of the GPG key</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An <code>Observable</code> of a <code><a href="../Structs/UserKey.html">UserKey</a></code></p>
                       </div>
                     </section>
                   </div>
@@ -1014,7 +1412,9 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Add a GPG key for a given user</p>
+
+<p>Create new GPG key owned by the specified user. Available only for admins.</p>
 
                       </div>
                       <div class="declaration">
@@ -1025,15 +1425,50 @@
 
                         </div>
                       </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>UserKey (<code>key</code> is required)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>userID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The ID of the user</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An <code>Observable</code> of a <code><a href="../Structs/UserKey.html">UserKey</a></code></p>
+                      </div>
                     </section>
                   </div>
                 </li>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:11RxGitLabKit18UsersEndpointGroupC06deleteE6GPGKey6userID03keyK010parameters0A5Swift10ObservableCySbGSi_SiSDySSypGSgtF"></a>
-                    <a name="//apple_ref/swift/Method/deleteUsersGPGKey(userID:keyID:parameters:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:11RxGitLabKit18UsersEndpointGroupC06deleteE6GPGKey6userID03keyK010parameters0A5Swift10ObservableCySbGSi_SiSDySSypGSgtF">deleteUsersGPGKey(userID:keyID:parameters:)</a>
+                    <a name="/s:11RxGitLabKit18UsersEndpointGroupC06deleteE6GPGKey6userID03keyK00A5Swift10ObservableCySbGSi_SitF"></a>
+                    <a name="//apple_ref/swift/Method/deleteUsersGPGKey(userID:keyID:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit18UsersEndpointGroupC06deleteE6GPGKey6userID03keyK00A5Swift10ObservableCySbGSi_SitF">deleteUsersGPGKey(userID:keyID:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1041,16 +1476,53 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Delete a GPG key for a given user</p>
+
+<p>Delete a GPG key owned by a specified user. Available only for admins.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">deleteUsersGPGKey</span><span class="p">(</span><span class="nv">userID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">keyID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">parameters</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:11RxGitLabKit15QueryParametersa">QueryParameters</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">deleteUsersGPGKey</span><span class="p">(</span><span class="nv">userID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">keyID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>keyID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The ID of the GPG key</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>userID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The ID of the user</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An <code>Observable</code> of a <code>Bool</code> - <code>true</code> if the deletion was successful</p>
                       </div>
                     </section>
                   </div>
@@ -1068,7 +1540,9 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>List emails</p>
+
+<p>Get a list of currently authenticated user’s emails.</p>
 
                       </div>
                       <div class="declaration">
@@ -1078,6 +1552,43 @@
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getEmails</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Structs/Email.html">Email</a></span><span class="p">]</span><span class="o">&gt;</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An <code>Observable</code> of a list of <code><a href="../Structs/Email.html">Email</a></code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit18UsersEndpointGroupC13getUserEmails6userID0A5Swift10ObservableCySayAA5EmailVGGSi_tF"></a>
+                    <a name="//apple_ref/swift/Method/getUserEmails(userID:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit18UsersEndpointGroupC13getUserEmails6userID0A5Swift10ObservableCySayAA5EmailVGGSi_tF">getUserEmails(userID:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>List emails for user</p>
+
+<p>Get a list of a specified user’s emails. Available only for admin</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getUserEmails</span><span class="p">(</span><span class="nv">userID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Structs/Email.html">Email</a></span><span class="p">]</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An <code>Observable</code> of a list of <code><a href="../Structs/Email.html">Email</a></code></p>
                       </div>
                     </section>
                   </div>
@@ -1095,7 +1606,9 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Single email</p>
+
+<p>Get a single email.</p>
 
                       </div>
                       <div class="declaration">
@@ -1105,6 +1618,10 @@
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getEmail</span><span class="p">(</span><span class="nv">emailID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/Email.html">Email</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An <code>Observable</code> of a <code><a href="../Structs/Email.html">Email</a></code></p>
                       </div>
                     </section>
                   </div>
@@ -1122,7 +1639,9 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Add email</p>
+
+<p>Creates a new email owned by the currently authenticated user.</p>
 
                       </div>
                       <div class="declaration">
@@ -1132,6 +1651,10 @@
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">postEmail</span><span class="p">(</span><span class="nv">email</span><span class="p">:</span> <span class="kt"><a href="../Structs/Email.html">Email</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/Email.html">Email</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An <code>Observable</code> of a <code><a href="../Structs/Email.html">Email</a></code></p>
                       </div>
                     </section>
                   </div>
@@ -1149,7 +1672,9 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Delete email for current user</p>
+
+<p>Deletes email owned by currently authenticated user.</p>
 
                       </div>
                       <div class="declaration">
@@ -1159,6 +1684,10 @@
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">deleteEmail</span><span class="p">(</span><span class="nv">emailID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An <code>Observable</code> of a <code>Bool</code> - <code>true</code> if the deletion was successful</p>
                       </div>
                     </section>
                   </div>
@@ -1176,7 +1705,9 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Add email for user</p>
+
+<p>Create new email owned by specified user. Available only for admin</p>
 
                       </div>
                       <div class="declaration">
@@ -1186,6 +1717,29 @@
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">postUsersEmail</span><span class="p">(</span><span class="nv">email</span><span class="p">:</span> <span class="kt"><a href="../Structs/Email.html">Email</a></span><span class="p">,</span> <span class="nv">userID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/Email.html">Email</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>userID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The ID of the user</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An <code>Observable</code> of a <code><a href="../Structs/UserKey.html">UserKey</a></code></p>
                       </div>
                     </section>
                   </div>
@@ -1203,7 +1757,9 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Delete email for given user</p>
+
+<p>Deletes email owned by a specified user. Available only for admin.</p>
 
                       </div>
                       <div class="declaration">
@@ -1213,6 +1769,41 @@
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">deleteUsersEmail</span><span class="p">(</span><span class="nv">userID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">emailID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>userID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The ID of the user</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>emailID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The ID of the email</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An <code>Observable</code> of a <code>Bool</code> - <code>true</code> if the deletion was successful</p>
                       </div>
                     </section>
                   </div>
@@ -1230,7 +1821,9 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Block user</p>
+
+<p>Blocks the specified user. Available only for admin.</p>
 
                       </div>
                       <div class="declaration">
@@ -1240,6 +1833,29 @@
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">blockUser</span><span class="p">(</span><span class="nv">userID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>userID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The ID of the user</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An <code>Observable</code> of a <code>Bool</code> - <code>true</code> if blocking was successful</p>
                       </div>
                     </section>
                   </div>
@@ -1257,7 +1873,9 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Unblock user</p>
+
+<p>Unlocks the specified user. Available only for admin.</p>
 
                       </div>
                       <div class="declaration">
@@ -1268,15 +1886,38 @@
 
                         </div>
                       </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>userID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The ID of the user</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An <code>Observable</code> of a <code>Bool</code> - <code>true</code> if unblocking was successful</p>
+                      </div>
                     </section>
                   </div>
                 </li>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:11RxGitLabKit18UsersEndpointGroupC22getImpersonationTokens6userID0A5Swift10ObservableCySayAA0I5TokenVGGSi_tF"></a>
-                    <a name="//apple_ref/swift/Method/getImpersonationTokens(userID:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:11RxGitLabKit18UsersEndpointGroupC22getImpersonationTokens6userID0A5Swift10ObservableCySayAA0I5TokenVGGSi_tF">getImpersonationTokens(userID:)</a>
+                    <a name="/s:11RxGitLabKit18UsersEndpointGroupC22getImpersonationTokens6userID10parameters0A5Swift10ObservableCySayAA0I5TokenVGGSi_SDySSypGSgtF"></a>
+                    <a name="//apple_ref/swift/Method/getImpersonationTokens(userID:parameters:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit18UsersEndpointGroupC22getImpersonationTokens6userID10parameters0A5Swift10ObservableCySayAA0I5TokenVGGSi_SDySSypGSgtF">getImpersonationTokens(userID:parameters:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1284,16 +1925,61 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Get all impersonation tokens of a user</p>
+
+<p>Requires admin permissions.</p>
+
+<p>It retrieves every impersonation token of the user. Use the pagination parameters <code>page</code> and <code>per_page</code> to restrict the list of impersonation tokens.</p>
+
+<p><strong>Optinal Query Parameters:</strong></p>
+
+<ul>
+<li><p><strong>state: String</strong> - filter tokens based on state (<code>all</code>, <code>active</code>, <code>inactive</code>)</p></li>
+</ul>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getImpersonationTokens</span><span class="p">(</span><span class="nv">userID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Structs/ImpersonationToken.html">ImpersonationToken</a></span><span class="p">]</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getImpersonationTokens</span><span class="p">(</span><span class="nv">userID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">parameters</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:11RxGitLabKit15QueryParametersa">QueryParameters</a></span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Structs/ImpersonationToken.html">ImpersonationToken</a></span><span class="p">]</span><span class="o">&gt;</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>userID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The ID of the user</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>parameters</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Query Parameters - See description</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An <code>Observable</code> of a list of <code><a href="../Structs/ImpersonationToken.html">ImpersonationToken</a></code></p>
                       </div>
                     </section>
                   </div>
@@ -1311,7 +1997,11 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Get an impersonation token of a user</p>
+
+<p>Requires admin permissions.</p>
+
+<p>It shows a user’s impersonation token.</p>
 
                       </div>
                       <div class="declaration">
@@ -1321,6 +2011,41 @@
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getUsersImpersonationToken</span><span class="p">(</span><span class="nv">userID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">tokenID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Structs/ImpersonationToken.html">ImpersonationToken</a></span><span class="p">]</span><span class="o">&gt;</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>userID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The ID of the user</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>tokenID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The ID of the impersonation token</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An <code>Observable</code> of a <code><a href="../Structs/UserKey.html">UserKey</a></code></p>
                       </div>
                     </section>
                   </div>
@@ -1338,7 +2063,13 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Create an impersonation token</p>
+
+<p>Requires admin permissions.</p>
+
+<p>Token values are returned once. Make sure you save it - you won’t be able to access it again.</p>
+
+<p>It creates a new impersonation token. Note that only administrators can do this. You are only able to create impersonation tokens to impersonate the user and perform both API calls and Git reads and writes. The user will not see these tokens in their profile settings page.</p>
 
                       </div>
                       <div class="declaration">
@@ -1348,6 +2079,170 @@
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">postImpersonationToken</span><span class="p">(</span><span class="nv">token</span><span class="p">:</span> <span class="kt"><a href="../Structs/ImpersonationToken.html">ImpersonationToken</a></span><span class="p">,</span> <span class="nv">userID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/ImpersonationToken.html">ImpersonationToken</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>userID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The ID of the user</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An <code>Observable</code> of a <code><a href="../Structs/UserKey.html">UserKey</a></code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit18UsersEndpointGroupC24deleteImpersonationToken6userID05tokenL00A5Swift10ObservableCySbGSi_SitF"></a>
+                    <a name="//apple_ref/swift/Method/deleteImpersonationToken(userID:tokenID:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit18UsersEndpointGroupC24deleteImpersonationToken6userID05tokenL00A5Swift10ObservableCySbGSi_SitF">deleteImpersonationToken(userID:tokenID:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Revoke an impersonation token</p>
+
+<p>Requires admin permissions.</p>
+
+<p>It revokes an impersonation token.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">deleteImpersonationToken</span><span class="p">(</span><span class="nv">userID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">tokenID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>userID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The ID of the user</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>tokenID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The ID of the impersonation token</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An <code>Observable</code> of a <code>Bool</code> - <code>true</code> if the deletion was successful</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit18UsersEndpointGroupC17getUserActivities4from0A5Swift10ObservableCySayAA8ActivityVGG10Foundation4DateVSg_tF"></a>
+                    <a name="//apple_ref/swift/Method/getUserActivities(from:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit18UsersEndpointGroupC17getUserActivities4from0A5Swift10ObservableCySayAA8ActivityVGG10Foundation4DateVSg_tF">getUserActivities(from:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get user activities (admin only)</p>
+
+<p>Note: This API endpoint is only available on 8.15 (EE) and 9.1 (CE) and above.</p>
+
+<p>Get the last activity date for all users, sorted from oldest to newest.</p>
+
+<p>The activities that update the timestamp are:</p>
+
+<ul>
+<li>Git HTTP/SSH activities (such as clone, push)</li>
+<li>User logging in into GitLab</li>
+</ul>
+
+<p>By default, it shows the activity for all users in the last 6 months, but this can be amended by using the <code>from</code> parameter.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getUserActivities</span><span class="p">(</span><span class="nv">from</span><span class="p">:</span> <span class="kt">Date</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Structs/Activity.html">Activity</a></span><span class="p">]</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>userID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The ID of the user</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>tokenID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The ID of the impersonation token</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An <code>Observable</code> of a list of <code><a href="../Structs/Activity.html">Activity</a></code></p>
                       </div>
                     </section>
                   </div>

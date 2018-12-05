@@ -8,6 +8,10 @@
 import Foundation
 import RxSwift
 
+/**
+ This EndpointGroup authentication using an `username` and a `password`
+ The user can authenticate using `username` and `password` which will return an OAuth Token. If OAuth Token or Private Token is already known, it can be used when initiating RxGitLabAPI.
+ */
 public class AuthenticationEndpointGroup: EndpointGroup {
 
   internal enum Endpoints {
@@ -21,6 +25,16 @@ public class AuthenticationEndpointGroup: EndpointGroup {
     }
   }
 
+
+  /**
+   Authenticate using `username` and `password`
+   
+   Get an Authentication object using `username` and `password`
+   - Parameters:
+      - username: username
+      - password: password
+   - Returns: An `Observable` of `Authentication` 
+  */
   public func authenticate(username: String, password: String) -> Observable<Authentication> {
     let jsonBody = [
       "grant_type" : "password",

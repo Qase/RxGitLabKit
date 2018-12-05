@@ -14,7 +14,7 @@
     <a title="Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html"> Docs</a> (14% documented)</p>
+        <p><a href="index.html"> Docs</a> (25% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -126,6 +126,9 @@
                 <a href="Structs/Action.html">Action</a>
               </li>
               <li class="nav-group-task">
+                <a href="Structs/Activity.html">Activity</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Structs/Authentication.html">Authentication</a>
               </li>
               <li class="nav-group-task">
@@ -154,6 +157,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Structs/Email.html">Email</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/File.html">File</a>
               </li>
               <li class="nav-group-task">
                 <a href="Structs.html#/s:11RxGitLabKit8FileInfoV">FileInfo</a>
@@ -256,7 +262,8 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>This EndpointGroup authentication using an <code>username</code> and a <code>password</code>
+The user can authenticate using <code>username</code> and <code>password</code> which will return an OAuth Token. If OAuth Token or Private Token is already known, it can be used when initiating RxGitLabAPI.</p>
 
                         <a href="Classes/AuthenticationEndpointGroup.html" class="slightly-smaller">See more</a>
                       </div>
@@ -288,7 +295,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>This EndpointGroup communicates with <a href="https://docs.gitlab.com/ee/api/commits.html">Commits API</a></p>
 
                         <a href="Classes/CommitsEndpointGroup.html" class="slightly-smaller">See more</a>
                       </div>
@@ -352,7 +359,17 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>This EndpointGroup communicates with <a href="https://docs.gitlab.com/ee/api/members.html">Grou and project members API</a></p>
+<h1 id='grou-and-project-members-api' class='heading'>Grou and project members API</h1>
+<h2 id='valid-access-levels' class='heading'>Valid access levels</h2>
+
+<p>The access levels are defined in the <code>Gitlab::Access</code> module. Currently, these levels are recognized:</p>
+<pre class="highlight swift"><code><span class="mi">10</span> <span class="o">=&gt;</span> <span class="kt">Guest</span> <span class="n">access</span>
+<span class="mi">20</span> <span class="o">=&gt;</span> <span class="kt">Reporter</span> <span class="n">access</span>
+<span class="mi">30</span> <span class="o">=&gt;</span> <span class="kt">Developer</span> <span class="n">access</span>
+<span class="mi">40</span> <span class="o">=&gt;</span> <span class="kt">Maintainer</span> <span class="n">access</span>
+<span class="mi">50</span> <span class="o">=&gt;</span> <span class="kt">Owner</span> <span class="n">access</span> <span class="err">#</span> <span class="kt">Only</span> <span class="n">valid</span> <span class="k">for</span> <span class="n">groups</span>
+</code></pre>
 
                         <a href="Classes/MembersEndpointGroup.html" class="slightly-smaller">See more</a>
                       </div>
@@ -384,7 +401,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This EndpointGroup communicates with Projects API (<a href="https://docs.gitlab.com/ce/api/projects.html">https://docs.gitlab.com/ce/api/projects.html</a>)</p>
+                        <p>This EndpointGroup communicates with <a href="https://docs.gitlab.com/ee/api/projects.html">Projects API</a></p>
 <h1 id='projects-api' class='heading'>Projects API</h1>
 <h2 id='project-visibility-level' class='heading'>Project visibility level</h2>
 
@@ -437,7 +454,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>This EndpointGroup communicates with <a href="https://docs.gitlab.com/ee/api/repositories.html">Repositories API</a></p>
 
                         <a href="Classes/RepositoriesEndpointGroup.html" class="slightly-smaller">See more</a>
                       </div>

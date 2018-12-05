@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>URLSessionDataTaskProtocol Protocol Reference</title>
+    <title>File Structure Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Protocol/URLSessionDataTaskProtocol" class="dashAnchor"></a>
-    <a title="URLSessionDataTaskProtocol Protocol Reference"></a>
+    <a name="//apple_ref/swift/Struct/File" class="dashAnchor"></a>
+    <a title="File Structure Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html"> Docs</a> (25% documented)</p>
@@ -21,7 +21,7 @@
       <p id="breadcrumbs">
         <a href="../index.html"> Reference</a>
         <img id="carat" src="../img/carat.png" />
-        URLSessionDataTaskProtocol Protocol Reference
+        File Structure Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -242,10 +242,10 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>URLSessionDataTaskProtocol</h1>
+            <h1>File</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">URLSessionDataTaskProtocol</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">File</span> <span class="p">:</span> <span class="kt">Codable</span></code></pre>
 
                 </div>
               </div>
@@ -258,9 +258,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:11RxGitLabKit26URLSessionDataTaskProtocolP6resumeyyF"></a>
-                    <a name="//apple_ref/swift/Method/resume()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:11RxGitLabKit26URLSessionDataTaskProtocolP6resumeyyF">resume()</a>
+                    <a name="/s:11RxGitLabKit4FileV8filePathSSSgvp"></a>
+                    <a name="//apple_ref/swift/Property/filePath" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit4FileV8filePathSSSgvp">filePath</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -268,14 +268,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Url encoded full path to new file. Ex. lib%2Fclass%2Erb (<strong>required</strong> when <code>POST</code>, <code>PUT</code> or <code>DELETE</code>)</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">resume</span><span class="p">()</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">filePath</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -285,9 +285,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:11RxGitLabKit26URLSessionDataTaskProtocolP6cancelyyF"></a>
-                    <a name="//apple_ref/swift/Method/cancel()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:11RxGitLabKit26URLSessionDataTaskProtocolP6cancelyyF">cancel()</a>
+                    <a name="/s:11RxGitLabKit4FileV6branchSSSgvp"></a>
+                    <a name="//apple_ref/swift/Property/branch" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit4FileV6branchSSSgvp">branch</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -295,14 +295,203 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Name of the branch (<strong>required</strong> when <code>POST</code>, <code>PUT</code> or <code>DELETE</code>)</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">cancel</span><span class="p">()</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">branch</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit4FileV11startBranchSSSgvp"></a>
+                    <a name="//apple_ref/swift/Property/startBranch" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit4FileV11startBranchSSSgvp">startBranch</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Name of the branch to start the new commit from</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">startBranch</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit4FileV8encodingSSSgvp"></a>
+                    <a name="//apple_ref/swift/Property/encoding" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit4FileV8encodingSSSgvp">encoding</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Change encoding to ‘base64’. Default is text.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">encoding</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit4FileV11authorEmailSSSgvp"></a>
+                    <a name="//apple_ref/swift/Property/authorEmail" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit4FileV11authorEmailSSSgvp">authorEmail</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Specify the commit author’s email address</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">authorEmail</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit4FileV10authorNameSSSgvp"></a>
+                    <a name="//apple_ref/swift/Property/authorName" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit4FileV10authorNameSSSgvp">authorName</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Specify the commit author’s name</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">authorName</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit4FileV7contentSSSgvp"></a>
+                    <a name="//apple_ref/swift/Property/content" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit4FileV7contentSSSgvp">content</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>File content (<strong>required</strong> when <code>POST</code>, <code>PUT</code> or <code>DELETE</code>)</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">content</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit4FileV13commitMessageSSSgvp"></a>
+                    <a name="//apple_ref/swift/Property/commitMessage" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit4FileV13commitMessageSSSgvp">commitMessage</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Commit message (<strong>required</strong> when <code>POST</code>, <code>PUT</code> or <code>DELETE</code>)</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">commitMessage</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit4FileV12lastCommitIDSSSgvp"></a>
+                    <a name="//apple_ref/swift/Property/lastCommitID" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit4FileV12lastCommitIDSSSgvp">lastCommitID</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Last known file commit id</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">lastCommitID</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>

@@ -14,7 +14,7 @@
     <a title="MembersEndpointGroup Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html"> Docs</a> (14% documented)</p>
+        <p><a href="../index.html"> Docs</a> (25% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -126,6 +126,9 @@
                 <a href="../Structs/Action.html">Action</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Structs/Activity.html">Activity</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Structs/Authentication.html">Authentication</a>
               </li>
               <li class="nav-group-task">
@@ -154,6 +157,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/Email.html">Email</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/File.html">File</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs.html#/s:11RxGitLabKit8FileInfoV">FileInfo</a>
@@ -243,7 +249,17 @@
 
                 </div>
               </div>
-            <p>Undocumented</p>
+            <p>This EndpointGroup communicates with <a href="https://docs.gitlab.com/ee/api/members.html">Grou and project members API</a></p>
+<h1 id='grou-and-project-members-api' class='heading'>Grou and project members API</h1>
+<h2 id='valid-access-levels' class='heading'>Valid access levels</h2>
+
+<p>The access levels are defined in the <code>Gitlab::Access</code> module. Currently, these levels are recognized:</p>
+<pre class="highlight swift"><code><span class="mi">10</span> <span class="o">=&gt;</span> <span class="kt">Guest</span> <span class="n">access</span>
+<span class="mi">20</span> <span class="o">=&gt;</span> <span class="kt">Reporter</span> <span class="n">access</span>
+<span class="mi">30</span> <span class="o">=&gt;</span> <span class="kt">Developer</span> <span class="n">access</span>
+<span class="mi">40</span> <span class="o">=&gt;</span> <span class="kt">Maintainer</span> <span class="n">access</span>
+<span class="mi">50</span> <span class="o">=&gt;</span> <span class="kt">Owner</span> <span class="n">access</span> <span class="err">#</span> <span class="kt">Only</span> <span class="n">valid</span> <span class="k">for</span> <span class="n">groups</span>
+</code></pre>
 
           </section>
           <section class="section task-group-section">
@@ -262,7 +278,15 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>List all members of a group</p>
+
+<p>Gets a list of group members viewable by the authenticated user. Returns only direct members and not inherited members through ancestors groups.</p>
+
+<p><strong>Optional Query Parameter:</strong></p>
+
+<ul>
+<li><strong>query: String</strong> -  A query string to search for members</li>
+</ul>
 
                       </div>
                       <div class="declaration">
@@ -272,6 +296,41 @@
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">get</span><span class="p">(</span><span class="nv">groupID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">parameters</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:11RxGitLabKit15QueryParametersa">QueryParameters</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Structs/Member.html">Member</a></span><span class="p">]</span><span class="o">&gt;</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>groupID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The ID or URL-encoded path of the group owned by the authenticated user</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>parameters</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>See Query Parameters in the description</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An <code>Observable</code> of list of <code><a href="../Structs/Member.html">Member</a></code>s</p>
                       </div>
                     </section>
                   </div>
@@ -289,7 +348,15 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>List all members of a project</p>
+
+<p>Gets a list of project members viewable by the authenticated user. Returns only direct members and not inherited members through ancestors groups.</p>
+
+<p><strong>Optional Query Parameter:</strong></p>
+
+<ul>
+<li><strong>query: String</strong> -  A query string to search for members</li>
+</ul>
 
                       </div>
                       <div class="declaration">
@@ -299,6 +366,41 @@
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">get</span><span class="p">(</span><span class="nv">projectID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">parameters</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:11RxGitLabKit15QueryParametersa">QueryParameters</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Structs/Member.html">Member</a></span><span class="p">]</span><span class="o">&gt;</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>projectID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The ID or URL-encoded path of the project owned by the authenticated user</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>parameters</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>See Query Parameters in the description</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An <code>Observable</code> of list of <code><a href="../Structs/Member.html">Member</a></code>s</p>
                       </div>
                     </section>
                   </div>
@@ -370,7 +472,15 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets a list of group members viewable by the authenticated user, including inherited members through ancestor groups. Returns multiple times the same user (with different member attributes) when the user is a member of the project/group and of one or more ancestor group.</p>
+                        <p>List all members of a group or project including inherited members</p>
+
+<p>Gets a list of group members viewable by the authenticated user, including inherited members through ancestor groups. Returns multiple times the same user (with different member attributes) when the user is a member of the project/group and of one or more ancestor group.</p>
+
+<p><strong>Optional Query Parameter:</strong></p>
+
+<ul>
+<li><strong>query: String</strong> -  A query string to search for members</li>
+</ul>
 
                       </div>
                       <div class="declaration">
@@ -380,6 +490,41 @@
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getAll</span><span class="p">(</span><span class="nv">groupID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">parameters</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:11RxGitLabKit15QueryParametersa">QueryParameters</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Structs/Member.html">Member</a></span><span class="p">]</span><span class="o">&gt;</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>groupID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The ID or URL-encoded path of the group owned by the authenticated user</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>parameters</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>See Query Parameters in the description</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An <code>Observable</code> of list of <code><a href="../Structs/Member.html">Member</a></code>s</p>
                       </div>
                     </section>
                   </div>
@@ -397,7 +542,15 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets a list of project members viewable by the authenticated user, including inherited members through ancestor groups. Returns multiple times the same user (with different member attributes) when the user is a member of the project/group and of one or more ancestor group.</p>
+                        <p>List all members of a project or project including inherited members</p>
+
+<p>Gets a list of project members viewable by the authenticated user, including inherited members through ancestor groups. Returns multiple times the same user (with different member attributes) when the user is a member of the project/group and of one or more ancestor group.</p>
+
+<p><strong>Optional Query Parameter:</strong></p>
+
+<ul>
+<li><strong>query: String</strong> -  A query string to search for members</li>
+</ul>
 
                       </div>
                       <div class="declaration">
@@ -420,12 +573,28 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>The ID or URL-encoded path of the project owned by the</p>
+                                  <p>The ID or URL-encoded path of the project owned</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>parameters</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>See Query Parameters in the description</p>
                                 </div>
                               </td>
                             </tr>
                           </tbody>
                         </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An <code>Observable</code> of list of <code><a href="../Structs/Member.html">Member</a></code>s</p>
                       </div>
                     </section>
                   </div>
