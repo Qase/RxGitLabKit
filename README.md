@@ -128,7 +128,7 @@ Then link the built `RxGitLabKit.framework` it the "Linked Frameworks and Librar
 
 ### [Swift Package Manager](https://github.com/apple/swift-package-manager)
 
-**Tested with `swift build --version`: `Swift 4.0.0-dev (swiftpm-13126)`**
+**Tested with `swift build --version`: `Apple Swift Package Manager - Swift 4.2.0 (swiftpm-14460.2)`**
 
 Create a `Package.swift` file.
 
@@ -140,6 +140,9 @@ let package = Package(
   name: "YOUR_PROJECT_NAME",
   dependencies: [
     .package(url: "https://gitlab.com/dagytran/RxGitLabKit.git")
+  ],
+  targets: [
+    .target(name: "YOUR_PROJECT_NAME", dependencies: ["RxGitLabKit"], path: "YOUR_PROJECT_NAME")
   ]
 )
 ```
