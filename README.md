@@ -92,7 +92,7 @@ projectsPaginator.loadAll().subscribe(onNext: { projects in
 
 ### [CocoaPods](https://guides.cocoapods.org/using/using-cocoapods.html)
 
-**Tested with `pod --version`: `1.3.1`**
+**Tested with `pod --version`: `1.5.3`**
 
 ```ruby
 # Podfile
@@ -112,7 +112,7 @@ $ pod install
 
 ### [Carthage](https://github.com/Carthage/Carthage)
 
-**Tested with `carthage version`: `0.26.2`**
+**Tested with `carthage version`: `0.31.2`**
 
 Add this to `Cartfile`
 
@@ -132,20 +132,20 @@ Then link the built `RxGitLabKit.framework` it the "Linked Frameworks and Librar
 Create a `Package.swift` file.
 
 ```swift
-// swift-tools-version:4.0
+// swift-tools-version:4.2
 import PackageDescription
 
 let package = Package(
   name: "YOUR_PROJECT_NAME",
   dependencies: [
-    .package(url: "https://gitlab.com/dagytran/RxGitLabKit.git")
+    .package(url: "https://gitlab.com/dagytran/RxGitLabKit.git", from: "0.1.0")
   ],
   targets: [
-    .target(name: "YOUR_PROJECT_NAME", dependencies: ["RxGitLabKit"], path: "YOUR_PROJECT_NAME")
+    .target(name: "YOUR_PROJECT_NAME", dependencies: ["RxGitLabKit"], path: "SOURCE_PATH")
   ]
 )
 ```
-and run
+replace `YOUR_PROJECT_NAME` and `SOURCE_PATH` and run
 ```bash
 $ swift build
 ```
