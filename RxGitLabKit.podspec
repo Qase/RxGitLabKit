@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "RxGitLabKit"
-  s.version      = "0.1.3"
+  s.version      = "0.1.4"
   s.summary      = "RxGitLabKit is a reactive Swift library for communication with GitLab API v4."
 
   # This description is used to generate tags and improve search results.
@@ -90,7 +90,7 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "Sources/*.swift", "Sources/Supporting\ Files/*.swift", "Sources/Protocols/*.swift"
+  s.source_files  = "Sources/*.swift", "Sources/**/*.swift"
   #s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
@@ -133,5 +133,7 @@ Pod::Spec.new do |s|
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   s.dependency "RxSwift", "~> 4.0"
+  s.dependency "RxCocoa", "~> 4.0"
+
 
 end
