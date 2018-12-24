@@ -11,7 +11,6 @@ import RxAtomic
 import RxSwift
 import RxBlocking
 import RxTest
-import RxCocoa
 
 class CommitsEndpointGroupIntegrationTests: BaseIntegrationTestCase {
   
