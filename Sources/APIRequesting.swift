@@ -28,7 +28,6 @@ extension APIRequesting {
     }
 
     guard var components = URLComponents(url: pathURL, resolvingAgainstBaseURL: false) else { return nil }
-    let dateFormatter = ISO8601DateFormatter()
     // Input query items
     if !parameters.isEmpty {
       components.queryItems = parameters.map { (arg) -> [URLQueryItem] in
@@ -37,7 +36,7 @@ extension APIRequesting {
         case let bool as Bool:
           return [URLQueryItem(name: key, value: bool ? "true" : "false")]
         case let date as Date:
-          return [URLQueryItem(name: key, value: dateFormatter.string(from: date))]
+          return [URLQueryItem(name: key, value: DateFormatter.iso8601.string(from: date))]
         case is Array<CustomStringConvertible>:
           return (value as! Array<CustomStringConvertible>).map {
             URLQueryItem(name: "\(key)[]", value: $0 as? String)

@@ -24,8 +24,7 @@ extension Date {
 
   /// Returns a ISO8601 String representation
   var asISO8601String: String {
-    let formatter = ISO8601DateFormatter()
-    return formatter.string(from: self)
+    return DateFormatter.iso8601.string(from: self)
   }
   
   /// Returns a String representation in "yyyy-MM-dd" format

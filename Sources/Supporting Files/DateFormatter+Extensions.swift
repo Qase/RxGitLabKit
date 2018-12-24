@@ -16,6 +16,13 @@ extension DateFormatter {
     return dateFormatter
   }
   
+  /// A ISO8601 Date format
+  public static var iso8601: DateFormatter {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+    return dateFormatter
+  }
+  
   /// A "yyyy-MM-dd" Date format
   public static var yyyyMMdd: DateFormatter {
     let dateFormatter = DateFormatter()
