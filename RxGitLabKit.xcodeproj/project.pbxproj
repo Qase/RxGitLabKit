@@ -226,7 +226,6 @@
 		6C5D683721B547B900326012 /* BuildStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D683521B547B900326012 /* BuildStatus.swift */; };
 		6C5D683821B547B900326012 /* BuildStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D683521B547B900326012 /* BuildStatus.swift */; };
 		6C5D683921B547B900326012 /* BuildStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D683521B547B900326012 /* BuildStatus.swift */; };
-		6C5D684321B695DE00326012 /* RxGitLabKit_iOSUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D684221B695DE00326012 /* RxGitLabKit_iOSUnitTests.swift */; };
 		6C5D684B21B6960700326012 /* CommitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE95EE72166A3C800EDAE16 /* CommitTests.swift */; };
 		6C5D684C21B6960700326012 /* ProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4370B9218B9A86002ACBDA /* ProjectTests.swift */; };
 		6C5D684D21B6960700326012 /* UsersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE95EC0216181B000EDAE16 /* UsersTests.swift */; };
@@ -266,7 +265,6 @@
 		6C5D688221B696F000326012 /* PaginatorMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDC490B218063CB0027063B /* PaginatorMocks.swift */; };
 		6C5D688321B696F000326012 /* CommitsMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C98CE65217C6A050051569E /* CommitsMocks.swift */; };
 		6C5D688421B696F000326012 /* GeneralMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAA9EFC21582492006F5B16 /* GeneralMocks.swift */; };
-		6C5D688521B696F000326012 /* RxGitLabKit_iOSUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D684221B695DE00326012 /* RxGitLabKit_iOSUnitTests.swift */; };
 		6C5D688721B696F000326012 /* UserMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D683121B53F8C00326012 /* UserMocks.swift */; };
 		6C5D688821B696F000326012 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C98CE67217C71260051569E /* Date+Extensions.swift */; };
 		6C5D688B21B696F000326012 /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C35DD0D212AF78C00D05B87 /* MockURLProtocol.swift */; };
@@ -635,14 +633,12 @@
 		6C4446E121B7E78A00341672 /* PerformanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PerformanceTests.swift; path = Tests/IntegrationTests/PerformanceTests.swift; sourceTree = SOURCE_ROOT; };
 		6C497B4921B8367700652B33 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = File.swift; path = Sources/Models/File.swift; sourceTree = SOURCE_ROOT; };
 		6C497B4E21B844BA00652B33 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
-		6C5401D321144B7500631E21 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		6C5401E62114593600631E21 /* Commit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commit.swift; sourceTree = "<group>"; };
 		6C54020321145C2300631E21 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		6C54518E21A024C300B6BFA0 /* Comparison.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comparison.swift; sourceTree = "<group>"; };
 		6C54519121A0261E00B6BFA0 /* FileInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileInfo.swift; sourceTree = "<group>"; };
 		6C54527521A196EB00B6BFA0 /* ShareGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareGroup.swift; sourceTree = "<group>"; };
 		6C5535E221CE3E1D0004CF03 /* RxGitLabKit-macOSPerformanceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RxGitLabKit-macOSPerformanceTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6C5535E321CE3E1D0004CF03 /* RxGitLabKit-macOSIntegrationTests copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "RxGitLabKit-macOSIntegrationTests copy-Info.plist"; path = "/Users/dagytran/Developer/RxGitLabKit/RxGitLabKit-macOSIntegrationTests copy-Info.plist"; sourceTree = "<absolute>"; };
 		6C5D680B21AECE0300326012 /* XCTest+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTest+Extensions.swift"; sourceTree = "<group>"; };
 		6C5D681021AED38B00326012 /* UsersEndpointGroupIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersEndpointGroupIntegrationTests.swift; sourceTree = "<group>"; };
 		6C5D681421AFF50100326012 /* MembersEndpointGroupIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembersEndpointGroupIntegrationTests.swift; sourceTree = "<group>"; };
@@ -652,8 +648,6 @@
 		6C5D683121B53F8C00326012 /* UserMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMocks.swift; sourceTree = "<group>"; };
 		6C5D683521B547B900326012 /* BuildStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildStatus.swift; sourceTree = "<group>"; };
 		6C5D684021B695DE00326012 /* RxGitLabKit-iOSUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RxGitLabKit-iOSUnitTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6C5D684221B695DE00326012 /* RxGitLabKit_iOSUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxGitLabKit_iOSUnitTests.swift; sourceTree = "<group>"; };
-		6C5D684421B695DE00326012 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6C5D689A21B696F000326012 /* RxGitLabKit-iOSIntegrationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RxGitLabKit-iOSIntegrationTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C5D68E921B6993000326012 /* RxGitLabKit-macOSUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RxGitLabKit-macOSUnitTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C5D692021B6993900326012 /* RxGitLabKit-macOSIntegrationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RxGitLabKit-macOSIntegrationTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -903,13 +897,10 @@
 		6C54014F2114429F00631E21 = {
 			isa = PBXGroup;
 			children = (
-				6CBD2B3B21185332007BA543 /* Supporting Files */,
 				6C5401B82114468800631E21 /* Sources */,
 				6C35DD0C212AF6DC00D05B87 /* Tests */,
-				6C5D684121B695DE00326012 /* RxGitLabKit-iOSUnitTests */,
 				6C54015C211445D400631E21 /* Products */,
 				6C5401EE211459ED00631E21 /* Frameworks */,
-				6C5535E321CE3E1D0004CF03 /* RxGitLabKit-macOSIntegrationTests copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -937,6 +928,7 @@
 		6C5401B82114468800631E21 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				6CBD2B3B21185332007BA543 /* Supporting Files */,
 				6C3E6906217874820082C483 /* Protocols */,
 				6CE95EFC2166AC9500EDAE16 /* ParsingError.swift */,
 				6C54020321145C2300631E21 /* HTTPClient.swift */,
@@ -1011,15 +1003,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		6C5D684121B695DE00326012 /* RxGitLabKit-iOSUnitTests */ = {
-			isa = PBXGroup;
-			children = (
-				6C5D684221B695DE00326012 /* RxGitLabKit_iOSUnitTests.swift */,
-				6C5D684421B695DE00326012 /* Info.plist */,
-			);
-			path = "RxGitLabKit-iOSUnitTests";
-			sourceTree = "<group>";
-		};
 		6C7999F021AD2381000148CD /* Plists */ = {
 			isa = PBXGroup;
 			children = (
@@ -1087,7 +1070,6 @@
 			children = (
 				6C7999F021AD2381000148CD /* Plists */,
 				6CE13F6521184ED300C92B7B /* RxGitLabKit.h */,
-				6C5401D321144B7500631E21 /* Package.swift */,
 				6C35DD11212B04A800D05B87 /* String+Extensions.swift */,
 				6C336E37216AA507009A8324 /* DateFormatter+Extensions.swift */,
 				6C98CE67217C71260051569E /* Date+Extensions.swift */,
@@ -2110,7 +2092,6 @@
 				6C5D685F21B6961200326012 /* PaginatorMocks.swift in Sources */,
 				6C5D685E21B6961200326012 /* CommitsMocks.swift in Sources */,
 				6C5D685921B6961200326012 /* GeneralMocks.swift in Sources */,
-				6C5D684321B695DE00326012 /* RxGitLabKit_iOSUnitTests.swift in Sources */,
 				6C5D686221B6961200326012 /* UserMocks.swift in Sources */,
 				6C5D686721B6963F00326012 /* Date+Extensions.swift in Sources */,
 				6C5D684F21B6960700326012 /* AuthenticationEndpointGroupUnitTests.swift in Sources */,
@@ -2142,7 +2123,6 @@
 				6C5D688421B696F000326012 /* GeneralMocks.swift in Sources */,
 				6C5D68AB21B6972200326012 /* RxGitLabAPIClientIntegrationTests.swift in Sources */,
 				6C5D68AC21B6972200326012 /* AuthenticationEndpointGroupIntegrationTests.swift in Sources */,
-				6C5D688521B696F000326012 /* RxGitLabKit_iOSUnitTests.swift in Sources */,
 				6C5D688721B696F000326012 /* UserMocks.swift in Sources */,
 				6C5D688821B696F000326012 /* Date+Extensions.swift in Sources */,
 				6C5D688B21B696F000326012 /* MockURLProtocol.swift in Sources */,
@@ -2523,7 +2503,7 @@
 				);
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = "Supporting Files/Plists/Info-watchOS.plist";
+				INFOPLIST_FILE = "Sources/Supporting Files/Plists/Info-watchOS.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2580,7 +2560,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = "Supporting Files/Plists/Info-watchOS.plist";
+				INFOPLIST_FILE = "Sources/Supporting Files/Plists/Info-watchOS.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2642,7 +2622,7 @@
 				);
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = "Supporting Files/Plists/Info-tvOS.plist";
+				INFOPLIST_FILE = "Sources/Supporting Files/Plists/Info-tvOS.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2698,7 +2678,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = "Supporting Files/Plists/Info-tvOS.plist";
+				INFOPLIST_FILE = "Sources/Supporting Files/Plists/Info-tvOS.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2755,7 +2735,7 @@
 				);
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = "Supporting Files/Plists/Info-tvOSTests.plist";
+				INFOPLIST_FILE = "Sources/Supporting Files/Plists/Info-tvOSTests.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2802,7 +2782,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = "Supporting Files/Plists/Info-tvOSTests.plist";
+				INFOPLIST_FILE = "Sources/Supporting Files/Plists/Info-tvOSTests.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2880,7 +2860,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "Supporting Files/Plists/Info-iOSTests.plist";
+				INFOPLIST_FILE = "Sources/Supporting Files/Plists/Info-iOSTests.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2951,7 +2931,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "Supporting Files/Plists/Info-iOSTests.plist";
+				INFOPLIST_FILE = "Sources/Supporting Files/Plists/Info-iOSTests.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3094,7 +3074,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "Supporting Files/Plists/Info-macOSTests.plist";
+				INFOPLIST_FILE = "Sources/Supporting Files/Plists/Info-macOSTests.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -3165,7 +3145,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "Supporting Files/Plists/Info-macOSTests.plist";
+				INFOPLIST_FILE = "Sources/Supporting Files/Plists/Info-macOSTests.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -3216,7 +3196,7 @@
 				);
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = "Supporting Files/Plists/Info-iOSTests.plist";
+				INFOPLIST_FILE = "Sources/Supporting Files/Plists/Info-iOSTests.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3263,7 +3243,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = "Supporting Files/Plists/Info-iOSTests.plist";
+				INFOPLIST_FILE = "Sources/Supporting Files/Plists/Info-iOSTests.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3316,7 +3296,7 @@
 				);
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = "Supporting Files/Plists/Info-iOSTests.plist";
+				INFOPLIST_FILE = "Sources/Supporting Files/Plists/Info-iOSTests.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3363,7 +3343,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = "Supporting Files/Plists/Info-iOSTests.plist";
+				INFOPLIST_FILE = "Sources/Supporting Files/Plists/Info-iOSTests.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3441,7 +3421,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "Supporting Files/Plists/Info-macOSTests.plist";
+				INFOPLIST_FILE = "Sources/Supporting Files/Plists/Info-macOSTests.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -3512,7 +3492,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "Supporting Files/Plists/Info-macOSTests.plist";
+				INFOPLIST_FILE = "Sources/Supporting Files/Plists/Info-macOSTests.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -3588,7 +3568,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "Supporting Files/Plists/Info-macOSTests.plist";
+				INFOPLIST_FILE = "Sources/Supporting Files/Plists/Info-macOSTests.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -3659,7 +3639,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "Supporting Files/Plists/Info-macOSTests.plist";
+				INFOPLIST_FILE = "Sources/Supporting Files/Plists/Info-macOSTests.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -3710,7 +3690,7 @@
 				);
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = "Supporting Files/Plists/Info-tvOSTests.plist";
+				INFOPLIST_FILE = "Sources/Supporting Files/Plists/Info-tvOSTests.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -3757,7 +3737,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = "Supporting Files/Plists/Info-tvOSTests.plist";
+				INFOPLIST_FILE = "Sources/Supporting Files/Plists/Info-tvOSTests.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -3810,7 +3790,7 @@
 				);
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = "Supporting Files/Plists/Info-tvOSTests.plist";
+				INFOPLIST_FILE = "Sources/Supporting Files/Plists/Info-tvOSTests.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -3857,7 +3837,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = "Supporting Files/Plists/Info-tvOSTests.plist";
+				INFOPLIST_FILE = "Sources/Supporting Files/Plists/Info-tvOSTests.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -3935,7 +3915,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "Supporting Files/Plists/Info-macOSTests.plist";
+				INFOPLIST_FILE = "Sources/Supporting Files/Plists/Info-macOSTests.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -4006,7 +3986,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "Supporting Files/Plists/Info-macOSTests.plist";
+				INFOPLIST_FILE = "Sources/Supporting Files/Plists/Info-macOSTests.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -4088,7 +4068,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "Supporting Files/Plists/Info-macOS.plist";
+				INFOPLIST_FILE = "Sources/Supporting Files/Plists/Info-macOS.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4168,7 +4148,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "Supporting Files/Plists/Info-macOS.plist";
+				INFOPLIST_FILE = "Sources/Supporting Files/Plists/Info-macOS.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4251,7 +4231,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "Supporting Files/Plists/Info-iOS.plist";
+				INFOPLIST_FILE = "Sources/Supporting Files/Plists/Info-iOS.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -4330,7 +4310,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "Supporting Files/Plists/Info-iOS.plist";
+				INFOPLIST_FILE = "Sources/Supporting Files/Plists/Info-iOS.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (

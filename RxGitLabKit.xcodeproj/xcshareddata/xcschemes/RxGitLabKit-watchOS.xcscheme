@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6C05B89721AD1A8D009E9A98"
+               BlueprintIdentifier = "6C05B88A21AD1A63009E9A98"
                BuildableName = "RxGitLabKit.framework"
-               BlueprintName = "RxGitLabKit-tvOS"
+               BlueprintName = "RxGitLabKit-watchOS"
                ReferencedContainer = "container:RxGitLabKit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,26 +28,7 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6C5D692221B6996100326012"
-               BuildableName = "RxGitLabKit-tvOSUnitTests.xctest"
-               BlueprintName = "RxGitLabKit-tvOSUnitTests"
-               ReferencedContainer = "container:RxGitLabKit.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6C05B89721AD1A8D009E9A98"
-            BuildableName = "RxGitLabKit.framework"
-            BlueprintName = "RxGitLabKit-tvOS"
-            ReferencedContainer = "container:RxGitLabKit.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -64,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6C05B89721AD1A8D009E9A98"
+            BlueprintIdentifier = "6C05B88A21AD1A63009E9A98"
             BuildableName = "RxGitLabKit.framework"
-            BlueprintName = "RxGitLabKit-tvOS"
+            BlueprintName = "RxGitLabKit-watchOS"
             ReferencedContainer = "container:RxGitLabKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -82,9 +63,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6C05B89721AD1A8D009E9A98"
+            BlueprintIdentifier = "6C05B88A21AD1A63009E9A98"
             BuildableName = "RxGitLabKit.framework"
-            BlueprintName = "RxGitLabKit-tvOS"
+            BlueprintName = "RxGitLabKit-watchOS"
             ReferencedContainer = "container:RxGitLabKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

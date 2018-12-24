@@ -1,8 +1,7 @@
 # RxGitLabKit
 
-======================================
-
 ![platforms](https://img.shields.io/badge/platforms-iOS%20%7C%20macOS%20%7C%20tvOS%20%7C%20watchOS%20%7C%20Linux-333333.svg) ![pod](https://img.shields.io/cocoapods/v/RxSwift.svg) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![Swift Package Manager compatible](https://img.shields.io/badge/Swift%20Package%20Manager-compatible-brightgreen.svg)](https://github.com/apple/swift-package-manager)
+
 ## Description
 Swift Reactive [GitLab API](https://gitlab.com/help/api/README.md) v4 client using [RxSwift](https://github.com/ReactiveX/RxSwift/blob/master/README.md)
 
@@ -151,4 +150,4 @@ $ swift build
 
 ## Licence
 
-[MIT](./LICENCE)
+[MIT](https://gitlab.com/dagytran/RxGitLabKit/blob/master/LICENSE)

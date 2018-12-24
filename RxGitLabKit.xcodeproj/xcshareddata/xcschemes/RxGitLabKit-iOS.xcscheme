@@ -32,9 +32,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6C06A88D212EA41D00686583"
-               BuildableName = "RxGitLabKit-iOSAllTests.xctest"
-               BlueprintName = "RxGitLabKit-iOSAllTests"
+               BlueprintIdentifier = "6C5D683F21B695DE00326012"
+               BuildableName = "RxGitLabKit-iOSUnitTests.xctest"
+               BlueprintName = "RxGitLabKit-iOSUnitTests"
                ReferencedContainer = "container:RxGitLabKit.xcodeproj">
             </BuildableReference>
          </TestableReference>
