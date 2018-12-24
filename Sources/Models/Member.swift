@@ -22,4 +22,22 @@ public struct Member: Codable {
     case expiresAt = "expires_at"
     case accessLevel = "access_level"
   }
+  
+  public init(from decoder: Decoder) throws {
+    let values = try decoder.container(keyedBy: CodingKeys.self)
+    id = try values.decode(Int.self, forKey: .id)
+    username = try values.decode(String.self, forKey: .username)
+    name = try values.decode(String.self, forKey: .name)
+    state = try values.decode(String.self, forKey: .state)
+    avatarURL = try values.decodeIfPresent(String.self, forKey: .avatarURL)
+    webURL = try values.decodeIfPresent(String.self, forKey: .webURL)
+    accessLevel = try values.decode(Int.self, forKey: .accessLevel)
+   
+    if let _expiresAt = try values.decodeIfPresent(String.self, forKey: .expiresAt) {
+      expiresAt = Date(from: _expiresAt, using: DateFormatter.yyyyMMdd)
+    } else {
+      expiresAt = nil
+    }
+  }
+  
 }

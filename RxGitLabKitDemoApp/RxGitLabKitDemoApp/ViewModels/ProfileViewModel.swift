@@ -38,7 +38,7 @@ class ProfileViewModel: BaseViewModel {
         }
         
         if let privateToken = self.gitlabClient.privateToken {
-          texts.append(("OAuth Token", privateToken))
+          texts.append(("Private Token", privateToken))
         }
         return texts
     }

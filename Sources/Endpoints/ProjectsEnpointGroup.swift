@@ -161,9 +161,9 @@ public class ProjectsEnpointGroup: EndpointGroup {
    
    Get the users list of a project. The pagination parameters page and per_page can be used to restrict the list of references.
    - Parameters:
-     - userID: ID of the user
-     - parameters: See Query Parameters in the description
-     - page: The page number
+   - userID: ID of the user
+   - parameters: See Query Parameters in the description
+   - page: The page number
    
    **Optional Query Parameters:**
    - **user_id: String** - The ID or username of the user
@@ -193,9 +193,9 @@ public class ProjectsEnpointGroup: EndpointGroup {
    
    Get the paginator of users list of a project.
    - Parameters:
-     - userID: ID of the user
-     - parameters: Query Parameters - See description
-
+   - userID: ID of the user
+   - parameters: Query Parameters - See description
+   
    **Optinal Query Parameters:**
    - **user_id: String** - The ID or username of the user
    - **archived: Boolean** - Limit by archived status
@@ -349,11 +349,13 @@ public class ProjectsEnpointGroup: EndpointGroup {
    Stars a given project. Returns status code `304` if the project is already starred.
    - Parameter projectID: The ID or URL-encoded path of the project
    - Returns: An `Observable` of a starred project
-   public func starProject(projectID: Int) -> Observable<Project> {
-   let apiRequest = APIRequest(path: Endpoints.star(projectID: projectID).url, method: .post)
-   return object(for: apiRequest)
-   }
-   
+   */
+  public func starProject(projectID: Int) -> Observable<Project> {
+    let apiRequest = APIRequest(path: Endpoints.star(projectID: projectID).url, method: .post)
+    return object(for: apiRequest)
+  }
+  
+  /**
    Unstar a project
    
    Unstars a given project. Returns status code `304` if the project is not starred.

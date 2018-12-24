@@ -73,6 +73,8 @@ public enum HTTPError: Error {
 
 extension HTTPError: LocalizedError {
   
+  
+  /// A localized error description
   public var errorDescription: String? {
     switch self {
     case .badRequest(let message):

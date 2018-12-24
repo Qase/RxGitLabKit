@@ -13,10 +13,12 @@ public protocol APIRequesting {
   var parameters: QueryParameters { get }
   var jsonDictionary: JSONDictionary? {get}
   var data: Data? { get }
+  
+  func buildRequest(with hostURL: URL, header: Header?, apiVersion: String?, page: Int?, perPage: Int?) -> URLRequest?
 }
 
 extension APIRequesting {
-  func buildRequest(with hostURL: URL, header: Header? = nil, apiVersion: String? = RxGitLabAPIClient.apiVersionURLString, page: Int? = nil, perPage: Int? = nil) -> URLRequest? {
+  public func buildRequest(with hostURL: URL, header: Header? = nil, apiVersion: String? = RxGitLabAPIClient.apiVersionURLString, page: Int? = nil, perPage: Int? = nil) -> URLRequest? {
     var pathURL = hostURL
     if let apiVersion = apiVersion {
       pathURL.appendPathComponent(apiVersion)

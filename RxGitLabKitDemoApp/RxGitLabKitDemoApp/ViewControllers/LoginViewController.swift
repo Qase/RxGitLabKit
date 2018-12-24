@@ -82,7 +82,8 @@ class LoginViewController: BaseViewController {
   }
   
   private func setupBinding() {
-    authorizeButton.rx.tap.bind {
+    authorizeButton.rx.tap
+      .bind {
       var fields = [String: String]()
       if let hostURLString = self.hostTextField.text, !hostURLString.isEmpty {
         fields["hostURL"] = hostURLString

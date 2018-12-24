@@ -11,25 +11,39 @@ import RxCocoa
 
 public class RxGitLabAPIClient {
   
-  private let loginPublishSubject = PublishSubject<(String, String)>()
-  private let getCurrentUserTrigger = PublishSubject<Void>()
-
-  public let currentUserVariable = Variable<User?>(nil)
+  private let disposeBag = DisposeBag()
   
+  /// Login trigger
+  private let loginPublishSubject = PublishSubject<(String, String)>()
+  
+  /// Fetching current user trigger
+  private let getCurrentUserTrigger = PublishSubject<Void>()
+  
+  /// Logged in user variable
+  private let currentUserVariable = Variable<User?>(nil)
+  
+  /// Observable of the current user
   public var currentUserObservable: Observable<User?> {
-    return currentUserVariable.asObservable().distinctUntilChanged { $0?.id == $1?.id }
+    return currentUserVariable.asObservable().distinctUntilChanged { $0?.id == $1?.id }.debug()
   }
   
+  /// Default per page accoring to GitLab Docs
   public static let defaultPerPage = 20
-
-  public static let apiVersion: Int = 4
   
+  /// 
+  public static var apiVersionURLString: String {
+    return "/api/v4"
+  }
+  
+  /// GitLab Host URL
   public var hostURL: URL {
     return hostCommunicator.hostURL
   }
   
+  /// The main communication component with GitLab API server
   internal let hostCommunicator: HostCommunicator
   
+  /// Private Token
   public var privateToken: String? {
     get {
       return hostCommunicator.privateToken
@@ -39,6 +53,7 @@ public class RxGitLabAPIClient {
     }
   }
   
+  /// OAuthToken
   public var oAuthToken: String? {
     get {
       return hostCommunicator.oAuthTokenVariable.value
@@ -47,43 +62,31 @@ public class RxGitLabAPIClient {
       hostCommunicator.oAuthTokenVariable.value = newValue
     }
   }
-  
-  private let disposeBag = DisposeBag()
-
-  public static var apiVersionURLString: String {
-    return "/api/v\(RxGitLabAPIClient.apiVersion)"
-  }
-
-  public var apiURLString: String {
-    return "\(hostCommunicator.hostURL.absoluteString)\(RxGitLabAPIClient.apiVersionURLString)"
-  }
-
-  public let perPage = Variable<Int>(RxGitLabAPIClient.defaultPerPage)
 
   // MARK: Endpoint Groups
 
   public lazy var authentication: AuthenticationEndpointGroup = {
-    return createAndSubscribeEndpointGroup()
+    return createEndpointGroup()
   }()
 
   public lazy var projects: ProjectsEnpointGroup = {
-    return createAndSubscribeEndpointGroup()
+    return createEndpointGroup()
   }()
 
   public lazy var repositories: RepositoriesEndpointGroup = {
-    return createAndSubscribeEndpointGroup()
+    return createEndpointGroup()
   }()
   
   public lazy var commits: CommitsEndpointGroup = {
-    return createAndSubscribeEndpointGroup()
+    return createEndpointGroup()
   }()
 
   public lazy var users: UsersEndpointGroup = {
-    return createAndSubscribeEndpointGroup()
+    return createEndpointGroup()
   }()
 
   public lazy var members: MembersEndpointGroup = {
-    return createAndSubscribeEndpointGroup()
+    return createEndpointGroup()
   }()
   
   // MARK: Init
@@ -111,6 +114,7 @@ public class RxGitLabAPIClient {
 
   // MARK: Private functions
   
+  /// Sets up login bindings
   private func setupBindings() {
     
    loginPublishSubject
@@ -125,47 +129,60 @@ public class RxGitLabAPIClient {
     hostCommunicator.oAuthTokenVariable.asObservable()
       .filter { $0 != nil }
       .flatMap { _ in self.users.getCurrentUser() }
+      .distinctUntilChanged { $0?.id == $1?.id }
       .bind(to: currentUserVariable)
       .disposed(by: disposeBag)
     
     getCurrentUserTrigger
       .flatMap { self.users.getCurrentUser() }
-//      .debug()
       .bind(to: currentUserVariable)
       .disposed(by: disposeBag)
   }
 
-  private func createAndSubscribeEndpointGroup<T: EndpointGroup>() -> T {
-    let endpoint = T(with: hostCommunicator)
-    perPage.asObservable()
-      .filter { $0 > 0}
-      .bind(to: endpoint.perPage)
-      .disposed(by: endpoint.disposeBag)
-
-    return endpoint
+  /// Factory method for creating an Endpoint Group instance
+  private func createEndpointGroup<T: EndpointGroup>() -> T {
+    return T(with: hostCommunicator)
   }
 
   // MARK: Public Functions
   
+  
+  /// Changes the GitLab Host URL
+  ///
+  /// - Parameter hostURL: The desired host URL
   public func changeHostURL(hostURL: URL) {
     hostCommunicator.hostURL = hostURL
   }
 
+  
+  /// Logs in a user using an username and password
+  ///
+  /// - Parameters:
+  ///   - username: username or e-mail
+  ///   - password: password
   public func logIn(username: String, password: String) {
     loginPublishSubject.onNext((username, password))
   }
   
+  
+  /// Sets the private token for communication with GitLab API server
+  ///
+  /// - Parameter privateToken: A private token
   public func logIn(privateToken: String) {
     self.privateToken = privateToken
     hostCommunicator.privateToken = privateToken
     getCurrentUserTrigger.onNext(())
   }
   
+  /// Sets the OAuth token for communication with GitLab API server
+  ///
+  /// - Parameter privateToken: An OAuth token
   public func logIn(oAuthToken: String) {
     self.oAuthToken = oAuthToken
     getCurrentUserTrigger.onNext(())
   }
   
+  /// Logs out the current user
   public func logOut() {
     oAuthToken = nil
     privateToken = nil

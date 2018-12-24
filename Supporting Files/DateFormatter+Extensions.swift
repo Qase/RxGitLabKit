@@ -8,12 +8,15 @@
 import Foundation
 
 extension DateFormatter {
+  
+  /// A full ISO8601 Date format
   public static var iso8601full: DateFormatter {
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
     return dateFormatter
   }
   
+  /// A "yyyy-MM-dd" Date format
   public static var yyyyMMdd: DateFormatter {
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "yyyy-MM-dd"

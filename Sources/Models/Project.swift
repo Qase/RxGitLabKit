@@ -8,11 +8,6 @@
 import Foundation
 
 public struct Project: Codable {
-  private var decoder: JSONDecoder {
-    let decoder = JSONDecoder()
-    decoder.dateDecodingStrategy = .iso8601
-    return decoder
-  }
   public let id: Int
   public let description: String?
   public let defaultBranch: String?

@@ -20,6 +20,34 @@
                ReferencedContainer = "container:RxGitLabKit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "6C5D68EB21B6993900326012"
+               BuildableName = "RxGitLabKit-macOSIntegrationTests.xctest"
+               BlueprintName = "RxGitLabKit-macOSIntegrationTests"
+               ReferencedContainer = "container:RxGitLabKit.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "6C5535BA21CE3E1D0004CF03"
+               BuildableName = "RxGitLabKit-macOSPerformanceTests.xctest"
+               BlueprintName = "RxGitLabKit-macOSPerformanceTests"
+               ReferencedContainer = "container:RxGitLabKit.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -29,7 +57,7 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
-            skipped = "NO"
+            skipped = "YES"
             parallelizable = "YES"
             testExecutionOrdering = "random">
             <BuildableReference
@@ -37,6 +65,16 @@
                BlueprintIdentifier = "6C6EE58421907480006C447E"
                BuildableName = "RxGitLabKit-macOSAllTests.xctest"
                BlueprintName = "RxGitLabKit-macOSAllTests"
+               ReferencedContainer = "container:RxGitLabKit.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "6C5D68B421B6993000326012"
+               BuildableName = "RxGitLabKit-macOSUnitTests.xctest"
+               BlueprintName = "RxGitLabKit-macOSUnitTests"
                ReferencedContainer = "container:RxGitLabKit.xcodeproj">
             </BuildableReference>
          </TestableReference>

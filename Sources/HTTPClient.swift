@@ -11,7 +11,6 @@ import RxSwift
 public protocol Networking {
   func response(for request: URLRequest) -> Observable<(response: HTTPURLResponse, data: Data?)>
   func header(for request: URLRequest) -> Observable<Header>
-  
   func object<T: Codable>(for request: URLRequest) -> Observable<T>
   func data(for request: URLRequest) -> Observable<Data>
   func json(for request: URLRequest) -> Observable<JSONDictionary>
@@ -26,14 +25,6 @@ public class HTTPClient: Networking {
   }
   
   public static func response(for request: URLRequest, in session: URLSessionProtocol = URLSession.shared) -> Observable<(response: HTTPURLResponse, data: Data?)> {
-    print("Request")
-    debugPrint(request)
-    if let body = request.httpBody {
-      debugPrint(String(data: body, encoding: .utf8)!)
-    }
-    if let headers = request.allHTTPHeaderFields, headers.count > 0 {
-      debugPrint(headers)
-    }
     return Observable.create { observer in
       let task = session.dataTask(with: request) { (data, response, error) in
         guard let response = response else {

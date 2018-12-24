@@ -64,8 +64,10 @@ class UsersEndpointGroupIntegrationTests: BaseIntegrationTestCase {
     
     switch result {
     case .completed(elements: let elements):
-      XCTAssertNotNil(elements[0])
-      let user = elements[0]!
+      guard let user = elements[0] else {
+        XCTFail("User Not found in response.")
+        return
+      }
       XCTAssertEqual(user.id, 1)
       XCTAssertEqual(user.username, "root")
       XCTAssertEqual(user.name, "Administrator")

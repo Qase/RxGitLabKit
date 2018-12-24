@@ -25,12 +25,12 @@ extension Activity {
     username = try values.decode(String.self, forKey: .username)
     let dateFormatter = DateFormatter.yyyyMMdd
     if let _lastActivityOn = try values.decodeIfPresent(String.self, forKey: .lastActivityOn) {
-      lastActivityOn = Date.from(string: _lastActivityOn, using: dateFormatter)
+      lastActivityOn = Date(from: _lastActivityOn, using: dateFormatter)
     } else {
       lastActivityOn = nil
     }
     if let _lastActivityAt = try values.decodeIfPresent(String.self, forKey: .lastActivityAt) {
-      lastActivityAt = Date.from(string: _lastActivityAt, using: dateFormatter)
+      lastActivityAt = Date(from: _lastActivityAt, using: dateFormatter)
     } else {
       lastActivityAt = nil
     }
