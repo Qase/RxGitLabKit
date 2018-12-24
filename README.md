@@ -1,6 +1,6 @@
 # RxGitLabKit
 
-## Description
+## Description
 Swift Reactive [GitLab API](https://gitlab.com/help/api/README.md) v4 client using
 [RxSwift](https://github.com/ReactiveX/RxSwift/blob/master/README.md)
 
