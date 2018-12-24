@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		6C05B84D21AC5063009E9A98 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CBD2B27211852DD007BA543 /* RxSwift.framework */; };
 		6C05B84E21AC506D009E9A98 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CBD2B26211852DD007BA543 /* RxCocoa.framework */; };
-		6C05B8A121AD1A8E009E9A98 /* RxGitLabKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C05B89821AD1A8D009E9A98 /* RxGitLabKit.framework */; };
 		6C05B8B121AD1AD8009E9A98 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C05B8AF21AD1AD8009E9A98 /* RxCocoa.framework */; };
 		6C05B8B221AD1AD8009E9A98 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C05B8B021AD1AD8009E9A98 /* RxSwift.framework */; };
 		6C05B8B821AD1BC0009E9A98 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C05B8B621AD1BC0009E9A98 /* RxCocoa.framework */; };
@@ -196,7 +195,6 @@
 		6C5535D621CE3E1D0004CF03 /* DateFormatter+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C336E37216AA507009A8324 /* DateFormatter+Extensions.swift */; };
 		6C5535D821CE3E1D0004CF03 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CBD2B4021185483007BA543 /* RxSwift.framework */; };
 		6C5535D921CE3E1D0004CF03 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CBD2B4121185483007BA543 /* RxCocoa.framework */; };
-		6C5535DA21CE3E1D0004CF03 /* RxAtomic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C7999F921ADE743000148CD /* RxAtomic.framework */; };
 		6C5535DB21CE3E1D0004CF03 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C6EE5BF21908280006C447E /* RxBlocking.framework */; };
 		6C5535DC21CE3E1D0004CF03 /* RxTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C6EE5BD2190826E006C447E /* RxTest.framework */; };
 		6C5535E421CE3E440004CF03 /* PerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4446E121B7E78A00341672 /* PerformanceTests.swift */; };
@@ -269,7 +267,6 @@
 		6C5D688821B696F000326012 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C98CE67217C71260051569E /* Date+Extensions.swift */; };
 		6C5D688B21B696F000326012 /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C35DD0D212AF78C00D05B87 /* MockURLProtocol.swift */; };
 		6C5D688C21B696F000326012 /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3E6904217872FE0082C483 /* MockURLSession.swift */; };
-		6C5D689021B696F000326012 /* RxGitLabKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CE13F6321184ED200C92B7B /* RxGitLabKit.framework */; };
 		6C5D689121B696F000326012 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C35DD19212B0B3200D05B87 /* RxBlocking.framework */; };
 		6C5D689221B696F000326012 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CBD2B26211852DD007BA543 /* RxCocoa.framework */; };
 		6C5D689321B696F000326012 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CBD2B27211852DD007BA543 /* RxSwift.framework */; };
@@ -310,7 +307,6 @@
 		6C5D68DD21B6993000326012 /* CommitsEndpointGroupUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3E690A21790E8C0082C483 /* CommitsEndpointGroupUnitTests.swift */; };
 		6C5D68DF21B6993000326012 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CBD2B4021185483007BA543 /* RxSwift.framework */; };
 		6C5D68E021B6993000326012 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CBD2B4121185483007BA543 /* RxCocoa.framework */; };
-		6C5D68E121B6993000326012 /* RxAtomic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C7999F921ADE743000148CD /* RxAtomic.framework */; };
 		6C5D68E221B6993000326012 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C6EE5BF21908280006C447E /* RxBlocking.framework */; };
 		6C5D68E321B6993000326012 /* RxTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C6EE5BD2190826E006C447E /* RxTest.framework */; };
 		6C5D68EF21B6993900326012 /* UserMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D683121B53F8C00326012 /* UserMocks.swift */; };
@@ -339,7 +335,6 @@
 		6C5D691321B6993900326012 /* DateFormatter+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C336E37216AA507009A8324 /* DateFormatter+Extensions.swift */; };
 		6C5D691621B6993900326012 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CBD2B4021185483007BA543 /* RxSwift.framework */; };
 		6C5D691721B6993900326012 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CBD2B4121185483007BA543 /* RxCocoa.framework */; };
-		6C5D691821B6993900326012 /* RxAtomic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C7999F921ADE743000148CD /* RxAtomic.framework */; };
 		6C5D691921B6993900326012 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C6EE5BF21908280006C447E /* RxBlocking.framework */; };
 		6C5D691A21B6993900326012 /* RxTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C6EE5BD2190826E006C447E /* RxTest.framework */; };
 		6C5D692621B6996100326012 /* UserMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D683121B53F8C00326012 /* UserMocks.swift */; };
@@ -370,7 +365,6 @@
 		6C5D694E21B6996100326012 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C05B92521AD1D54009E9A98 /* RxBlocking.framework */; };
 		6C5D694F21B6996100326012 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C05B8AF21AD1AD8009E9A98 /* RxCocoa.framework */; };
 		6C5D695021B6996100326012 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C05B8B021AD1AD8009E9A98 /* RxSwift.framework */; };
-		6C5D695121B6996100326012 /* RxGitLabKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C05B89821AD1A8D009E9A98 /* RxGitLabKit.framework */; };
 		6C5D695D21B6996400326012 /* UserMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D683121B53F8C00326012 /* UserMocks.swift */; };
 		6C5D695F21B6996400326012 /* GeneralMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAA9EFC21582492006F5B16 /* GeneralMocks.swift */; };
 		6C5D696121B6996400326012 /* BaseIntegrationTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7999F121AD585B000148CD /* BaseIntegrationTestCase.swift */; };
@@ -399,7 +393,6 @@
 		6C5D698521B6996400326012 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C05B92521AD1D54009E9A98 /* RxBlocking.framework */; };
 		6C5D698621B6996400326012 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C05B8AF21AD1AD8009E9A98 /* RxCocoa.framework */; };
 		6C5D698721B6996400326012 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C05B8B021AD1AD8009E9A98 /* RxSwift.framework */; };
-		6C5D698821B6996400326012 /* RxGitLabKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C05B89821AD1A8D009E9A98 /* RxGitLabKit.framework */; };
 		6C6EE57D218F6F7D006C447E /* EndpointGroupUnitTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6EE57C218F6F7D006C447E /* EndpointGroupUnitTestCase.swift */; };
 		6C6EE5902190749B006C447E /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C35DD0D212AF78C00D05B87 /* MockURLProtocol.swift */; };
 		6C6EE5912190749F006C447E /* GeneralMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAA9EFC21582492006F5B16 /* GeneralMocks.swift */; };
@@ -449,7 +442,6 @@
 		6C7999F621ADE42D000148CD /* ProjectsEndpointGroupIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7999F521ADE42D000148CD /* ProjectsEndpointGroupIntegrationTests.swift */; };
 		6C7999F721ADE42D000148CD /* ProjectsEndpointGroupIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7999F521ADE42D000148CD /* ProjectsEndpointGroupIntegrationTests.swift */; };
 		6C7999F821ADE42D000148CD /* ProjectsEndpointGroupIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7999F521ADE42D000148CD /* ProjectsEndpointGroupIntegrationTests.swift */; };
-		6C7999FA21ADE743000148CD /* RxAtomic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C7999F921ADE743000148CD /* RxAtomic.framework */; };
 		6C7999FC21ADE80F000148CD /* CommitsEndpointGroupIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7999FB21ADE80F000148CD /* CommitsEndpointGroupIntegrationTests.swift */; };
 		6C7999FD21ADE80F000148CD /* CommitsEndpointGroupIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7999FB21ADE80F000148CD /* CommitsEndpointGroupIntegrationTests.swift */; };
 		6C7999FE21ADE80F000148CD /* CommitsEndpointGroupIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7999FB21ADE80F000148CD /* CommitsEndpointGroupIntegrationTests.swift */; };
@@ -743,7 +735,6 @@
 				6C05B92721AD1D54009E9A98 /* RxBlocking.framework in Frameworks */,
 				6C05B92221AD1D53009E9A98 /* RxCocoa.framework in Frameworks */,
 				6C05B92321AD1D53009E9A98 /* RxSwift.framework in Frameworks */,
-				6C05B8A121AD1A8E009E9A98 /* RxGitLabKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -764,7 +755,6 @@
 			files = (
 				6C5535D821CE3E1D0004CF03 /* RxSwift.framework in Frameworks */,
 				6C5535D921CE3E1D0004CF03 /* RxCocoa.framework in Frameworks */,
-				6C5535DA21CE3E1D0004CF03 /* RxAtomic.framework in Frameworks */,
 				6C5535DB21CE3E1D0004CF03 /* RxBlocking.framework in Frameworks */,
 				6C5535DC21CE3E1D0004CF03 /* RxTest.framework in Frameworks */,
 			);
@@ -785,7 +775,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C5D689021B696F000326012 /* RxGitLabKit.framework in Frameworks */,
 				6C5D689121B696F000326012 /* RxBlocking.framework in Frameworks */,
 				6C5D689221B696F000326012 /* RxCocoa.framework in Frameworks */,
 				6C5D689321B696F000326012 /* RxSwift.framework in Frameworks */,
@@ -799,7 +788,6 @@
 			files = (
 				6C5D68DF21B6993000326012 /* RxSwift.framework in Frameworks */,
 				6C5D68E021B6993000326012 /* RxCocoa.framework in Frameworks */,
-				6C5D68E121B6993000326012 /* RxAtomic.framework in Frameworks */,
 				6C5D68E221B6993000326012 /* RxBlocking.framework in Frameworks */,
 				6C5D68E321B6993000326012 /* RxTest.framework in Frameworks */,
 			);
@@ -811,7 +799,6 @@
 			files = (
 				6C5D691621B6993900326012 /* RxSwift.framework in Frameworks */,
 				6C5D691721B6993900326012 /* RxCocoa.framework in Frameworks */,
-				6C5D691821B6993900326012 /* RxAtomic.framework in Frameworks */,
 				6C5D691921B6993900326012 /* RxBlocking.framework in Frameworks */,
 				6C5D691A21B6993900326012 /* RxTest.framework in Frameworks */,
 			);
@@ -825,7 +812,6 @@
 				6C5D694E21B6996100326012 /* RxBlocking.framework in Frameworks */,
 				6C5D694F21B6996100326012 /* RxCocoa.framework in Frameworks */,
 				6C5D695021B6996100326012 /* RxSwift.framework in Frameworks */,
-				6C5D695121B6996100326012 /* RxGitLabKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -837,7 +823,6 @@
 				6C5D698521B6996400326012 /* RxBlocking.framework in Frameworks */,
 				6C5D698621B6996400326012 /* RxCocoa.framework in Frameworks */,
 				6C5D698721B6996400326012 /* RxSwift.framework in Frameworks */,
-				6C5D698821B6996400326012 /* RxGitLabKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -847,7 +832,6 @@
 			files = (
 				6C6EE5BC21908261006C447E /* RxSwift.framework in Frameworks */,
 				6C6EE5C121908295006C447E /* RxCocoa.framework in Frameworks */,
-				6C7999FA21ADE743000148CD /* RxAtomic.framework in Frameworks */,
 				6C6EE5C421908BFD006C447E /* RxBlocking.framework in Frameworks */,
 				6C6EE5C321908BF2006C447E /* RxTest.framework in Frameworks */,
 			);
@@ -1657,7 +1641,6 @@
 				"$(SRCROOT)/Carthage/Build/Mac/RxCocoa.framework",
 				"$(SRCROOT)/Carthage/Build/Mac/RxSwift.framework",
 				"$(SRCROOT)/Carthage/Build/Mac/RxTest.framework",
-				"$(SRCROOT)/Carthage/Build/Mac/RxAtomic.framework",
 			);
 			name = "Run Script";
 			outputFileListPaths = (
@@ -1722,7 +1705,6 @@
 				"$(SRCROOT)/Carthage/Build/Mac/RxCocoa.framework",
 				"$(SRCROOT)/Carthage/Build/Mac/RxSwift.framework",
 				"$(SRCROOT)/Carthage/Build/Mac/RxTest.framework",
-				"$(SRCROOT)/Carthage/Build/Mac/RxAtomic.framework",
 			);
 			name = "Run Script";
 			outputFileListPaths = (
@@ -1745,7 +1727,6 @@
 				"$(SRCROOT)/Carthage/Build/Mac/RxCocoa.framework",
 				"$(SRCROOT)/Carthage/Build/Mac/RxSwift.framework",
 				"$(SRCROOT)/Carthage/Build/Mac/RxTest.framework",
-				"$(SRCROOT)/Carthage/Build/Mac/RxAtomic.framework",
 			);
 			name = "Run Script";
 			outputFileListPaths = (
@@ -1810,7 +1791,6 @@
 				"$(SRCROOT)/Carthage/Build/Mac/RxCocoa.framework",
 				"$(SRCROOT)/Carthage/Build/Mac/RxSwift.framework",
 				"$(SRCROOT)/Carthage/Build/Mac/RxTest.framework",
-				"$(SRCROOT)/Carthage/Build/Mac/RxAtomic.framework",
 			);
 			name = "Run Script";
 			outputFileListPaths = (
