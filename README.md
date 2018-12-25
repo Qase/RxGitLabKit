@@ -28,7 +28,7 @@ let client = RxGitLabAPIClient(with: hostURL, oAuthToken: "OAUTH_TOKEN")
 let client = RxGitLabAPIClient(with: hostURL)
 client.logIn(username: "USERNAME", password: "PASSWORD")
 ```
-### Basic usage
+### Basic usage
 ```swift
 let hostURL = URL(string: "http://example.gitlab.server.com")!
 
@@ -149,7 +149,10 @@ replace `YOUR_PROJECT_NAME` and `SOURCE_PATH` and run
 ```bash
 $ swift build
 ```
-
+and then 
+```bash
+$ swift package generate-xcodeproj
+```
 ## Licence
 
 [MIT](https://gitlab.com/dagytran/RxGitLabKit/blob/master/LICENSE)
