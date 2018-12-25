@@ -8,10 +8,16 @@
 import Foundation
 import RxSwift
 
+/// Query Parameters
 public typealias QueryParameters = [String: Any]
+
+/// Dictionary representing a JSON object
 public typealias JSONDictionary = [String: Any]
+
+/// HTTP Header
 public typealias Header = [String: String]
 
+/// Main HTTP Header keys returned from server
 public enum HeaderKeys: String {
   case total = "X-Total"
   case totalPages = "X-Total-Pages"
@@ -23,6 +29,7 @@ public enum HeaderKeys: String {
   case oAuthToken = "Authorization"
 }
 
+/// HTTP Methods
 public enum HTTPMethod: String {
   case get = "GET"
   case post = "POST"
@@ -33,6 +40,7 @@ public enum HTTPMethod: String {
   case head = "HEAD"
 }
 
+/// HTTP Errors
 public enum HTTPError: Error {
   /// Bad Request - 400
   case badRequest(message: String?)
@@ -71,9 +79,8 @@ public enum HTTPError: Error {
   case noData
 }
 
+
 extension HTTPError: LocalizedError {
-  
-  
   /// A localized error description
   public var errorDescription: String? {
     switch self {
@@ -105,14 +112,14 @@ extension HTTPError: LocalizedError {
   }
 }
 
+/// This protocol is used to enable creating URLSession mocks
 public protocol URLSessionProtocol {
   typealias DataTaskResult = (Data?, URLResponse?, Error?) -> Void
 
   func dataTask(with request: URLRequest, completionHandler: @escaping DataTaskResult) -> URLSessionDataTaskProtocol
 }
 
-//extension URLSessionProtocol: ReactiveComplatible {}
-
+/// This protocol is used to enable creating URLSessionDataTask mocks
 public protocol URLSessionDataTaskProtocol {
   func resume()
   func cancel()

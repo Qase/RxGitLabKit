@@ -8,6 +8,9 @@
 import Foundation
 import RxSwift
 
+/**
+ This EndpointGroup communicates with [Users API](https://docs.gitlab.com/ee/api/users.html)
+ */
 public class UsersEndpointGroup: EndpointGroup {
 
   internal enum Endpoints {

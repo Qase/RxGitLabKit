@@ -11,6 +11,7 @@ This library currently supports these endpoint groups:
   - [Commits](https://docs.gitlab.com/ee/api/commits.html)
   - [Group and Project members](https://docs.gitlab.com/ee/api/members.html)
 
+The HTML documentation generated using [Jazzy](https://github.com/realm/jazzy) can be found on GitLab Pages [here](https://dagytran.gitlab.io/rxgitlabkit).
 
 ## Usage
 ### Authorization

@@ -8,33 +8,50 @@
 import Foundation
 import RxSwift
 
+
+/// This is a base class for all EndpointGroups
 public class EndpointGroup {
   
+  /// Communicator
   internal let hostCommunicator: HostCommunicator
   internal let disposeBag = DisposeBag()
-  
-  public let perPage = Variable<Int>(100)
 
-
+  /// Endpoint enumeration
   internal enum Endpoints {}
 
   public required init(with hostCommunicator: HostCommunicator) {
     self.hostCommunicator = hostCommunicator
   }
   
-  internal func object<T>(for apiRequest: APIRequesting, apiVersion: String? = RxGitLabAPIClient.apiVersionURLString) -> Observable<T> where T: Codable {
-    return hostCommunicator.object(for: apiRequest, apiVersion: apiVersion)
+  /// Object of type T from APIRequest
+  ///
+  /// - Parameter apiRequest: api request
+  /// - Returns: Observable<T>
+  internal func object<T>(for apiRequest: APIRequest) -> Observable<T> where T: Codable {
+    return hostCommunicator.object(for: apiRequest)
   }
   
-  internal func data(for apiRequest: APIRequesting) -> Observable<Data> {
+  /// A server response with data from APIRequest
+  ///
+  /// - Parameter apiRequest: api request
+  /// - Returns: Observable<(response: HTTPURLResponse, data: Data?)>
+  internal func data(for apiRequest: APIRequest) -> Observable<Data> {
     return hostCommunicator.data(for: apiRequest)
   }
   
-  internal func response(for apiRequest: APIRequesting) -> Observable<(response: HTTPURLResponse, data: Data?)> {
+  /// A server response with data from APIRequest
+  ///
+  /// - Parameter apiRequest: api request
+  /// - Returns: Observable<(response: HTTPURLResponse, data: Data?)>
+  internal func response(for apiRequest: APIRequest) -> Observable<(response: HTTPURLResponse, data: Data?)> {
     return hostCommunicator.response(for: apiRequest)
   }
   
-  internal func httpURLResponse(for apiRequest: APIRequesting) -> Observable<HTTPURLResponse> {
+  /// A server response without data from APIRequest
+  ///
+  /// - Parameter apiRequest: api request
+  /// - Returns: Observable<HTTPURLResponse>
+  internal func httpURLResponse(for apiRequest: APIRequest) -> Observable<HTTPURLResponse> {
     return hostCommunicator.httpURLResponse(for: apiRequest)
   }
 }

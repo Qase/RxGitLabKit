@@ -9,6 +9,9 @@ import Foundation
 import RxSwift
 import RxCocoa
 
+/// This class represents the main entry point to the RxGitLabKit library
+///
+/// This client is used for the communication with GitLabAPI.
 public class RxGitLabAPIClient {
   
   private let disposeBag = DisposeBag()
@@ -30,7 +33,7 @@ public class RxGitLabAPIClient {
   /// Default per page accoring to GitLab Docs
   public static let defaultPerPage = 20
   
-  /// 
+  /// String representation of API v4 URI
   public static var apiVersionURLString: String {
     return "/api/v4"
   }
@@ -65,26 +68,32 @@ public class RxGitLabAPIClient {
 
   // MARK: Endpoint Groups
 
+  /// Endpoint group for Authentication
   public lazy var authentication: AuthenticationEndpointGroup = {
     return createEndpointGroup()
   }()
 
+  /// Endpoint group for Projects
   public lazy var projects: ProjectsEnpointGroup = {
     return createEndpointGroup()
   }()
 
+  /// Endpoint group for Repositories
   public lazy var repositories: RepositoriesEndpointGroup = {
     return createEndpointGroup()
   }()
   
+  /// Endpoint group for Commits
   public lazy var commits: CommitsEndpointGroup = {
     return createEndpointGroup()
   }()
 
+  /// Endpoint group for Users
   public lazy var users: UsersEndpointGroup = {
     return createEndpointGroup()
   }()
 
+  /// Endpoint group for Members
   public lazy var members: MembersEndpointGroup = {
     return createEndpointGroup()
   }()

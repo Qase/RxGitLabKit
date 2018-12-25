@@ -7,17 +7,36 @@
 
 import Foundation
 
-public protocol APIRequesting {
-  var method: HTTPMethod { get }
-  var path: String? { get }
-  var parameters: QueryParameters { get }
-  var jsonDictionary: JSONDictionary? {get}
-  var data: Data? { get }
-  
-  func buildRequest(with hostURL: URL, header: Header?, apiVersion: String?, page: Int?, perPage: Int?) -> URLRequest?
-}
+/// This structs represents  a wrapper around an URL request to the GitLab API
+public struct APIRequest {
+  public var method: HTTPMethod
+  public var path: String?
+  public var parameters: QueryParameters
+  public var jsonDictionary: JSONDictionary?
+  public var data: Data?
 
-extension APIRequesting {
+  public init(path: String = "",
+       method: HTTPMethod = HTTPMethod.get,
+       parameters: QueryParameters? = nil,
+       jsonBody: JSONDictionary? = nil,
+       data: Data? = nil) {
+    self.path = path
+    self.method = method
+    self.parameters = parameters ?? [:]
+    self.jsonDictionary = jsonBody
+    self.data = data
+  }
+  
+  
+  /// Builds an URLRequest from the provided information
+  ///
+  /// - Parameters:
+  ///   - hostURL: Host URL of the GitLab
+  ///   - header: HTTP headers
+  ///   - apiVersion: version of GitLab API
+  ///   - page: page if the endpoint is paginated
+  ///   - perPage: per_page if the endpoint is paginated
+  /// - Returns: URLRequest
   public func buildRequest(with hostURL: URL, header: Header? = nil, apiVersion: String? = RxGitLabAPIClient.apiVersionURLString, page: Int? = nil, perPage: Int? = nil) -> URLRequest? {
     var pathURL = hostURL
     if let apiVersion = apiVersion {
@@ -26,7 +45,7 @@ extension APIRequesting {
     if let path = path {
       pathURL.appendPathComponent(path)
     }
-
+    
     guard var components = URLComponents(url: pathURL, resolvingAgainstBaseURL: false) else { return nil }
     // Input query items
     if !parameters.isEmpty {
@@ -46,19 +65,19 @@ extension APIRequesting {
         }
         }.flatMap { $0 }
     }
-
+    
     // Pagination query items
     if (page != nil || perPage != nil) && components.queryItems == nil {
       components.queryItems = []
       if let page = page {
         components.queryItems?.append(URLQueryItem(name: "page", value: "\(page)"))
       }
-
+      
       if let perPage = perPage {
         components.queryItems?.append(URLQueryItem(name: "per_page", value: "\(perPage)"))
       }
     }
-
+    
     // Request from url
     guard let url = components.url else { return nil }
     var request = URLRequest(url: url)
@@ -70,31 +89,11 @@ extension APIRequesting {
     if let jsonBody = jsonDictionary, let jsonData = try? JSONSerialization.data(withJSONObject: jsonBody) {
       request.httpBody = jsonData
     }
-
+    
     if let data = data {
       request.httpBody = data
     }
-
+    
     return request
-  }
-}
-
-public struct APIRequest: APIRequesting {
-  public var method: HTTPMethod
-  public var path: String?
-  public var parameters: QueryParameters
-  public var jsonDictionary: JSONDictionary?
-  public var data: Data?
-
-  public init(path: String = "",
-       method: HTTPMethod = HTTPMethod.get,
-       parameters: QueryParameters? = nil,
-       jsonBody: JSONDictionary? = nil,
-       data: Data? = nil) {
-    self.path = path
-    self.method = method
-    self.parameters = parameters ?? [:]
-    self.jsonDictionary = jsonBody
-    self.data = data
   }
 }

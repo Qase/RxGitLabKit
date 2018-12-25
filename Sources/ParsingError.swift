@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Parsing error
 public enum ParsingError: Error {
   case encoding(message: String?)
   case decoding(message: String?)
