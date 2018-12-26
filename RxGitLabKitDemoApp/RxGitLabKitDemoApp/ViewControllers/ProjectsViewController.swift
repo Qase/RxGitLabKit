@@ -10,8 +10,13 @@ import UIKit
 import RxGitLabKit
 import RxSwift
 
-class ProjectsViewController: BaseViewController, UISplitViewControllerDelegate {
+/// This view controller shows a list of projects.
+///
+/// It can show all projects or user projects
+/// Using search can help filter the desired projects
+class ProjectsViewController: BaseViewController {
   
+  // MARK: UI Components
   private let searchBar: UISearchBar = {
     let searchBar = UISearchBar()
     searchBar.scopeButtonTitles = ["All Projects", "User Projects"]
@@ -19,6 +24,7 @@ class ProjectsViewController: BaseViewController, UISplitViewControllerDelegate 
     searchBar.placeholder = "Search for projects ..."
     searchBar.sizeToFit()
     searchBar.scopeBarBackgroundImage = UIImage()
+    searchBar.backgroundImage = UIImage()
     searchBar.returnKeyType = .done
     return searchBar
   } ()
@@ -27,57 +33,69 @@ class ProjectsViewController: BaseViewController, UISplitViewControllerDelegate 
     let tableView = UITableView()
     tableView.register(ProjectTableViewCell.self, forCellReuseIdentifier: ProjectTableViewCell.cellIdentifier)
     return tableView
-  }()
+  } ()
   
   private let loadingIndicator = UIActivityIndicatorView(style: .gray)
-
+  
+  // MARK: View Model
   var viewModel: ProjectsViewModel!
-
+  
+  // MARK: Life cycle
   override func viewDidLoad() {
     super.viewDidLoad()
     title = "Projects"
-    setupSearchBar()
-    setupTableView()
-    setupTableViewBinding()
+    view.backgroundColor = .white
   }
   
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewDidAppear(animated)
-    viewModel.loadProjects()
+  // MARK: Setup
+  
+  // Adds the UI components to `view`
+  override func addUIComponents() {
+    view.addSubview(searchBar)
+    view.addSubview(tableView)
+    tableView.tableFooterView = loadingIndicator
   }
   
-  private func setupNavbar() {
-    navigationController?.navigationBar.prefersLargeTitles = true
+  // Applies constraints on UI Components
+  override func layoutUIComponents() {
+    searchBar.snp.makeConstraints { (make) in
+      make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+      make.left.right.equalToSuperview()
+    }
+    
+    tableView.snp.makeConstraints { make in
+      make.left.bottom.right.equalToSuperview()
+      make.top.equalTo(searchBar.snp.bottom)
+    }
   }
   
-  private func setupSearchBar() {
-    navigationItem.titleView = searchBar
+  override func setupBindings() {
+    setupSearchBarBindings()
+    setupTableViewBindings()
+  }
+  
+  // MARK: Private functions
+  private func setupSearchBarBindings() {
+    // Scope button
     searchBar.rx
       .selectedScopeButtonIndex
       .map { $0 == 1 }
       .bind(to: viewModel.isUserTabSelectedVariable)
       .disposed(by: disposeBag)
-    searchBar.rx.searchButtonClicked.subscribe({ _ in
-      self.searchBar.endEditing(true)
-    })
+    
+    // Dismiss when done on keyboard is pressed
+    searchBar.rx.searchButtonClicked
+      .subscribe { _ in self.searchBar.endEditing(true) }
       .disposed(by: disposeBag)
-
+    
+    // Searchtext binding
     searchBar.rx.text
-      .throttle(0.2, scheduler: MainScheduler.instance)
       .distinctUntilChanged()
       .bind(to: viewModel.searchTextVariable)
       .disposed(by: disposeBag)
   }
   
-  private func setupTableView() {
-    view.addSubview(tableView)
-    tableView.snp.makeConstraints { make in
-      make.edges.equalToSuperview()
-    }
-    tableView.tableFooterView = loadingIndicator
-  }
-  
-  private func setupTableViewBinding() {
+  private func setupTableViewBindings() {
     // Selecting item
     tableView.rx.itemSelected
       .subscribe(onNext: { [unowned self] indexPath in
@@ -113,16 +131,16 @@ class ProjectsViewController: BaseViewController, UISplitViewControllerDelegate 
       .subscribe(onNext: { _ in
         if self.tableView.isReachingEnd {
           if self.viewModel.isUserTabSelectedVariable.value {
-              self.viewModel.loadNextUserProjectPage()
-            } else {
-              self.viewModel.loadNextProjectPage()
-            }
+            self.viewModel.loadNextUserProjectPage()
+          } else {
+            self.viewModel.loadNextProjectPage()
+          }
         }
       })
       .disposed(by: disposeBag)
     
     // Loading indicator
-    viewModel.isLoadingPublisher.asObservable()
+    viewModel.isLoading
       .observeOn(MainScheduler.instance)
       .subscribe(onNext: { (isLoading) in
         if isLoading {
@@ -133,9 +151,4 @@ class ProjectsViewController: BaseViewController, UISplitViewControllerDelegate 
       })
       .disposed(by:disposeBag)
   }
-  
-  func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
-    return true
-  }
-  
 }

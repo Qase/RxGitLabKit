@@ -53,7 +53,7 @@ public class HTTPClient: Networking {
       
       task.resume()
       return Disposables.create(with: task.cancel)
-    }.debug()
+    }
   }
   
   /// Sends a request to the server and the response header can be subscribed to
@@ -125,7 +125,6 @@ public class HTTPClient: Networking {
         }
     }
   }
-  
   
   /// Sends a request to the server and the response data are transformed into object of type `T` and it can be subscribed to
   ///

@@ -9,6 +9,9 @@
 import UIKit
 import RxSwift
 
+/// A base view with common attributes
 class BaseView: UIView {
+  
+  /// A dispose bag for disposing subscriptions
   let disposeBag = DisposeBag()
 }

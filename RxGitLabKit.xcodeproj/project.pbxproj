@@ -912,16 +912,16 @@
 		6C5401B82114468800631E21 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				6CBD2B3B21185332007BA543 /* Supporting Files */,
-				6C3E6906217874820082C483 /* Protocols */,
-				6CE95EFC2166AC9500EDAE16 /* ParsingError.swift */,
-				6C54020321145C2300631E21 /* HTTPClient.swift */,
-				6C721A8E214A602100B85194 /* APIRequesting.swift */,
-				6C8F9C4721147868002D23E7 /* RxGitLabAPIClient.swift */,
-				6C42B1EC219D70FD008E8726 /* Paginator.swift */,
-				6CC3DB092189AEA6004677C7 /* HostCommunicator.swift */,
 				6CBD2B4B2118812F007BA543 /* Endpoints */,
 				6C5401E52114570200631E21 /* Models */,
+				6C721A8E214A602100B85194 /* APIRequesting.swift */,
+				6CC3DB092189AEA6004677C7 /* HostCommunicator.swift */,
+				6C54020321145C2300631E21 /* HTTPClient.swift */,
+				6C42B1EC219D70FD008E8726 /* Paginator.swift */,
+				6CE95EFC2166AC9500EDAE16 /* ParsingError.swift */,
+				6C8F9C4721147868002D23E7 /* RxGitLabAPIClient.swift */,
+				6C3E6906217874820082C483 /* Protocols */,
+				6CBD2B3B21185332007BA543 /* Supporting Files */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -929,38 +929,38 @@
 		6C5401E52114570200631E21 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				6C497B4921B8367700652B33 /* File.swift */,
-				6C5401E62114593600631E21 /* Commit.swift */,
-				6C6EE5AA21908152006C447E /* Action.swift */,
-				6C6EE5AD21908165006C447E /* Diff.swift */,
-				6C6EE5B02190818B006C447E /* Comment.swift */,
-				6C6EE5B3219081B1006C447E /* CommitStatus.swift */,
-				6C6EE5B6219081D2006C447E /* MergeRequest.swift */,
-				6C6EE5B9219081E5006C447E /* TimeStats.swift */,
-				6CC3DB10218A3C86004677C7 /* UserStatus.swift */,
-				6CC3DB13218A3CD9004677C7 /* UserKey.swift */,
-				6CE95EDB2166209000EDAE16 /* Stats.swift */,
-				6CE95EE02166209900EDAE16 /* LastPipeline.swift */,
-				6CBD2B4F211894E4007BA543 /* Reference.swift */,
-				6CBD2B522122F160007BA543 /* Authentication.swift */,
-				6CBD2B5B2123021C007BA543 /* Tree.swift */,
-				6CBD2B5E21230714007BA543 /* Contributor.swift */,
-				6C06A8A6212EB0C300686583 /* Project.swift */,
-				6C4370B3218B981F002ACBDA /* Links.swift */,
-				6C4370B0218B97FF002ACBDA /* Namespace.swift */,
-				6C4370AD218B97E6002ACBDA /* ProjectStatistics.swift */,
-				6CB7E8B0214BCFA700426B67 /* Identities.swift */,
-				6CFBFCE62132B5E4001F4391 /* User.swift */,
-				6CE95ED12166120D00EDAE16 /* Member.swift */,
 				6CE95ED6216612D900EDAE16 /* AccessLevel.swift */,
-				6CC3DB16218A4216004677C7 /* Email.swift */,
-				6CC3DB19218A4542004677C7 /* ImpersonationToken.swift */,
-				6C4370BD218BA777002ACBDA /* ProjectHook.swift */,
-				6C54518E21A024C300B6BFA0 /* Comparison.swift */,
-				6C54519121A0261E00B6BFA0 /* FileInfo.swift */,
-				6C54527521A196EB00B6BFA0 /* ShareGroup.swift */,
-				6C5D683521B547B900326012 /* BuildStatus.swift */,
+				6C6EE5AA21908152006C447E /* Action.swift */,
 				6C497B4E21B844BA00652B33 /* Activity.swift */,
+				6CBD2B522122F160007BA543 /* Authentication.swift */,
+				6C5D683521B547B900326012 /* BuildStatus.swift */,
+				6C6EE5B02190818B006C447E /* Comment.swift */,
+				6C5401E62114593600631E21 /* Commit.swift */,
+				6C6EE5B3219081B1006C447E /* CommitStatus.swift */,
+				6C54518E21A024C300B6BFA0 /* Comparison.swift */,
+				6CBD2B5E21230714007BA543 /* Contributor.swift */,
+				6C6EE5AD21908165006C447E /* Diff.swift */,
+				6CC3DB16218A4216004677C7 /* Email.swift */,
+				6C497B4921B8367700652B33 /* File.swift */,
+				6C54519121A0261E00B6BFA0 /* FileInfo.swift */,
+				6CB7E8B0214BCFA700426B67 /* Identities.swift */,
+				6CC3DB19218A4542004677C7 /* ImpersonationToken.swift */,
+				6CE95EE02166209900EDAE16 /* LastPipeline.swift */,
+				6C4370B3218B981F002ACBDA /* Links.swift */,
+				6CE95ED12166120D00EDAE16 /* Member.swift */,
+				6C6EE5B6219081D2006C447E /* MergeRequest.swift */,
+				6C4370B0218B97FF002ACBDA /* Namespace.swift */,
+				6C06A8A6212EB0C300686583 /* Project.swift */,
+				6C4370BD218BA777002ACBDA /* ProjectHook.swift */,
+				6C4370AD218B97E6002ACBDA /* ProjectStatistics.swift */,
+				6CBD2B4F211894E4007BA543 /* Reference.swift */,
+				6C54527521A196EB00B6BFA0 /* ShareGroup.swift */,
+				6CE95EDB2166209000EDAE16 /* Stats.swift */,
+				6C6EE5B9219081E5006C447E /* TimeStats.swift */,
+				6CBD2B5B2123021C007BA543 /* Tree.swift */,
+				6CFBFCE62132B5E4001F4391 /* User.swift */,
+				6CC3DB13218A3CD9004677C7 /* UserKey.swift */,
+				6CC3DB10218A3C86004677C7 /* UserStatus.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1004,15 +1004,15 @@
 		6C98CE62217C666F0051569E /* IntegrationTests */ = {
 			isa = PBXGroup;
 			children = (
-				6C4446E121B7E78A00341672 /* PerformanceTests.swift */,
-				6C7999F121AD585B000148CD /* BaseIntegrationTestCase.swift */,
-				6C35DD0F212AF9B200D05B87 /* RxGitLabAPIClientIntegrationTests.swift */,
 				6C5D681821AFF57100326012 /* AuthenticationEndpointGroupIntegrationTests.swift */,
+				6C7999F121AD585B000148CD /* BaseIntegrationTestCase.swift */,
 				6C7999FB21ADE80F000148CD /* CommitsEndpointGroupIntegrationTests.swift */,
 				6C5D681421AFF50100326012 /* MembersEndpointGroupIntegrationTests.swift */,
 				6CE95EBE2161811D00EDAE16 /* PaginatorIntegrationTests.swift */,
+				6C4446E121B7E78A00341672 /* PerformanceTests.swift */,
 				6C7999F521ADE42D000148CD /* ProjectsEndpointGroupIntegrationTests.swift */,
 				6C5D681C21AFF67E00326012 /* RepositoriesEndpointGroupIntegrationTests.swift */,
+				6C35DD0F212AF9B200D05B87 /* RxGitLabAPIClientIntegrationTests.swift */,
 				6C5D681021AED38B00326012 /* UsersEndpointGroupIntegrationTests.swift */,
 			);
 			path = IntegrationTests;
@@ -1022,12 +1022,12 @@
 			isa = PBXGroup;
 			children = (
 				6CE95EEB2166A58100EDAE16 /* Models */,
-				6C6EE57C218F6F7D006C447E /* EndpointGroupUnitTestCase.swift */,
 				6C5D682021AFF9AF00326012 /* AuthenticationEndpointGroupUnitTests.swift */,
-				6C3E690C2179FB010082C483 /* HTTPClientTests.swift */,
-				6CC3DB0C2189BDBB004677C7 /* RxGitLabAPIClientUnitTests.swift */,
 				6C3E690A21790E8C0082C483 /* CommitsEndpointGroupUnitTests.swift */,
+				6C6EE57C218F6F7D006C447E /* EndpointGroupUnitTestCase.swift */,
+				6C3E690C2179FB010082C483 /* HTTPClientTests.swift */,
 				6CDC490D218064E60027063B /* PaginatorUnitTests.swift */,
+				6CC3DB0C2189BDBB004677C7 /* RxGitLabAPIClientUnitTests.swift */,
 			);
 			path = UnitTests;
 			sourceTree = "<group>";
@@ -1035,15 +1035,15 @@
 		6CAA9EFB21582492006F5B16 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
-				6CAA9EFC21582492006F5B16 /* GeneralMocks.swift */,
-				6CAA9EFD21582492006F5B16 /* RxGitLabApiClientMocks.swift */,
-				6CE95EE92166A50C00EDAE16 /* ModelMocks.swift */,
-				6C3E6904217872FE0082C483 /* MockURLSession.swift */,
-				6CDC490F218110630027063B /* MultipleResponseMockURLSession.swift */,
-				6C98CE65217C6A050051569E /* CommitsMocks.swift */,
-				6CDC490B218063CB0027063B /* PaginatorMocks.swift */,
 				6CC3DB0E2189C07A004677C7 /* AuthenticationMocks.swift */,
+				6C98CE65217C6A050051569E /* CommitsMocks.swift */,
+				6CAA9EFC21582492006F5B16 /* GeneralMocks.swift */,
+				6C3E6904217872FE0082C483 /* MockURLSession.swift */,
+				6CE95EE92166A50C00EDAE16 /* ModelMocks.swift */,
+				6CDC490F218110630027063B /* MultipleResponseMockURLSession.swift */,
+				6CDC490B218063CB0027063B /* PaginatorMocks.swift */,
 				6C4370B6218B9A55002ACBDA /* ProjectMocks.swift */,
+				6CAA9EFD21582492006F5B16 /* RxGitLabApiClientMocks.swift */,
 				6C5D683121B53F8C00326012 /* UserMocks.swift */,
 			);
 			path = Mocks;
@@ -1053,10 +1053,10 @@
 			isa = PBXGroup;
 			children = (
 				6C7999F021AD2381000148CD /* Plists */,
+				6C98CE67217C71260051569E /* Date+Extensions.swift */,
+				6C336E37216AA507009A8324 /* DateFormatter+Extensions.swift */,
 				6CE13F6521184ED300C92B7B /* RxGitLabKit.h */,
 				6C35DD11212B04A800D05B87 /* String+Extensions.swift */,
-				6C336E37216AA507009A8324 /* DateFormatter+Extensions.swift */,
-				6C98CE67217C71260051569E /* Date+Extensions.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -1064,9 +1064,9 @@
 		6CBD2B4B2118812F007BA543 /* Endpoints */ = {
 			isa = PBXGroup;
 			children = (
-				6CBD2B482118812A007BA543 /* EndpointGroup.swift */,
 				6CBD2B552122F46D007BA543 /* AuthenticationEndpointGroup.swift */,
 				6CBD2B4C21188410007BA543 /* CommitsEndpointGroup.swift */,
+				6CBD2B482118812A007BA543 /* EndpointGroup.swift */,
 				6CFBFCE021329D2D001F4391 /* MembersEndpointGroup.swift */,
 				6C06A8A1212EA89F00686583 /* ProjectsEnpointGroup.swift */,
 				6CBD2B582122F841007BA543 /* RepositoriesEndpointGroup.swift */,

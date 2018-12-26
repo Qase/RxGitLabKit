@@ -10,10 +10,7 @@ import Foundation
 import RxSwift
 import RxGitLabKit
 
-
 class ProjectsModel {
   let projects = Variable<[Project]>([])
   let userProjects = Variable<[Project]>([])
-  
-  
 }

@@ -16,10 +16,10 @@ class LoginViewModel: BaseViewModel {
 
   let gitlabClient: RxGitLabAPIClient
   
-  var user: Observable<User> {
+  /// User Observable
+  var user: Observable<User?> {
     return userVariable.asObservable()
-      .filter { $0 != nil }
-      .map { $0! }
+      .skip(1) // Skips the first nil
       .debug()
   }
   
@@ -31,6 +31,13 @@ class LoginViewModel: BaseViewModel {
     .disposed(by: disposeBag)
   }
   
+  /// Logs in using one of the methods
+  ///
+  /// If more tokens are provided, the priority of the methods
+  /// are in this order (from highest to lowest):
+  ///   1. Private Token
+  ///   2. OAuth Token
+  ///   3. username and password
   func login(fields: [String: String]) {
     if let hostURL = fields["hostURL"], let newURL = urlFromText(urlString: hostURL),  newURL != gitlabClient.hostURL {
       changeHostURL(hostURL: newURL)
@@ -45,22 +52,29 @@ class LoginViewModel: BaseViewModel {
     }
   }
 
+  // MARK: Private functions
+  
+  /// Login using `username` and `password`
   private func logIn(username: String, password: String) {
     gitlabClient.logIn(username: username, password: password)
   }
   
+  /// Login using private token
   private func logIn(privateToken: String) {
     gitlabClient.logIn(privateToken: privateToken)
   }
   
+  /// Login using OAuth token
   private func logIn(oAuthToken: String) {
     gitlabClient.logIn(oAuthToken: oAuthToken)
   }
   
+  /// Change host url
   private func changeHostURL(hostURL: URL) {
     gitlabClient.changeHostURL(hostURL: hostURL)
   }
   
+  /// Creates an URL from text. Returns `nil` if it fails.
   private func urlFromText(urlString: String) -> URL? {
     var newURL: URL? = URL(string: urlString)
     if !(urlString.contains("http://") || urlString.contains("https://")) {

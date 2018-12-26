@@ -9,6 +9,9 @@
 import Foundation
 import RxSwift
 
+/// A base view model with common attributes
 class BaseViewModel {
+  
+  /// A dispose bag for disposing subscriptions
   internal let disposeBag = DisposeBag()
 }

@@ -13,10 +13,8 @@ import RxSwift
 class CommitDetailViewModel: BaseViewModel {
   
   private let commitVariable: Variable<Commit>
-  private var commit: Commit {
-    return commitVariable.value
-  }
   
+  /// Data for the table
   var dataSource: Observable<[(String, String)]> {
     return commitVariable.asObservable()
       .map { (commit) -> [(String, String)] in
@@ -76,7 +74,10 @@ class CommitDetailViewModel: BaseViewModel {
   init(with gitlabClient: RxGitLabAPIClient, commit: Commit, projectID: Int) {
     commitVariable = Variable<Commit>(commit)
     super.init()
-    gitlabClient.commits.getCommit(projectID: projectID, sha: commit.id).bind(to: commitVariable)
-    .disposed(by: disposeBag)
+    // load additional commit data
+    gitlabClient.commits
+      .getCommit(projectID: projectID, sha: commit.id)
+      .bind(to: commitVariable)
+      .disposed(by: disposeBag)
   }
 }

@@ -11,26 +11,20 @@ import RxSwift
 import RxGitLabKit
 
 class ProfileViewModel: BaseViewModel {
-  let gitlabClient: RxGitLabAPIClient!
-  let userVariable = Variable<User?>(nil)
+  let gitlabClient: RxGitLabAPIClient
+  let user: User
   
-  var user: User? {
-    return userVariable.value
-  }
-  
+  /// Data for table
   var dataSource: Observable<[(String, String)]> {
-    return userVariable.asObservable()
-      .filter { $0 != nil}
-      .map { user in
-        guard let user = user else { return [] }
+    return Observable.create { observer in
         var texts = [(String, String)]()
         
-        texts.append(("ID", String(user.id)))
-        if let state = user.state {
+        texts.append(("ID", String(self.user.id)))
+        if let state = self.user.state {
           texts.append(("State", state))
         }
         
-        if let createdAt = user.createdAt {
+        if let createdAt = self.user.createdAt {
           texts.append(("Created At", createdAt.asISO8601String))
         }
         if let oAuthToken = self.gitlabClient.oAuthToken {
@@ -40,18 +34,20 @@ class ProfileViewModel: BaseViewModel {
         if let privateToken = self.gitlabClient.privateToken {
           texts.append(("Private Token", privateToken))
         }
-        return texts
+        observer.onNext(texts)
+        observer.onCompleted()
+      
+      return Disposables.create()
     }
   }
 
-  init(with gitlabClient: RxGitLabAPIClient) {
+  init(with gitlabClient: RxGitLabAPIClient, user: User) {
     self.gitlabClient = gitlabClient
+    self.user = user
     super.init()
-    gitlabClient.currentUserObservable
-      .bind(to: userVariable)
-      .disposed(by: self.disposeBag)
   }
   
+  /// Logs out the current user
   func logOut() {
     gitlabClient.logOut()
   }

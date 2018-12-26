@@ -21,32 +21,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     
     let gitlabClient = RxGitLabAPIClient(with: URL(string: "https://gitlab.com")!)
     
+    // Setting up Projects tab in split view
     let masterVC = ProjectsViewController()
     masterVC.viewModel = ProjectsViewModel(with: gitlabClient)
-    
     let detailVC = CommitDetailViewController()
-    
-    let splitVC = CustomSplitViewController()
+    let splitVC = BaseSplitViewController()
     splitVC.viewControllers = [UINavigationController(rootViewController: masterVC), UINavigationController(rootViewController:detailVC)]
-
-    let profileVM = ProfileViewModel(with: gitlabClient)
-    let profileVC = ProfileViewController()
-    profileVC.viewModel = profileVM
-    
-    let settingsNavigationController = UINavigationController(rootViewController: profileVC)
-
-    let tabController = UITabBarController()
-    tabController.setViewControllers([splitVC, settingsNavigationController], animated: true)
-   
     let folderImage = UIImage(named: "fa-folder")!
     folderImage.withRenderingMode(.alwaysTemplate)
-    
     splitVC.tabBarItem = UITabBarItem(title: "Projects", image: folderImage, selectedImage: folderImage)
+
+    // Setting up profile tab
+    let loginVC = LoginViewController()
+    loginVC.viewModel = LoginViewModel(using: gitlabClient)
+    let settingsNavigationController = UINavigationController(rootViewController: loginVC)
     let userImage = UIImage(named: "fa-user")!
     userImage.withRenderingMode(.alwaysTemplate)
     settingsNavigationController.tabBarItem = UITabBarItem(title: "User", image: userImage, selectedImage: userImage)
-    tabController.selectedIndex = 1
+
+    // Tab Controller
+    let tabController = UITabBarController()
+    tabController.setViewControllers([splitVC, settingsNavigationController], animated: true)
     
+    // Showing the screens
     self.window = UIWindow(frame: UIScreen.main.bounds)
     window?.rootViewController = tabController
     window?.makeKeyAndVisible()

@@ -17,14 +17,25 @@ class CommitsViewModel: BaseViewModel {
   private let commits: Variable<[Commit]>
   private let paginator: Paginator<Commit>!
   private var pagesLoaded = 0
+  
+  /// Loading trigger
   private let loadNextPageTrigger = PublishSubject<Void>()
   
-  let isLoadingPublisher = PublishSubject<Bool>()
+  /// isLoading trigger
+  private let isLoadingPublisher = PublishSubject<Bool>()
+  
+
   
   // MARK: Outputs
   let gitlabClient: RxGitLabAPIClient!
   let projectID: Int
   
+  /// isLoading
+  var isLoading: Observable<Bool> {
+    return isLoadingPublisher.asObservable()
+  }
+  
+  /// Data Source
   var dataSource: Observable<[Commit]> {
     return commits.asObservable()
   }
@@ -36,27 +47,28 @@ class CommitsViewModel: BaseViewModel {
     paginator = self.gitlabClient.commits.getCommits(projectID: projectID)
     super.init()
     setupBindings()
-    loadNextProjectPage()
   }
   
   private func setupBindings() {
     loadNextPageTrigger
+      .do(onNext: { _ in self.isLoadingPublisher.onNext(true) })
       .flatMap {
         return self.paginator[self.pagesLoaded]
       }
+      .debug()
       .subscribe(onNext: { commits in
         self.commits.value.append(contentsOf: commits)
         self.isLoadingPublisher.onNext(false)
       })
       .disposed(by: disposeBag)
-    loadNextPageTrigger.subscribe(onNext: { self.isLoadingPublisher.onNext(true)})
-      .disposed(by: disposeBag)
   }
   
+  /// Returns a commit for a given index
   func commit(for index: Int) -> Commit {
     return commits.value[index]
   }
   
+  /// Triggers next page loading
   func loadNextProjectPage() {
     pagesLoaded += 1
     loadNextPageTrigger.onNext(())

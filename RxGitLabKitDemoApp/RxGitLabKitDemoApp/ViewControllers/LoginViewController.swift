@@ -8,9 +8,11 @@
 
 import UIKit
 import RxSwift
+import RxGitLabKit
 
 class LoginViewController: BaseViewController {
   
+  // MARK: UI Components
   private let hostTextField: UITextField = UITextField.withRoundedCorners
   
   private let userNameTextField: UITextField = {
@@ -30,7 +32,29 @@ class LoginViewController: BaseViewController {
   
   private let oAuthTokenTextField: UITextField = UITextField.withRoundedCorners
   
-  private weak var authorizeButton: UIButton!
+  private let authorizeButton: UIButton = {
+    let authorizeButton = UIButton()
+    authorizeButton.setTitle("Authorize", for: .normal)
+    authorizeButton.setTitleColor(.blue, for: .normal)
+    authorizeButton.setTitleColor(.gray, for: .disabled)
+    return authorizeButton
+  } ()
+  
+  private let loadingIndicator: UIActivityIndicatorView = {
+    let indicator = UIActivityIndicatorView(style: .gray)
+    return indicator
+  } ()
+  
+  private let stackView: UIStackView = {
+    let stackView = UIStackView(frame: .zero)
+    stackView.axis = .vertical
+    stackView.spacing = 10
+    return stackView
+  } ()
+  
+  private let tapRecognizer = UITapGestureRecognizer()
+  
+  // MARK: View Model
   
   var viewModel: LoginViewModel!
 
@@ -41,78 +65,124 @@ class LoginViewController: BaseViewController {
     navigationItem.hidesBackButton = true
     title = "Login"
     view.backgroundColor = .white
+  }
+  
+  override func addUIComponents() {
+    let hostLabel = UILabel(with: "Host")
+    let userNameLabel = UILabel(with: "Username or e-mail")
+    let passwordLabel = UILabel(with: "Password")
+    let privateTokenLabel = UILabel(with: "Private Token")
+    let oAuthTokenLabel = UILabel(with: "OAuth Token")
     
-    let authorizeButton = UIButton()
-    authorizeButton.setTitle("Authorize", for: .normal)
-    authorizeButton.setTitleColor(.blue, for: .normal)
-    self.authorizeButton = authorizeButton
-
-    let hostLabel = createLabelWithText("Host")
-    let userNameLabel = createLabelWithText("Username or e-mail")
-    let passwordLabel = createLabelWithText("Password")
-    let privateTokenLabel = createLabelWithText("Private Token")
-    let oAuthTokenLabel = createLabelWithText("OAuth Token")
+//    hostTextField.text = viewModel.gitlabClient.hostURL.absoluteString
+    hostTextField.text = "gitlab.fel.cvut.cz"
+    userNameTextField.text = "dagytran@gmail.com"
+    passwordTextField.text = "Wood_Thor9_3shill"
+    oAuthTokenTextField.text = "5e8672700e931c97830b4c0679e065de35c8b63c913df262a18b915e31138218"
+    privateTokenField.text = "ev1TKZXRDF9dkxwnZS4a"
     
-    hostTextField.text = viewModel.gitlabClient.hostURL.absoluteString
-    
-    let stackView = UIStackView(arrangedSubviews: [hostLabel, hostTextField, userNameLabel, userNameTextField, passwordLabel, passwordTextField, privateTokenLabel, privateTokenField, oAuthTokenLabel, oAuthTokenTextField])
-    stackView.axis = .vertical
-    stackView.spacing = 10
+    stackView.addArrangedSubview(hostLabel)
+    stackView.addArrangedSubview(hostTextField)
+    stackView.addArrangedSubview(userNameLabel)
+    stackView.addArrangedSubview(userNameTextField)
+    stackView.addArrangedSubview(passwordLabel)
+    stackView.addArrangedSubview(passwordTextField)
+    stackView.addArrangedSubview(privateTokenLabel)
+    stackView.addArrangedSubview(privateTokenField)
+    stackView.addArrangedSubview(oAuthTokenLabel)
+    stackView.addArrangedSubview(oAuthTokenTextField)
     view.addSubview(stackView)
+    view.addSubview(authorizeButton)
+    view.addGestureRecognizer(tapRecognizer)
+    view.addSubview(loadingIndicator)
+  }
+  
+  override func layoutUIComponents() {
     stackView.snp.makeConstraints { (make) in
-      make.center.equalToSuperview()
+      make.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(32)
+      make.centerX.equalToSuperview()
       make.width.lessThanOrEqualToSuperview().inset(30)
       make.width.greaterThanOrEqualTo(350)
       make.height.equalTo(340)
     }
-    view.addSubview(authorizeButton)
     authorizeButton.snp.makeConstraints { (make) in
       make.top.equalTo(stackView.snp.bottom).offset(32)
       make.centerX.equalToSuperview()
     }
-    let gesture = UITapGestureRecognizer()
-    gesture.rx.event.subscribe(onNext: { (gesture) in
-      self.view.endEditing(true)
-    })
-    .disposed(by: disposeBag)
-    view.addGestureRecognizer(gesture)
-    setupBinding()
+    loadingIndicator.snp.makeConstraints { (make) in
+      make.edges.equalToSuperview()
+    }
   }
   
-  private func setupBinding() {
+  override func setupBindings() {
+    // Login
     authorizeButton.rx.tap
-      .bind {
-      var fields = [String: String]()
-      if let hostURLString = self.hostTextField.text, !hostURLString.isEmpty {
-        fields["hostURL"] = hostURLString
+      .do(onNext: {
+        var fields = [String: String]()
+        if let hostURLString = self.hostTextField.text, !hostURLString.isEmpty {
+          fields["hostURL"] = hostURLString
+        }
+        
+        if let username = self.userNameTextField.text, let password = self.passwordTextField.text, !username.isEmpty, !password.isEmpty  {
+          fields["username"] = username
+          fields["password"] = password
+        }
+        
+        if let privateToken = self.privateTokenField.text, !privateToken.isEmpty  {
+          fields["privateToken"] = privateToken
+        }
+        
+        if let oAuthToken = self.oAuthTokenTextField.text, !oAuthToken.isEmpty  {
+          fields["oAuthToken"] = oAuthToken
+        }
+        self.authorizeButton.isEnabled = false
+        self.loadingIndicator.startAnimating()
+        self.viewModel.login(fields: fields)
+      })
+      .flatMap { _ in
+        return self.viewModel.user.take(1)
       }
-      
-      if let username = self.userNameTextField.text, let password = self.passwordTextField.text, !username.isEmpty, !password.isEmpty  {
-        fields["username"] = username
-        fields["password"] = password
-      }
-      
-      if let privateToken = self.privateTokenField.text, !privateToken.isEmpty  {
-        fields["privateToken"] = privateToken
-      }
-      
-      if let oAuthToken = self.oAuthTokenTextField.text, !oAuthToken.isEmpty  {
-        fields["oAuthToken"] = oAuthToken
-      }
-      
-      self.viewModel.login(fields: fields)
-      }
-      .disposed(by: disposeBag)
-    
-    viewModel.user
+      .debug()
       .observeOn(MainScheduler.instance)
       .subscribe(onNext: { (user) in
-        self.showProfileVC()
+        self.loadingIndicator.stopAnimating()
+        self.authorizeButton.isEnabled = true
+        if let user = user {
+          self.showProfileVC(with: user)
+        } else {
+          self.showLoginFailedAlert("Login failed")
+        }
       })
       .disposed(by: disposeBag)
     
+    // Hiding the keyboard when tapped else where
+    tapRecognizer.rx.event.subscribe(onNext: { (gesture) in
+      self.view.endEditing(true)
+    })
+      .disposed(by: disposeBag)
+    
+    // Button disabling if the input is empty
+    let hostObservable = hostTextField.rx.text.map { $0 == nil || $0!.isEmpty}
+    let usernameObservable = userNameTextField.rx.text.map { $0 == nil || $0!.isEmpty}
+    let passwordObservable = passwordTextField.rx.text.map { $0 == nil || $0!.isEmpty}
+      
+    let oAuthTokenObservable = oAuthTokenTextField.rx.text.map { $0 == nil || $0!.isEmpty}
+    let privateTokenObservable = privateTokenField.rx.text.map { $0 == nil || $0!.isEmpty}
+  
+    // Login button enable/disable based on inputs
+    Observable.combineLatest(hostObservable, usernameObservable, passwordObservable, oAuthTokenObservable, privateTokenObservable, resultSelector: { isHostEmpty, isUsernameEmpty, isPasswordEmpty, isOAuthTokenEmpty, isPrivateTokenEmpty  in
+      return !isHostEmpty && (
+        (!isUsernameEmpty && !isPasswordEmpty)
+        || !isOAuthTokenEmpty
+        || !isPrivateTokenEmpty
+      )
+      })
+    .bind(to: authorizeButton.rx.isEnabled)
+    .disposed(by: disposeBag)
+
   }
   
+  /// Shows allert if login fails
   private func showLoginFailedAlert(_ message: String) {
     let alert = UIAlertController(title: "Log In Failed", message: message, preferredStyle: .alert)
     alert.title = "Log In Failed"
@@ -120,16 +190,11 @@ class LoginViewController: BaseViewController {
     present(alert, animated: true, completion: nil)
   }
   
-  private func showProfileVC() {
+  /// Shows user profile
+  private func showProfileVC(with user: User) {
     let profileVC = ProfileViewController()
-    profileVC.viewModel = ProfileViewModel(with: self.viewModel.gitlabClient)
-    self.navigationController?.popViewController(animated: true)
-  }
-  
-  private func createLabelWithText(_ text: String) -> UILabel {
-    let label = UILabel()
-    label.text = text
-    return label
+    profileVC.viewModel = ProfileViewModel(with: self.viewModel.gitlabClient, user: user)
+    self.navigationController?.pushViewController(profileVC, animated: true)
   }
   
 }

@@ -197,7 +197,9 @@ public class UsersEndpointGroup: EndpointGroup {
    */
   public func getCurrentUser() -> Observable<User?> {
     let apiRequest = APIRequest(path: Endpoints.currentUser.url)
-    return object(for: apiRequest).catchErrorJustReturn(nil)
+    return object(for: apiRequest)
+      .catchErrorJustReturn(nil)
+      .debug()
   }
 
   /**

@@ -10,8 +10,10 @@ import UIKit
 import RxGitLabKit
 import RxSwift
 
+/// Shows a list of commits for a given project
 class CommitsViewController: BaseViewController {
   
+  // MARK: UI components
   private let tableView: UITableView = {
     let tableView = UITableView()
     tableView.register(CommitTableViewCell.self, forCellReuseIdentifier: CommitTableViewCell.cellIdentifier)
@@ -20,33 +22,41 @@ class CommitsViewController: BaseViewController {
   
   private let loadingIndicator = UIActivityIndicatorView(style: .gray)
   
+  // MARK: View Model
   var viewModel: CommitsViewModel!
   
+  // MARK: Life cycle
   override func viewDidLoad() {
     super.viewDidLoad()
     title = "Commits"
-    navigationItem.largeTitleDisplayMode = .never
-    setupTableView()
-    setupTableViewBinding()
-    if let isCollapsed = splitViewController?.isCollapsed, !isCollapsed{
-      setupFirstCommitBinding()
-    }
   }
   
-  private func setupTableView() {
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    viewModel.loadNextProjectPage()
+  }
+  
+  override func addUIComponents() {
     view.addSubview(tableView)
+    tableView.tableFooterView = loadingIndicator
+  }
+  
+  override func layoutUIComponents() {
     tableView.snp.makeConstraints { make in
       make.edges.equalToSuperview()
     }
   }
   
-  private func setupTableViewBinding() {
+  override func setupBindings() {
+    
+    // Table data
     viewModel.dataSource
       .bind(to: tableView.rx.items(cellIdentifier: CommitTableViewCell.cellIdentifier, cellType: CommitTableViewCell.self)) { _, element, cell in
         cell.commit = element
       }
       .disposed(by:disposeBag)
     
+    // Show empty table message if the projects
     viewModel.dataSource
       .map { $0.isEmpty }
       .observeOn(MainScheduler.instance)
@@ -59,12 +69,14 @@ class CommitsViewController: BaseViewController {
       })
       .disposed(by:disposeBag)
     
+    // Shows commit detail when tapped on item
     tableView.rx.itemSelected
       .subscribe(onNext: { indexPath in
         self.showDetail(indexPath)
       })
       .disposed(by: disposeBag)
     
+    // Loads more objects when the table reaches the end
     tableView.rx.willBeginDecelerating
       .subscribe(onNext: { _ in
         if self.tableView.isReachingEnd {
@@ -74,7 +86,7 @@ class CommitsViewController: BaseViewController {
       .disposed(by: disposeBag)
     
     // Loading indicator
-    viewModel.isLoadingPublisher.asObservable()
+    viewModel.isLoading
       .observeOn(MainScheduler.instance)
       .subscribe(onNext: { (isLoading) in
         if isLoading {
@@ -86,25 +98,10 @@ class CommitsViewController: BaseViewController {
       .disposed(by:disposeBag)
   }
   
+  /// Shows commit detail
   private func showDetail(_ indexPath: IndexPath) {
     let commitDetailVC = CommitDetailViewController()
     commitDetailVC.viewModel = CommitDetailViewModel(with: self.viewModel.gitlabClient, commit: self.viewModel.commit(for: indexPath.row), projectID: self.viewModel.projectID)
-    
     self.showDetailViewController(UINavigationController(rootViewController: commitDetailVC), sender: self)
-  }
-  
-
-  /// Shows Commit detail only if the app is in Split or Slideover mode - on iPads
-  private func setupFirstCommitBinding() {
-    viewModel.dataSource
-      .observeOn(MainScheduler.instance)
-      .subscribe { event in
-        if let commits = event.element, commits.count > 0 {
-          let indexPath = IndexPath(item: 0, section: 0)
-          self.showDetail(indexPath)
-          self.tableView.selectRow(at: indexPath, animated: true, scrollPosition: .bottom)
-        }
-      }
-      .disposed(by: disposeBag)
   }
 }

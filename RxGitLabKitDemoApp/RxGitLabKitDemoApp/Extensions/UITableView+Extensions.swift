@@ -10,6 +10,7 @@ import UIKit
 
 extension UITableView {
   
+  /// Sets a message in the background
   func setEmptyMessage(_ message: String) {
     let messageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.bounds.size.height))
     messageLabel.text = message
@@ -21,11 +22,14 @@ extension UITableView {
     self.separatorStyle = .none;
   }
   
+  /// Removes the message from the background
   func restore() {
     self.backgroundView = nil
     self.separatorStyle = .singleLine
   }
   
+  /// Returns `true` if the scroll is reaching end,
+  /// returns `false` otherwise
   var isReachingEnd: Bool {
     return contentOffset.y >= 0 && contentOffset.y > (contentSize.height - frame.size.height)
   }

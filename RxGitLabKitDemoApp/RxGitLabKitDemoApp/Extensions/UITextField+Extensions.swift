@@ -9,6 +9,10 @@
 import UIKit
 
 extension UITextField {
+  
+  /// Creates an `UITextField` with rounded corners
+  ///
+  /// `textField.borderStyle = .roundedRect`
   static var withRoundedCorners: UITextField {
     let textField = UITextField()
     textField.borderStyle = .roundedRect

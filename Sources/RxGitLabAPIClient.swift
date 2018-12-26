@@ -22,12 +22,21 @@ public class RxGitLabAPIClient {
   /// Fetching current user trigger
   private let getCurrentUserTrigger = PublishSubject<Void>()
   
-  /// Logged in user variable
-  public let currentUserVariable = Variable<User?>(nil)
-  
+  /// Log Out trigger
+  private let logOutTrigger = PublishSubject<Void>()
+
   /// Observable of the current user
   public var currentUserObservable: Observable<User?> {
-    return currentUserVariable.asObservable().distinctUntilChanged { $0?.id == $1?.id }.debug()
+    let oAuthTokenObservable = hostCommunicator.oAuthTokenVariable.asObservable()
+      .distinctUntilChanged()
+      .skip(1)
+      .debug()
+      .map {_ in ()}
+    
+    return Observable.of(getCurrentUserTrigger.asObservable(), oAuthTokenObservable)
+      .merge()
+      .debug()
+      .flatMap { self.users.getCurrentUser() }
   }
   
   /// Default per page accoring to GitLab Docs
@@ -131,21 +140,10 @@ public class RxGitLabAPIClient {
       let (username, password) = arg0
       return self.authentication.authenticate(username: username, password: password)
           .map { $0.oAuthToken }
+          .catchErrorJustReturn(nil)
       }
     .bind(to: hostCommunicator.oAuthTokenVariable)
     .disposed(by: disposeBag)
-    
-    hostCommunicator.oAuthTokenVariable.asObservable()
-      .filter { $0 != nil }
-      .flatMap { _ in self.users.getCurrentUser() }
-      .distinctUntilChanged { $0?.id == $1?.id }
-      .bind(to: currentUserVariable)
-      .disposed(by: disposeBag)
-    
-    getCurrentUserTrigger
-      .flatMap { self.users.getCurrentUser() }
-      .bind(to: currentUserVariable)
-      .disposed(by: disposeBag)
   }
 
   /// Factory method for creating an Endpoint Group instance
@@ -154,7 +152,6 @@ public class RxGitLabAPIClient {
   }
 
   // MARK: Public Functions
-  
   
   /// Changes the GitLab Host URL
   ///
@@ -188,14 +185,13 @@ public class RxGitLabAPIClient {
   /// - Parameter privateToken: An OAuth token
   public func logIn(oAuthToken: String) {
     self.oAuthToken = oAuthToken
-    getCurrentUserTrigger.onNext(())
   }
   
   /// Logs out the current user
   public func logOut() {
     oAuthToken = nil
     privateToken = nil
-    currentUserVariable.value = nil
+    getCurrentUserTrigger.onNext(())
   }
 
 }

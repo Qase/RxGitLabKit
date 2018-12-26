@@ -9,4 +9,5 @@
 import UIKit
 import RxSwift
 
+/// A base table view cell with common attributes
 class BaseTableViewCell: UITableViewCell {}
