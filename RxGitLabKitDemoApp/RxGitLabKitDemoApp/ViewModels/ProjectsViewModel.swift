@@ -15,28 +15,28 @@ class ProjectsViewModel: BaseViewModel {
   
   // MARK: Private properties
   private let projects = Variable<[Project]>([])
-  private var pagesLoaded = 1
+  private let model = ProjectsModel()
   private let projectsEndpointGroup: ProjectsEnpointGroup!
-  private let loadNextPageTrigger = PublishSubject<Void>()
+  private let loadNextProjectPageTrigger = PublishSubject<Void>()
+  private let loadNextUserProjectPageTrigger = PublishSubject<Void>()
   
   // MARK: Public properties
   let gitlabClient: RxGitLabAPIClient!
-  let isLoading = Variable<Bool>(true)
-  let isUserVariable = Variable<Bool>(false)
-  let searchTextVariable = Variable<String?>(nil)
-  var projectPaginator = Variable<Paginator<Project>?>(nil)
+  let isUserTabSelectedVariable = Variable<Bool>(false)
+  let searchTextVariable = Variable<String?>("")
+  let projectPaginator = Variable<Paginator<Project>?>(nil)
+  var lastProjectPage = 0
   
+  let userProjectPaginator = Variable<Paginator<Project>?>(nil)
+  var lastUserProjectPage = 0
+  
+  let projectsPublisher = PublishSubject<[Project]>()
+  
+  let isLoadingPublisher = PublishSubject<Bool>()
+
   // MARK: Outputs
   var dataSource: Observable<[Project]> {
-    return projects.asObservable()
-  }
-  
-  var projectsCount: Int {
-    return projects.value.count
-  }
-  
-  var totalProjectsCount: Int {
-    return 100
+    return projectsPublisher.asObservable()
   }
   
   init(with gitlabClient: RxGitLabAPIClient, driver: Driver<Void>? = nil) {
@@ -44,60 +44,134 @@ class ProjectsViewModel: BaseViewModel {
     self.projectsEndpointGroup = gitlabClient.projects
     super.init()
     setupBindings()
+    self.projectPaginator.value = self.projectsEndpointGroup.getProjects(parameters: [
+      "simple" : true,
+      "sort" : "asc"
+      ] as [String : Any])
   }
   
   private func setupBindings() {
-    Observable.combineLatest(searchTextVariable.asObservable(), isUserVariable.asObservable(), gitlabClient.currentUserObservable)
-      .map { (arg) -> Paginator<Project>? in
-        let (searchText, isUser, user) = arg
-        let parameters = ["search" : searchText ?? ""]
-       if isUser {
-        if let user = user {
-          return self.projectsEndpointGroup.getUserProjects(userID: user.id, parameters: parameters)
+    let searchTextObservable = searchTextVariable.asObservable()
+    
+    searchTextObservable.subscribe(onNext: { searchText in
+      let parameters = [
+        "search" : searchText ?? "",
+        "simple" : true,
+        "sort" : "asc"
+        ] as [String : Any]
+        self.model.userProjects.value = []
+        self.model.projects.value = []
+        if let user = self.gitlabClient.currentUserVariable.value {
+          self.userProjectPaginator.value = self.projectsEndpointGroup.getUserProjects(userID: user.id, parameters: parameters)
         } else {
-          return nil
+          self.userProjectPaginator.value = nil
         }
-       } else {
-          return self.projectsEndpointGroup.getProjects(parameters: parameters)
-        }
-      }
-      .bind(to: projectPaginator)
+        self.projectPaginator.value = self.projectsEndpointGroup.getProjects(parameters: parameters)
+      })
+      .disposed(by: disposeBag)
+    
+    gitlabClient.currentUserObservable
+      .filter { $0 != nil }
+      .subscribe(onNext: { (user) in
+        guard let user = user else { return }
+        self.userProjectPaginator.value = self.projectsEndpointGroup.getUserProjects(userID: user.id, parameters: [
+          "simple" : true,
+          "sort" : "asc"
+          ] as [String : Any])
+      })
       .disposed(by: disposeBag)
     
     projectPaginator.asObservable()
       .flatMap { (paginator) -> Observable<[Project]> in
         guard let paginator = paginator else { return Observable.just([]) }
-        self.pagesLoaded = 1
-       return paginator[self.pagesLoaded]
+        self.lastProjectPage = 1
+       return paginator[self.lastProjectPage]
       }
-      .catchErrorJustReturn([])
-      .bind(to: projects)
-      .disposed(by: disposeBag)
-    
-    loadNextPageTrigger
-      .flatMap { self.projectPaginator.asObservable() }
-      .flatMap { (paginator) -> Observable<[Project]> in
-        guard let paginator = paginator else { return Observable.just([]) }
-        return paginator[self.pagesLoaded]
-      }
-      .subscribe(onNext: { projects in
-        self.projects.value.append(contentsOf: projects)
+      .subscribe(onNext: { (projects) in
+        self.model.projects.value = projects
       })
       .disposed(by: disposeBag)
     
+    userProjectPaginator.asObservable()
+      .flatMap { (paginator) -> Observable<[Project]> in
+        guard let paginator = paginator else { return Observable.just([]) }
+        self.lastUserProjectPage = 1
+        return paginator[self.lastProjectPage]
+      }
+      .subscribe(onNext: { (projects) in
+        self.model.userProjects.value = projects
+      })
+      .disposed(by: disposeBag)
+    
+    loadNextProjectPageTrigger
+      .map { self.projectPaginator.value }
+      .filter { $0 != nil}
+      .flatMap { (paginator) -> Observable<[Project]> in
+        guard let paginator = paginator else { return Observable.just([]) }
+        return paginator[self.lastProjectPage]
+      }
+      .subscribe(onNext: { projects in
+        self.model.projects.value.append(contentsOf: projects)
+      })
+      .disposed(by: disposeBag)
+    
+    loadNextUserProjectPageTrigger
+      .map { self.userProjectPaginator.value }
+      .filter { $0 != nil}
+      .flatMap { (paginator) -> Observable<[Project]> in
+        guard let paginator = paginator else { return Observable.just([]) }
+        return paginator[self.lastUserProjectPage]
+      }
+      .subscribe(onNext: { projects in
+        self.model.userProjects.value.append(contentsOf: projects)
+      })
+      .disposed(by: disposeBag)
+    
+    isUserTabSelectedVariable.asObservable()
+      .subscribe(onNext: { (isUserTab) in
+        if isUserTab {
+          self.projectsPublisher.onNext( self.model.userProjects.value)
+        } else {
+          self.projectsPublisher.onNext( self.model.projects.value)
+        }
+      })
+      .disposed(by: disposeBag)
+    
+    Observable.of(loadNextUserProjectPageTrigger.asObservable(), loadNextProjectPageTrigger.asObservable(), searchTextObservable.map{_ in ()})
+      .merge()
+      .debug()
+      .subscribeOn(MainScheduler.instance)
+      .subscribe(onNext: { _ in
+        self.isLoadingPublisher.onNext(true)
+      })
+      .disposed(by: disposeBag)
+    
+    Observable.combineLatest(model.projects.asObservable(), model.userProjects.asObservable(), isUserTabSelectedVariable.asObservable())
+      .subscribe (onNext: { projects, userProjects, isUser in
+        self.projectsPublisher.onNext(isUser ? userProjects : projects)
+        self.isLoadingPublisher.onNext(false)
+      })
+      .disposed(by: disposeBag)
   }
   
   func projectID(for index: Int) -> Project {
-    return projects.value[index]
+    
+    return isUserTabSelectedVariable.value ? model.userProjects.value[index] :  model.projects.value[index]
   }
   
   func loadProjects(_ search: String? = nil) {
-    searchTextVariable.value = search
+//    searchTextVariable.value = search
+    loadNextProjectPageTrigger.onNext(())
   }
   
   func loadNextProjectPage() {
-    pagesLoaded = pagesLoaded + 1
-    loadNextPageTrigger.onNext(())
+    lastProjectPage += 1
+    loadNextProjectPageTrigger.onNext(())
+  }
+  
+  func loadNextUserProjectPage() {
+    lastUserProjectPage += 1
+    loadNextUserProjectPageTrigger.onNext(())
   }
   
 }

@@ -12,97 +12,89 @@ import RxSwift
 
 class ProjectsViewController: BaseViewController, UISplitViewControllerDelegate {
   
-  private weak var searchController: UISearchController!
-  private weak var tableView: UITableView!
+  private let searchBar: UISearchBar = {
+    let searchBar = UISearchBar()
+    searchBar.scopeButtonTitles = ["All Projects", "User Projects"]
+    searchBar.showsScopeBar = true
+    searchBar.placeholder = "Search for projects ..."
+    searchBar.sizeToFit()
+    searchBar.scopeBarBackgroundImage = UIImage()
+    searchBar.returnKeyType = .done
+    return searchBar
+  } ()
+  
+  private let tableView: UITableView = {
+    let tableView = UITableView()
+    tableView.register(ProjectTableViewCell.self, forCellReuseIdentifier: ProjectTableViewCell.cellIdentifier)
+    return tableView
+  }()
+  
+  private let loadingIndicator = UIActivityIndicatorView(style: .gray)
 
   var viewModel: ProjectsViewModel!
 
   override func viewDidLoad() {
     super.viewDidLoad()
     title = "Projects"
-    modalPresentationStyle = .popover
-    definesPresentationContext = true
-    setupNavbar()
-    setupSearchController()
+    setupSearchBar()
     setupTableView()
     setupTableViewBinding()
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    viewModel.loadProjects()
   }
   
   private func setupNavbar() {
     navigationController?.navigationBar.prefersLargeTitles = true
   }
   
-  private func setupSearchController() {
-    let searchController = UISearchController(searchResultsController: nil)
-    searchController.searchBar.scopeButtonTitles = ["All Projects", "User Projects"]
-    searchController.obscuresBackgroundDuringPresentation = false
-    navigationItem.searchController = searchController
-    navigationItem.hidesSearchBarWhenScrolling = false
-    self.searchController = searchController
-    
-    searchController.searchBar.rx.selectedScopeButtonIndex
-      .subscribe(onNext: { (index) in
-        print(self.searchController.searchBar.scopeButtonTitles?[index] ?? "")
-      })
-      .disposed(by: disposeBag)
-    
-    searchController.searchBar.rx
+  private func setupSearchBar() {
+    navigationItem.titleView = searchBar
+    searchBar.rx
       .selectedScopeButtonIndex
       .map { $0 == 1 }
-      .bind(to: viewModel.isUserVariable)
+      .bind(to: viewModel.isUserTabSelectedVariable)
       .disposed(by: disposeBag)
-    
-    searchController.searchBar.rx.text
+    searchBar.rx.searchButtonClicked.subscribe({ _ in
+      self.searchBar.endEditing(true)
+    })
+      .disposed(by: disposeBag)
+
+    searchBar.rx.text
       .throttle(0.2, scheduler: MainScheduler.instance)
+      .distinctUntilChanged()
       .bind(to: viewModel.searchTextVariable)
       .disposed(by: disposeBag)
   }
   
-  private func setupBarButton() {
-    let btn = UIBarButtonItem(title: "+", style: .plain, target: nil, action: nil)
-    navigationItem.rightBarButtonItem = btn
-    
-    btn.rx.tap.subscribe({ _ in
-      let vc = UIViewController()
-      vc.view.backgroundColor = .red
-      self.present(vc, animated: true, completion: nil)
-    })
-      .disposed(by: disposeBag)
-  }
-  
   private func setupTableView() {
-    let tableView = UITableView()
     view.addSubview(tableView)
-    tableView.tableFooterView = UIView()
-    self.tableView = tableView
     tableView.snp.makeConstraints { make in
       make.edges.equalToSuperview()
     }
-
-    tableView.register(ProjectTableViewCell.self, forCellReuseIdentifier: ProjectTableViewCell.cellIdentifier)
-    
-    let label = UILabel()
-    label.text = "Please select a commit from a project."
-    
-    tableView.backgroundView = label
+    tableView.tableFooterView = loadingIndicator
   }
   
   private func setupTableViewBinding() {
+    // Selecting item
     tableView.rx.itemSelected
       .subscribe(onNext: { [unowned self] indexPath in
         let commitsVC = CommitsViewController()
         commitsVC.viewModel = CommitsViewModel(with: self.viewModel.gitlabClient, projectID: self.viewModel.projectID(for: indexPath.row).id)
-        self.searchController.isActive = false
         self.navigationController?.pushViewController(commitsVC, animated: true)
       })
       .disposed(by: disposeBag)
     
+    // Cell data
     viewModel.dataSource
       .bind(to: tableView.rx.items(cellIdentifier: ProjectTableViewCell.cellIdentifier, cellType: ProjectTableViewCell.self)) { row, element, cell in
         cell.project = element
       }
       .disposed(by: disposeBag)
     
+    // Empty label
     viewModel.dataSource
       .map { $0.isEmpty }
       .observeOn(MainScheduler.instance)
@@ -115,24 +107,31 @@ class ProjectsViewController: BaseViewController, UISplitViewControllerDelegate 
       })
       .disposed(by:disposeBag)
     
-    tableView.rx
-      .willDisplayCell
-      .subscribe(onNext: { cell, indexPath in
-        if indexPath.row != self.viewModel.totalProjectsCount,
-          indexPath.row == self.viewModel.projectsCount {
-          self.viewModel.loadNextProjectPage()
-        }
-      })
-      .disposed(by: disposeBag)
-    
+    // Load more projects
     tableView.rx
       .willBeginDecelerating
       .subscribe(onNext: { _ in
         if self.tableView.isReachingEnd {
-          self.viewModel.loadNextProjectPage()
+          if self.viewModel.isUserTabSelectedVariable.value {
+              self.viewModel.loadNextUserProjectPage()
+            } else {
+              self.viewModel.loadNextProjectPage()
+            }
         }
       })
       .disposed(by: disposeBag)
+    
+    // Loading indicator
+    viewModel.isLoadingPublisher.asObservable()
+      .observeOn(MainScheduler.instance)
+      .subscribe(onNext: { (isLoading) in
+        if isLoading {
+          self.loadingIndicator.startAnimating()
+        } else {
+          self.loadingIndicator.stopAnimating()
+        }
+      })
+      .disposed(by:disposeBag)
   }
   
   func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {

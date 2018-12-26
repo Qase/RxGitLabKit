@@ -53,7 +53,7 @@ public class HTTPClient: Networking {
       
       task.resume()
       return Disposables.create(with: task.cancel)
-    }
+    }.debug()
   }
   
   /// Sends a request to the server and the response header can be subscribed to

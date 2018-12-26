@@ -12,6 +12,8 @@
 		6C05B85F21AC5A84009E9A98 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C05B85C21AC5A83009E9A98 /* RxCocoa.framework */; };
 		6C05B86F21AC5A9B009E9A98 /* RxGitLabKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C05B86821AC5A8D009E9A98 /* RxGitLabKit.framework */; };
 		6C05B87021AC5A9B009E9A98 /* RxGitLabKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6C05B86821AC5A8D009E9A98 /* RxGitLabKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6C1676FD21D27DFB00EC043A /* ProjectsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1676FC21D27DFB00EC043A /* ProjectsModel.swift */; };
+		6C1676FF21D29E7600EC043A /* DateFormatter+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1676FE21D29E7600EC043A /* DateFormatter+Extensions.swift */; };
 		6C54520F21A043A700B6BFA0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C54520E21A043A700B6BFA0 /* AppDelegate.swift */; };
 		6C54521121A043A700B6BFA0 /* ProjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C54521021A043A700B6BFA0 /* ProjectsViewController.swift */; };
 		6C54521421A043A700B6BFA0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C54521221A043A700B6BFA0 /* Main.storyboard */; };
@@ -38,6 +40,7 @@
 		6C54528721A20CED00B6BFA0 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C54528621A20CED00B6BFA0 /* LoginViewModel.swift */; };
 		6C54528921A21CC900B6BFA0 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C54528821A21CC900B6BFA0 /* BaseView.swift */; };
 		6C61D37721A9956D0087FCF2 /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C61D37621A9956D0087FCF2 /* UITableView+Extensions.swift */; };
+		6CF414DD21D2FC5900DE1AB1 /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF414DC21D2FC5900DE1AB1 /* UITextField+Extensions.swift */; };
 		6CF64BB321A43C38003D81CB /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF64BB221A43C38003D81CB /* Date+Extensions.swift */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +80,76 @@
 			remoteGlobalIDString = 6CE13F6221184ED200C92B7B;
 			remoteInfo = "RxGitLabKit-iOS";
 		};
+		6C1676E821D27DAE00EC043A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6C05B86021AC5A8C009E9A98 /* RxGitLabKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6C05B88B21AD1A63009E9A98;
+			remoteInfo = "RxGitLabKit-watchOS";
+		};
+		6C1676EA21D27DAE00EC043A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6C05B86021AC5A8C009E9A98 /* RxGitLabKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6C05B89821AD1A8D009E9A98;
+			remoteInfo = "RxGitLabKit-tvOS";
+		};
+		6C1676EC21D27DAE00EC043A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6C05B86021AC5A8C009E9A98 /* RxGitLabKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6C5D684021B695DE00326012;
+			remoteInfo = "RxGitLabKit-iOSUnitTests";
+		};
+		6C1676EE21D27DAE00EC043A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6C05B86021AC5A8C009E9A98 /* RxGitLabKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6C5D689A21B696F000326012;
+			remoteInfo = "RxGitLabKit-iOSIntegrationTests";
+		};
+		6C1676F021D27DAE00EC043A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6C05B86021AC5A8C009E9A98 /* RxGitLabKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6C5D68E921B6993000326012;
+			remoteInfo = "RxGitLabKit-macOSUnitTests";
+		};
+		6C1676F221D27DAE00EC043A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6C05B86021AC5A8C009E9A98 /* RxGitLabKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6C5D692021B6993900326012;
+			remoteInfo = "RxGitLabKit-macOSIntegrationTests";
+		};
+		6C1676F421D27DAE00EC043A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6C05B86021AC5A8C009E9A98 /* RxGitLabKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6C5535E221CE3E1D0004CF03;
+			remoteInfo = "RxGitLabKit-macOSPerformanceTests";
+		};
+		6C1676F621D27DAE00EC043A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6C05B86021AC5A8C009E9A98 /* RxGitLabKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6C05B8A021AD1A8D009E9A98;
+			remoteInfo = "RxGitLabKit-tvOSAllTests";
+		};
+		6C1676F821D27DAE00EC043A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6C05B86021AC5A8C009E9A98 /* RxGitLabKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6C5D695721B6996100326012;
+			remoteInfo = "RxGitLabKit-tvOSUnitTests";
+		};
+		6C1676FA21D27DAE00EC043A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6C05B86021AC5A8C009E9A98 /* RxGitLabKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6C5D698E21B6996400326012;
+			remoteInfo = "RxGitLabKit-tvOSIntegrationTests";
+		};
 		6C54522021A043AA00B6BFA0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6C54520321A043A700B6BFA0 /* Project object */;
@@ -113,6 +186,8 @@
 		6C05B85C21AC5A83009E9A98 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = ../Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		6C05B86021AC5A8C009E9A98 /* RxGitLabKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RxGitLabKit.xcodeproj; path = ../RxGitLabKit.xcodeproj; sourceTree = "<group>"; };
 		6C0B0BCF21AACC7000A4EB50 /* RxGitLabKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxGitLabKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C1676FC21D27DFB00EC043A /* ProjectsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsModel.swift; sourceTree = "<group>"; };
+		6C1676FE21D29E7600EC043A /* DateFormatter+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extensions.swift"; sourceTree = "<group>"; };
 		6C54520B21A043A700B6BFA0 /* RxGitLabKitDemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxGitLabKitDemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C54520E21A043A700B6BFA0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6C54521021A043A700B6BFA0 /* ProjectsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsViewController.swift; sourceTree = "<group>"; };
@@ -145,6 +220,7 @@
 		6C54528621A20CED00B6BFA0 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		6C54528821A21CC900B6BFA0 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		6C61D37621A9956D0087FCF2 /* UITableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
+		6CF414DC21D2FC5900DE1AB1 /* UITextField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
 		6CF64BB221A43C38003D81CB /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -194,6 +270,8 @@
 				6CF64BB221A43C38003D81CB /* Date+Extensions.swift */,
 				6C54526F21A16E4C00B6BFA0 /* UITableViewCell+Extensions.swift */,
 				6C61D37621A9956D0087FCF2 /* UITableView+Extensions.swift */,
+				6C1676FE21D29E7600EC043A /* DateFormatter+Extensions.swift */,
+				6CF414DC21D2FC5900DE1AB1 /* UITextField+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -203,10 +281,28 @@
 			children = (
 				6C05B86821AC5A8D009E9A98 /* RxGitLabKit.framework */,
 				6C05B86A21AC5A8D009E9A98 /* RxGitLabKit.framework */,
-				6C05B86C21AC5A8D009E9A98 /* RxGitLabKit-iOSTests.xctest */,
-				6C05B86E21AC5A8D009E9A98 /* RxGitLabKit-macOSTests.xctest */,
+				6C1676E921D27DAE00EC043A /* RxGitLabKit.framework */,
+				6C1676EB21D27DAE00EC043A /* RxGitLabKit.framework */,
+				6C05B86C21AC5A8D009E9A98 /* RxGitLabKit-iOSAllTests.xctest */,
+				6C1676ED21D27DAE00EC043A /* RxGitLabKit-iOSUnitTests.xctest */,
+				6C1676EF21D27DAE00EC043A /* RxGitLabKit-iOSIntegrationTests.xctest */,
+				6C05B86E21AC5A8D009E9A98 /* RxGitLabKit-macOSAllTests.xctest */,
+				6C1676F121D27DAE00EC043A /* RxGitLabKit-macOSUnitTests.xctest */,
+				6C1676F321D27DAE00EC043A /* RxGitLabKit-macOSIntegrationTests.xctest */,
+				6C1676F521D27DAE00EC043A /* RxGitLabKit-macOSPerformanceTests.xctest */,
+				6C1676F721D27DAE00EC043A /* RxGitLabKit-tvOSAllTests.xctest */,
+				6C1676F921D27DAE00EC043A /* RxGitLabKit-tvOSUnitTests.xctest */,
+				6C1676FB21D27DAE00EC043A /* RxGitLabKit-tvOSIntegrationTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		6C1676DA21D27DAE00EC043A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6C1676FC21D27DFB00EC043A /* ProjectsModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		6C54520221A043A700B6BFA0 = {
@@ -235,6 +331,7 @@
 			isa = PBXGroup;
 			children = (
 				6C05B82E21AC17BA009E9A98 /* Base */,
+				6C1676DA21D27DAE00EC043A /* Models */,
 				6C54526521A1695F00B6BFA0 /* ViewModels */,
 				6C54526B21A16D8200B6BFA0 /* Views */,
 				6C54526421A1694000B6BFA0 /* ViewControllers */,
@@ -443,18 +540,88 @@
 			remoteRef = 6C05B86921AC5A8D009E9A98 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		6C05B86C21AC5A8D009E9A98 /* RxGitLabKit-iOSTests.xctest */ = {
+		6C05B86C21AC5A8D009E9A98 /* RxGitLabKit-iOSAllTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
-			path = "RxGitLabKit-iOSTests.xctest";
+			path = "RxGitLabKit-iOSAllTests.xctest";
 			remoteRef = 6C05B86B21AC5A8D009E9A98 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		6C05B86E21AC5A8D009E9A98 /* RxGitLabKit-macOSTests.xctest */ = {
+		6C05B86E21AC5A8D009E9A98 /* RxGitLabKit-macOSAllTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
-			path = "RxGitLabKit-macOSTests.xctest";
+			path = "RxGitLabKit-macOSAllTests.xctest";
 			remoteRef = 6C05B86D21AC5A8D009E9A98 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6C1676E921D27DAE00EC043A /* RxGitLabKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = RxGitLabKit.framework;
+			remoteRef = 6C1676E821D27DAE00EC043A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6C1676EB21D27DAE00EC043A /* RxGitLabKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = RxGitLabKit.framework;
+			remoteRef = 6C1676EA21D27DAE00EC043A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6C1676ED21D27DAE00EC043A /* RxGitLabKit-iOSUnitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "RxGitLabKit-iOSUnitTests.xctest";
+			remoteRef = 6C1676EC21D27DAE00EC043A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6C1676EF21D27DAE00EC043A /* RxGitLabKit-iOSIntegrationTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "RxGitLabKit-iOSIntegrationTests.xctest";
+			remoteRef = 6C1676EE21D27DAE00EC043A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6C1676F121D27DAE00EC043A /* RxGitLabKit-macOSUnitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "RxGitLabKit-macOSUnitTests.xctest";
+			remoteRef = 6C1676F021D27DAE00EC043A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6C1676F321D27DAE00EC043A /* RxGitLabKit-macOSIntegrationTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "RxGitLabKit-macOSIntegrationTests.xctest";
+			remoteRef = 6C1676F221D27DAE00EC043A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6C1676F521D27DAE00EC043A /* RxGitLabKit-macOSPerformanceTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "RxGitLabKit-macOSPerformanceTests.xctest";
+			remoteRef = 6C1676F421D27DAE00EC043A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6C1676F721D27DAE00EC043A /* RxGitLabKit-tvOSAllTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "RxGitLabKit-tvOSAllTests.xctest";
+			remoteRef = 6C1676F621D27DAE00EC043A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6C1676F921D27DAE00EC043A /* RxGitLabKit-tvOSUnitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "RxGitLabKit-tvOSUnitTests.xctest";
+			remoteRef = 6C1676F821D27DAE00EC043A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6C1676FB21D27DAE00EC043A /* RxGitLabKit-tvOSIntegrationTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "RxGitLabKit-tvOSIntegrationTests.xctest";
+			remoteRef = 6C1676FA21D27DAE00EC043A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -514,8 +681,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C1676FD21D27DFB00EC043A /* ProjectsModel.swift in Sources */,
 				6C54527021A16E4C00B6BFA0 /* UITableViewCell+Extensions.swift in Sources */,
 				6CF64BB321A43C38003D81CB /* Date+Extensions.swift in Sources */,
+				6CF414DD21D2FC5900DE1AB1 /* UITextField+Extensions.swift in Sources */,
 				6C54527421A1801400B6BFA0 /* CommitsViewModel.swift in Sources */,
 				6C54528121A1F76000B6BFA0 /* BaseViewModel.swift in Sources */,
 				6C54526A21A16CF200B6BFA0 /* ProjectsViewModel.swift in Sources */,
@@ -527,6 +696,7 @@
 				6C54528721A20CED00B6BFA0 /* LoginViewModel.swift in Sources */,
 				6C54527B21A1C32A00B6BFA0 /* CommitDetailTableViewCell.swift in Sources */,
 				6C54521121A043A700B6BFA0 /* ProjectsViewController.swift in Sources */,
+				6C1676FF21D29E7600EC043A /* DateFormatter+Extensions.swift in Sources */,
 				6C54520F21A043A700B6BFA0 /* AppDelegate.swift in Sources */,
 				6C54523D21A048EA00B6BFA0 /* ProfileViewController.swift in Sources */,
 				6C54524721A04E0B00B6BFA0 /* CommitDetailViewController.swift in Sources */,

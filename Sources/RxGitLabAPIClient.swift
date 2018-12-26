@@ -23,7 +23,7 @@ public class RxGitLabAPIClient {
   private let getCurrentUserTrigger = PublishSubject<Void>()
   
   /// Logged in user variable
-  private let currentUserVariable = Variable<User?>(nil)
+  public let currentUserVariable = Variable<User?>(nil)
   
   /// Observable of the current user
   public var currentUserObservable: Observable<User?> {

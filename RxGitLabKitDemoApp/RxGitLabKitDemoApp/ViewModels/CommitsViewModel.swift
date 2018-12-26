@@ -19,6 +19,8 @@ class CommitsViewModel: BaseViewModel {
   private var pagesLoaded = 0
   private let loadNextPageTrigger = PublishSubject<Void>()
   
+  let isLoadingPublisher = PublishSubject<Bool>()
+  
   // MARK: Outputs
   let gitlabClient: RxGitLabAPIClient!
   let projectID: Int
@@ -44,7 +46,10 @@ class CommitsViewModel: BaseViewModel {
       }
       .subscribe(onNext: { commits in
         self.commits.value.append(contentsOf: commits)
+        self.isLoadingPublisher.onNext(false)
       })
+      .disposed(by: disposeBag)
+    loadNextPageTrigger.subscribe(onNext: { self.isLoadingPublisher.onNext(true)})
       .disposed(by: disposeBag)
   }
   
@@ -53,7 +58,7 @@ class CommitsViewModel: BaseViewModel {
   }
   
   func loadNextProjectPage() {
-    pagesLoaded = pagesLoaded + 1
+    pagesLoaded += 1
     loadNextPageTrigger.onNext(())
   }
   

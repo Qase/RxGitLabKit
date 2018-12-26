@@ -11,11 +11,25 @@ import RxSwift
 
 class LoginViewController: BaseViewController {
   
-  private weak var hostTextField: UITextField!
-  private weak var userNameTextField: UITextField!
-  private weak var passwordTextField: UITextField!
-  private weak var privateTokenField: UITextField!
-  private weak var oAuthTokenTextField: UITextField!
+  private let hostTextField: UITextField = UITextField.withRoundedCorners
+  
+  private let userNameTextField: UITextField = {
+    let textField = UITextField.withRoundedCorners
+    textField.textContentType = .username
+    return textField
+  }()
+  
+  private let passwordTextField: UITextField = {
+    let textField = UITextField.withRoundedCorners
+    textField.isSecureTextEntry = true
+    textField.textContentType = .password
+    return textField
+  }()
+  
+  private let privateTokenField: UITextField = UITextField.withRoundedCorners
+  
+  private let oAuthTokenTextField: UITextField = UITextField.withRoundedCorners
+  
   private weak var authorizeButton: UIButton!
   
   var viewModel: LoginViewModel!
@@ -38,22 +52,6 @@ class LoginViewController: BaseViewController {
     let passwordLabel = createLabelWithText("Password")
     let privateTokenLabel = createLabelWithText("Private Token")
     let oAuthTokenLabel = createLabelWithText("OAuth Token")
-    
-    let hostTextField = createTextFieldWithRoundedCorners()
-    self.hostTextField = hostTextField
-    hostTextField.text = "http://192.168.84.163:80"
-    let userNameTextField = createTextFieldWithRoundedCorners()
-    userNameTextField.textContentType = .username
-    self.userNameTextField = userNameTextField
-    let passwordTextField = createTextFieldWithRoundedCorners()
-    passwordTextField.isSecureTextEntry = true
-    passwordTextField.textContentType = .password
-    self.passwordTextField = passwordTextField
-    let privateTokenField = createTextFieldWithRoundedCorners()
-    privateTokenField.text = "pxu4zszRBBoEe9bsybGc"
-    self.privateTokenField = privateTokenField
-    let oAuthTokenTextField = createTextFieldWithRoundedCorners()
-    self.oAuthTokenTextField = oAuthTokenTextField
     
     hostTextField.text = viewModel.gitlabClient.hostURL.absoluteString
     
@@ -132,12 +130,6 @@ class LoginViewController: BaseViewController {
     let label = UILabel()
     label.text = text
     return label
-  }
-  
-  private func createTextFieldWithRoundedCorners() -> UITextField {
-    let textField = UITextField()
-    textField.borderStyle = .roundedRect
-    return textField
   }
   
 }

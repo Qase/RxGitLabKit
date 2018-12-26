@@ -21,10 +21,9 @@ class CommitDetailViewController: BaseViewController {
     super.viewDidLoad()
     title = "Commit Detail"
     view.backgroundColor = .white
-    if viewModel == nil {
-      setupEmptyState()
-    } else {
-      setupTableView()
+    setupTableView()
+
+    if viewModel != nil {
       setupTableViewBinding()
       setupRefresher()
     }
@@ -46,9 +45,11 @@ class CommitDetailViewController: BaseViewController {
     tableView.snp.makeConstraints { make in
       make.edges.equalToSuperview()
     }
+
     tableView.register(CommitDetailTableViewCell.self, forCellReuseIdentifier: CommitDetailTableViewCell.cellIdentifier)
     tableView.tableFooterView = UIView()
     tableView.allowsSelection = false
+    tableView.setEmptyMessage("Please select a commit from a project a.")
   }
   
   private func setupTableViewBinding() {

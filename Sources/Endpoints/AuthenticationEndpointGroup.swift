@@ -41,8 +41,8 @@ public class AuthenticationEndpointGroup: EndpointGroup {
       "username" : username,
       "password" : password
     ]
-    let apiRequest = APIRequest(path: Endpoints.token.url, method: .post, jsonBody: jsonBody)
-    return object(for: apiRequest, apiVersion: nil)
+    let apiRequest = APIRequest(path: Endpoints.token.url, method: .post, jsonBody: jsonBody, apiVersion: nil)
+    return object(for: apiRequest)
   }
 
 }

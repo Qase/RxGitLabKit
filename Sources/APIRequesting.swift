@@ -14,17 +14,21 @@ public struct APIRequest {
   public var parameters: QueryParameters
   public var jsonDictionary: JSONDictionary?
   public var data: Data?
+  public let apiVersion: String?
 
   public init(path: String = "",
        method: HTTPMethod = HTTPMethod.get,
        parameters: QueryParameters? = nil,
        jsonBody: JSONDictionary? = nil,
-       data: Data? = nil) {
+       data: Data? = nil,
+       apiVersion: String? =
+RxGitLabAPIClient.apiVersionURLString) {
     self.path = path
     self.method = method
     self.parameters = parameters ?? [:]
     self.jsonDictionary = jsonBody
     self.data = data
+    self.apiVersion = apiVersion
   }
   
   
@@ -37,7 +41,7 @@ public struct APIRequest {
   ///   - page: page if the endpoint is paginated
   ///   - perPage: per_page if the endpoint is paginated
   /// - Returns: URLRequest
-  public func buildRequest(with hostURL: URL, header: Header? = nil, apiVersion: String? = RxGitLabAPIClient.apiVersionURLString, page: Int? = nil, perPage: Int? = nil) -> URLRequest? {
+  public func buildRequest(with hostURL: URL, header: Header? = nil, page: Int? = nil, perPage: Int? = nil) -> URLRequest? {
     var pathURL = hostURL
     if let apiVersion = apiVersion {
       pathURL.appendPathComponent(apiVersion)

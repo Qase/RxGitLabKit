@@ -14,7 +14,7 @@ extension Date {
   /// - Parameters:
   ///   - string: Date
   ///   - formatter: A Date Formatter (default: ISO8601 Full)
-  public init?(from string: String, using formatter: DateFormatter = DateFormatter.iso8601full) {
+  init?(from string: String, using formatter: DateFormatter = DateFormatter.iso8601full) {
     if let date =  formatter.date(from: string) {
       self = date
     }  else {

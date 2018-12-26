@@ -12,8 +12,13 @@ import RxSwift
 
 class CommitsViewController: BaseViewController {
   
-  private weak var tableView: UITableView!
-  private weak var emptyLabel: UILabel!
+  private let tableView: UITableView = {
+    let tableView = UITableView()
+    tableView.register(CommitTableViewCell.self, forCellReuseIdentifier: CommitTableViewCell.cellIdentifier)
+    return tableView
+  } ()
+  
+  private let loadingIndicator = UIActivityIndicatorView(style: .gray)
   
   var viewModel: CommitsViewModel!
   
@@ -29,26 +34,10 @@ class CommitsViewController: BaseViewController {
   }
   
   private func setupTableView() {
-    let tableView = UITableView()
     view.addSubview(tableView)
-    self.tableView = tableView
     tableView.snp.makeConstraints { make in
       make.edges.equalToSuperview()
     }
-    tableView.register(CommitTableViewCell.self, forCellReuseIdentifier: CommitTableViewCell.cellIdentifier)
-    
-    let emptyLabel = UILabel()
-    emptyLabel.textAlignment = .center
-    emptyLabel.numberOfLines = 4
-    let emptyView = UIView()
-    emptyView.addSubview(emptyLabel)
-    emptyLabel.snp.makeConstraints { (make) in
-      make.centerY.equalToSuperview()
-      make.left.right.equalToSuperview().inset(16)
-    }
-    self.emptyLabel = emptyLabel
-    tableView.backgroundView = emptyView
-    tableView.tableFooterView = UIView()
   }
   
   private func setupTableViewBinding() {
@@ -83,6 +72,18 @@ class CommitsViewController: BaseViewController {
         }
       })
       .disposed(by: disposeBag)
+    
+    // Loading indicator
+    viewModel.isLoadingPublisher.asObservable()
+      .observeOn(MainScheduler.instance)
+      .subscribe(onNext: { (isLoading) in
+        if isLoading {
+          self.loadingIndicator.startAnimating()
+        } else {
+          self.loadingIndicator.stopAnimating()
+        }
+      })
+      .disposed(by:disposeBag)
   }
   
   private func showDetail(_ indexPath: IndexPath) {

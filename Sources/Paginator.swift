@@ -118,6 +118,7 @@ public class Paginator<T: Codable> {
 
     return communicator
       .object(for: newApiRequest)
+      .debug()
   }
 
 }
