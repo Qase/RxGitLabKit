@@ -21,7 +21,7 @@ public struct CommitStatus: Codable {
   public let id: Int?
   public let ref: String?
   public let coverage: Double?
-
+  
   enum CodingKeys: String, CodingKey {
     case status
     case createdAt = "created_at"
@@ -34,7 +34,7 @@ public struct CommitStatus: Codable {
     case id, ref
     case coverage
   }
-
+  
   public init(status: String? = nil, createdAt: Date? = nil, startedAt: Date? = nil, name: String? = nil, allowFailure: Bool? = nil, author: User? = nil, description: String? = nil, sha: String? = nil, targetURL: String? = nil, finishedAt: Date? = nil, id: Int? = nil, ref: String? = nil, coverage: Double? = nil) {
     self.status = status
     self.createdAt = createdAt

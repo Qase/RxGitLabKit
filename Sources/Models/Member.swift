@@ -14,7 +14,7 @@ public struct Member: Codable {
   public let webURL: String?
   public let expiresAt: Date?
   public let accessLevel: Int
-
+  
   enum CodingKeys: String, CodingKey {
     case id, username, name, state
     case avatarURL = "avatar_url"
@@ -32,7 +32,7 @@ public struct Member: Codable {
     avatarURL = try values.decodeIfPresent(String.self, forKey: .avatarURL)
     webURL = try values.decodeIfPresent(String.self, forKey: .webURL)
     accessLevel = try values.decode(Int.self, forKey: .accessLevel)
-   
+    
     if let _expiresAt = try values.decodeIfPresent(String.self, forKey: .expiresAt) {
       expiresAt = Date(from: _expiresAt, using: DateFormatter.yyyyMMdd)
     } else {

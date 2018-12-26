@@ -9,7 +9,6 @@ import Foundation
 
 public struct FileInfo: Codable {
   let fileName: String
-  
   let filePath: String
   let size: Int
   let encoding, content, contentSha256, ref: String

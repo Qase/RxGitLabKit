@@ -10,7 +10,7 @@ import Foundation
 public struct ProjectStatistics: Codable {
   public let commitCount, storageSize, repositorySize, lfsObjectsSize: Int
   public let jobArtifactsSize: Int
-
+  
   enum CodingKeys: String, CodingKey {
     case commitCount = "commit_count"
     case storageSize = "storage_size"

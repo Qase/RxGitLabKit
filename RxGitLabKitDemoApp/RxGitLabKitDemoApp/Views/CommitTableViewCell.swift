@@ -11,14 +11,14 @@ import RxGitLabKit
 import RxSwift
 
 class CommitTableViewCell: BaseTableViewCell {
-
+  
   var commit: Commit! {
     didSet {
       textLabel?.text = commit.title
       detailTextLabel?.text = "\(commit.authorName) \t \(commit.shortId)\t \(commit.authoredDate?.localizedString ?? "")"
     }
   }
-
+  
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     super.init(style: .subtitle, reuseIdentifier: ProjectTableViewCell.cellIdentifier)
     textLabel?.textColor = UIColor.blue

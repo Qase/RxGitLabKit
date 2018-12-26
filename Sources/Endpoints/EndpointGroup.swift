@@ -15,10 +15,10 @@ public class EndpointGroup {
   /// Communicator
   internal let hostCommunicator: HostCommunicator
   internal let disposeBag = DisposeBag()
-
+  
   /// Endpoint enumeration
   internal enum Endpoints {}
-
+  
   public required init(with hostCommunicator: HostCommunicator) {
     self.hostCommunicator = hostCommunicator
   }

@@ -37,7 +37,7 @@ public struct Project: Codable {
   public let mergeMethod: String?
   public let statistics: ProjectStatistics?
   public let links: Links?
-
+  
   enum CodingKeys: String, CodingKey {
     case id, description
     case defaultBranch = "default_branch"

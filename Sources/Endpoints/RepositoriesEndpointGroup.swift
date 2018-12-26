@@ -77,10 +77,10 @@ public class RepositoriesEndpointGroup: EndpointGroup {
    Allows you to receive information about blob in repository like size and content. Note that blob content is Base64 encoded. This endpoint can be accessed without authentication if the repository is publicly accessible.
    
    - Parameters:
-     - projectID: The ID or URL-encoded path of the project owned by the authenticated user
-     - sha: The blob SHA
+   - projectID: The ID or URL-encoded path of the project owned by the authenticated user
+   - sha: The blob SHA
    - Returns: An `Observable` of `Data`
-  */
+   */
   public func getBlob(projectID: Int, sha: String) -> Observable<Data> {
     let apiRequest = APIRequest(path: Endpoints.blobs(projectID: projectID, sha: sha).url)
     return data(for: apiRequest)
@@ -91,10 +91,10 @@ public class RepositoriesEndpointGroup: EndpointGroup {
    Get the raw file contents for a blob by blob SHA. This endpoint can be accessed without authentication if the repository is publicly accessible.
    
    - Parameters:
-     - projectID: The ID or URL-encoded path of the project owned by the authenticated user
-     - sha: The blob SHA
+   - projectID: The ID or URL-encoded path of the project owned by the authenticated user
+   - sha: The blob SHA
    - Returns: An `Observable` of `Data`
-  */
+   */
   public func getBlobRaw(projectID: Int, sha: String) -> Observable<Data> {
     let apiRequest = APIRequest(path: Endpoints.blobsRaw(projectID: projectID, sha: sha).url)
     return data(for: apiRequest)
@@ -104,10 +104,10 @@ public class RepositoriesEndpointGroup: EndpointGroup {
    Get file archive
    
    Get an archive of the repository. This endpoint can be accessed without authentication if the repository is publicly accessible.
-
+   
    - Parameters:
-    - projectID: The ID or URL-encoded path of the project owned by the authenticated user
-     - format: an optional suffix for the archive format. Default is `tar.gz`. Options are `tar.gz`, `tar.bz2`, `tbz`, `tbz2`, `tb2`, `bz2`, `tar`, and `zip`. For example, specifying `archive.zip` would send an archive in ZIP format.
+   - projectID: The ID or URL-encoded path of the project owned by the authenticated user
+   - format: an optional suffix for the archive format. Default is `tar.gz`. Options are `tar.gz`, `tar.bz2`, `tbz`, `tbz2`, `tb2`, `bz2`, `tar`, and `zip`. For example, specifying `archive.zip` would send an archive in ZIP format.
    - Returns: An `Observable` of `Data`
    */
   public func getArchive(projectID: Int, format: String) -> Observable<Data> {
@@ -121,8 +121,8 @@ public class RepositoriesEndpointGroup: EndpointGroup {
    This endpoint can be accessed without authentication if the repository is publicly accessible.
    
    - Parameters:
-    - from: The commit SHA or branch name
-    - to: The commit SHA or branch name
+   - from: The commit SHA or branch name
+   - to: The commit SHA or branch name
    
    **Optional Query Parameters:**
    - **straight: Boolean** - Limit by visibility public, internal, or private
@@ -148,7 +148,7 @@ public class RepositoriesEndpointGroup: EndpointGroup {
    ***Optional Query Parameters:**
    - **order_by: String** - Return contributors ordered by `name`, `email`, or `commits` (orders by commit date) fields. Default is `commits`
    - **sort: String** - Return contributors sorted in `asc` or `desc! order. Default is `asc`.
- 
+   
    - Returns: An `Observable` of list of `Contributor`
    */
   public func getContributors(projectID: Int, parameters: QueryParameters? = nil) -> Paginator<Contributor> {
@@ -160,7 +160,7 @@ public class RepositoriesEndpointGroup: EndpointGroup {
    Merge Base
    
    Get the common ancestor for 2 refs (commit SHAs, branch names or tags).
-
+   
    - Parameter projectID: The ID or URL-encoded path of the project
    - Parameter refs: The refs to find the common ancestor of, multiple refs can be passed
    
@@ -178,9 +178,9 @@ public class RepositoriesEndpointGroup: EndpointGroup {
    Allows you to receive information about file in repository like name, size, content. Note that file content is Base64 encoded. This endpoint can be accessed without authentication if the repository is publicly accessible.
    
    - Parameters:
-      - projectID: The ID or URL-encoded path of the project
-      - file_path: Url encoded full path to new file. Ex. lib%2Fclass%2Erb
-      - ref: The name of branch, tag or commit
+   - projectID: The ID or URL-encoded path of the project
+   - file_path: Url encoded full path to new file. Ex. lib%2Fclass%2Erb
+   - ref: The name of branch, tag or commit
    
    - Returns: An `Observable` of list of `FileInfo`
    */
@@ -191,11 +191,11 @@ public class RepositoriesEndpointGroup: EndpointGroup {
   
   /**
    Get raw file from repository
-  
+   
    - Parameters:
-     - projectID: The ID or URL-encoded path of the project
-     - file_path: Url encoded full path to new file. Ex. lib%2Fclass%2Erb
-     - ref: The name of branch, tag or commit
+   - projectID: The ID or URL-encoded path of the project
+   - file_path: Url encoded full path to new file. Ex. lib%2Fclass%2Erb
+   - ref: The name of branch, tag or commit
    
    - Returns: An `Observable` of list of `FileInfo`
    */
@@ -210,9 +210,9 @@ public class RepositoriesEndpointGroup: EndpointGroup {
    This allows you to create a single file. For creating multiple files with a single request see the [commits API](https://docs.gitlab.com/ee/api/commits.html#create-a-commit-with-multiple-files-and-actions).
    
    - Parameters:
-     - file: File containing data
-     - projectID: The ID or URL-encoded path of the project
-     - filePath: Url encoded full path to new file. Ex. lib%2Fclass%2Erb
+   - file: File containing data
+   - projectID: The ID or URL-encoded path of the project
+   - filePath: Url encoded full path to new file. Ex. lib%2Fclass%2Erb
    
    - Returns: An `Observable` of list of `File`
    */
@@ -234,9 +234,9 @@ public class RepositoriesEndpointGroup: EndpointGroup {
    Currently gitlab-shell has a boolean return code, preventing GitLab from specifying the error.
    
    - Parameters:
-     - file: File containing data
-     - projectID: The ID or URL-encoded path of the project
-     - filePath: Url encoded full path to new file. Ex. lib%2Fclass%2Erb
+   - file: File containing data
+   - projectID: The ID or URL-encoded path of the project
+   - filePath: Url encoded full path to new file. Ex. lib%2Fclass%2Erb
    
    - Returns: An `Observable` of list of `File`
    */
@@ -253,9 +253,9 @@ public class RepositoriesEndpointGroup: EndpointGroup {
    This allows you to delete a single file. For deleting multiple files with a singleh request see the [commits API](https://docs.gitlab.com/ee/api/commits.html#create-a-commit-with-multiple-files-and-actions).
    
    - Parameters:
-     - projectID: The ID or URL-encoded path of the project
-     - file_path: Url encoded full path to new file. Ex. lib%2Fclass%2Erb
-     - ref: The name of branch, tag or commit
+   - projectID: The ID or URL-encoded path of the project
+   - file_path: Url encoded full path to new file. Ex. lib%2Fclass%2Erb
+   - ref: The name of branch, tag or commit
    
    - Returns: An `Observable` of list of `FileInfo`
    */

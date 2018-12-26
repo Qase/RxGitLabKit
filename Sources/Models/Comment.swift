@@ -14,13 +14,13 @@ public struct Comment: Codable {
   public let createdAt: Date?
   public let author: User?
   public let path: String?
-
+  
   enum CodingKeys: String, CodingKey {
     case note, path, line, author
     case lineType = "line_type"
     case createdAt = "created_at"
   }
-
+  
   public init(note: String? = nil, lineType: String? = nil, line: Int? = nil, createdAt: Date? = nil, author: User? = nil, path: String? = nil) {
     self.note = note
     self.lineType = lineType

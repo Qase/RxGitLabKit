@@ -15,7 +15,7 @@ public struct Action: Codable, Equatable {
   public let encoding: String?
   public let lastCommitID: String?
   public let executeFileMode: Bool?
-
+  
   enum CodingKeys: String, CodingKey {
     case action
     case filePath  = "file_path"
@@ -25,7 +25,7 @@ public struct Action: Codable, Equatable {
     case lastCommitID  = "last_commit_id"
     case executeFileMode  = "execute_filemode"
   }
-
+  
   public init(action: String, filePath: String, previousPath: String? = nil, content: String? = nil, encoding: String? = nil, lastCommitID: String? = nil, executeFileMode: Bool? = nil) {
     self.action = action
     self.filePath = filePath
@@ -35,7 +35,7 @@ public struct Action: Codable, Equatable {
     self.lastCommitID = lastCommitID
     self.executeFileMode = executeFileMode
   }
-
+  
   public static func == (lhs: Action, rhs: Action) -> Bool {
     return lhs.action == rhs.action &&
       lhs.filePath == rhs.filePath &&
@@ -45,5 +45,5 @@ public struct Action: Codable, Equatable {
       lhs.lastCommitID == rhs.lastCommitID &&
       lhs.executeFileMode == rhs.executeFileMode
   }
-
+  
 }

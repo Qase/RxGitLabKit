@@ -17,7 +17,7 @@ public struct ProjectHook: Codable {
   public let noteEvents, jobEvents, pipelineEvents, wikiPageEvents: Bool?
   public let enableSSLVerification: Bool?
   public let createdAt: Date?
-
+  
   enum CodingKeys: String, CodingKey {
     case id, url
     case projectID = "project_id"

@@ -15,14 +15,14 @@ public struct APIRequest {
   public var jsonDictionary: JSONDictionary?
   public var data: Data?
   public let apiVersion: String?
-
+  
   public init(path: String = "",
-       method: HTTPMethod = HTTPMethod.get,
-       parameters: QueryParameters? = nil,
-       jsonBody: JSONDictionary? = nil,
-       data: Data? = nil,
-       apiVersion: String? =
-RxGitLabAPIClient.apiVersionURLString) {
+              method: HTTPMethod = HTTPMethod.get,
+              parameters: QueryParameters? = nil,
+              jsonBody: JSONDictionary? = nil,
+              data: Data? = nil,
+              apiVersion: String? =
+    RxGitLabAPIClient.apiVersionURLString) {
     self.path = path
     self.method = method
     self.parameters = parameters ?? [:]

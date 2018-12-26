@@ -13,7 +13,7 @@ import RxGitLabKit
 class LoginViewModel: BaseViewModel {
   
   private let userVariable = Variable<User?>(nil)
-
+  
   let gitlabClient: RxGitLabAPIClient
   
   /// User Observable
@@ -27,8 +27,8 @@ class LoginViewModel: BaseViewModel {
     self.gitlabClient = gitlabClient
     super.init()
     gitlabClient.currentUserObservable
-    .bind(to: userVariable)
-    .disposed(by: disposeBag)
+      .bind(to: userVariable)
+      .disposed(by: disposeBag)
   }
   
   /// Logs in using one of the methods
@@ -51,7 +51,7 @@ class LoginViewModel: BaseViewModel {
       logIn(username: username, password: password)
     }
   }
-
+  
   // MARK: Private functions
   
   /// Login using `username` and `password`

@@ -20,7 +20,7 @@ import RxSwift
 ///})
 ///```
 public class Paginator<T: Codable> {
-
+  
   // MARK: Private constants
   /// API Request containing data about the endpoint
   private let apiRequest: APIRequest
@@ -63,7 +63,7 @@ public class Paginator<T: Codable> {
     self.apiRequest = apiRequest
     self.perPage = perPage
   }
-
+  
   // MARK: Subscripts
   
   /// Enables using index for loading a page
@@ -72,14 +72,14 @@ public class Paginator<T: Codable> {
   public subscript(index: Int) -> Observable<[T]> {
     return loadPage(page: index)
   }
-
+  
   /// Enables using a range for loading a page
   ///
   /// - Parameter range: Range
   public subscript(range: Range<Int>) -> Observable<[T]> {
     let arrayOfObservables: [Observable<(Int, [T])>] = range
       .map { page in self.loadPage(page: page).map {(page, $0)}}
-
+    
     let mergedObjects: Observable<[T]> = Observable
       .zip(arrayOfObservables)
       .map { arrayOfTuples -> [(Int, [T])] in
@@ -88,11 +88,11 @@ public class Paginator<T: Codable> {
         })}
       .map { arrayOfTuples -> [T] in
         arrayOfTuples.flatMap {$0.1}
-      }
-
+    }
+    
     return mergedObjects
   }
-
+  
   /// Enables using a closed range for loading a page
   ///
   /// - Parameter closedRange: closed range
@@ -100,14 +100,14 @@ public class Paginator<T: Codable> {
     let range = Range(closedRange)
     return self[range]
   }
-
+  
   // MARK: Functions
   
   /// Loads all items from the endpoint
   public func loadAll() -> Observable<[T]> {
     return totalPages.flatMap { $0 > 1 ? self[1...$0] : self[1] }
   }
-
+  
   /// Fetches objects on the specified page
   ///
   /// - Parameter page: the page from which the items should be fetched
@@ -115,10 +115,9 @@ public class Paginator<T: Codable> {
     var newApiRequest = apiRequest
     newApiRequest.parameters["page"] = page
     newApiRequest.parameters["per_page"] = perPage
-
+    
     return communicator
       .object(for: newApiRequest)
-//      .debug()
   }
-
+  
 }

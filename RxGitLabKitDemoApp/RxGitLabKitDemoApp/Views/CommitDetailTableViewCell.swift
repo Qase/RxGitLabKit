@@ -9,7 +9,7 @@
 import UIKit
 
 class CommitDetailTableViewCell: UITableViewCell {
-
+  
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     super.init(style: .value1, reuseIdentifier: CommitDetailTableViewCell.cellIdentifier)
     textLabel?.textColor = UIColor.blue

@@ -132,7 +132,7 @@ class ProfileViewController: BaseViewController {
   
   override func addUIComponents() {
     view.addSubview(tableView)
-
+    
     let user = viewModel.user
     self.tableView.tableHeaderView = ProfileTableHeaderView(name: user.name ?? "", email: user.email ?? "", avatarURL: user.avatarUrl != nil ? URL(string: user.avatarUrl!) : nil, bio: user.bio ?? "")
     logoutView.addSubview(logoutButton)
@@ -166,7 +166,7 @@ class ProfileViewController: BaseViewController {
       .subscribe { _ in self.logOut() }
       .disposed(by: disposeBag)
   }
- 
+  
   // MARK: Private functions
   
   // Loggs out the user and pops the view

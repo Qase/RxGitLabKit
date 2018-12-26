@@ -44,37 +44,37 @@ public enum HTTPMethod: String {
 public enum HTTPError: Error {
   /// Bad Request - 400
   case badRequest(message: String?)
-
+  
   /// Unauthorized Access - 401
   case unauthorized(message: String?)
-
+  
   /// Forbidden Access - 403
   case forbidden(message: String?)
-
+  
   /// Requested resource could not be found - 404
   case notFound(message: String?)
-
+  
   /// A request method is not supported - 405
   case methodNotAllowed(message: String?)
-
+  
   /// Server failed to fulfill a request - 5xx
   case serverFailure(message: String?)
-
+  
   /// Unknown Error
   case unknown(Int?)
-
+  
   /// JSON Parsing error.
   case parsingJSONFailure(error: Error)
-
+  
   /// An invalid request
   case invalidRequest(message: String?)
-
+  
   /// No Response
   case noResponse
-
+  
   /// Non HTTP Response
   case nonHTTPResponse(response: URLResponse)
-
+  
   /// No Data
   case noData
 }
@@ -115,7 +115,7 @@ extension HTTPError: LocalizedError {
 /// This protocol is used to enable creating URLSession mocks
 public protocol URLSessionProtocol {
   typealias DataTaskResult = (Data?, URLResponse?, Error?) -> Void
-
+  
   func dataTask(with request: URLRequest, completionHandler: @escaping DataTaskResult) -> URLSessionDataTaskProtocol
 }
 

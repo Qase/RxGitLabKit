@@ -28,7 +28,7 @@ class BaseViewController: UIViewController {
   
   /// Applies constraints on UI Components.
   /// This function is called in `viewDidLoad()`.
-
+  
   internal func layoutUIComponents() {}
   
   /// Sets up component bindings.

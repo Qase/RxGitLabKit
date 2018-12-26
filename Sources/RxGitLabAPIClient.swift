@@ -24,7 +24,7 @@ public class RxGitLabAPIClient {
   
   /// Log Out trigger
   private let logOutTrigger = PublishSubject<Void>()
-
+  
   /// Observable of the current user
   public var currentUserObservable: Observable<User?> {
     let oAuthTokenObservable = hostCommunicator.oAuthTokenVariable.asObservable()
@@ -74,19 +74,19 @@ public class RxGitLabAPIClient {
       hostCommunicator.oAuthTokenVariable.value = newValue
     }
   }
-
+  
   // MARK: Endpoint Groups
-
+  
   /// Endpoint group for Authentication
   public lazy var authentication: AuthenticationEndpointGroup = {
     return createEndpointGroup()
   }()
-
+  
   /// Endpoint group for Projects
   public lazy var projects: ProjectsEnpointGroup = {
     return createEndpointGroup()
   }()
-
+  
   /// Endpoint group for Repositories
   public lazy var repositories: RepositoriesEndpointGroup = {
     return createEndpointGroup()
@@ -96,12 +96,12 @@ public class RxGitLabAPIClient {
   public lazy var commits: CommitsEndpointGroup = {
     return createEndpointGroup()
   }()
-
+  
   /// Endpoint group for Users
   public lazy var users: UsersEndpointGroup = {
     return createEndpointGroup()
   }()
-
+  
   /// Endpoint group for Members
   public lazy var members: MembersEndpointGroup = {
     return createEndpointGroup()
@@ -113,44 +113,44 @@ public class RxGitLabAPIClient {
     self.hostCommunicator = hostCommunicator
     setupBindings()
   }
-
+  
   public convenience init(with hostURL: URL) {
     self.init(with: HostCommunicator(network: HTTPClient(using: URLSession.shared), hostURL: hostURL))
   }
-
+  
   public convenience init(with hostURL: URL, privateToken: String, using network: Networking? = nil) {
     let hostCommunicator = HostCommunicator(network: network ?? HTTPClient(using: URLSession.shared), hostURL: hostURL)
     hostCommunicator.privateToken = privateToken
     self.init(with: hostCommunicator)
   }
-
+  
   public convenience init(with hostURL: URL, oAuthToken: String, using network: Networking? = nil) {
     let hostCommunicator = HostCommunicator(network: network ?? HTTPClient(using: URLSession.shared), hostURL: hostURL)
     hostCommunicator.oAuthTokenVariable.value = oAuthToken
     self.init(with: hostCommunicator)
   }
-
+  
   // MARK: Private functions
   
   /// Sets up login bindings
   private func setupBindings() {
     
-   loginPublishSubject
-    .flatMap { (arg0) -> Observable<String?> in
-      let (username, password) = arg0
-      return self.authentication.authenticate(username: username, password: password)
+    loginPublishSubject
+      .flatMap { (arg0) -> Observable<String?> in
+        let (username, password) = arg0
+        return self.authentication.authenticate(username: username, password: password)
           .map { $0.oAuthToken }
           .catchErrorJustReturn(nil)
       }
-    .bind(to: hostCommunicator.oAuthTokenVariable)
-    .disposed(by: disposeBag)
+      .bind(to: hostCommunicator.oAuthTokenVariable)
+      .disposed(by: disposeBag)
   }
-
+  
   /// Factory method for creating an Endpoint Group instance
   private func createEndpointGroup<T: EndpointGroup>() -> T {
     return T(with: hostCommunicator)
   }
-
+  
   // MARK: Public Functions
   
   /// Changes the GitLab Host URL
@@ -159,7 +159,7 @@ public class RxGitLabAPIClient {
   public func changeHostURL(hostURL: URL) {
     hostCommunicator.hostURL = hostURL
   }
-
+  
   
   /// Logs in a user using an username and password
   ///
@@ -193,5 +193,5 @@ public class RxGitLabAPIClient {
     privateToken = nil
     getCurrentUserTrigger.onNext(())
   }
-
+  
 }

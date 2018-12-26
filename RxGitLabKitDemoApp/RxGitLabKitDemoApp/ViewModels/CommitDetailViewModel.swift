@@ -68,7 +68,7 @@ class CommitDetailViewModel: BaseViewModel {
           texts.append(("Status", status))
         }
         return texts
-      }
+    }
   }
   
   init(with gitlabClient: RxGitLabAPIClient, commit: Commit, projectID: Int) {

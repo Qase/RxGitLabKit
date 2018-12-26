@@ -8,7 +8,7 @@
 import Foundation
 
 extension String {
-
+  
   /// Returns a Data containing a representation of the String encoded using UTF8.
   ///
   /// - Returns: Data?

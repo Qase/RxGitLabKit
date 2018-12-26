@@ -12,37 +12,37 @@ import RxSwift
  This EndpointGroup communicates with [Users API](https://docs.gitlab.com/ee/api/users.html)
  */
 public class UsersEndpointGroup: EndpointGroup {
-
+  
   internal enum Endpoints {
     case currentUser
     case status
     case user(userID: Int)
     case users
     case usersStatus(userIDOrUsername: String)
-
+    
     case sshKey(keyID: Int)
     case sshKeys
     case usersSSHKey(userID: Int, keyID: Int)
     case usersSSHKeys(userID: Int)
-
+    
     case gpgKey(keyID: Int)
     case gpgKeys
     case usersGPGKey(userID: Int, keyID: Int)
     case usersGPGKeys(userID: Int)
-
+    
     case email(emailID: Int)
     case emails
     case usersEmail(userID: Int, emailID: Int)
     case usersEmails(userID: Int)
-
+    
     case blockUser(userID: Int)
     case unBlockUser(userID: Int)
-
+    
     case usersImpersonationToken(userID: Int, impersonationTokenID: Int)
     case usersImpersonationTokens(userID: Int)
-
+    
     case activities
-
+    
     var url: String {
       switch self {
       case .currentUser:
@@ -92,13 +92,13 @@ public class UsersEndpointGroup: EndpointGroup {
       }
     }
   }
-
+  
   public func getUsers(page: Int = 1, perPage: Int = RxGitLabAPIClient.defaultPerPage, parameters: QueryParameters? = nil) -> Paginator<User> {
     let apiRequest = APIRequest(path: Endpoints.users.url, parameters: parameters)
     let paginator = Paginator<User>(communicator: hostCommunicator, apiRequest: apiRequest, perPage: perPage)
     return paginator
   }
-
+  
   /// Get a single user.
   ///
   /// - Parameters:
@@ -132,7 +132,7 @@ public class UsersEndpointGroup: EndpointGroup {
     let apiRequest = APIRequest(path: Endpoints.user(userID: userID).url, parameters: parameters)
     return object(for: apiRequest)
   }
-
+  
   public func postUser(user: User) -> Observable<User> {
     do {
       let userData = try JSONEncoder().encode(user)
@@ -142,7 +142,7 @@ public class UsersEndpointGroup: EndpointGroup {
       return Observable.error(error)
     }
   }
-
+  
   /// Modifies an existing user. Only administrators can change attributes of a user.
   ///
   /// - Parameters:
@@ -175,7 +175,7 @@ public class UsersEndpointGroup: EndpointGroup {
     let apiRequest = APIRequest(path: Endpoints.user(userID: userID).url, method: .put, parameters: parameters)
     return object(for: apiRequest)
   }
-
+  
   /// Deletes a user. Available only for administrators. This returns a `204 No Content` status code if the operation was successfully or `404` if the resource was not found.
   /// - Parameters:
   ///   - userID (required): The ID of the user
@@ -190,7 +190,7 @@ public class UsersEndpointGroup: EndpointGroup {
         return response.statusCode == 204
       })
   }
-
+  
   /**
    Gets currently authenticated user.
    - Returns: An `Observable` of a `User`
@@ -201,7 +201,7 @@ public class UsersEndpointGroup: EndpointGroup {
       .catchErrorJustReturn(nil)
       .debug()
   }
-
+  
   /**
    User status
    
@@ -212,7 +212,7 @@ public class UsersEndpointGroup: EndpointGroup {
     let apiRequest = APIRequest(path: Endpoints.status.url)
     return object(for: apiRequest)
   }
-
+  
   /**
    Get the status of a user
    - Parameter userID: The id of the user to get a status of
@@ -232,12 +232,12 @@ public class UsersEndpointGroup: EndpointGroup {
     let apiRequest = APIRequest(path: Endpoints.usersStatus(userIDOrUsername: username).url)
     return object(for: apiRequest)
   }
-
+  
   /**
    Set user status
    
    Set the status of the current user.
-
+   
    - Parameter status: UserStatus
    - Returns: An `Observable` of a `UserStatus`
    */
@@ -250,7 +250,7 @@ public class UsersEndpointGroup: EndpointGroup {
       return Observable.error(error)
     }
   }
-
+  
   /**
    List SSH keys
    
@@ -262,7 +262,7 @@ public class UsersEndpointGroup: EndpointGroup {
     let apiRequest = APIRequest(path: Endpoints.sshKeys.url)
     return object(for: apiRequest)
   }
-
+  
   /**
    List SSH keys for user
    
@@ -274,7 +274,7 @@ public class UsersEndpointGroup: EndpointGroup {
     let apiRequest = APIRequest(path: Endpoints.usersSSHKeys(userID: userID).url)
     return object(for: apiRequest)
   }
-
+  
   /**
    Single SSH key
    
@@ -287,7 +287,7 @@ public class UsersEndpointGroup: EndpointGroup {
     let apiRequest = APIRequest(path: Endpoints.sshKey(keyID: keyID).url)
     return object(for: apiRequest)
   }
-
+  
   /**
    Add SSH key
    
@@ -322,7 +322,7 @@ public class UsersEndpointGroup: EndpointGroup {
       return Observable.error(error)
     }
   }
-
+  
   /**
    Delete SSH key for current user
    
@@ -338,7 +338,7 @@ public class UsersEndpointGroup: EndpointGroup {
         return response.statusCode == 204
       })
   }
-
+  
   /**
    Delete SSH key for given user
    
@@ -346,18 +346,18 @@ public class UsersEndpointGroup: EndpointGroup {
    
    - Parameter userID: id of specified user
    - Parameter keyID: SSH key ID
-
+   
    - Returns: An `Observable` of a `UserKey`
    */
   public func deleteUsersSSHKey(userID: Int, keyID: Int, parameters: QueryParameters? = nil) -> Observable<Bool> {
     let apiRequest = APIRequest(path: Endpoints.usersSSHKey(userID: userID, keyID: keyID).url, method: .delete, parameters: parameters)
-
+    
     return response(for: apiRequest)
       .map({ ( response, data) -> Bool in
         return response.statusCode == 204
       })
   }
-
+  
   /**
    List all GPG keys
    
@@ -369,7 +369,7 @@ public class UsersEndpointGroup: EndpointGroup {
     let apiRequest = APIRequest(path: Endpoints.gpgKeys.url)
     return object(for: apiRequest)
   }
-
+  
   /**
    Get a specific GPG key
    
@@ -382,7 +382,7 @@ public class UsersEndpointGroup: EndpointGroup {
     let apiRequest = APIRequest(path: Endpoints.gpgKey(keyID: keyID).url)
     return object(for: apiRequest)
   }
-
+  
   /**
    Add a GPG key
    
@@ -400,7 +400,7 @@ public class UsersEndpointGroup: EndpointGroup {
       return Observable.error(error)
     }
   }
-
+  
   /**
    Delete a GPG key
    
@@ -411,13 +411,13 @@ public class UsersEndpointGroup: EndpointGroup {
    */
   public func deleteGPGKey(keyID: Int) -> Observable<Bool> {
     let apiRequest = APIRequest(path: Endpoints.gpgKey(keyID: keyID).url, method: .delete)
-
+    
     return response(for: apiRequest)
       .map({ ( response, data) -> Bool in
         return response.statusCode == 204
       })
   }
-
+  
   /**
    List all GPG keys for given user
    
@@ -430,7 +430,7 @@ public class UsersEndpointGroup: EndpointGroup {
     let apiRequest = APIRequest(path: Endpoints.usersGPGKeys(userID: userID).url)
     return object(for: apiRequest)
   }
-
+  
   /**
    Get a specific GPG key for a given user
    
@@ -444,7 +444,7 @@ public class UsersEndpointGroup: EndpointGroup {
     let apiRequest = APIRequest(path: Endpoints.usersGPGKey(userID: userID, keyID: keyID).url)
     return object(for: apiRequest)
   }
-
+  
   /**
    Add a GPG key for a given user
    
@@ -463,7 +463,7 @@ public class UsersEndpointGroup: EndpointGroup {
       return Observable.error(error)
     }
   }
-
+  
   /**
    Delete a GPG key for a given user
    
@@ -471,7 +471,7 @@ public class UsersEndpointGroup: EndpointGroup {
    
    - Parameter keyID: The ID of the GPG key
    - Parameter userID: The ID of the user
-
+   
    - Returns: An `Observable` of a `Bool` - `true` if the deletion was successful
    */
   public func deleteUsersGPGKey(userID: Int, keyID: Int) -> Observable<Bool> {
@@ -481,7 +481,7 @@ public class UsersEndpointGroup: EndpointGroup {
         return response.statusCode == 204
       })
   }
-
+  
   /**
    List emails
    
@@ -498,14 +498,14 @@ public class UsersEndpointGroup: EndpointGroup {
    List emails for user
    
    Get a list of a specified user’s emails. Available only for admin
-  
+   
    - Returns: An `Observable` of a list of `Email`
    */
   public func getUserEmails(userID: Int) -> Observable<[Email]> {
     let apiRequest = APIRequest(path: Endpoints.usersEmails(userID: userID).url)
     return object(for: apiRequest)
   }
-
+  
   /**
    Single email
    
@@ -518,7 +518,7 @@ public class UsersEndpointGroup: EndpointGroup {
     let apiRequest = APIRequest(path: Endpoints.email(emailID: emailID).url)
     return object(for: apiRequest)
   }
-
+  
   /**
    Add email
    
@@ -536,7 +536,7 @@ public class UsersEndpointGroup: EndpointGroup {
       return Observable.error(error)
     }
   }
-
+  
   /**
    Delete email for current user
    
@@ -548,13 +548,13 @@ public class UsersEndpointGroup: EndpointGroup {
    */
   public func deleteEmail(emailID: Int) -> Observable<Bool> {
     let apiRequest = APIRequest(path: Endpoints.email(emailID: emailID).url, method: .delete)
-
+    
     return response(for: apiRequest)
       .map({ ( response, data) -> Bool in
         return response.statusCode == 204
       })
   }
-
+  
   /**
    Add email for user
    
@@ -562,7 +562,7 @@ public class UsersEndpointGroup: EndpointGroup {
    
    - Parameter email - Email (`email` is required)
    - Parameter userID: The ID of the user
-
+   
    - Returns: An `Observable` of a `UserKey`
    */
   public func postUsersEmail(email: Email, userID: Int) -> Observable<Email> {
@@ -574,7 +574,7 @@ public class UsersEndpointGroup: EndpointGroup {
       return Observable.error(error)
     }
   }
-
+  
   /**
    Delete email for given user
    
@@ -582,18 +582,18 @@ public class UsersEndpointGroup: EndpointGroup {
    
    - Parameter userID: The ID of the user
    - Parameter emailID: The ID of the email
-
+   
    - Returns: An `Observable` of a `Bool` - `true` if the deletion was successful
    */
   public func deleteUsersEmail(userID: Int, emailID: Int) -> Observable<Bool> {
     let apiRequest = APIRequest(path: Endpoints.usersEmail(userID: userID, emailID: emailID).url, method: .delete)
-
+    
     return response(for: apiRequest)
       .map({ ( response, data) -> Bool in
         return response.statusCode == 204
       })
   }
-
+  
   /**
    Block user
    
@@ -604,13 +604,13 @@ public class UsersEndpointGroup: EndpointGroup {
    */
   public func blockUser(userID: Int) -> Observable<Bool> {
     let apiRequest = APIRequest(path: Endpoints.blockUser(userID: userID).url, method: .post)
-
+    
     return response(for: apiRequest)
       .map({ ( response, data) -> Bool in
         return response.statusCode == 201
       })
   }
-
+  
   /**
    Unblock user
    
@@ -621,13 +621,13 @@ public class UsersEndpointGroup: EndpointGroup {
    */
   public func unBlockUser(userID: Int) -> Observable<Bool> {
     let apiRequest = APIRequest(path: Endpoints.unBlockUser(userID: userID).url, method: .post)
-
+    
     return response(for: apiRequest)
       .map({ ( response, data) -> Bool in
         return response.statusCode == 201
       })
   }
-
+  
   /**
    Get all impersonation tokens of a user
    
@@ -640,14 +640,14 @@ public class UsersEndpointGroup: EndpointGroup {
    
    **Optinal Query Parameters:**
    - **state: String** - filter tokens based on state (`all`, `active`, `inactive`)
-
+   
    - Returns: An `Observable` of a list of `ImpersonationToken`
    */
   public func getImpersonationTokens(userID: Int, parameters: QueryParameters?) -> Observable<[ImpersonationToken]> {
     let apiRequest = APIRequest(path: Endpoints.usersImpersonationTokens(userID: userID).url)
     return object(for: apiRequest)
   }
-
+  
   /**
    Get an impersonation token of a user
    
@@ -657,14 +657,14 @@ public class UsersEndpointGroup: EndpointGroup {
    
    - Parameter userID: The ID of the user
    - Parameter tokenID: The ID of the impersonation token
-
+   
    - Returns: An `Observable` of a `UserKey`
    */
   public func getUsersImpersonationToken(userID: Int, tokenID: Int) -> Observable<[ImpersonationToken]> {
     let apiRequest = APIRequest(path: Endpoints.usersImpersonationToken(userID: userID, impersonationTokenID: tokenID).url)
     return object(for: apiRequest)
   }
-
+  
   /**
    Create an impersonation token
    
@@ -695,7 +695,7 @@ public class UsersEndpointGroup: EndpointGroup {
    Requires admin permissions.
    
    It revokes an impersonation token.
-
+   
    - Parameter userID: The ID of the user
    - Parameter tokenID: The ID of the impersonation token
    
@@ -718,8 +718,8 @@ public class UsersEndpointGroup: EndpointGroup {
    Get the last activity date for all users, sorted from oldest to newest.
    
    The activities that update the timestamp are:
-    - Git HTTP/SSH activities (such as clone, push)
-    - User logging in into GitLab
+   - Git HTTP/SSH activities (such as clone, push)
+   - User logging in into GitLab
    
    By default, it shows the activity for all users in the last 6 months, but this can be amended by using the `from` parameter.
    

@@ -24,7 +24,7 @@ class CommitsViewModel: BaseViewModel {
   /// isLoading trigger
   private let isLoadingPublisher = PublishSubject<Bool>()
   
-
+  
   
   // MARK: Outputs
   let gitlabClient: RxGitLabAPIClient!

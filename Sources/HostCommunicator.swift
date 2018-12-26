@@ -28,7 +28,7 @@ public class HostCommunicator {
     }
     return header
   }
-
+  
   /// The URL of the GitLab Host
   public var hostURL: URL
   
@@ -46,17 +46,16 @@ public class HostCommunicator {
   public convenience init(hostURL: URL) {
     self.init(network: HTTPClient(using: URLSession.shared), hostURL: hostURL)
   }
-
   
   /// Header from APIRequest
   ///
   /// - Parameter apiRequest: api request
   /// - Returns: Observable<Header>
   public func header(for apiRequest: APIRequest) -> Observable<Header> {
-     guard let request = apiRequest.buildRequest(with: self.hostURL, header: authorizationHeader) else { return Observable.error(HTTPError.invalidRequest(message: nil)) }
+    guard let request = apiRequest.buildRequest(with: self.hostURL, header: authorizationHeader) else { return Observable.error(HTTPError.invalidRequest(message: nil)) }
     return network.header(for: request)
   }
-
+  
   /// Object of type T from APIRequest
   ///
   /// - Parameter apiRequest: api request
@@ -65,7 +64,7 @@ public class HostCommunicator {
     guard let request = apiRequest.buildRequest(with: self.hostURL, header: authorizationHeader) else { return Observable.error(HTTPError.invalidRequest(message: nil)) }
     return network.object(for: request)
   }
-
+  
   /// Data from APIRequest
   ///
   /// - Parameter apiRequest: api request
@@ -74,7 +73,7 @@ public class HostCommunicator {
     guard let request = apiRequest.buildRequest(with: self.hostURL, header: authorizationHeader) else { return Observable.error(HTTPError.invalidRequest(message: nil)) }
     return network.data(for: request)
   }
-
+  
   /// A server response with data from APIRequest
   ///
   /// - Parameter apiRequest: api request
@@ -83,7 +82,7 @@ public class HostCommunicator {
     guard let request = apiRequest.buildRequest(with: self.hostURL, header: authorizationHeader) else { return Observable.error(HTTPError.invalidRequest(message: nil)) }
     return network.response(for: request)
   }
-
+  
   /// A server response without data from APIRequest
   ///
   /// - Parameter apiRequest: api request
@@ -92,6 +91,6 @@ public class HostCommunicator {
     return response(for: apiRequest)
       .map { (response, _) -> HTTPURLResponse in
         return response
-      }
+    }
   }
 }

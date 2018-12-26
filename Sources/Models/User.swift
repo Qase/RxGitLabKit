@@ -38,9 +38,9 @@ public struct User: Codable {
   public let external: Bool?
   public let privateProfile: Bool?
   public let sharedRunnersMinutesLimit: Int?
-
+  
   enum CodingKeys: String, CodingKey {
-
+    
     case id = "id"
     case username = "username"
     case email = "email"
@@ -72,7 +72,7 @@ public struct User: Codable {
     case privateProfile = "private_profile"
     case sharedRunnersMinutesLimit = "shared_runners_minutes_limit"
   }
-
+  
   public init(from decoder: Decoder) throws {
     let values = try decoder.container(keyedBy: CodingKeys.self)
     id = try values.decode(Int.self, forKey: .id)
@@ -105,9 +105,9 @@ public struct User: Codable {
     external = try values.decodeIfPresent(Bool.self, forKey: .external)
     privateProfile = try values.decodeIfPresent(Bool.self, forKey: .privateProfile)
     sharedRunnersMinutesLimit = try values.decodeIfPresent(Int.self, forKey: .sharedRunnersMinutesLimit)
-
+    
   }
-
+  
   private static func decodeDateIfPresent(values: KeyedDecodingContainer<CodingKeys>, forKey key: CodingKeys) throws -> Date? {
     let dateFormatter = DateFormatter.iso8601full
     if let dateString = try values.decodeIfPresent(String.self, forKey: key), let date = dateFormatter.date(from: dateString) {
@@ -116,7 +116,7 @@ public struct User: Codable {
       return nil
     }
   }
-
+  
   private static func decodeDateDayIfPresent(values: KeyedDecodingContainer<CodingKeys>, forKey key: CodingKeys) throws -> Date? {
     let dateFormatter = DateFormatter.yyyyMMdd
     if let dateString = try values.decodeIfPresent(String.self, forKey: key), let date = dateFormatter.date(from: dateString) {
@@ -125,5 +125,4 @@ public struct User: Codable {
       return nil
     }
   }
-
 }

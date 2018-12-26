@@ -57,7 +57,7 @@ class LoginViewController: BaseViewController {
   // MARK: View Model
   
   var viewModel: LoginViewModel!
-
+  
   private let loginTrigger = PublishSubject<[String : String]>()
   
   override func viewDidLoad() {
@@ -74,7 +74,7 @@ class LoginViewController: BaseViewController {
     let privateTokenLabel = UILabel(with: "Private Token")
     let oAuthTokenLabel = UILabel(with: "OAuth Token")
     
-//    hostTextField.text = viewModel.gitlabClient.hostURL.absoluteString
+    //    hostTextField.text = viewModel.gitlabClient.hostURL.absoluteString
     hostTextField.text = "gitlab.fel.cvut.cz"
     userNameTextField.text = "dagytran@gmail.com"
     passwordTextField.text = "Wood_Thor9_3shill"
@@ -165,21 +165,21 @@ class LoginViewController: BaseViewController {
     let hostObservable = hostTextField.rx.text.map { $0 == nil || $0!.isEmpty}
     let usernameObservable = userNameTextField.rx.text.map { $0 == nil || $0!.isEmpty}
     let passwordObservable = passwordTextField.rx.text.map { $0 == nil || $0!.isEmpty}
-      
+    
     let oAuthTokenObservable = oAuthTokenTextField.rx.text.map { $0 == nil || $0!.isEmpty}
     let privateTokenObservable = privateTokenField.rx.text.map { $0 == nil || $0!.isEmpty}
-  
+    
     // Login button enable/disable based on inputs
     Observable.combineLatest(hostObservable, usernameObservable, passwordObservable, oAuthTokenObservable, privateTokenObservable, resultSelector: { isHostEmpty, isUsernameEmpty, isPasswordEmpty, isOAuthTokenEmpty, isPrivateTokenEmpty  in
       return !isHostEmpty && (
         (!isUsernameEmpty && !isPasswordEmpty)
-        || !isOAuthTokenEmpty
-        || !isPrivateTokenEmpty
+          || !isOAuthTokenEmpty
+          || !isPrivateTokenEmpty
       )
-      })
-    .bind(to: authorizeButton.rx.isEnabled)
-    .disposed(by: disposeBag)
-
+    })
+      .bind(to: authorizeButton.rx.isEnabled)
+      .disposed(by: disposeBag)
+    
   }
   
   /// Shows allert if login fails
