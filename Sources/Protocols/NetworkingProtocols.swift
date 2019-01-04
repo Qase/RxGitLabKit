@@ -19,25 +19,55 @@ public typealias Header = [String: String]
 
 /// Main HTTP Header keys returned from server
 public enum HeaderKeys: String {
+  
+  /// Total number of items
   case total = "X-Total"
+  
+  /// Total number of pages
   case totalPages = "X-Total-Pages"
+  
+  /// Maximum number of objects on one page
   case perPage = "X-Per-Page"
+  
+  /// Current page number
   case page = "X-Page"
+  
+  /// The number of the next page
   case nextPage = "X-Next-Page"
+  
+  /// The number of the previous page
   case prevPage = "X-Prev-Page"
+  
+  /// Private Token
   case privateToken = "Private-Token"
+  
+  /// OAuth Token
   case oAuthToken = "Authorization"
 }
 
 /// HTTP Methods
 public enum HTTPMethod: String {
+  /// Get
   case get = "GET"
+  
+  /// Post
   case post = "POST"
+  
+  /// Put
   case put = "PUT"
+  
+  /// Delete
   case delete = "DELETE"
+  
+  /// Update
   case update = "UPDATE"
+  
+  /// Patch
   case patch = "PATCH"
+  
+  /// Head
   case head = "HEAD"
+
 }
 
 /// HTTP Errors
@@ -115,7 +145,14 @@ extension HTTPError: LocalizedError {
 /// This protocol is used to enable creating URLSession mocks
 public protocol URLSessionProtocol {
   typealias DataTaskResult = (Data?, URLResponse?, Error?) -> Void
-  
+  /**
+   * data task convenience methods.  These methods create tasks that
+   * bypass the normal delegate calls for response and data delivery,
+   * and provide a simple cancelable asynchronous interface to receiving
+   * data.  Errors will be returned in the NSURLErrorDomain,
+   * see <Foundation/NSURLError.h>.  The delegate, if any, will still be
+   * called for authentication challenges.
+   */
   func dataTask(with request: URLRequest, completionHandler: @escaping DataTaskResult) -> URLSessionDataTaskProtocol
 }
 
@@ -127,6 +164,14 @@ public protocol URLSessionDataTaskProtocol {
 
 // MARK: Conform the protocol
 extension URLSession: URLSessionProtocol {
+  /**
+   * data task convenience methods.  These methods create tasks that
+   * bypass the normal delegate calls for response and data delivery,
+   * and provide a simple cancelable asynchronous interface to receiving
+   * data.  Errors will be returned in the NSURLErrorDomain,
+   * see <Foundation/NSURLError.h>.  The delegate, if any, will still be
+   * called for authentication challenges.
+   */
   public func dataTask(with request: URLRequest, completionHandler: @escaping DataTaskResult) -> URLSessionDataTaskProtocol {
     return dataTask(with: request, completionHandler: completionHandler) as URLSessionDataTask
   }

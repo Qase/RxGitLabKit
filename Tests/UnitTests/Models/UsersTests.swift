@@ -9,39 +9,22 @@ import Foundation
 import XCTest
 import RxGitLabKit
 
-class UsersTests: XCTestCase {
+class UsersTests: BaseModelTestCase {
   
-  let decoder: JSONDecoder = {
-    let decoder = JSONDecoder()
-    decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601full)
-    return decoder
-  }()
-
-func testUserDecode() {
-
-    let data = UserMocks.fullUserData
-    if let user = try? decoder.decode(User.self, from: data) {
-      XCTAssert(user.username == "freak4pc")
-      XCTAssert(user.name == "Shai Mishali")
-      XCTAssert(user.state == "active")
-      XCTAssert(user.avatarUrl == "http://c20945ccd3bd/uploads/-/system/user/avatar/2/605076.jpeg")
-      XCTAssert(user.webUrl == "http://c20945ccd3bd/freak4pc")
-      XCTAssert(user.bio == nil)
-      XCTAssert(user.linkedin != nil && user.linkedin!.isEmpty)
-
-      let timeZone = TimeZone(secondsFromGMT: 0)
-      let calendar = Calendar(identifier: .gregorian)
-      var components = DateComponents(calendar: calendar, timeZone: timeZone, year: 2018, month: 10, day: 30, hour: 10, minute: 41, second: 22)
-      var date = calendar.date(from: components)!
-      XCTAssertDateEqual(user.createdAt, date)
-      
-      components = DateComponents(calendar: calendar, timeZone: timeZone, year: 2018, month: 10, day: 30, hour: 10, minute: 41, second: 22)
-      date = calendar.date(from: components)!
-      XCTAssertDateEqual(user.confirmedAt, date)
-      
-      
-      } else {
-      XCTFail("JSON Decode fail")
+  func testUserDecode() {
+    do {
+      let user = try decoder.decode(User.self, from: UserMocks.fullUserData)
+      XCTAssertEqual(user.username, "freak4pc")
+      XCTAssertEqual(user.name, "Shai Mishali")
+      XCTAssertEqual(user.state, "active")
+      XCTAssertEqual(user.avatarURL, "http://c20945ccd3bd/uploads/-/system/user/avatar/2/605076.jpeg")
+      XCTAssertEqual(user.webURL, "http://c20945ccd3bd/freak4pc")
+      XCTAssertNil(user.bio)
+      XCTAssertTrue(user.linkedin != nil && user.linkedin!.isEmpty)
+      XCTAssertDateEqual(user.createdAt, Date(from: "2018-10-30T10:41:22.710Z"))
+      XCTAssertDateEqual(user.confirmedAt, Date(from: "2018-10-30T10:41:22.710Z"))
+    }  catch let error {
+      XCTFail("Failed to decode an user. Error: \(error.localizedDescription)")
     }
   }
 }

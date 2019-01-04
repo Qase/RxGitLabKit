@@ -93,7 +93,21 @@ public class UsersEndpointGroup: EndpointGroup {
     }
   }
   
-  public func getUsers(page: Int = 1, perPage: Int = RxGitLabAPIClient.defaultPerPage, parameters: QueryParameters? = nil) -> Paginator<User> {
+  /// Gets users
+  ///
+  /// - Parameters:
+  ///   - perPage: number of users per page - default: 20
+  ///   - parameters: Query Parameters - See description
+  
+  ///  **Optinal Query Parameters:**
+  ///   - **username: String** - The username of the user
+  ///   - **blocked: Bool** - Whether the user is blocked
+  ///   - **active: Bool** - Whether the user is active
+  ///   - **order_by: String ** - FOR ADMINS ONLY: Return users ordered by `id`, `name`, `username`, `created_at`, or `updated_at` fields. Default is `id`
+  ///   - **sort: String** - FOR ADMINS ONLY: Return users sorted in `asc` or `desc` order. Default is `desc`
+  ///   - **two_factor: String** - FOR ADMINS ONLY: Filter users by Two-factor authentication. Filter values are `enabled` or `disabled`. By default it returns all users
+  /// - Returns: A Paginator of User
+  public func getUsers(perPage: Int = RxGitLabAPIClient.defaultPerPage, parameters: QueryParameters? = nil) -> Paginator<User> {
     let apiRequest = APIRequest(path: Endpoints.users.url, parameters: parameters)
     let paginator = Paginator<User>(communicator: hostCommunicator, apiRequest: apiRequest, perPage: perPage)
     return paginator
@@ -103,36 +117,40 @@ public class UsersEndpointGroup: EndpointGroup {
   ///
   /// - Parameters:
   ///   - userID (required): The ID of the user
-  ///   - parameters: Query Parameters [String: Any]
+  ///   - parameters: Query Parameters - See description
   /// - **Query Parameters:**
-  ///   - email (required) - Email
-  ///   - password (optional) - Password
-  ///   - reset_password (optional) - Send user password reset link - true or false(default)
-  ///   - username (required) - Username
-  ///   - name (required) - Name
-  ///   - skype (optional) - Skype ID
-  ///   - linkedin (optional) - LinkedIn
-  ///   - twitter (optional) - Twitter account
-  ///   - website_url (optional) - Website URL
-  ///   - organization (optional) - Organization name
-  ///   - projects_limit (optional) - Number of projects user can create
-  ///   - extern_uid (optional) - External UID
-  ///   - provider (optional) - External provider name
-  ///   - bio (optional) - User’s biography
-  ///   - location (optional) - User’s location
-  ///   - public_email (optional) - The public email of the user
-  ///   - admin (optional) - User is admin - true or false (default)
-  ///   - can_create_group (optional) - User can create groups - true or false
-  ///   - skip_confirmation (optional) - Skip confirmation - true or false (default)
-  ///   - external (optional) - Flags the user as external - true or false(default)
-  ///   - avatar (optional) - Image file for user’s avatar
-  ///   - private_profile (optional) - User’s profile is private - true or false
+  ///   - Optional:
+  ///    - **password: String** - Password
+  ///    - **reset_password: Bool** - Send user password reset link - true or false(default)
+  ///    - **skype: String** - Skype ID
+  ///    - **linkedin: String** - LinkedIn
+  ///    - **twitter: String** - Twitter account
+  ///    - **website_url: String** - Website URL
+  ///    - **organization: String** - Organization name
+  ///    - **projects_limit: Int** - Number of projects user can create
+  ///    - **extern_uid: Int** - External UID
+  ///    - **provider: String** - External provider name
+  ///    - **bio: String** - User’s biography
+  ///    - **location: String** - User’s location
+  ///    - **public_email: String** - The public email of the user
+  ///    - **admin: String** - User is admin - true or false (default)
+  ///    - **can_create_group: Bool** - User can create groups - true or false
+  ///    - **skip_confirmation: Bool** - Skip confirmation - true or false (default)
+  ///    - **external: Bool** - Flags the user as external - true or false(default)
+  ///    - **avatar: String** - Image file for user’s avatar
+  ///    - **private_profile: Bool** - User’s profile is private - true or false
   /// - Returns: returns and observable of User?
   public func getUser(userID: Int, parameters: QueryParameters? = nil) -> Observable<User?> {
     let apiRequest = APIRequest(path: Endpoints.user(userID: userID).url, parameters: parameters)
     return object(for: apiRequest)
   }
   
+  
+  /// User creation
+  ///
+  /// Creates a new user. Note only administrators can create new users. Either `password` or `reset_password` should be specified (reset_password takes priority). If `reset_password` is `false`, then `password` is required.
+  /// - Parameter user: The user to be created
+  /// - Returns: An observable of created User
   public func postUser(user: User) -> Observable<User> {
     do {
       let userData = try JSONEncoder().encode(user)
@@ -149,27 +167,27 @@ public class UsersEndpointGroup: EndpointGroup {
   ///   - userID (required): The ID of the user
   ///   - parameters: Query Parameters [String: Any]
   /// - **Query Parameters:**
-  ///   - email - Email
-  ///   - username - Username
-  ///   - name - Name
-  ///   - password - Password
-  ///   - skype - Skype ID
-  ///   - linkedin - LinkedIn
-  ///   - twitter - Twitter account
-  ///   - website_url - Website URL
-  ///   - organization - Organization name
-  ///   - projects_limit - Limit projects each user can create
-  ///   - extern_uid - External UID
-  ///   - provider - External provider name
-  ///   - bio - User’s biography
-  ///   - location (optional) - User’s location
-  ///   - public_email (optional) - The public email of the user
-  ///   - admin (optional) - User is admin - true or false (default)
-  ///   - can_create_group (optional) - User can create groups - true or false
-  ///   - skip_reconfirmation (optional) - Skip reconfirmation - true or false (default)
-  ///   - external (optional) - Flags the user as external - true or false(default)
-  ///   - avatar (optional) - Image file for user’s avatar
-  ///   - private_profile (optional) - User’s profile is private - true or false
+  ///   - **email: String** - Email
+  ///   - **username: String** - Username
+  ///   - **name: String** - Name
+  ///   - **password: String** - Password
+  ///   - **skype: String** - Skype ID
+  ///   - **linkedin: String** - LinkedIn
+  ///   - **twitter: String** - Twitter account
+  ///   - **website_url: String** - Website URL
+  ///   - **organization: String** - Organization name
+  ///   - **projects_limit: String** - Limit projects each user can create
+  ///   - **extern_uid: Int** - External UID
+  ///   - **provider: String** - External provider name
+  ///   - **bio: String** - User’s biography
+  ///   - **location: String** - User’s location
+  ///   - **public_email: String** - The public email of the user
+  ///   - **admin: String** - User is admin - true or false (default)
+  ///   - **can_create_group: Bool** - User can create groups - true or false
+  ///   - **skip_reconfirmation: Bool** - Skip reconfirmation - true or false (default)
+  ///   - **external: Bool** - Flags the user as external - true or false(default)
+  ///   - **avatar: String** - Image file for user’s avatar
+  ///   - **private_profile: String** - User’s profile is private - true or false
   /// - Returns: returns and observable of User?
   public func putUser(userID: Int, parameters: QueryParameters? = nil) -> Observable<User> {
     let apiRequest = APIRequest(path: Endpoints.user(userID: userID).url, method: .put, parameters: parameters)
@@ -181,8 +199,9 @@ public class UsersEndpointGroup: EndpointGroup {
   ///   - userID (required): The ID of the user
   ///   - parameters: Query Parameters [String: Any]
   /// - **Query Parameters:**
-  ///   - email - Email
-  ///   - username - Username
+  ///   - **email: String** - Email
+  ///   - **username: String** - Username
+  /// - Returns: An Observable of boolean whether the deletion was successful
   public func deleteUser(userID: Int, parameters: QueryParameters? = nil) -> Observable<Bool> {
     let apiRequest = APIRequest(path: Endpoints.user(userID: userID).url, method: .delete, parameters: parameters)
     return response(for: apiRequest)

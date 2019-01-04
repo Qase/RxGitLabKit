@@ -45,5 +45,4 @@ public struct Action: Codable, Equatable {
       lhs.lastCommitID == rhs.lastCommitID &&
       lhs.executeFileMode == rhs.executeFileMode
   }
-  
 }

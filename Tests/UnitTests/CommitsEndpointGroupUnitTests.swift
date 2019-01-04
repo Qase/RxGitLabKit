@@ -20,12 +20,12 @@ class CommitsEndpointGroupUnitTests: EndpointGroupUnitTestCase {
     let paginator = client.commits.getCommits(projectID: CommitsMocks.mockProjectID)
     let result = paginator[1]
       .filter {!$0.isEmpty}
-      .toBlocking(timeout: 1)
+      .toBlocking()
       .materialize()
 
     switch result {
     case .completed(elements: let element):
-
+      XCTAssertEqual(mockSession.lastURL?.pathComponents[1...6].joined(separator: "/"),"api/v4/projects/12345/repository/commits")
       XCTAssertNotNil(mockSession.lastURL)
       XCTAssertEqual(URLComponents(url: mockSession.lastURL!, resolvingAgainstBaseURL: false)!.path, "\(RxGitLabAPIClient.apiVersionURLString)\(CommitsEndpointGroup.Endpoints.commits(projectID: CommitsMocks.mockProjectID).url)")
 
@@ -46,10 +46,12 @@ class CommitsEndpointGroupUnitTests: EndpointGroupUnitTestCase {
   func testGetCommit() {
     mockSession.nextData = CommitsMocks.singleCommitResponseData
     let commit = client.commits.getCommit(projectID: CommitsMocks.mockProjectID, sha: "ed899a2f4b50b4370feeea94676502b42383c746")
-    let result = commit.toBlocking(timeout: 1).materialize()
+    let result = commit.toBlocking().materialize()
 
     switch result {
     case .completed(elements: let element):
+    XCTAssertEqual(mockSession.lastURL?.pathComponents[1...7].joined(separator: "/"),"api/v4/projects/12345/repository/commits/ed899a2f4b50b4370feeea94676502b42383c746")
+      
       XCTAssertEqual(element.count, 1)
       let commit = element.first!
       XCTAssertEqual(commit.id, "6104942438c14ec7bd21c6cd5bd995272b3faff6")
@@ -95,11 +97,12 @@ class CommitsEndpointGroupUnitTests: EndpointGroupUnitTestCase {
     let projectID = CommitsMocks.mockProjectID
     let commit = client.commits.createCommit(projectID: projectID, newCommit: CommitsMocks.newCommitMock)
     let result = commit
-      .toBlocking(timeout: 1)
+      .toBlocking()
       .materialize()
 
     switch result {
     case .completed(elements: let element):
+      XCTAssertEqual(mockSession.lastURL?.pathComponents[1...6].joined(separator: "/"),"api/v4/projects/12345/repository/commits")
       XCTAssertEqual(element.count, 1)
       let commit = element.first!
 
@@ -138,11 +141,12 @@ class CommitsEndpointGroupUnitTests: EndpointGroupUnitTestCase {
     mockSession.nextData = CommitsMocks.referencesResponseData
     let references = client.commits.getReferences(projectID: CommitsMocks.mockProjectID, sha: "ed899a2f4b50b4370feeea94676502b42383c746", parameters: nil)
     let result = references
-      .toBlocking(timeout: 1)
+      .toBlocking()
       .materialize()
 
     switch result {
     case .completed(elements: let element):
+            XCTAssertEqual(mockSession.lastURL?.pathComponents[1...8].joined(separator: "/"),"api/v4/projects/12345/repository/commits/ed899a2f4b50b4370feeea94676502b42383c746/refs")
       XCTAssertEqual(element.count, 1)
       let references = element.first!
       XCTAssertEqual(references.count, 4)
@@ -164,11 +168,12 @@ class CommitsEndpointGroupUnitTests: EndpointGroupUnitTestCase {
     let commit = client.commits.cherryPick(projectID: projectID, sha: sha, branch: branch)
 
     let result = commit
-      .toBlocking(timeout: 1)
+      .toBlocking()
       .materialize()
 
     switch result {
     case .completed(elements: let element):
+      XCTAssertEqual(mockSession.lastURL?.pathComponents[1...8].joined(separator: "/"),"api/v4/projects/8908/repository/commits/ouqertjnsmvnjhrejk/cherry_pick")
       XCTAssertEqual(element.count, 1)
       let commit = element.first!
 
@@ -195,11 +200,12 @@ class CommitsEndpointGroupUnitTests: EndpointGroupUnitTestCase {
     mockSession.nextData = CommitsMocks.commentsData
     let comments = client.commits.getComments(projectID: CommitsMocks.mockProjectID, sha: "ed899a2f4b50b4370feeea94676502b42383c746")
     let result = comments
-      .toBlocking(timeout: 1)
+      .toBlocking()
       .materialize()
 
     switch result {
     case .completed(elements: let element):
+      XCTAssertEqual(mockSession.lastURL?.pathComponents[1...8].joined(separator: "/"),"api/v4/projects/12345/repository/commits/ed899a2f4b50b4370feeea94676502b42383c746/comments")
       XCTAssertEqual(element.count, 1)
       let comments = element.first!
       XCTAssertEqual(comments.count, 1)
@@ -225,11 +231,13 @@ class CommitsEndpointGroupUnitTests: EndpointGroupUnitTestCase {
     let comment: Comment = Comment(note: note, lineType: lineType, line: 1, path: path)
 
     let result = client.commits.postComment(comment: comment, projectID: projectID, sha: sha)
-      .toBlocking(timeout: 1)
+      .toBlocking()
       .materialize()
 
     switch result {
     case .completed(elements: let element):
+     XCTAssertEqual(mockSession.lastURL?.pathComponents[1...8].joined(separator: "/"),"api/v4/projects/12345/repository/commits/18f3e63d05582537db6d183d9d557be09e1f90c8/comments")
+     XCTAssertEqual(mockSession.lastRequest?.httpMethod, HTTPMethod.post.rawValue)
       XCTAssertEqual(element.count, 1)
       let comment = element.first!
       XCTAssertNotNil(mockSession.lastURL)
@@ -262,11 +270,12 @@ class CommitsEndpointGroupUnitTests: EndpointGroupUnitTestCase {
     mockSession.nextData = CommitsMocks.commitStatusesData
     let statuses = client.commits.getStatuses(projectID: CommitsMocks.mockProjectID, sha: "ed899a2f4b50b4370feeea94676502b42383c746")
     let result = statuses
-      .toBlocking(timeout: 1)
+      .toBlocking()
       .materialize()
 
     switch result {
     case .completed(elements: let element):
+      XCTAssertEqual(mockSession.lastURL?.pathComponents[1...8].joined(separator: "/"),"api/v4/projects/12345/repository/commits/ed899a2f4b50b4370feeea94676502b42383c746/statuses")
 
       let date = calendar.date(from: DateComponents(calendar: calendar, timeZone: TimeZone(secondsFromGMT: 0), year: 2016, month: 1, day: 19, hour: 8, minute: 40, second: 25))!
 
@@ -286,8 +295,8 @@ class CommitsEndpointGroupUnitTests: EndpointGroupUnitTestCase {
       let author = firstStatus.author!
       XCTAssertEqual(author.id, 28)
       XCTAssertEqual(author.name, "Jeff Lebowski")
-      XCTAssertEqual(author.webUrl, "https://gitlab.example.com/thedude")
-      XCTAssertEqual(author.avatarUrl, "https://gitlab.example.com/uploads/user/avatar/28/The-Big-Lebowski-400-400.png")
+      XCTAssertEqual(author.webURL, "https://gitlab.example.com/thedude")
+      XCTAssertEqual(author.avatarURL, "https://gitlab.example.com/uploads/user/avatar/28/The-Big-Lebowski-400-400.png")
     case .failed(elements: _, error: let error):
       XCTFail((error as? HTTPError)?.errorDescription ?? error.localizedDescription)
     }
@@ -300,11 +309,13 @@ class CommitsEndpointGroupUnitTests: EndpointGroupUnitTestCase {
 
     let status = BuildStatus(state: BuildStatus.State.canceled.rawValue, ref: nil, name: nil, targetURL: nil, description: nil, coverage: nil)
     let result = client.commits.postStatus(status: status, projectID: projectID, sha: sha)
-      .toBlocking(timeout: 1)
+      .toBlocking()
       .materialize()
 
     switch result {
     case .completed(elements: let element):
+      XCTAssertEqual(mockSession.lastURL?.pathComponents[1...6].joined(separator: "/"),"api/v4/projects/12345/statuses/18f3e63d05582537db6d183d9d557be09e1f90c8")
+      XCTAssertEqual(mockSession.lastRequest?.httpMethod, HTTPMethod.post.rawValue)
       XCTAssertEqual(element.count, 1)
       let status = element.first!
       XCTAssertNotNil(mockSession.lastURL)
@@ -326,11 +337,12 @@ class CommitsEndpointGroupUnitTests: EndpointGroupUnitTestCase {
     mockSession.nextData = CommitsMocks.mergeRequestsData
     let statuses = client.commits.getMergeRequests(projectID: CommitsMocks.mockProjectID, sha: "ed899a2f4b50b4370feeea94676502b42383c746")
     let result = statuses
-      .toBlocking(timeout: 1)
+      .toBlocking()
       .materialize()
 
     switch result {
     case .completed(elements: let element):
+      XCTAssertEqual(mockSession.lastURL?.pathComponents[1...8].joined(separator: "/"),"api/v4/projects/12345/repository/commits/ed899a2f4b50b4370feeea94676502b42383c746/merge_requests")
       XCTAssertEqual(element.count, 1)
       let mergeRequest = element.first!.first!
       let date = calendar.date(from: DateComponents(calendar: calendar, timeZone: TimeZone(secondsFromGMT: 0), year: 2018, month: 3, day: 26, hour: 17, minute: 26, second: 30))!

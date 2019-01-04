@@ -9,6 +9,10 @@ import Foundation
 
 /// Parsing error
 public enum ParsingError: Error {
+  
+  /// Encoding error with message
   case encoding(message: String?)
+  
+  /// Decoding error with message
   case decoding(message: String?)
 }

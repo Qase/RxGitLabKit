@@ -18,7 +18,7 @@ class RxGitLabAPIClientIntegrationTests: BaseIntegrationTestCase {
     let result = client.hostCommunicator.oAuthTokenVariable.asObservable()
       .filter{ $0 != nil }
       .take(1)
-      .toBlocking(timeout: defaultTimeout)
+      .toBlocking()
       .materialize()
     
     switch result {

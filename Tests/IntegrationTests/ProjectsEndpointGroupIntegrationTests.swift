@@ -40,7 +40,7 @@ class ProjectsEndpointGroupIntegrationTests: BaseIntegrationTestCase {
   func testGetProjects() {
     let result = client.projects.getProjects()
       .loadAll()
-      .toBlocking(timeout: 10)
+      .toBlocking()
       .materialize()
     
     switch result {

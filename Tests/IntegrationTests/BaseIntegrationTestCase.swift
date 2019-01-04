@@ -15,8 +15,8 @@ class BaseIntegrationTestCase: XCTestCase {
   internal var hostCommunicator: HostCommunicator!
   internal var disposeBag: DisposeBag!
   internal let hostURL = URL(string: "http://localhost:80")!
-  internal let defaultTimeout = RxTimeInterval(exactly: 5)
-  
+  internal let calendar = Calendar(identifier: .gregorian)
+
   override func setUp() {
     super.setUp()
     hostCommunicator = HostCommunicator(hostURL: hostURL)

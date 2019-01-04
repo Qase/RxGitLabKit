@@ -14,7 +14,7 @@ class AuthenticationEndpointGroupIntegrationTests: BaseIntegrationTestCase {
   
   func testAuthenticate() {
     let result = client.authentication.authenticate(username: "root", password: "admin12345")
-      .toBlocking(timeout: self.defaultTimeout)
+      .toBlocking()
       .materialize()
     
     switch result {

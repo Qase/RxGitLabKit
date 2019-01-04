@@ -7,6 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C01AFEA21DF8E8A0062A74E /* ContributorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C01AFE921DF8E8A0062A74E /* ContributorTests.swift */; };
+		6C01AFEB21DF8E8A0062A74E /* ContributorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C01AFE921DF8E8A0062A74E /* ContributorTests.swift */; };
+		6C01AFEC21DF8E8A0062A74E /* ContributorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C01AFE921DF8E8A0062A74E /* ContributorTests.swift */; };
+		6C01AFED21DF8E8A0062A74E /* ContributorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C01AFE921DF8E8A0062A74E /* ContributorTests.swift */; };
+		6C01AFEE21DF8E8A0062A74E /* ContributorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C01AFE921DF8E8A0062A74E /* ContributorTests.swift */; };
+		6C01AFEF21DF8E8A0062A74E /* ContributorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C01AFE921DF8E8A0062A74E /* ContributorTests.swift */; };
+		6C01AFF121DF8EF70062A74E /* BaseModelTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C01AFF021DF8EF70062A74E /* BaseModelTestCase.swift */; };
+		6C01AFF221DF8EF70062A74E /* BaseModelTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C01AFF021DF8EF70062A74E /* BaseModelTestCase.swift */; };
+		6C01AFF321DF8EF70062A74E /* BaseModelTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C01AFF021DF8EF70062A74E /* BaseModelTestCase.swift */; };
+		6C01AFF421DF8EF70062A74E /* BaseModelTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C01AFF021DF8EF70062A74E /* BaseModelTestCase.swift */; };
+		6C01AFF521DF8EF70062A74E /* BaseModelTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C01AFF021DF8EF70062A74E /* BaseModelTestCase.swift */; };
+		6C01AFF621DF8EF70062A74E /* BaseModelTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C01AFF021DF8EF70062A74E /* BaseModelTestCase.swift */; };
+		6C01AFF821DF94D60062A74E /* MergeRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C01AFF721DF94D60062A74E /* MergeRequestTests.swift */; };
+		6C01AFF921DF94D60062A74E /* MergeRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C01AFF721DF94D60062A74E /* MergeRequestTests.swift */; };
+		6C01AFFA21DF94D60062A74E /* MergeRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C01AFF721DF94D60062A74E /* MergeRequestTests.swift */; };
+		6C01AFFB21DF94D60062A74E /* MergeRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C01AFF721DF94D60062A74E /* MergeRequestTests.swift */; };
+		6C01AFFC21DF94D60062A74E /* MergeRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C01AFF721DF94D60062A74E /* MergeRequestTests.swift */; };
+		6C01AFFD21DF94D60062A74E /* MergeRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C01AFF721DF94D60062A74E /* MergeRequestTests.swift */; };
+		6C01AFFF21DFAEF10062A74E /* AuthenticationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C01AFFE21DFAEF10062A74E /* AuthenticationTests.swift */; };
+		6C01B00021DFAEF10062A74E /* AuthenticationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C01AFFE21DFAEF10062A74E /* AuthenticationTests.swift */; };
+		6C01B00121DFAEF20062A74E /* AuthenticationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C01AFFE21DFAEF10062A74E /* AuthenticationTests.swift */; };
+		6C01B00221DFAEF20062A74E /* AuthenticationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C01AFFE21DFAEF10062A74E /* AuthenticationTests.swift */; };
+		6C01B00321DFAEF20062A74E /* AuthenticationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C01AFFE21DFAEF10062A74E /* AuthenticationTests.swift */; };
+		6C01B00421DFAEF20062A74E /* AuthenticationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C01AFFE21DFAEF10062A74E /* AuthenticationTests.swift */; };
+		6C01B00621DFB0F70062A74E /* MemberTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C01B00521DFB0F70062A74E /* MemberTests.swift */; };
+		6C01B00721DFB0F70062A74E /* MemberTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C01B00521DFB0F70062A74E /* MemberTests.swift */; };
+		6C01B00821DFB0F70062A74E /* MemberTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C01B00521DFB0F70062A74E /* MemberTests.swift */; };
+		6C01B00921DFB0F70062A74E /* MemberTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C01B00521DFB0F70062A74E /* MemberTests.swift */; };
+		6C01B00A21DFB0F70062A74E /* MemberTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C01B00521DFB0F70062A74E /* MemberTests.swift */; };
+		6C01B00B21DFB0F70062A74E /* MemberTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C01B00521DFB0F70062A74E /* MemberTests.swift */; };
 		6C05B84D21AC5063009E9A98 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CBD2B27211852DD007BA543 /* RxSwift.framework */; };
 		6C05B84E21AC506D009E9A98 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CBD2B26211852DD007BA543 /* RxCocoa.framework */; };
 		6C05B8B121AD1AD8009E9A98 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C05B8AF21AD1AD8009E9A98 /* RxCocoa.framework */; };
@@ -589,6 +619,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6C01AFE921DF8E8A0062A74E /* ContributorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributorTests.swift; sourceTree = "<group>"; };
+		6C01AFF021DF8EF70062A74E /* BaseModelTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModelTestCase.swift; sourceTree = "<group>"; };
+		6C01AFF721DF94D60062A74E /* MergeRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MergeRequestTests.swift; sourceTree = "<group>"; };
+		6C01AFFE21DFAEF10062A74E /* AuthenticationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationTests.swift; sourceTree = "<group>"; };
+		6C01B00521DFB0F70062A74E /* MemberTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberTests.swift; sourceTree = "<group>"; };
 		6C05B88B21AD1A63009E9A98 /* RxGitLabKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxGitLabKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C05B88E21AD1A63009E9A98 /* Info-watchOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-watchOS.plist"; sourceTree = "<group>"; };
 		6C05B89821AD1A8D009E9A98 /* RxGitLabKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxGitLabKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1078,9 +1113,14 @@
 		6CE95EEB2166A58100EDAE16 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				6C01AFFE21DFAEF10062A74E /* AuthenticationTests.swift */,
+				6C01AFF021DF8EF70062A74E /* BaseModelTestCase.swift */,
 				6CE95EE72166A3C800EDAE16 /* CommitTests.swift */,
+				6C01AFE921DF8E8A0062A74E /* ContributorTests.swift */,
+				6C01AFF721DF94D60062A74E /* MergeRequestTests.swift */,
 				6C4370B9218B9A86002ACBDA /* ProjectTests.swift */,
 				6CE95EC0216181B000EDAE16 /* UsersTests.swift */,
+				6C01B00521DFB0F70062A74E /* MemberTests.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1952,12 +1992,14 @@
 			files = (
 				6C5D683421B53F8C00326012 /* UserMocks.swift in Sources */,
 				6C05B94B21AD1D92009E9A98 /* RxGitLabAPIClientUnitTests.swift in Sources */,
+				6C01B00321DFAEF20062A74E /* AuthenticationTests.swift in Sources */,
 				6C05B92821AD1D79009E9A98 /* GeneralMocks.swift in Sources */,
 				6C05B94D21AD1D92009E9A98 /* EndpointGroupUnitTestCase.swift in Sources */,
 				6C7999F421AD585B000148CD /* BaseIntegrationTestCase.swift in Sources */,
 				6C05B94F21AD1D92009E9A98 /* CommitsEndpointGroupUnitTests.swift in Sources */,
 				6C05B93021AD1D79009E9A98 /* ProjectMocks.swift in Sources */,
 				6C05B92A21AD1D79009E9A98 /* ModelMocks.swift in Sources */,
+				6C01AFF521DF8EF70062A74E /* BaseModelTestCase.swift in Sources */,
 				6C05B92E21AD1D79009E9A98 /* PaginatorMocks.swift in Sources */,
 				6C05B92C21AD1D79009E9A98 /* MultipleResponseMockURLSession.swift in Sources */,
 				6C7999F821ADE42D000148CD /* ProjectsEndpointGroupIntegrationTests.swift in Sources */,
@@ -1971,6 +2013,7 @@
 				6C05B92D21AD1D79009E9A98 /* CommitsMocks.swift in Sources */,
 				6C05B94A21AD1D92009E9A98 /* HTTPClientTests.swift in Sources */,
 				6C05B8BD21AD1C0C009E9A98 /* String+Extensions.swift in Sources */,
+				6C01AFFC21DF94D60062A74E /* MergeRequestTests.swift in Sources */,
 				6C5D681721AFF50100326012 /* MembersEndpointGroupIntegrationTests.swift in Sources */,
 				6C05B95121AD1D97009E9A98 /* RxGitLabAPIClientIntegrationTests.swift in Sources */,
 				6C05B94121AD1D8D009E9A98 /* CommitTests.swift in Sources */,
@@ -1979,6 +2022,8 @@
 				6C05B8C421AD1C15009E9A98 /* DateFormatter+Extensions.swift in Sources */,
 				6C05B8C721AD1C19009E9A98 /* Date+Extensions.swift in Sources */,
 				6C5D681B21AFF57100326012 /* AuthenticationEndpointGroupIntegrationTests.swift in Sources */,
+				6C01AFEE21DF8E8A0062A74E /* ContributorTests.swift in Sources */,
+				6C01B00A21DFB0F70062A74E /* MemberTests.swift in Sources */,
 				6C05B94321AD1D8D009E9A98 /* UsersTests.swift in Sources */,
 				6C5D681F21AFF67E00326012 /* RepositoriesEndpointGroupIntegrationTests.swift in Sources */,
 				6C05B92921AD1D79009E9A98 /* RxGitLabApiClientMocks.swift in Sources */,
@@ -1992,12 +2037,14 @@
 			files = (
 				6C5D683221B53F8C00326012 /* UserMocks.swift in Sources */,
 				6CE95EEA2166A50C00EDAE16 /* ModelMocks.swift in Sources */,
+				6C01AFFF21DFAEF10062A74E /* AuthenticationTests.swift in Sources */,
 				6C06A891212EA41D00686583 /* String+Extensions.swift in Sources */,
 				6C06A892212EA41D00686583 /* RxGitLabAPIClientIntegrationTests.swift in Sources */,
 				6C7999F221AD585B000148CD /* BaseIntegrationTestCase.swift in Sources */,
 				6CE95EC1216181B000EDAE16 /* UsersTests.swift in Sources */,
 				6C3E6905217872FE0082C483 /* MockURLSession.swift in Sources */,
 				6CC3DB0D2189BDBB004677C7 /* RxGitLabAPIClientUnitTests.swift in Sources */,
+				6C01AFF121DF8EF70062A74E /* BaseModelTestCase.swift in Sources */,
 				6C3E690B21790E8C0082C483 /* CommitsEndpointGroupUnitTests.swift in Sources */,
 				6C7999F621ADE42D000148CD /* ProjectsEndpointGroupIntegrationTests.swift in Sources */,
 				6C98CE6A217C71260051569E /* Date+Extensions.swift in Sources */,
@@ -2011,6 +2058,7 @@
 				6C98CE66217C6A050051569E /* CommitsMocks.swift in Sources */,
 				6CAA9EFE21582492006F5B16 /* GeneralMocks.swift in Sources */,
 				6CE95EBF2161811D00EDAE16 /* PaginatorIntegrationTests.swift in Sources */,
+				6C01AFF821DF94D60062A74E /* MergeRequestTests.swift in Sources */,
 				6C5D681521AFF50100326012 /* MembersEndpointGroupIntegrationTests.swift in Sources */,
 				6C7999EF21AD2204000148CD /* ProjectMocks.swift in Sources */,
 				6CE95EE82166A3C800EDAE16 /* CommitTests.swift in Sources */,
@@ -2019,6 +2067,8 @@
 				6CC3DB0F2189C07A004677C7 /* AuthenticationMocks.swift in Sources */,
 				6CDC490E218064E60027063B /* PaginatorUnitTests.swift in Sources */,
 				6C5D681921AFF57100326012 /* AuthenticationEndpointGroupIntegrationTests.swift in Sources */,
+				6C01AFEA21DF8E8A0062A74E /* ContributorTests.swift in Sources */,
+				6C01B00621DFB0F70062A74E /* MemberTests.swift in Sources */,
 				6C6EE57D218F6F7D006C447E /* EndpointGroupUnitTestCase.swift in Sources */,
 				6C5D681D21AFF67E00326012 /* RepositoriesEndpointGroupIntegrationTests.swift in Sources */,
 				6C4370BC218B9AF9002ACBDA /* ProjectTests.swift in Sources */,
@@ -2057,6 +2107,7 @@
 				6C5D685121B6960700326012 /* RxGitLabAPIClientUnitTests.swift in Sources */,
 				6C5D686021B6961200326012 /* AuthenticationMocks.swift in Sources */,
 				6C5D685B21B6961200326012 /* ModelMocks.swift in Sources */,
+				6C01B00721DFB0F70062A74E /* MemberTests.swift in Sources */,
 				6C5D685A21B6961200326012 /* RxGitLabApiClientMocks.swift in Sources */,
 				6C5D684D21B6960700326012 /* UsersTests.swift in Sources */,
 				6C5D684B21B6960700326012 /* CommitTests.swift in Sources */,
@@ -2069,14 +2120,18 @@
 				6C5D686621B6963F00326012 /* DateFormatter+Extensions.swift in Sources */,
 				6C5D686421B6963F00326012 /* String+Extensions.swift in Sources */,
 				6C5D685021B6960700326012 /* HTTPClientTests.swift in Sources */,
+				6C01B00021DFAEF10062A74E /* AuthenticationTests.swift in Sources */,
 				6C5D685F21B6961200326012 /* PaginatorMocks.swift in Sources */,
 				6C5D685E21B6961200326012 /* CommitsMocks.swift in Sources */,
 				6C5D685921B6961200326012 /* GeneralMocks.swift in Sources */,
+				6C01AFF221DF8EF70062A74E /* BaseModelTestCase.swift in Sources */,
 				6C5D686221B6961200326012 /* UserMocks.swift in Sources */,
 				6C5D686721B6963F00326012 /* Date+Extensions.swift in Sources */,
 				6C5D684F21B6960700326012 /* AuthenticationEndpointGroupUnitTests.swift in Sources */,
+				6C01AFF921DF94D60062A74E /* MergeRequestTests.swift in Sources */,
 				6C5D685821B6960E00326012 /* MockURLProtocol.swift in Sources */,
 				6C5D685C21B6961200326012 /* MockURLSession.swift in Sources */,
+				6C01AFEB21DF8E8A0062A74E /* ContributorTests.swift in Sources */,
 				6C5D684C21B6960700326012 /* ProjectTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2119,6 +2174,7 @@
 				6C5D68B821B6993000326012 /* UserMocks.swift in Sources */,
 				6C5D68B921B6993000326012 /* EndpointGroupUnitTestCase.swift in Sources */,
 				6C5D68BB21B6993000326012 /* PaginatorMocks.swift in Sources */,
+				6C01B00921DFB0F70062A74E /* MemberTests.swift in Sources */,
 				6C5D68BD21B6993000326012 /* MockURLSession.swift in Sources */,
 				6C5D68BE21B6993000326012 /* String+Extensions.swift in Sources */,
 				6C5D68C021B6993000326012 /* GeneralMocks.swift in Sources */,
@@ -2131,14 +2187,18 @@
 				6C5D68CB21B6993000326012 /* HTTPClientTests.swift in Sources */,
 				6C5D68CC21B6993000326012 /* CommitTests.swift in Sources */,
 				6C5D68CD21B6993000326012 /* ProjectMocks.swift in Sources */,
+				6C01B00221DFAEF20062A74E /* AuthenticationTests.swift in Sources */,
 				6C5D68CE21B6993000326012 /* RxGitLabAPIClientUnitTests.swift in Sources */,
 				6C5D68CF21B6993000326012 /* MultipleResponseMockURLSession.swift in Sources */,
 				6C5D68D121B6993000326012 /* AuthenticationMocks.swift in Sources */,
+				6C01AFF421DF8EF70062A74E /* BaseModelTestCase.swift in Sources */,
 				6C5D68D421B6993000326012 /* RxGitLabApiClientMocks.swift in Sources */,
 				6C5D68D521B6993000326012 /* CommitsMocks.swift in Sources */,
 				6C5D68D721B6993000326012 /* UsersTests.swift in Sources */,
+				6C01AFFB21DF94D60062A74E /* MergeRequestTests.swift in Sources */,
 				6C5D68DA21B6993000326012 /* MockURLProtocol.swift in Sources */,
 				6C5D68DC21B6993000326012 /* DateFormatter+Extensions.swift in Sources */,
+				6C01AFED21DF8E8A0062A74E /* ContributorTests.swift in Sources */,
 				6C5D68DD21B6993000326012 /* CommitsEndpointGroupUnitTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2181,6 +2241,7 @@
 				6C5D692621B6996100326012 /* UserMocks.swift in Sources */,
 				6C5D692721B6996100326012 /* RxGitLabAPIClientUnitTests.swift in Sources */,
 				6C5D692821B6996100326012 /* GeneralMocks.swift in Sources */,
+				6C01B00B21DFB0F70062A74E /* MemberTests.swift in Sources */,
 				6C5D692921B6996100326012 /* EndpointGroupUnitTestCase.swift in Sources */,
 				6C5D692B21B6996100326012 /* CommitsEndpointGroupUnitTests.swift in Sources */,
 				6C5D692C21B6996100326012 /* ProjectMocks.swift in Sources */,
@@ -2193,14 +2254,18 @@
 				6C5D693721B6996100326012 /* XCTest+Extensions.swift in Sources */,
 				6C5D693921B6996100326012 /* MockURLSession.swift in Sources */,
 				6C5D693A21B6996100326012 /* CommitsMocks.swift in Sources */,
+				6C01B00421DFAEF20062A74E /* AuthenticationTests.swift in Sources */,
 				6C5D693B21B6996100326012 /* HTTPClientTests.swift in Sources */,
 				6C5D693C21B6996100326012 /* String+Extensions.swift in Sources */,
 				6C5D694221B6996100326012 /* CommitTests.swift in Sources */,
+				6C01AFF621DF8EF70062A74E /* BaseModelTestCase.swift in Sources */,
 				6C5D694321B6996100326012 /* MockURLProtocol.swift in Sources */,
 				6C5D694521B6996100326012 /* DateFormatter+Extensions.swift in Sources */,
 				6C5D694621B6996100326012 /* Date+Extensions.swift in Sources */,
+				6C01AFFD21DF94D60062A74E /* MergeRequestTests.swift in Sources */,
 				6C5D694821B6996100326012 /* UsersTests.swift in Sources */,
 				6C5D694A21B6996100326012 /* RxGitLabApiClientMocks.swift in Sources */,
+				6C01AFEF21DF8E8A0062A74E /* ContributorTests.swift in Sources */,
 				6C5D694B21B6996100326012 /* ProjectTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2242,12 +2307,14 @@
 			files = (
 				6C5D683321B53F8C00326012 /* UserMocks.swift in Sources */,
 				6C6EE5A0219074A7006C447E /* EndpointGroupUnitTestCase.swift in Sources */,
+				6C01B00121DFAEF20062A74E /* AuthenticationTests.swift in Sources */,
 				6C6EE5A5219074AB006C447E /* PaginatorIntegrationTests.swift in Sources */,
 				6C6EE5972190749F006C447E /* PaginatorMocks.swift in Sources */,
 				6C7999F321AD585B000148CD /* BaseIntegrationTestCase.swift in Sources */,
 				6C6EE5942190749F006C447E /* MockURLSession.swift in Sources */,
 				6C6EE5A6219074E6006C447E /* String+Extensions.swift in Sources */,
 				6C6EE5A4219074AB006C447E /* RxGitLabAPIClientIntegrationTests.swift in Sources */,
+				6C01AFF321DF8EF70062A74E /* BaseModelTestCase.swift in Sources */,
 				6C6EE5912190749F006C447E /* GeneralMocks.swift in Sources */,
 				6C7999F721ADE42D000148CD /* ProjectsEndpointGroupIntegrationTests.swift in Sources */,
 				6C6EE59F219074A7006C447E /* PaginatorUnitTests.swift in Sources */,
@@ -2261,6 +2328,7 @@
 				6C6EE59A219074A7006C447E /* CommitTests.swift in Sources */,
 				6C6EE5992190749F006C447E /* ProjectMocks.swift in Sources */,
 				6C6EE59E219074A7006C447E /* RxGitLabAPIClientUnitTests.swift in Sources */,
+				6C01AFFA21DF94D60062A74E /* MergeRequestTests.swift in Sources */,
 				6C6EE5952190749F006C447E /* MultipleResponseMockURLSession.swift in Sources */,
 				6C5D681621AFF50100326012 /* MembersEndpointGroupIntegrationTests.swift in Sources */,
 				6C6EE5982190749F006C447E /* AuthenticationMocks.swift in Sources */,
@@ -2269,6 +2337,8 @@
 				6C7999FD21ADE80F000148CD /* CommitsEndpointGroupIntegrationTests.swift in Sources */,
 				6C6EE59C219074A7006C447E /* UsersTests.swift in Sources */,
 				6C5D681A21AFF57100326012 /* AuthenticationEndpointGroupIntegrationTests.swift in Sources */,
+				6C01AFEC21DF8E8A0062A74E /* ContributorTests.swift in Sources */,
+				6C01B00821DFB0F70062A74E /* MemberTests.swift in Sources */,
 				6C6EE5902190749B006C447E /* MockURLProtocol.swift in Sources */,
 				6C5D681E21AFF67E00326012 /* RepositoriesEndpointGroupIntegrationTests.swift in Sources */,
 				6C6EE5A8219074E6006C447E /* DateFormatter+Extensions.swift in Sources */,

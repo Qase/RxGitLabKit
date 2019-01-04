@@ -20,7 +20,7 @@ public class AuthenticationEndpointGroup: EndpointGroup {
     public var url: String {
       switch self {
       case .token:
-        return "/oauth/token"
+        return "oauth/token"
       }
     }
   }

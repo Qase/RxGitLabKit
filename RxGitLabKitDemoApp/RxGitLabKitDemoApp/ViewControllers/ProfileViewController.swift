@@ -134,7 +134,7 @@ class ProfileViewController: BaseViewController {
     view.addSubview(tableView)
     
     let user = viewModel.user
-    self.tableView.tableHeaderView = ProfileTableHeaderView(name: user.name ?? "", email: user.email ?? "", avatarURL: user.avatarUrl != nil ? URL(string: user.avatarUrl!) : nil, bio: user.bio ?? "")
+    self.tableView.tableHeaderView = ProfileTableHeaderView(name: user.name ?? "", email: user.email ?? "", avatarURL: user.avatarURL != nil ? URL(string: user.avatarURL!) : nil, bio: user.bio ?? "")
     logoutView.addSubview(logoutButton)
     tableView.tableFooterView = logoutView
   }

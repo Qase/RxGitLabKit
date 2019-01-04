@@ -43,7 +43,7 @@ class UsersEndpointGroupIntegrationTests: BaseIntegrationTestCase {
       XCTAssertEqual(user.username, "root")
       XCTAssertEqual(user.name, "Administrator")
       XCTAssertEqual(user.state, "active")
-      XCTAssertEqual(user.avatarUrl, "https://www.gravatar.com/avatar/e64c7d89f26bd1972efa854d13d7dd61?s=80&d=identicon")
+      XCTAssertEqual(user.avatarURL, "https://www.gravatar.com/avatar/e64c7d89f26bd1972efa854d13d7dd61?s=80&d=identicon")
       XCTAssert(user.bio == nil)
       
       let timeZone = TimeZone(secondsFromGMT: 0)
@@ -72,7 +72,7 @@ class UsersEndpointGroupIntegrationTests: BaseIntegrationTestCase {
       XCTAssertEqual(user.username, "root")
       XCTAssertEqual(user.name, "Administrator")
       XCTAssertEqual(user.state, "active")
-      XCTAssertEqual(user.avatarUrl, "https://www.gravatar.com/avatar/e64c7d89f26bd1972efa854d13d7dd61?s=80&d=identicon")
+      XCTAssertEqual(user.avatarURL, "https://www.gravatar.com/avatar/e64c7d89f26bd1972efa854d13d7dd61?s=80&d=identicon")
       XCTAssert(user.bio == nil)
       
       let timeZone = TimeZone(secondsFromGMT: 0)

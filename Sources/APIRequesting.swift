@@ -9,11 +9,23 @@ import Foundation
 
 /// This structs represents  a wrapper around an URL request to the GitLab API
 public struct APIRequest {
+  
+  /// HTTP Method
   public var method: HTTPMethod
+  
+  /// URL Path
   public var path: String?
+  
+  /// Query Parameters
   public var parameters: QueryParameters
+  
+  /// JSON Dictionary
   public var jsonDictionary: JSONDictionary?
+  
+  /// Data of the body
   public var data: Data?
+  
+  /// GitLab API Version (v4 by default)
   public let apiVersion: String?
   
   public init(path: String = "",

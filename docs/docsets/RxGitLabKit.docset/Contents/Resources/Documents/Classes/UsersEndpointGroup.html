@@ -14,7 +14,7 @@
     <a title="UsersEndpointGroup Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">RxGitLabKit Docs</a> (39% documented)</p>
+        <p><a href="../index.html">RxGitLabKit Docs</a> (46% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -88,12 +88,6 @@
           <li class="nav-group-name">
             <a href="../Extensions.html">Extensions</a>
             <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="../Extensions/Date.html">Date</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Extensions/DateFormatter.html">DateFormatter</a>
-              </li>
               <li class="nav-group-task">
                 <a href="../Extensions/URLSession.html">URLSession</a>
               </li>
@@ -255,9 +249,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:11RxGitLabKit18UsersEndpointGroupC03getE04page7perPage10parametersAA9PaginatorCyAA4UserVGSi_SiSDySSypGSgtF"></a>
-                    <a name="//apple_ref/swift/Method/getUsers(page:perPage:parameters:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:11RxGitLabKit18UsersEndpointGroupC03getE04page7perPage10parametersAA9PaginatorCyAA4UserVGSi_SiSDySSypGSgtF">getUsers(page:perPage:parameters:)</a>
+                    <a name="/s:11RxGitLabKit18UsersEndpointGroupC03getE07perPage10parametersAA9PaginatorCyAA4UserVGSi_SDySSypGSgtF"></a>
+                    <a name="//apple_ref/swift/Method/getUsers(perPage:parameters:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit18UsersEndpointGroupC03getE07perPage10parametersAA9PaginatorCyAA4UserVGSi_SDySSypGSgtF">getUsers(perPage:parameters:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -265,16 +259,52 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Gets users</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getUsers</span><span class="p">(</span><span class="nv">page</span><span class="p">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nv">perPage</span><span class="p">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="kt"><a href="../Classes/RxGitLabAPIClient.html">RxGitLabAPIClient</a></span><span class="o">.</span><span class="n">defaultPerPage</span><span class="p">,</span> <span class="nv">parameters</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:11RxGitLabKit15QueryParametersa">QueryParameters</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/Paginator.html">Paginator</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/User.html">User</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getUsers</span><span class="p">(</span><span class="nv">perPage</span><span class="p">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="kt"><a href="../Classes/RxGitLabAPIClient.html">RxGitLabAPIClient</a></span><span class="o">.</span><span class="n">defaultPerPage</span><span class="p">,</span> <span class="nv">parameters</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:11RxGitLabKit15QueryParametersa">QueryParameters</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/Paginator.html">Paginator</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/User.html">User</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>perPage</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>number of users per page - default: 20</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>parameters</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Query Parameters - See description
+<strong>Optinal Query Parameters:</strong></p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A Paginator of User</p>
                       </div>
                     </section>
                   </div>
@@ -298,28 +328,26 @@
 <li><strong>Query Parameters:</strong>
 
 <ul>
-<li>email (required) - Email</li>
-<li>password (optional) - Password</li>
-<li>reset_password (optional) - Send user password reset link - true or false(default)</li>
-<li>username (required) - Username</li>
-<li>name (required) - Name</li>
-<li>skype (optional) - Skype ID</li>
-<li>linkedin (optional) - LinkedIn</li>
-<li>twitter (optional) - Twitter account</li>
-<li>website_url (optional) - Website URL</li>
-<li>organization (optional) - Organization name</li>
-<li>projects_limit (optional) - Number of projects user can create</li>
-<li>extern_uid (optional) - External UID</li>
-<li>provider (optional) - External provider name</li>
-<li>bio (optional) - User’s biography</li>
-<li>location (optional) - User’s location</li>
-<li>public_email (optional) - The public email of the user</li>
-<li>admin (optional) - User is admin - true or false (default)</li>
-<li>can_create_group (optional) - User can create groups - true or false</li>
-<li>skip_confirmation (optional) - Skip confirmation - true or false (default)</li>
-<li>external (optional) - Flags the user as external - true or false(default)</li>
-<li>avatar (optional) - Image file for user’s avatar</li>
-<li>private_profile (optional) - User’s profile is private - true or false</li>
+<li>Optional:</li>
+<li><strong>password: String</strong> - Password</li>
+<li><strong>reset_password: Bool</strong> - Send user password reset link - true or false(default)</li>
+<li><strong>skype: String</strong> - Skype ID</li>
+<li><strong>linkedin: String</strong> - LinkedIn</li>
+<li><strong>twitter: String</strong> - Twitter account</li>
+<li><strong>website_url: String</strong> - Website URL</li>
+<li><strong>organization: String</strong> - Organization name</li>
+<li><strong>projects_limit: Int</strong> - Number of projects user can create</li>
+<li><strong>extern_uid: Int</strong> - External UID</li>
+<li><strong>provider: String</strong> - External provider name</li>
+<li><strong>bio: String</strong> - User’s biography</li>
+<li><strong>location: String</strong> - User’s location</li>
+<li><strong>public_email: String</strong> - The public email of the user</li>
+<li><strong>admin: String</strong> - User is admin - true or false (default)</li>
+<li><strong>can_create_group: Bool</strong> - User can create groups - true or false</li>
+<li><strong>skip_confirmation: Bool</strong> - Skip confirmation - true or false (default)</li>
+<li><strong>external: Bool</strong> - Flags the user as external - true or false(default)</li>
+<li><strong>avatar: String</strong> - Image file for user’s avatar</li>
+<li><strong>private_profile: Bool</strong> - User’s profile is private - true or false</li>
 </ul></li>
 </ul>
 
@@ -344,7 +372,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>Query Parameters [String: Any]</p>
+                                  <p>Query Parameters - See description</p>
                                 </div>
                               </td>
                             </tr>
@@ -371,7 +399,9 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>User creation</p>
+
+<p>Creates a new user. Note only administrators can create new users. Either <code>password</code> or <code>reset_password</code> should be specified (reset_password takes priority). If <code>reset_password</code> is <code>false</code>, then <code>password</code> is required.</p>
 
                       </div>
                       <div class="declaration">
@@ -381,6 +411,29 @@
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">postUser</span><span class="p">(</span><span class="nv">user</span><span class="p">:</span> <span class="kt"><a href="../Structs/User.html">User</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/User.html">User</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>user</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The user to be created</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An observable of created User</p>
                       </div>
                     </section>
                   </div>
@@ -404,27 +457,27 @@
 <li><strong>Query Parameters:</strong>
 
 <ul>
-<li>email - Email</li>
-<li>username - Username</li>
-<li>name - Name</li>
-<li>password - Password</li>
-<li>skype - Skype ID</li>
-<li>linkedin - LinkedIn</li>
-<li>twitter - Twitter account</li>
-<li>website_url - Website URL</li>
-<li>organization - Organization name</li>
-<li>projects_limit - Limit projects each user can create</li>
-<li>extern_uid - External UID</li>
-<li>provider - External provider name</li>
-<li>bio - User’s biography</li>
-<li>location (optional) - User’s location</li>
-<li>public_email (optional) - The public email of the user</li>
-<li>admin (optional) - User is admin - true or false (default)</li>
-<li>can_create_group (optional) - User can create groups - true or false</li>
-<li>skip_reconfirmation (optional) - Skip reconfirmation - true or false (default)</li>
-<li>external (optional) - Flags the user as external - true or false(default)</li>
-<li>avatar (optional) - Image file for user’s avatar</li>
-<li>private_profile (optional) - User’s profile is private - true or false</li>
+<li><strong>email: String</strong> - Email</li>
+<li><strong>username: String</strong> - Username</li>
+<li><strong>name: String</strong> - Name</li>
+<li><strong>password: String</strong> - Password</li>
+<li><strong>skype: String</strong> - Skype ID</li>
+<li><strong>linkedin: String</strong> - LinkedIn</li>
+<li><strong>twitter: String</strong> - Twitter account</li>
+<li><strong>website_url: String</strong> - Website URL</li>
+<li><strong>organization: String</strong> - Organization name</li>
+<li><strong>projects_limit: String</strong> - Limit projects each user can create</li>
+<li><strong>extern_uid: Int</strong> - External UID</li>
+<li><strong>provider: String</strong> - External provider name</li>
+<li><strong>bio: String</strong> - User’s biography</li>
+<li><strong>location: String</strong> - User’s location</li>
+<li><strong>public_email: String</strong> - The public email of the user</li>
+<li><strong>admin: String</strong> - User is admin - true or false (default)</li>
+<li><strong>can_create_group: Bool</strong> - User can create groups - true or false</li>
+<li><strong>skip_reconfirmation: Bool</strong> - Skip reconfirmation - true or false (default)</li>
+<li><strong>external: Bool</strong> - Flags the user as external - true or false(default)</li>
+<li><strong>avatar: String</strong> - Image file for user’s avatar</li>
+<li><strong>private_profile: String</strong> - User’s profile is private - true or false</li>
 </ul></li>
 </ul>
 
@@ -482,8 +535,8 @@
 <li><strong>Query Parameters:</strong>
 
 <ul>
-<li>email - Email</li>
-<li>username - Username</li>
+<li><strong>email: String</strong> - Email</li>
+<li><strong>username: String</strong> - Username</li>
 </ul></li>
 </ul>
 
@@ -514,6 +567,10 @@
                             </tr>
                           </tbody>
                         </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An Observable of boolean whether the deletion was successful</p>
                       </div>
                     </section>
                   </div>
@@ -2249,7 +2306,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://gitlab.com/dagytran/RxGitLabKit" target="_blank" rel="external">Dagy Tran</a>. All rights reserved. (Last updated: 2018-12-25)</p>
+          <p>&copy; 2019 <a class="link" href="https://gitlab.com/dagytran/RxGitLabKit" target="_blank" rel="external">Dagy Tran</a>. All rights reserved. (Last updated: 2019-01-04)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

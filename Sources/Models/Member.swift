@@ -39,5 +39,4 @@ public struct Member: Codable {
       expiresAt = nil
     }
   }
-  
 }

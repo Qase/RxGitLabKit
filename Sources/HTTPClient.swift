@@ -8,13 +8,45 @@
 import Foundation
 import RxSwift
 
-
 /// Basic networking protocol
 public protocol Networking {
+  /// Sends a request to the server and the response can be subscribed to
+  ///
+  /// - Parameters:
+  ///   - request: request sent to server
+  ///   - session: session used for communication
+  /// - Returns: An Observable of the `HTTPURLResponse` and `Data` if there is any
   func response(for request: URLRequest) -> Observable<(response: HTTPURLResponse, data: Data?)>
+  
+  /// Sends a request to the server and the response header can be subscribed to
+  ///
+  /// - Parameters:
+  ///   - request: request sent to server
+  ///   - session: session used for communication
+  /// - Returns: An Observable of the `Header`
   func header(for request: URLRequest) -> Observable<Header>
-  func object<T: Codable>(for request: URLRequest) -> Observable<T>
+  
+  /// Sends a request to the server and the response data can be subscribed to
+  ///
+  /// - Parameters:
+  ///   - request: request sent to server
+  ///   - session: session used for communication
+  /// - Returns: An Observable of the `Data` if there is any
   func data(for request: URLRequest) -> Observable<Data>
+
+  /// Sends a request to the server and the response data are transformed into object of type `T` and it can be subscribed to
+  ///
+  /// - Parameters:
+  ///   - request: request sent to server
+  ///   - session: session used for communication
+  /// - Returns: An Observable of `T`
+  func object<T: Codable>(for request: URLRequest) -> Observable<T>
+  
+  /// Sends a request to the server and the response data in JSON format can be subscribed to
+  ///
+  /// - Parameters:
+  ///   - request: request sent to server
+  /// - Returns: An Observable of the `JSONDictionary`
   func json(for request: URLRequest) -> Observable<JSONDictionary>
 }
 

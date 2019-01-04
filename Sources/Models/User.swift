@@ -13,8 +13,8 @@ public struct User: Codable {
   public let email: String?
   public let name: String?
   public let state: String?
-  public let avatarUrl: String?
-  public let webUrl: String?
+  public let avatarURL: String?
+  public let webURL: String?
   public let createdAt: Date?
   public let isAdmin: Bool?
   public let bio: String?
@@ -22,7 +22,7 @@ public struct User: Codable {
   public let skype: String?
   public let linkedin: String?
   public let twitter: String?
-  public let websiteUrl: String?
+  public let websiteURL: String?
   public let organization: String?
   public let lastSignInAt: Date?
   public let confirmedAt: Date?
@@ -46,8 +46,8 @@ public struct User: Codable {
     case email = "email"
     case name = "name"
     case state = "state"
-    case avatarUrl = "avatar_url"
-    case webUrl = "web_url"
+    case avatarURL = "avatar_url"
+    case webURL = "web_url"
     case createdAt = "created_at"
     case isAdmin = "is_admin"
     case bio = "bio"
@@ -55,7 +55,7 @@ public struct User: Codable {
     case skype = "skype"
     case linkedin = "linkedin"
     case twitter = "twitter"
-    case websiteUrl = "website_url"
+    case websiteURL = "website_url"
     case organization = "organization"
     case lastSignInAt = "last_sign_in_at"
     case confirmedAt = "confirmed_at"
@@ -80,8 +80,8 @@ public struct User: Codable {
     email = try values.decodeIfPresent(String.self, forKey: .email)
     name = try values.decodeIfPresent(String.self, forKey: .name)
     state = try values.decodeIfPresent(String.self, forKey: .state)
-    avatarUrl = try values.decodeIfPresent(String.self, forKey: .avatarUrl)
-    webUrl = try values.decodeIfPresent(String.self, forKey: .webUrl)
+    avatarURL = try values.decodeIfPresent(String.self, forKey: .avatarURL)
+    webURL = try values.decodeIfPresent(String.self, forKey: .webURL)
     createdAt = try User.decodeDateIfPresent(values: values, forKey: .createdAt)
     isAdmin = try values.decodeIfPresent(Bool.self, forKey: .isAdmin)
     bio = try values.decodeIfPresent(String.self, forKey: .bio)
@@ -89,7 +89,7 @@ public struct User: Codable {
     skype = try values.decodeIfPresent(String.self, forKey: .skype)
     linkedin = try values.decodeIfPresent(String.self, forKey: .linkedin)
     twitter = try values.decodeIfPresent(String.self, forKey: .twitter)
-    websiteUrl = try values.decodeIfPresent(String.self, forKey: .websiteUrl)
+    websiteURL = try values.decodeIfPresent(String.self, forKey: .websiteURL)
     organization = try values.decodeIfPresent(String.self, forKey: .organization)
     lastSignInAt =  try User.decodeDateIfPresent(values: values, forKey: .lastSignInAt)
     confirmedAt =  try User.decodeDateIfPresent(values: values, forKey: .confirmedAt)

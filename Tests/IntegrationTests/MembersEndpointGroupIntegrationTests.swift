@@ -165,6 +165,5 @@ class MembersEndpointGroupIntegrationTests: BaseIntegrationTestCase {
       XCTFail((error as? HTTPError)?.errorDescription ?? error.localizedDescription)
     }
   }
-
   
 }

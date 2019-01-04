@@ -15,12 +15,12 @@ import RxTest
 class PaginatorIntegrationTests: BaseIntegrationTestCase {
   
   func testLoadAll() {
-    let paginator = client.users.getUsers(page: 1, perPage: 5)
+    let paginator = client.users.getUsers(perPage: 5)
     let loadAllObservable = paginator.loadAll()
     let totalObservable = paginator.totalItems
     
     let totalResult = totalObservable
-      .toBlocking(timeout: 10)
+      .toBlocking()
       .materialize()
     
     var total = 0

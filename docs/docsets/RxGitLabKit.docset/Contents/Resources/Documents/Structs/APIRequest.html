@@ -14,7 +14,7 @@
     <a title="APIRequest Structure Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">RxGitLabKit Docs</a> (39% documented)</p>
+        <p><a href="../index.html">RxGitLabKit Docs</a> (46% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -88,12 +88,6 @@
           <li class="nav-group-name">
             <a href="../Extensions.html">Extensions</a>
             <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="../Extensions/Date.html">Date</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Extensions/DateFormatter.html">DateFormatter</a>
-              </li>
               <li class="nav-group-task">
                 <a href="../Extensions/URLSession.html">URLSession</a>
               </li>
@@ -265,7 +259,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>HTTP Method</p>
 
                       </div>
                       <div class="declaration">
@@ -292,7 +286,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>URL Path</p>
 
                       </div>
                       <div class="declaration">
@@ -319,7 +313,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Query Parameters</p>
 
                       </div>
                       <div class="declaration">
@@ -346,7 +340,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>JSON Dictionary</p>
 
                       </div>
                       <div class="declaration">
@@ -373,7 +367,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Data of the body</p>
 
                       </div>
                       <div class="declaration">
@@ -390,9 +384,36 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:11RxGitLabKit10APIRequestV4path6method10parameters8jsonBody4dataACSS_AA10HTTPMethodOSDySSypGSgAL10Foundation4DataVSgtcfc"></a>
-                    <a name="//apple_ref/swift/Method/init(path:method:parameters:jsonBody:data:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:11RxGitLabKit10APIRequestV4path6method10parameters8jsonBody4dataACSS_AA10HTTPMethodOSDySSypGSgAL10Foundation4DataVSgtcfc">init(path:method:parameters:jsonBody:data:)</a>
+                    <a name="/s:11RxGitLabKit10APIRequestV10apiVersionSSSgvp"></a>
+                    <a name="//apple_ref/swift/Property/apiVersion" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit10APIRequestV10apiVersionSSSgvp">apiVersion</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>GitLab API Version (v4 by default)</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">apiVersion</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit10APIRequestV4path6method10parameters8jsonBody4data10apiVersionACSS_AA10HTTPMethodOSDySSypGSgAM10Foundation4DataVSgSSSgtcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(path:method:parameters:jsonBody:data:apiVersion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit10APIRequestV4path6method10parameters8jsonBody4data10apiVersionACSS_AA10HTTPMethodOSDySSypGSgAM10Foundation4DataVSgSSSgtcfc">init(path:method:parameters:jsonBody:data:apiVersion:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -408,10 +429,12 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">path</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">""</span><span class="p">,</span>
-     <span class="nv">method</span><span class="p">:</span> <span class="kt"><a href="../Enums/HTTPMethod.html">HTTPMethod</a></span> <span class="o">=</span> <span class="kt"><a href="../Enums/HTTPMethod.html">HTTPMethod</a></span><span class="o">.</span><span class="k">get</span><span class="p">,</span>
-     <span class="nv">parameters</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:11RxGitLabKit15QueryParametersa">QueryParameters</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
-     <span class="nv">jsonBody</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:11RxGitLabKit14JSONDictionarya">JSONDictionary</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
-     <span class="nv">data</span><span class="p">:</span> <span class="kt">Data</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+            <span class="nv">method</span><span class="p">:</span> <span class="kt"><a href="../Enums/HTTPMethod.html">HTTPMethod</a></span> <span class="o">=</span> <span class="kt"><a href="../Enums/HTTPMethod.html">HTTPMethod</a></span><span class="o">.</span><span class="k">get</span><span class="p">,</span>
+            <span class="nv">parameters</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:11RxGitLabKit15QueryParametersa">QueryParameters</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+            <span class="nv">jsonBody</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:11RxGitLabKit14JSONDictionarya">JSONDictionary</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+            <span class="nv">data</span><span class="p">:</span> <span class="kt">Data</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+            <span class="nv">apiVersion</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span>
+  <span class="kt"><a href="../Classes/RxGitLabAPIClient.html">RxGitLabAPIClient</a></span><span class="o">.</span><span class="n">apiVersionURLString</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -421,9 +444,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:11RxGitLabKit10APIRequestV12buildRequest4with6header10apiVersion4page7perPage10Foundation10URLRequestVSgAJ3URLV_SDyS2SGSgSSSgSiSgAStF"></a>
-                    <a name="//apple_ref/swift/Method/buildRequest(with:header:apiVersion:page:perPage:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:11RxGitLabKit10APIRequestV12buildRequest4with6header10apiVersion4page7perPage10Foundation10URLRequestVSgAJ3URLV_SDyS2SGSgSSSgSiSgAStF">buildRequest(with:header:apiVersion:page:perPage:)</a>
+                    <a name="/s:11RxGitLabKit10APIRequestV12buildRequest4with6header4page7perPage10Foundation10URLRequestVSgAI3URLV_SDyS2SGSgSiSgAQtF"></a>
+                    <a name="//apple_ref/swift/Method/buildRequest(with:header:page:perPage:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit10APIRequestV12buildRequest4with6header4page7perPage10Foundation10URLRequestVSgAI3URLV_SDyS2SGSgSiSgAQtF">buildRequest(with:header:page:perPage:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -438,7 +461,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">buildRequest</span><span class="p">(</span><span class="n">with</span> <span class="nv">hostURL</span><span class="p">:</span> <span class="kt">URL</span><span class="p">,</span> <span class="nv">header</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:11RxGitLabKit6Headera">Header</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">apiVersion</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kt"><a href="../Classes/RxGitLabAPIClient.html">RxGitLabAPIClient</a></span><span class="o">.</span><span class="n">apiVersionURLString</span><span class="p">,</span> <span class="nv">page</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">perPage</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">URLRequest</span><span class="p">?</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">buildRequest</span><span class="p">(</span><span class="n">with</span> <span class="nv">hostURL</span><span class="p">:</span> <span class="kt">URL</span><span class="p">,</span> <span class="nv">header</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:11RxGitLabKit6Headera">Header</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">page</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">perPage</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">URLRequest</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -521,7 +544,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://gitlab.com/dagytran/RxGitLabKit" target="_blank" rel="external">Dagy Tran</a>. All rights reserved. (Last updated: 2018-12-25)</p>
+          <p>&copy; 2019 <a class="link" href="https://gitlab.com/dagytran/RxGitLabKit" target="_blank" rel="external">Dagy Tran</a>. All rights reserved. (Last updated: 2019-01-04)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

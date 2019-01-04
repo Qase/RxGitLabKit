@@ -14,7 +14,7 @@ class AuthenticationEndpointGroupUnitTests: EndpointGroupUnitTestCase {
   
   func testAuthenticate() {
     // Adding mocked response data
-     mockSession.nextData = AuthenticationMocks.oAuthResponseData
+    mockSession.nextData = AuthenticationMocks.oAuthResponseData
     
     // Invoking the request
     let result = client.authentication.authenticate(username: "root", password: "admin12345")
@@ -23,8 +23,9 @@ class AuthenticationEndpointGroupUnitTests: EndpointGroupUnitTestCase {
     
     switch result {
     case .completed(elements: let elements):
-      
+
       // Request asserts
+      XCTAssertEqual(mockSession.lastRequest?.httpMethod, HTTPMethod.post.rawValue)
       if let body = mockSession.lastRequest?.httpBody, let dict = try? JSONSerialization.jsonObject(with: body, options: .mutableContainers) as! [String: String]
       {
         XCTAssertNotNil(dict["grant_type"])

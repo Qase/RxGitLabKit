@@ -8,10 +8,20 @@
 import Foundation
 
 public struct Authentication: Codable {
+  
+  /// OAuth Token
   public let oAuthToken: String?
+  
+  /// The type of the token
   public let tokenType: String?
+  
+  /// Refresh token
   public let refreshToken: String?
+  
+  /// Scope of the token
   public let scope: String?
+  
+  /// Created at 
   public let createdAt: Int?
   public var createdAtDate: Date? {
     if let createdAt = createdAt {

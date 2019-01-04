@@ -14,16 +14,11 @@ import RxTest
 
 class CommitsEndpointGroupIntegrationTests: BaseIntegrationTestCase {
   
-  let calendar = Calendar(identifier: .gregorian)
-
-  override func tearDown() {
-  }
-  
   func testGetCommits() {
     let paginator = client.commits.getCommits(projectID: 3)
     let result = paginator[1]
       .filter {!$0.isEmpty}
-      .toBlocking(timeout: defaultTimeout)
+      .toBlocking()
       .materialize()
     
     switch result {
@@ -52,7 +47,7 @@ class CommitsEndpointGroupIntegrationTests: BaseIntegrationTestCase {
   func testGetCommit() {
     let commit = client.commits.getCommit(projectID: 3, sha: "e8aa1d892a0d8a153a28b74cbad25be534926f49")
     let result = commit
-      .toBlocking(timeout: defaultTimeout)
+      .toBlocking()
       .materialize()
     
     switch result {
@@ -100,7 +95,7 @@ class CommitsEndpointGroupIntegrationTests: BaseIntegrationTestCase {
     let commitContent = "New commit content"
     let newCommit = NewCommit(branch: "master", commitMessage: commitMessage, startBranch: nil, actions: [Action(action: "update", filePath: "newcommit", previousPath: nil, content: commitContent, encoding: nil, lastCommitID: nil, executeFileMode: nil)])
     let result = client.commits.createCommit(projectID: 60, newCommit: newCommit)
-      .toBlocking(timeout: defaultTimeout)
+      .toBlocking()
       .materialize()
 
     switch result {
@@ -118,7 +113,7 @@ class CommitsEndpointGroupIntegrationTests: BaseIntegrationTestCase {
   
   func testGetReferences() {
     let result = client.commits.getReferences(projectID: 50, sha: "86081d5582d440a5bf39931c15c08d940a783f6c", parameters: nil)
-      .toBlocking(timeout: 20)
+      .toBlocking()
       .materialize()
     
     switch result {
@@ -135,7 +130,7 @@ class CommitsEndpointGroupIntegrationTests: BaseIntegrationTestCase {
   
   func testGetComments() {
     let result = client.commits.getComments(projectID: 60, sha: "da1e4ccf58694b180675b2836d257cf5954681cf")
-      .toBlocking(timeout: defaultTimeout)
+      .toBlocking()
       .materialize()
     
     switch result {
@@ -169,7 +164,7 @@ class CommitsEndpointGroupIntegrationTests: BaseIntegrationTestCase {
     let path = "mock"
     let comment: Comment = Comment(note: note, lineType: lineType, line: 1, path: path)
     let result = client.commits.postComment(comment: comment, projectID: 60, sha: "master")
-      .toBlocking(timeout: defaultTimeout)
+      .toBlocking()
       .materialize()
 
     switch result {
@@ -188,7 +183,7 @@ class CommitsEndpointGroupIntegrationTests: BaseIntegrationTestCase {
   
   func testGetStatuses() {
     let result = client.commits.getStatuses(projectID: 50, sha: "86081d5582d440a5bf39931c15c08d940a783f6c")
-      .toBlocking(timeout: defaultTimeout)
+      .toBlocking()
       .materialize()
     
     switch result {
@@ -240,7 +235,7 @@ class CommitsEndpointGroupIntegrationTests: BaseIntegrationTestCase {
     let state = BuildStatus.State.canceled.rawValue
     let status = BuildStatus(state: state, ref: ref, name: name, targetURL: targetURL, description: description, coverage: coverage)
     let result = client.commits.postStatus(status: status, projectID: projectID, sha: sha)
-      .toBlocking(timeout: defaultTimeout)
+      .toBlocking()
       .materialize()
 
     switch result {
@@ -263,7 +258,7 @@ class CommitsEndpointGroupIntegrationTests: BaseIntegrationTestCase {
   
   func testGetMergeRequests() {
     let result = client.commits.getMergeRequests(projectID: 3, sha: "cf781b6eed988e68ea36037c9ce68273062666df")
-      .toBlocking(timeout: defaultTimeout)
+      .toBlocking()
       .materialize()
     
     switch result {
