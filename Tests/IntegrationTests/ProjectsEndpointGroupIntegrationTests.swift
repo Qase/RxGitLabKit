@@ -49,7 +49,7 @@ class ProjectsEndpointGroupIntegrationTests: BaseIntegrationTestCase {
         XCTFail("No projects loaded.")
         return
       }
-      XCTAssertEqual(projects.count, 68)
+      XCTAssertEqual(projects.count, 67)
       XCTAssertEqual(projects[0].id, 68)
     case .failed(elements: _, error: let error):
       XCTFail((error as? HTTPError)?.errorDescription ?? error.localizedDescription)
@@ -57,7 +57,7 @@ class ProjectsEndpointGroupIntegrationTests: BaseIntegrationTestCase {
   }
   
   func testGetProject() {
-    let result = client.projects.getProject(projectID: 7)
+    let result = client.projects.getProject(projectID: 4)
       .toBlocking()
       .materialize()
     
@@ -67,9 +67,10 @@ class ProjectsEndpointGroupIntegrationTests: BaseIntegrationTestCase {
         XCTFail("No project received.")
         return
       }
-      XCTAssertEqual(project.id, 7)
-      XCTAssertEqual(project.description, "The Swift Programming Language https://swift.org\r\n")
-      XCTAssertEqual(project.name, "swift")
+      XCTAssertEqual(project.id, 4)
+      
+      XCTAssertEqual(project.description, "UITableView and UICollectionView Data Sources for RxSwift (sections, animated updates, editing ...)\r\n")
+      XCTAssertEqual(project.name, "RxDataSources")
       XCTAssertEqual(project.visibility, "public")
     case .failed(elements: _, error: let error):
       XCTFail((error as? HTTPError)?.errorDescription ?? error.localizedDescription)
@@ -95,7 +96,7 @@ class ProjectsEndpointGroupIntegrationTests: BaseIntegrationTestCase {
   }
 
   func testGetProjectUsers() {
-    let result = client.projects.getProjectUsers(projectID: 7)
+    let result = client.projects.getProjectUsers(projectID: 3)
       .toBlocking()
       .materialize()
     
@@ -105,16 +106,14 @@ class ProjectsEndpointGroupIntegrationTests: BaseIntegrationTestCase {
          XCTFail("No users loaded.")
         return
       }
-      XCTAssertEqual(users.count, 4)
-      guard users.count == 4 else {
+      XCTAssertEqual(users.count, 3)
+      guard users.count == 3 else {
         XCTFail("Different count of project users: \(users.count)")
         return
       }
       XCTAssertEqual(users[0].username, "root")
       XCTAssertEqual(users[1].username, "freak4pc")
-      XCTAssertEqual(users[2].username, "bontoJR")
-      XCTAssertEqual(users[3].username, "kzaher")
-
+      XCTAssertEqual(users[2].username, "kzaher")
 
     case .failed(elements: _, error: let error):
       XCTFail((error as? HTTPError)?.errorDescription ?? error.localizedDescription)
@@ -122,11 +121,11 @@ class ProjectsEndpointGroupIntegrationTests: BaseIntegrationTestCase {
   }
   
   func testStarAndUnstarProject() {
-    _ = client.projects.unstarProject(projectID: 7)
+    _ = client.projects.unstarProject(projectID: 3)
       .toBlocking()
       .materialize()
     
-    let starResult = client.projects.starProject(projectID: 7)
+    let starResult = client.projects.starProject(projectID: 3)
       .toBlocking()
       .materialize()
     var starCount = 0
@@ -141,7 +140,7 @@ class ProjectsEndpointGroupIntegrationTests: BaseIntegrationTestCase {
       XCTFail((error as? HTTPError)?.errorDescription ?? error.localizedDescription)
     }
     
-    let unstarResult = client.projects.unstarProject(projectID: 7)
+    let unstarResult = client.projects.unstarProject(projectID: 3)
       .toBlocking()
       .materialize()
     
@@ -158,7 +157,7 @@ class ProjectsEndpointGroupIntegrationTests: BaseIntegrationTestCase {
   }
   
   func testArchiveProject() {
-    let result = client.projects.archiveProject(projectID: 7)
+    let result = client.projects.archiveProject(projectID: 3)
       .toBlocking()
       .materialize()
     
@@ -168,7 +167,7 @@ class ProjectsEndpointGroupIntegrationTests: BaseIntegrationTestCase {
         XCTFail("Project not received.")
         return
       }
-      XCTAssertEqual(project.id, 7)
+      XCTAssertEqual(project.id, 3)
       XCTAssertEqual(project.archived, true)
     case .failed(elements: _, error: let error):
       XCTFail((error as? HTTPError)?.errorDescription ?? error.localizedDescription)
@@ -176,7 +175,7 @@ class ProjectsEndpointGroupIntegrationTests: BaseIntegrationTestCase {
   }
   
   func testUnarchiveProject() {
-    let result = client.projects.unarchiveProject(projectID: 7)
+    let result = client.projects.unarchiveProject(projectID: 3)
       .toBlocking()
       .materialize()
     
@@ -186,7 +185,7 @@ class ProjectsEndpointGroupIntegrationTests: BaseIntegrationTestCase {
         XCTFail("Project not received.")
         return
       }
-      XCTAssertEqual(project.id, 7)
+      XCTAssertEqual(project.id, 3)
       XCTAssertEqual(project.archived, false)
     case .failed(elements: _, error: let error):
       XCTFail((error as? HTTPError)?.errorDescription ?? error.localizedDescription)

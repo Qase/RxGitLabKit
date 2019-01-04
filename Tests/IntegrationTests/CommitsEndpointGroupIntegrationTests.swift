@@ -20,7 +20,7 @@ class CommitsEndpointGroupIntegrationTests: BaseIntegrationTestCase {
   }
   
   func testGetCommits() {
-    let paginator = client.commits.getCommits(projectID: 7)
+    let paginator = client.commits.getCommits(projectID: 3)
     let result = paginator[1]
       .filter {!$0.isEmpty}
       .toBlocking(timeout: defaultTimeout)
@@ -36,13 +36,13 @@ class CommitsEndpointGroupIntegrationTests: BaseIntegrationTestCase {
       }
       XCTAssertEqual(commits.count, 20)
       let firstCommit = commits.first!
-      XCTAssertEqual(firstCommit.id, "7531fd3de94ff4291244a272b8763eb096c7f6f4")
-      XCTAssertEqual(firstCommit.shortId, "7531fd3d")
-      XCTAssertEqual(firstCommit.title, "Merge pull request #20779 from rjmccall/lazy-property-is-mutating")
+      XCTAssertEqual(firstCommit.id, "bf83288eefa9b442b0541965d843f2b3433cc196")
+      XCTAssertEqual(firstCommit.shortId, "bf83288e")
+      XCTAssertEqual(firstCommit.title, "Fix typo in error message (#1810)")
       XCTAssertNotNil(firstCommit.authoredDate)
       XCTAssertNotNil(firstCommit.committedDate)
       XCTAssertNotNil(firstCommit.createdAt)
-      XCTAssertEqual(firstCommit.parentIds?.count, 2)
+      XCTAssertEqual(firstCommit.parentIds?.count, 1)
       
     case .failed(elements: _, error: let error):
       XCTFail((error as? HTTPError)?.errorDescription ?? error.localizedDescription)
@@ -50,7 +50,7 @@ class CommitsEndpointGroupIntegrationTests: BaseIntegrationTestCase {
   }
   
   func testGetCommit() {
-    let commit = client.commits.getCommit(projectID: 7, sha: "12de97c73fd79017f281b97b1ecec041ce7e9416")
+    let commit = client.commits.getCommit(projectID: 3, sha: "e8aa1d892a0d8a153a28b74cbad25be534926f49")
     let result = commit
       .toBlocking(timeout: defaultTimeout)
       .materialize()
@@ -59,33 +59,33 @@ class CommitsEndpointGroupIntegrationTests: BaseIntegrationTestCase {
     case .completed(elements: let element):
       XCTAssertEqual(element.count, 1)
       let commit = element.first!
-      XCTAssertEqual(commit.id, "12de97c73fd79017f281b97b1ecec041ce7e9416")
-      XCTAssertEqual(commit.shortId, "12de97c7")
-      XCTAssertEqual(commit.title, "Runtime: Some const correctness")
-      XCTAssertEqual(commit.authorName, "Slava Pestov")
-      XCTAssertEqual(commit.authorEmail, "spestov@apple.com")
-      XCTAssertEqual(commit.committerName, "Slava Pestov")
-      XCTAssertEqual(commit.committerEmail, "spestov@apple.com")
-      XCTAssertEqual(commit.message, "Runtime: Some const correctness\n")
+      XCTAssertEqual(commit.id, "e8aa1d892a0d8a153a28b74cbad25be534926f49")
+      XCTAssertEqual(commit.shortId, "e8aa1d89")
+      XCTAssertEqual(commit.title, "Release 4.4.0")
+      XCTAssertEqual(commit.authorName, "Krunoslav Zaher")
+      XCTAssertEqual(commit.authorEmail, "krunoslav.zaher@gmail.com")
+      XCTAssertEqual(commit.committerName, "Krunoslav Zaher")
+      XCTAssertEqual(commit.committerEmail, "krunoslav.zaher@gmail.com")
+      XCTAssertEqual(commit.message, "Release 4.4.0\n")
       XCTAssertNotNil(commit.parentIds)
       XCTAssertEqual(commit.parentIds!.count, 1)
-      XCTAssertEqual(commit.parentIds!.first!, "20f29c68d96d5b84749fa9b507ff665ba27cd00d")
+      XCTAssertEqual(commit.parentIds!.first!, "78c500c9edea08ac4253d2d1cd0b9cf3a6cf370e")
       XCTAssertNil(commit.lastPipeline)
       XCTAssertNil(commit.status)
       XCTAssertNotNil(commit.stats)
       if let stats = commit.stats {
-        XCTAssertEqual(stats.additions, 12)
-        XCTAssertEqual(stats.deletions, 12)
-        XCTAssertEqual(stats.total, 24)
+        XCTAssertEqual(stats.additions, 42)
+        XCTAssertEqual(stats.deletions, 54)
+        XCTAssertEqual(stats.total, 96)
       } else {
         XCTFail("Stats should not be nil.")
       }
       
       let timeZone = TimeZone(secondsFromGMT: 0)
-      let components = DateComponents(calendar: calendar, timeZone: timeZone, year: 2018, month: 11, day: 27, hour: 2, minute: 22, second: 48)
+      let components = DateComponents(calendar: calendar, timeZone: timeZone, year: 2018, month: 11, day: 1, hour: 21, minute: 26, second: 34)
       let date = calendar.date(from: components)!
       
-      let authoredComponents = DateComponents(calendar: calendar, timeZone: timeZone, year: 2018, month: 11, day: 26, hour: 22, minute: 33, second: 54)
+      let authoredComponents = DateComponents(calendar: calendar, timeZone: timeZone, year: 2018, month: 11, day: 1, hour: 19, minute: 49, second: 44)
       let authoredDate = calendar.date(from: authoredComponents)!
       XCTAssertEqual(commit.createdAt, date)
       XCTAssertEqual(commit.authoredDate, authoredDate)
@@ -134,7 +134,7 @@ class CommitsEndpointGroupIntegrationTests: BaseIntegrationTestCase {
   }
   
   func testGetComments() {
-    let result = client.commits.getComments(projectID: 7, sha: "12de97c73fd79017f281b97b1ecec041ce7e9416")
+    let result = client.commits.getComments(projectID: 60, sha: "da1e4ccf58694b180675b2836d257cf5954681cf")
       .toBlocking(timeout: defaultTimeout)
       .materialize()
     
@@ -144,7 +144,7 @@ class CommitsEndpointGroupIntegrationTests: BaseIntegrationTestCase {
       let comments = element.first!
       XCTAssertEqual(comments.count, 2)
       let comment = comments.first!
-      XCTAssertEqual(comment.note, "Mock comment")
+      XCTAssertEqual(comment.note, "Nice picture man!")
       XCTAssertNotNil(comment.author)
       let author = comment.author!
       XCTAssertEqual(author.id, 1)
@@ -152,7 +152,7 @@ class CommitsEndpointGroupIntegrationTests: BaseIntegrationTestCase {
       XCTAssertEqual(author.name, "Administrator")
       
       let comment2 = comments[1]
-      XCTAssertEqual(comment2.note, "Mock comment 2")
+      XCTAssertEqual(comment2.note, "Mock comment")
       XCTAssertNotNil(comment2.author)
       let author2 = comment2.author!
       XCTAssertEqual(author2.id, 1)
@@ -262,7 +262,7 @@ class CommitsEndpointGroupIntegrationTests: BaseIntegrationTestCase {
   }
   
   func testGetMergeRequests() {
-    let result = client.commits.getMergeRequests(projectID: 7, sha: "f4afcfe641651408a8612c1fe704be6ef0427caf")
+    let result = client.commits.getMergeRequests(projectID: 3, sha: "cf781b6eed988e68ea36037c9ce68273062666df")
       .toBlocking(timeout: defaultTimeout)
       .materialize()
     
@@ -270,25 +270,25 @@ class CommitsEndpointGroupIntegrationTests: BaseIntegrationTestCase {
     case .completed(elements: let element):
       XCTAssertEqual(element.count, 1)
       let mergeRequest = element.first!.first!
-      let date = calendar.date(from: DateComponents(calendar: calendar, timeZone: TimeZone(secondsFromGMT: 0), year: 2018, month: 11, day: 28, hour: 13, minute: 20, second: 14))!
+      let date = calendar.date(from: DateComponents(calendar: calendar, timeZone: TimeZone(secondsFromGMT: 0), year: 2019, month: 1, day: 4, hour: 10, minute: 6, second: 10))!
       
-      XCTAssertEqual(mergeRequest.id, 1)
+      XCTAssertEqual(mergeRequest.id, 2)
       XCTAssertEqual(mergeRequest.iid, 1)
-      XCTAssertEqual(mergeRequest.projectID, 7)
-      XCTAssertEqual(mergeRequest.title, "5.0 dont hardcode numbers in objc block sil")
+      XCTAssertEqual(mergeRequest.projectID, 3)
+      XCTAssertEqual(mergeRequest.title, "Develop to master")
       XCTAssertEqual(mergeRequest.description, "")
       XCTAssertEqual(mergeRequest.state, "opened")
       XCTAssertDateEqual(mergeRequest.createdAt, date)
       XCTAssertDateEqual(mergeRequest.updatedAt, date)
       XCTAssertEqual(mergeRequest.targetBranch, "master")
-      XCTAssertEqual(mergeRequest.sourceProjectID, 7)
-      XCTAssertEqual(mergeRequest.targetProjectID, 7)
+      XCTAssertEqual(mergeRequest.sourceProjectID, 3)
+      XCTAssertEqual(mergeRequest.targetProjectID, 3)
       XCTAssertEqual(mergeRequest.labels, [])
       XCTAssertEqual(mergeRequest.workInProgress, false)
       XCTAssertNil(mergeRequest.milestone)
       XCTAssertEqual(mergeRequest.mergeWhenPipelineSucceeds, false)
-      XCTAssertEqual(mergeRequest.sha, "f4afcfe641651408a8612c1fe704be6ef0427caf")
-      XCTAssertEqual(mergeRequest.mergeStatus, "cannot_be_merged")
+      XCTAssertEqual(mergeRequest.sha, "cf781b6eed988e68ea36037c9ce68273062666df")
+      XCTAssertEqual(mergeRequest.mergeStatus, "can_be_merged")
       XCTAssertNil(mergeRequest.mergeCommitSHA)
       XCTAssertEqual(mergeRequest.userNotesCount, 0)
       XCTAssertNil(mergeRequest.discussionLocked)

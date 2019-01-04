@@ -13,23 +13,6 @@ import RxBlocking
 
 class PerformanceTests: BaseIntegrationTestCase {
   
-  func testPerformanceExample() {
-    // This is an example of a performance test case.
-    self.measure {
-      let commitsPaginator = self.client.commits.getCommits(projectID: 7, perPage: 100)
-      let result = commitsPaginator[1...40]
-        .toBlocking()
-        .materialize()
-      
-      switch result {
-      case .completed(elements: let elements):
-        print(elements.first?.count ?? 0)
-      case .failed(elements: _, error: let error):
-        XCTFail((error as? HTTPError)?.errorDescription ?? error.localizedDescription)
-      }
-    }
-  }
-  
   func testPerformancePerPage100() {
     var measurement = 1
     self.measure {

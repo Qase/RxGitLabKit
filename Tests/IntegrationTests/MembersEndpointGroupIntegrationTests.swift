@@ -92,7 +92,7 @@ class MembersEndpointGroupIntegrationTests: BaseIntegrationTestCase {
   
   func testGetSingleProjectMember() {
     let result = client.members
-      .getSingle(projectID: 7, userID: 4)
+      .getSingle(projectID: 3, userID: 4)
       .toBlocking()
       .materialize()
     
@@ -104,8 +104,8 @@ class MembersEndpointGroupIntegrationTests: BaseIntegrationTestCase {
       }
       XCTAssertEqual(member.id, 4)
       XCTAssertEqual(member.username, "kzaher")
-      XCTAssertEqual(member.accessLevel, 20)
-      XCTAssertNotNil(member.expiresAt)
+      XCTAssertEqual(member.accessLevel, 30)
+      XCTAssertNil(member.expiresAt)
     case .failed(elements: _, error: let error):
       XCTFail((error as? HTTPError)?.errorDescription ?? error.localizedDescription)
     }
@@ -113,7 +113,7 @@ class MembersEndpointGroupIntegrationTests: BaseIntegrationTestCase {
   
   func testGetProjectMembers() {
     let result = client.members
-      .get(projectID: 7)
+      .get(projectID: 3)
       .toBlocking()
       .materialize()
     
@@ -124,13 +124,13 @@ class MembersEndpointGroupIntegrationTests: BaseIntegrationTestCase {
         return
       }
       
-      XCTAssertEqual(members.count, 1)
-      if members.count == 1 {
+      XCTAssertEqual(members.count, 2)
+      if members.count == 2 {
         let member = members[0]
-        XCTAssertEqual(member.id, 4)
-        XCTAssertEqual(member.username, "kzaher")
-        XCTAssertEqual(member.accessLevel, 20)
-        XCTAssertNotNil(member.expiresAt)
+        XCTAssertEqual(member.id, 2)
+        XCTAssertEqual(member.username, "freak4pc")
+        XCTAssertEqual(member.accessLevel, 30)
+        XCTAssertNil(member.expiresAt)
       } else {
         XCTFail("Members count doesn't match.")
       }
@@ -141,7 +141,7 @@ class MembersEndpointGroupIntegrationTests: BaseIntegrationTestCase {
   
   func testGetAllProjectMembers() {
     let result = client.members
-      .getAll(projectID: 7)
+      .getAll(projectID: 3)
       .toBlocking()
       .materialize()
     
@@ -151,15 +151,14 @@ class MembersEndpointGroupIntegrationTests: BaseIntegrationTestCase {
         XCTFail("No members received.")
         return
       }
-      XCTAssertEqual(members.count, 5)
-      if members.count != 5 {
+      XCTAssertEqual(members.count, 4)
+      if members.count != 4 {
         XCTFail("Members count doesn't match.")
       } else {
         members.sort { $0.id < $1.id }
-        let usernames = ["root", "freak4pc", "bontoJR", "kzaher", "kzaher"]
-        for i in 0..<4 {
-          XCTAssertEqual(members[i].id, i+1)
-          XCTAssertEqual(members[i].username, usernames[i])
+        let usernames = ["root", "freak4pc", "kzaher", "kzaher"]
+        for user in members {
+          XCTAssertTrue(usernames.contains(user.username))
         }
       }
     case .failed(elements: _, error: let error):

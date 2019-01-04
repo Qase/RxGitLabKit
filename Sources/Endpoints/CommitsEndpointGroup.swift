@@ -269,7 +269,7 @@ public class CommitsEndpointGroup: EndpointGroup {
    Get a list of Merge Requests related to the specified commit.
    
    - Parameter projectID: The ID or URL-encoded path of the project owned by the
-   - Parameter sha: The commit has
+   - Parameter sha: The commit SHA
    - Returns: An `Observable` of list of `MergeRequest`s
    */
   public func getMergeRequests(projectID: Int, sha: String) -> Observable<[MergeRequest]> {

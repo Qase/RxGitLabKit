@@ -13,13 +13,35 @@ import RxSwift
 class AuthenticationEndpointGroupUnitTests: EndpointGroupUnitTestCase {
   
   func testAuthenticate() {
+    // Adding mocked response data
      mockSession.nextData = AuthenticationMocks.oAuthResponseData
+    
+    // Invoking the request
     let result = client.authentication.authenticate(username: "root", password: "admin12345")
       .toBlocking()
       .materialize()
     
     switch result {
     case .completed(elements: let elements):
+      
+      // Request asserts
+      if let body = mockSession.lastRequest?.httpBody, let dict = try? JSONSerialization.jsonObject(with: body, options: .mutableContainers) as! [String: String]
+      {
+        XCTAssertNotNil(dict["grant_type"])
+        XCTAssertNotNil(dict["username"])
+        XCTAssertNotNil(dict["password"])
+      } else {
+        XCTFail("Body data is corrupted")
+      }
+      if let lastURL = mockSession.lastURL, lastURL.pathComponents.count == 3 {
+        XCTAssertEqual(lastURL.pathComponents[0], "/")
+        XCTAssertEqual(lastURL.pathComponents[1], "oauth")
+        XCTAssertEqual(lastURL.pathComponents[2], "token")
+      } else {
+        XCTFail("Number of path components doesn't match.")
+      }
+      
+      // Response asserts
       XCTAssertEqual(elements.count, 1)
       if let authentication = elements.first {
         XCTAssertNotNil(authentication.oAuthToken)

@@ -151,9 +151,9 @@ public class RepositoriesEndpointGroup: EndpointGroup {
    
    - Returns: An `Observable` of list of `Contributor`
    */
-  public func getContributors(projectID: Int, parameters: QueryParameters? = nil) -> Paginator<Contributor> {
+  public func getContributors(projectID: Int, parameters: QueryParameters? = nil, perPage: Int = RxGitLabAPIClient.defaultPerPage) -> Paginator<Contributor> {
     let apiRequest = APIRequest(path: Endpoints.contributors(projectID: projectID).url)
-    return Paginator(communicator: hostCommunicator, apiRequest: apiRequest)
+    return Paginator(communicator: hostCommunicator, apiRequest: apiRequest, perPage: perPage)
   }
   
   /**
