@@ -74,13 +74,8 @@ class LoginViewController: BaseViewController {
     let privateTokenLabel = UILabel(with: "Private Token")
     let oAuthTokenLabel = UILabel(with: "OAuth Token")
     
-    //    hostTextField.text = viewModel.gitlabClient.hostURL.absoluteString
-    hostTextField.text = "gitlab.fel.cvut.cz"
-    userNameTextField.text = "dagytran@gmail.com"
-    passwordTextField.text = "Wood_Thor9_3shill"
-    oAuthTokenTextField.text = "5e8672700e931c97830b4c0679e065de35c8b63c913df262a18b915e31138218"
-    privateTokenField.text = "ev1TKZXRDF9dkxwnZS4a"
-    
+    hostTextField.text = viewModel.gitlabClient.hostURL.absoluteString
+
     stackView.addArrangedSubview(hostLabel)
     stackView.addArrangedSubview(hostTextField)
     stackView.addArrangedSubview(userNameLabel)

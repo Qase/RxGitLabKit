@@ -13,6 +13,11 @@ This library currently supports these endpoint groups:
 
 The HTML documentation generated using [Jazzy](https://github.com/realm/jazzy) can be found on GitLab Pages [here](https://dagytran.gitlab.io/RxGitLabKit).
 
+Before running the demo app or the tests, download the dependencies using:
+```bash
+$ carthage update
+```
+
 ## Usage
 ### Authorization
 Using a private/ OAuth token or login using `username` and `password`
@@ -150,7 +155,7 @@ replace `YOUR_PROJECT_NAME` and `SOURCE_PATH` and run
 ```bash
 $ swift build
 ```
-and then 
+and then
 ```bash
 $ swift package generate-xcodeproj
 ```

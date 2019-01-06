@@ -19,8 +19,6 @@
 		6C54521421A043A700B6BFA0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C54521221A043A700B6BFA0 /* Main.storyboard */; };
 		6C54521621A043AA00B6BFA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C54521521A043AA00B6BFA0 /* Assets.xcassets */; };
 		6C54521921A043AA00B6BFA0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C54521721A043AA00B6BFA0 /* LaunchScreen.storyboard */; };
-		6C54522421A043AA00B6BFA0 /* RxGitLabKitDemoAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C54522321A043AA00B6BFA0 /* RxGitLabKitDemoAppTests.swift */; };
-		6C54522F21A043AA00B6BFA0 /* RxGitLabKitDemoAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C54522E21A043AA00B6BFA0 /* RxGitLabKitDemoAppUITests.swift */; };
 		6C54523D21A048EA00B6BFA0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C54523C21A048EA00B6BFA0 /* ProfileViewController.swift */; };
 		6C54524721A04E0B00B6BFA0 /* CommitDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C54524621A04E0B00B6BFA0 /* CommitDetailViewController.swift */; };
 		6C54526321A0AFC200B6BFA0 /* CommitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C54526221A0AFC200B6BFA0 /* CommitsViewController.swift */; };
@@ -151,20 +149,6 @@
 			remoteGlobalIDString = 6C5D698E21B6996400326012;
 			remoteInfo = "RxGitLabKit-tvOSIntegrationTests";
 		};
-		6C54522021A043AA00B6BFA0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6C54520321A043A700B6BFA0 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 6C54520A21A043A700B6BFA0;
-			remoteInfo = RxGitLabKitDemoApp;
-		};
-		6C54522B21A043AA00B6BFA0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6C54520321A043A700B6BFA0 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 6C54520A21A043A700B6BFA0;
-			remoteInfo = RxGitLabKitDemoApp;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -196,12 +180,6 @@
 		6C54521521A043AA00B6BFA0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6C54521821A043AA00B6BFA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6C54521A21A043AA00B6BFA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6C54521F21A043AA00B6BFA0 /* RxGitLabKitDemoAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RxGitLabKitDemoAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6C54522321A043AA00B6BFA0 /* RxGitLabKitDemoAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxGitLabKitDemoAppTests.swift; sourceTree = "<group>"; };
-		6C54522521A043AA00B6BFA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6C54522A21A043AA00B6BFA0 /* RxGitLabKitDemoAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RxGitLabKitDemoAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6C54522E21A043AA00B6BFA0 /* RxGitLabKitDemoAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxGitLabKitDemoAppUITests.swift; sourceTree = "<group>"; };
-		6C54523021A043AA00B6BFA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6C54523C21A048EA00B6BFA0 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		6C54524621A04E0B00B6BFA0 /* CommitDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitDetailViewController.swift; sourceTree = "<group>"; };
 		6C54526221A0AFC200B6BFA0 /* CommitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitsViewController.swift; sourceTree = "<group>"; };
@@ -235,20 +213,6 @@
 				6C05B85E21AC5A84009E9A98 /* SnapKit.framework in Frameworks */,
 				6C05B86F21AC5A9B009E9A98 /* RxGitLabKit.framework in Frameworks */,
 				6C05B85F21AC5A84009E9A98 /* RxCocoa.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6C54521C21A043AA00B6BFA0 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6C54522721A043AA00B6BFA0 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,8 +278,6 @@
 			children = (
 				6C05B86021AC5A8C009E9A98 /* RxGitLabKit.xcodeproj */,
 				6C54520D21A043A700B6BFA0 /* RxGitLabKitDemoApp */,
-				6C54522221A043AA00B6BFA0 /* RxGitLabKitDemoAppTests */,
-				6C54522D21A043AA00B6BFA0 /* RxGitLabKitDemoAppUITests */,
 				6C54520C21A043A700B6BFA0 /* Products */,
 				6C54523E21A04B3500B6BFA0 /* Frameworks */,
 			);
@@ -325,8 +287,6 @@
 			isa = PBXGroup;
 			children = (
 				6C54520B21A043A700B6BFA0 /* RxGitLabKitDemoApp.app */,
-				6C54521F21A043AA00B6BFA0 /* RxGitLabKitDemoAppTests.xctest */,
-				6C54522A21A043AA00B6BFA0 /* RxGitLabKitDemoAppUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -343,24 +303,6 @@
 				6C54526E21A16E3C00B6BFA0 /* Supporting Files */,
 			);
 			path = RxGitLabKitDemoApp;
-			sourceTree = "<group>";
-		};
-		6C54522221A043AA00B6BFA0 /* RxGitLabKitDemoAppTests */ = {
-			isa = PBXGroup;
-			children = (
-				6C54522321A043AA00B6BFA0 /* RxGitLabKitDemoAppTests.swift */,
-				6C54522521A043AA00B6BFA0 /* Info.plist */,
-			);
-			path = RxGitLabKitDemoAppTests;
-			sourceTree = "<group>";
-		};
-		6C54522D21A043AA00B6BFA0 /* RxGitLabKitDemoAppUITests */ = {
-			isa = PBXGroup;
-			children = (
-				6C54522E21A043AA00B6BFA0 /* RxGitLabKitDemoAppUITests.swift */,
-				6C54523021A043AA00B6BFA0 /* Info.plist */,
-			);
-			path = RxGitLabKitDemoAppUITests;
 			sourceTree = "<group>";
 		};
 		6C54523E21A04B3500B6BFA0 /* Frameworks */ = {
@@ -443,42 +385,6 @@
 			productReference = 6C54520B21A043A700B6BFA0 /* RxGitLabKitDemoApp.app */;
 			productType = "com.apple.product-type.application";
 		};
-		6C54521E21A043AA00B6BFA0 /* RxGitLabKitDemoAppTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 6C54523621A043AA00B6BFA0 /* Build configuration list for PBXNativeTarget "RxGitLabKitDemoAppTests" */;
-			buildPhases = (
-				6C54521B21A043AA00B6BFA0 /* Sources */,
-				6C54521C21A043AA00B6BFA0 /* Frameworks */,
-				6C54521D21A043AA00B6BFA0 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				6C54522121A043AA00B6BFA0 /* PBXTargetDependency */,
-			);
-			name = RxGitLabKitDemoAppTests;
-			productName = RxGitLabKitDemoAppTests;
-			productReference = 6C54521F21A043AA00B6BFA0 /* RxGitLabKitDemoAppTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		6C54522921A043AA00B6BFA0 /* RxGitLabKitDemoAppUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 6C54523921A043AA00B6BFA0 /* Build configuration list for PBXNativeTarget "RxGitLabKitDemoAppUITests" */;
-			buildPhases = (
-				6C54522621A043AA00B6BFA0 /* Sources */,
-				6C54522721A043AA00B6BFA0 /* Frameworks */,
-				6C54522821A043AA00B6BFA0 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				6C54522C21A043AA00B6BFA0 /* PBXTargetDependency */,
-			);
-			name = RxGitLabKitDemoAppUITests;
-			productName = RxGitLabKitDemoAppUITests;
-			productReference = 6C54522A21A043AA00B6BFA0 /* RxGitLabKitDemoAppUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -491,14 +397,6 @@
 				TargetAttributes = {
 					6C54520A21A043A700B6BFA0 = {
 						CreatedOnToolsVersion = 10.1;
-					};
-					6C54521E21A043AA00B6BFA0 = {
-						CreatedOnToolsVersion = 10.1;
-						TestTargetID = 6C54520A21A043A700B6BFA0;
-					};
-					6C54522921A043AA00B6BFA0 = {
-						CreatedOnToolsVersion = 10.1;
-						TestTargetID = 6C54520A21A043A700B6BFA0;
 					};
 				};
 			};
@@ -522,8 +420,6 @@
 			projectRoot = "";
 			targets = (
 				6C54520A21A043A700B6BFA0 /* RxGitLabKitDemoApp */,
-				6C54521E21A043AA00B6BFA0 /* RxGitLabKitDemoAppTests */,
-				6C54522921A043AA00B6BFA0 /* RxGitLabKitDemoAppUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -640,20 +536,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6C54521D21A043AA00B6BFA0 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6C54522821A043AA00B6BFA0 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -713,22 +595,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6C54521B21A043AA00B6BFA0 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6C54522421A043AA00B6BFA0 /* RxGitLabKitDemoAppTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6C54522621A043AA00B6BFA0 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6C54522F21A043AA00B6BFA0 /* RxGitLabKitDemoAppUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -736,16 +602,6 @@
 			isa = PBXTargetDependency;
 			name = "RxGitLabKit-iOS";
 			targetProxy = 6C05B87121AC5A9B009E9A98 /* PBXContainerItemProxy */;
-		};
-		6C54522121A043AA00B6BFA0 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 6C54520A21A043A700B6BFA0 /* RxGitLabKitDemoApp */;
-			targetProxy = 6C54522021A043AA00B6BFA0 /* PBXContainerItemProxy */;
-		};
-		6C54522C21A043AA00B6BFA0 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 6C54520A21A043A700B6BFA0 /* RxGitLabKitDemoApp */;
-			targetProxy = 6C54522B21A043AA00B6BFA0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -933,88 +789,6 @@
 			};
 			name = Release;
 		};
-		6C54523721A043AA00B6BFA0 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ER8BKVQY73;
-				INFOPLIST_FILE = RxGitLabKitDemoAppTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = cz.dagytran.RxGitLabKitDemoAppTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RxGitLabKitDemoApp.app/RxGitLabKitDemoApp";
-			};
-			name = Debug;
-		};
-		6C54523821A043AA00B6BFA0 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ER8BKVQY73;
-				INFOPLIST_FILE = RxGitLabKitDemoAppTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = cz.dagytran.RxGitLabKitDemoAppTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RxGitLabKitDemoApp.app/RxGitLabKitDemoApp";
-			};
-			name = Release;
-		};
-		6C54523A21A043AA00B6BFA0 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ER8BKVQY73;
-				INFOPLIST_FILE = RxGitLabKitDemoAppUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = cz.dagytran.RxGitLabKitDemoAppUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = RxGitLabKitDemoApp;
-			};
-			name = Debug;
-		};
-		6C54523B21A043AA00B6BFA0 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ER8BKVQY73;
-				INFOPLIST_FILE = RxGitLabKitDemoAppUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = cz.dagytran.RxGitLabKitDemoAppUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = RxGitLabKitDemoApp;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1032,24 +806,6 @@
 			buildConfigurations = (
 				6C54523421A043AA00B6BFA0 /* Debug */,
 				6C54523521A043AA00B6BFA0 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		6C54523621A043AA00B6BFA0 /* Build configuration list for PBXNativeTarget "RxGitLabKitDemoAppTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				6C54523721A043AA00B6BFA0 /* Debug */,
-				6C54523821A043AA00B6BFA0 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		6C54523921A043AA00B6BFA0 /* Build configuration list for PBXNativeTarget "RxGitLabKitDemoAppUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				6C54523A21A043AA00B6BFA0 /* Debug */,
-				6C54523B21A043AA00B6BFA0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
