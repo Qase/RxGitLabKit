@@ -1,0 +1,1881 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/APIRequesting.swift",
+      "line": 31,
+      "symbol": "APIRequest.init(path:method:parameters:jsonBody:data:apiVersion:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/EndpointGroup.swift",
+      "line": 22,
+      "symbol": "EndpointGroup.init(with:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/MembersEndpointGroup.swift",
+      "line": 87,
+      "symbol": "MembersEndpointGroup.getSingle(groupID:userID:parameters:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/MembersEndpointGroup.swift",
+      "line": 92,
+      "symbol": "MembersEndpointGroup.getSingle(projectID:userID:parameters:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Endpoints/ProjectsEnpointGroup.swift",
+      "line": 141,
+      "symbol": "ProjectsEnpointGroup.getProjects(parameters:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/HTTPClient.swift",
+      "line": 59,
+      "symbol": "HTTPClient.init(using:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/HostCommunicator.swift",
+      "line": 41,
+      "symbol": "HostCommunicator.init(network:hostURL:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/HostCommunicator.swift",
+      "line": 46,
+      "symbol": "HostCommunicator.init(hostURL:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/AccessLevel.swift",
+      "line": 15,
+      "symbol": "AccessLevel.reporter",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/AccessLevel.swift",
+      "line": 16,
+      "symbol": "AccessLevel.developer",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/AccessLevel.swift",
+      "line": 17,
+      "symbol": "AccessLevel.maintainer",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Action.swift",
+      "line": 10,
+      "symbol": "Action",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Action.swift",
+      "line": 11,
+      "symbol": "Action.action",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Action.swift",
+      "line": 12,
+      "symbol": "Action.filePath",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Action.swift",
+      "line": 13,
+      "symbol": "Action.previousPath",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Action.swift",
+      "line": 14,
+      "symbol": "Action.content",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Action.swift",
+      "line": 15,
+      "symbol": "Action.encoding",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Action.swift",
+      "line": 16,
+      "symbol": "Action.lastCommitID",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Action.swift",
+      "line": 17,
+      "symbol": "Action.executeFileMode",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Action.swift",
+      "line": 29,
+      "symbol": "Action.init(action:filePath:previousPath:content:encoding:lastCommitID:executeFileMode:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Activity.swift",
+      "line": null,
+      "symbol": "Activity",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Activity.swift",
+      "line": 10,
+      "symbol": "Activity",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Activity.swift",
+      "line": 11,
+      "symbol": "Activity.username",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Activity.swift",
+      "line": 12,
+      "symbol": "Activity.lastActivityOn",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Activity.swift",
+      "line": 13,
+      "symbol": "Activity.lastActivityAt",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Authentication.swift",
+      "line": 10,
+      "symbol": "Authentication",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Authentication.swift",
+      "line": 26,
+      "symbol": "Authentication.createdAtDate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/BuildStatus.swift",
+      "line": 10,
+      "symbol": "BuildStatus",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/BuildStatus.swift",
+      "line": 11,
+      "symbol": "BuildStatus.state",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/BuildStatus.swift",
+      "line": 12,
+      "symbol": "BuildStatus.ref",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/BuildStatus.swift",
+      "line": 13,
+      "symbol": "BuildStatus.name",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/BuildStatus.swift",
+      "line": 14,
+      "symbol": "BuildStatus.targetURL",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/BuildStatus.swift",
+      "line": 15,
+      "symbol": "BuildStatus.description",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/BuildStatus.swift",
+      "line": 16,
+      "symbol": "BuildStatus.coverage",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/BuildStatus.swift",
+      "line": 27,
+      "symbol": "BuildStatus.State",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/BuildStatus.swift",
+      "line": 28,
+      "symbol": "BuildStatus.State.canceled",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/BuildStatus.swift",
+      "line": 28,
+      "symbol": "BuildStatus.State.failed",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/BuildStatus.swift",
+      "line": 28,
+      "symbol": "BuildStatus.State.pending",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/BuildStatus.swift",
+      "line": 28,
+      "symbol": "BuildStatus.State.running",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/BuildStatus.swift",
+      "line": 28,
+      "symbol": "BuildStatus.State.success",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Comment.swift",
+      "line": 10,
+      "symbol": "Comment",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Comment.swift",
+      "line": 11,
+      "symbol": "Comment.note",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Comment.swift",
+      "line": 12,
+      "symbol": "Comment.lineType",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Comment.swift",
+      "line": 13,
+      "symbol": "Comment.line",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Comment.swift",
+      "line": 14,
+      "symbol": "Comment.createdAt",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Comment.swift",
+      "line": 15,
+      "symbol": "Comment.author",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Comment.swift",
+      "line": 16,
+      "symbol": "Comment.path",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Comment.swift",
+      "line": 24,
+      "symbol": "Comment.init(note:lineType:line:createdAt:author:path:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Commit.swift",
+      "line": 10,
+      "symbol": "Commit",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Commit.swift",
+      "line": 29,
+      "symbol": "Commit.id",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Commit.swift",
+      "line": 30,
+      "symbol": "Commit.shortId",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Commit.swift",
+      "line": 31,
+      "symbol": "Commit.title",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Commit.swift",
+      "line": 32,
+      "symbol": "Commit.authorName",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Commit.swift",
+      "line": 33,
+      "symbol": "Commit.authorEmail",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Commit.swift",
+      "line": 34,
+      "symbol": "Commit.authoredDate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Commit.swift",
+      "line": 35,
+      "symbol": "Commit.committerName",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Commit.swift",
+      "line": 36,
+      "symbol": "Commit.committerEmail",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Commit.swift",
+      "line": 37,
+      "symbol": "Commit.committedDate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Commit.swift",
+      "line": 38,
+      "symbol": "Commit.createdAt",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Commit.swift",
+      "line": 39,
+      "symbol": "Commit.message",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Commit.swift",
+      "line": 40,
+      "symbol": "Commit.parentIds",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Commit.swift",
+      "line": 41,
+      "symbol": "Commit.lastPipeline",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Commit.swift",
+      "line": 42,
+      "symbol": "Commit.stats",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Commit.swift",
+      "line": 43,
+      "symbol": "Commit.status",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Commit.swift",
+      "line": 64,
+      "symbol": "NewCommit",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Commit.swift",
+      "line": 65,
+      "symbol": "NewCommit.branch",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Commit.swift",
+      "line": 66,
+      "symbol": "NewCommit.commitMessage",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Commit.swift",
+      "line": 67,
+      "symbol": "NewCommit.startBranch",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Commit.swift",
+      "line": 68,
+      "symbol": "NewCommit.actions",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Commit.swift",
+      "line": 69,
+      "symbol": "NewCommit.authorEmail",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Commit.swift",
+      "line": 70,
+      "symbol": "NewCommit.authorName",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Commit.swift",
+      "line": 71,
+      "symbol": "NewCommit.stats",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Commit.swift",
+      "line": 83,
+      "symbol": "NewCommit.init(branch:commitMessage:startBranch:actions:authorEmail:authorName:stats:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/CommitStatus.swift",
+      "line": 10,
+      "symbol": "CommitStatus",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/CommitStatus.swift",
+      "line": 11,
+      "symbol": "CommitStatus.status",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/CommitStatus.swift",
+      "line": 12,
+      "symbol": "CommitStatus.createdAt",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/CommitStatus.swift",
+      "line": 13,
+      "symbol": "CommitStatus.startedAt",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/CommitStatus.swift",
+      "line": 14,
+      "symbol": "CommitStatus.name",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/CommitStatus.swift",
+      "line": 15,
+      "symbol": "CommitStatus.allowFailure",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/CommitStatus.swift",
+      "line": 16,
+      "symbol": "CommitStatus.author",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/CommitStatus.swift",
+      "line": 17,
+      "symbol": "CommitStatus.description",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/CommitStatus.swift",
+      "line": 18,
+      "symbol": "CommitStatus.sha",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/CommitStatus.swift",
+      "line": 19,
+      "symbol": "CommitStatus.targetURL",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/CommitStatus.swift",
+      "line": 20,
+      "symbol": "CommitStatus.finishedAt",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/CommitStatus.swift",
+      "line": 21,
+      "symbol": "CommitStatus.id",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/CommitStatus.swift",
+      "line": 22,
+      "symbol": "CommitStatus.ref",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/CommitStatus.swift",
+      "line": 23,
+      "symbol": "CommitStatus.coverage",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/CommitStatus.swift",
+      "line": 38,
+      "symbol": "CommitStatus.init(status:createdAt:startedAt:name:allowFailure:author:description:sha:targetURL:finishedAt:id:ref:coverage:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Comparison.swift",
+      "line": 10,
+      "symbol": "Comparison",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Contributor.swift",
+      "line": 10,
+      "symbol": "Contributor",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Contributor.swift",
+      "line": 11,
+      "symbol": "Contributor.name",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Contributor.swift",
+      "line": 12,
+      "symbol": "Contributor.email",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Contributor.swift",
+      "line": 13,
+      "symbol": "Contributor.commits",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Contributor.swift",
+      "line": 14,
+      "symbol": "Contributor.additions",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Contributor.swift",
+      "line": 15,
+      "symbol": "Contributor.deletions",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Diff.swift",
+      "line": 10,
+      "symbol": "Diff",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Diff.swift",
+      "line": 11,
+      "symbol": "Diff.diff",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Diff.swift",
+      "line": 12,
+      "symbol": "Diff.newPath",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Diff.swift",
+      "line": 13,
+      "symbol": "Diff.oldPath",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Diff.swift",
+      "line": 14,
+      "symbol": "Diff.aMode",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Diff.swift",
+      "line": 15,
+      "symbol": "Diff.bMode",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Diff.swift",
+      "line": 16,
+      "symbol": "Diff.newFile",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Diff.swift",
+      "line": 17,
+      "symbol": "Diff.renamedFile",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Diff.swift",
+      "line": 18,
+      "symbol": "Diff.deletedFile",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Email.swift",
+      "line": 10,
+      "symbol": "Email",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Email.swift",
+      "line": 11,
+      "symbol": "Email.id",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Email.swift",
+      "line": 12,
+      "symbol": "Email.email",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Email.swift",
+      "line": 14,
+      "symbol": "Email.init(id:email:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/File.swift",
+      "line": 10,
+      "symbol": "File",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/FileInfo.swift",
+      "line": 10,
+      "symbol": "FileInfo",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Identities.swift",
+      "line": 3,
+      "symbol": "Identities",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Identities.swift",
+      "line": 4,
+      "symbol": "Identities.provider",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Identities.swift",
+      "line": 5,
+      "symbol": "Identities.externUID",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/ImpersonationToken.swift",
+      "line": 10,
+      "symbol": "ImpersonationToken",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/ImpersonationToken.swift",
+      "line": 11,
+      "symbol": "ImpersonationToken.id",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/ImpersonationToken.swift",
+      "line": 12,
+      "symbol": "ImpersonationToken.active",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/ImpersonationToken.swift",
+      "line": 13,
+      "symbol": "ImpersonationToken.token",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/ImpersonationToken.swift",
+      "line": 14,
+      "symbol": "ImpersonationToken.scopes",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/ImpersonationToken.swift",
+      "line": 15,
+      "symbol": "ImpersonationToken.revoked",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/ImpersonationToken.swift",
+      "line": 16,
+      "symbol": "ImpersonationToken.name",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/ImpersonationToken.swift",
+      "line": 17,
+      "symbol": "ImpersonationToken.createdAt",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/ImpersonationToken.swift",
+      "line": 18,
+      "symbol": "ImpersonationToken.impersonation",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/ImpersonationToken.swift",
+      "line": 19,
+      "symbol": "ImpersonationToken.expiresAt",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/LastPipeline.swift",
+      "line": 10,
+      "symbol": "LastPipeline",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/LastPipeline.swift",
+      "line": 11,
+      "symbol": "LastPipeline.id",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/LastPipeline.swift",
+      "line": 12,
+      "symbol": "LastPipeline.ref",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/LastPipeline.swift",
+      "line": 13,
+      "symbol": "LastPipeline.sha",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/LastPipeline.swift",
+      "line": 14,
+      "symbol": "LastPipeline.status",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/LastPipeline.swift",
+      "line": 16,
+      "symbol": "LastPipeline.init(id:ref:sha:status:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Links.swift",
+      "line": 10,
+      "symbol": "Links",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Links.swift",
+      "line": 11,
+      "symbol": "Links.linksSelf",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Links.swift",
+      "line": 12,
+      "symbol": "Links.labels",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Member.swift",
+      "line": 10,
+      "symbol": "Member",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Member.swift",
+      "line": 11,
+      "symbol": "Member.id",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Member.swift",
+      "line": 12,
+      "symbol": "Member.username",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Member.swift",
+      "line": 13,
+      "symbol": "Member.avatarURL",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Member.swift",
+      "line": 14,
+      "symbol": "Member.webURL",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Member.swift",
+      "line": 15,
+      "symbol": "Member.expiresAt",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Member.swift",
+      "line": 16,
+      "symbol": "Member.accessLevel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/MergeRequest.swift",
+      "line": 10,
+      "symbol": "MergeRequest",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/MergeRequest.swift",
+      "line": 11,
+      "symbol": "MergeRequest.id",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/MergeRequest.swift",
+      "line": 12,
+      "symbol": "MergeRequest.projectID",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/MergeRequest.swift",
+      "line": 13,
+      "symbol": "MergeRequest.title",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/MergeRequest.swift",
+      "line": 14,
+      "symbol": "MergeRequest.createdAt",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/MergeRequest.swift",
+      "line": 15,
+      "symbol": "MergeRequest.updatedAt",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/MergeRequest.swift",
+      "line": 16,
+      "symbol": "MergeRequest.mergedAt",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/MergeRequest.swift",
+      "line": 17,
+      "symbol": "MergeRequest.mergedBy",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/MergeRequest.swift",
+      "line": 18,
+      "symbol": "MergeRequest.targetBranch",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/MergeRequest.swift",
+      "line": 19,
+      "symbol": "MergeRequest.upvotes",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/MergeRequest.swift",
+      "line": 20,
+      "symbol": "MergeRequest.author",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/MergeRequest.swift",
+      "line": 21,
+      "symbol": "MergeRequest.assignee",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/MergeRequest.swift",
+      "line": 22,
+      "symbol": "MergeRequest.sourceProjectID",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/MergeRequest.swift",
+      "line": 23,
+      "symbol": "MergeRequest.labels",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/MergeRequest.swift",
+      "line": 24,
+      "symbol": "MergeRequest.workInProgress",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/MergeRequest.swift",
+      "line": 25,
+      "symbol": "MergeRequest.milestone",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/MergeRequest.swift",
+      "line": 26,
+      "symbol": "MergeRequest.mergeWhenPipelineSucceeds",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/MergeRequest.swift",
+      "line": 27,
+      "symbol": "MergeRequest.mergeStatus",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/MergeRequest.swift",
+      "line": 28,
+      "symbol": "MergeRequest.mergeCommitSHA",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/MergeRequest.swift",
+      "line": 29,
+      "symbol": "MergeRequest.userNotesCount",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/MergeRequest.swift",
+      "line": 30,
+      "symbol": "MergeRequest.discussionLocked",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/MergeRequest.swift",
+      "line": 31,
+      "symbol": "MergeRequest.forceRemoveSourceBranch",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/MergeRequest.swift",
+      "line": 32,
+      "symbol": "MergeRequest.webURL",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/MergeRequest.swift",
+      "line": 33,
+      "symbol": "MergeRequest.timeStats",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Namespace.swift",
+      "line": 10,
+      "symbol": "Namespace",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Namespace.swift",
+      "line": 11,
+      "symbol": "Namespace.id",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Namespace.swift",
+      "line": 12,
+      "symbol": "Namespace.name",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Project.swift",
+      "line": 10,
+      "symbol": "Project",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Project.swift",
+      "line": 11,
+      "symbol": "Project.id",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Project.swift",
+      "line": 12,
+      "symbol": "Project.description",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Project.swift",
+      "line": 13,
+      "symbol": "Project.defaultBranch",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Project.swift",
+      "line": 14,
+      "symbol": "Project.visibility",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Project.swift",
+      "line": 15,
+      "symbol": "Project.httpURLToRepo",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Project.swift",
+      "line": 16,
+      "symbol": "Project.webURL",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Project.swift",
+      "line": 17,
+      "symbol": "Project.readmeURL",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Project.swift",
+      "line": 18,
+      "symbol": "Project.tagList",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Project.swift",
+      "line": 19,
+      "symbol": "Project.owner",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Project.swift",
+      "line": 20,
+      "symbol": "Project.name",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Project.swift",
+      "line": 21,
+      "symbol": "Project.issuesEnabled",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Project.swift",
+      "line": 22,
+      "symbol": "Project.openIssuesCount",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Project.swift",
+      "line": 23,
+      "symbol": "Project.mergeRequestsEnabled",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Project.swift",
+      "line": 24,
+      "symbol": "Project.resolveOutdatedDiffDiscussions",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Project.swift",
+      "line": 25,
+      "symbol": "Project.createdAt",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Project.swift",
+      "line": 26,
+      "symbol": "Project.creatorID",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Project.swift",
+      "line": 27,
+      "symbol": "Project.namespace",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Project.swift",
+      "line": 28,
+      "symbol": "Project.importStatus",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Project.swift",
+      "line": 29,
+      "symbol": "Project.archived",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Project.swift",
+      "line": 30,
+      "symbol": "Project.avatarURL",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Project.swift",
+      "line": 31,
+      "symbol": "Project.sharedRunnersEnabled",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Project.swift",
+      "line": 32,
+      "symbol": "Project.forksCount",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Project.swift",
+      "line": 33,
+      "symbol": "Project.runnersToken",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Project.swift",
+      "line": 34,
+      "symbol": "Project.publicJobs",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Project.swift",
+      "line": 35,
+      "symbol": "Project.sharedWithGroups",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Project.swift",
+      "line": 36,
+      "symbol": "Project.onlyAllowMergeIfPipelineSucceeds",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Project.swift",
+      "line": 37,
+      "symbol": "Project.mergeMethod",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Project.swift",
+      "line": 38,
+      "symbol": "Project.statistics",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Project.swift",
+      "line": 39,
+      "symbol": "Project.links",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/ProjectHook.swift",
+      "line": 10,
+      "symbol": "ProjectHook",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/ProjectHook.swift",
+      "line": 11,
+      "symbol": "ProjectHook.id",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/ProjectHook.swift",
+      "line": 12,
+      "symbol": "ProjectHook.url",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/ProjectHook.swift",
+      "line": 13,
+      "symbol": "ProjectHook.projectID",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/ProjectHook.swift",
+      "line": 14,
+      "symbol": "ProjectHook.pushEvents",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/ProjectHook.swift",
+      "line": 15,
+      "symbol": "ProjectHook.pushEventsBranchFilter",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/ProjectHook.swift",
+      "line": 16,
+      "symbol": "ProjectHook.issuesEvents",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/ProjectHook.swift",
+      "line": 17,
+      "symbol": "ProjectHook.noteEvents",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/ProjectHook.swift",
+      "line": 18,
+      "symbol": "ProjectHook.enableSSLVerification",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/ProjectHook.swift",
+      "line": 19,
+      "symbol": "ProjectHook.createdAt",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/ProjectStatistics.swift",
+      "line": 10,
+      "symbol": "ProjectStatistics",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/ProjectStatistics.swift",
+      "line": 11,
+      "symbol": "ProjectStatistics.commitCount",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/ProjectStatistics.swift",
+      "line": 12,
+      "symbol": "ProjectStatistics.jobArtifactsSize",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Reference.swift",
+      "line": 10,
+      "symbol": "Reference",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Reference.swift",
+      "line": 11,
+      "symbol": "Reference.type",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Reference.swift",
+      "line": 12,
+      "symbol": "Reference.name",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/ShareGroup.swift",
+      "line": 10,
+      "symbol": "ShareGroup",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Stats.swift",
+      "line": 10,
+      "symbol": "Stats",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Stats.swift",
+      "line": 11,
+      "symbol": "Stats.additions",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Stats.swift",
+      "line": 12,
+      "symbol": "Stats.deletions",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Stats.swift",
+      "line": 13,
+      "symbol": "Stats.total",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Stats.swift",
+      "line": 15,
+      "symbol": "Stats.init(additions:deletions:total:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/TimeStats.swift",
+      "line": 10,
+      "symbol": "TimeStats",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/TimeStats.swift",
+      "line": 11,
+      "symbol": "TimeStats.timeEstimate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/TimeStats.swift",
+      "line": 12,
+      "symbol": "TimeStats.humanTimeEstimate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/Tree.swift",
+      "line": 10,
+      "symbol": "TreeNode",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/User.swift",
+      "line": 10,
+      "symbol": "User",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/User.swift",
+      "line": 11,
+      "symbol": "User.id",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/User.swift",
+      "line": 12,
+      "symbol": "User.username",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/User.swift",
+      "line": 13,
+      "symbol": "User.email",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/User.swift",
+      "line": 14,
+      "symbol": "User.name",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/User.swift",
+      "line": 15,
+      "symbol": "User.state",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/User.swift",
+      "line": 16,
+      "symbol": "User.avatarURL",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/User.swift",
+      "line": 17,
+      "symbol": "User.webURL",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/User.swift",
+      "line": 18,
+      "symbol": "User.createdAt",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/User.swift",
+      "line": 19,
+      "symbol": "User.isAdmin",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/User.swift",
+      "line": 20,
+      "symbol": "User.bio",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/User.swift",
+      "line": 21,
+      "symbol": "User.location",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/User.swift",
+      "line": 22,
+      "symbol": "User.skype",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/User.swift",
+      "line": 23,
+      "symbol": "User.linkedin",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/User.swift",
+      "line": 24,
+      "symbol": "User.twitter",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/User.swift",
+      "line": 25,
+      "symbol": "User.websiteURL",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/User.swift",
+      "line": 26,
+      "symbol": "User.organization",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/User.swift",
+      "line": 27,
+      "symbol": "User.lastSignInAt",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/User.swift",
+      "line": 28,
+      "symbol": "User.confirmedAt",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/User.swift",
+      "line": 29,
+      "symbol": "User.themeId",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/User.swift",
+      "line": 30,
+      "symbol": "User.lastActivityOn",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/User.swift",
+      "line": 31,
+      "symbol": "User.colorSchemeId",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/User.swift",
+      "line": 32,
+      "symbol": "User.projectsLimit",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/User.swift",
+      "line": 33,
+      "symbol": "User.currentSignInAt",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/User.swift",
+      "line": 34,
+      "symbol": "User.identities",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/User.swift",
+      "line": 35,
+      "symbol": "User.canCreateGroup",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/User.swift",
+      "line": 36,
+      "symbol": "User.canCreateProject",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/User.swift",
+      "line": 37,
+      "symbol": "User.twoFactorEnabled",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/User.swift",
+      "line": 38,
+      "symbol": "User.external",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/User.swift",
+      "line": 39,
+      "symbol": "User.privateProfile",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/User.swift",
+      "line": 40,
+      "symbol": "User.sharedRunnersMinutesLimit",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/UserKey.swift",
+      "line": 10,
+      "symbol": "UserKey",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/UserKey.swift",
+      "line": 11,
+      "symbol": "UserKey.id",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/UserKey.swift",
+      "line": 12,
+      "symbol": "UserKey.title",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/UserKey.swift",
+      "line": 13,
+      "symbol": "UserKey.createdAt",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/UserKey.swift",
+      "line": 20,
+      "symbol": "UserKey.init(id:title:key:createdAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/UserStatus.swift",
+      "line": 10,
+      "symbol": "UserStatus",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Models/UserStatus.swift",
+      "line": 11,
+      "symbol": "UserStatus.emoji",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Paginator.swift",
+      "line": 61,
+      "symbol": "Paginator.init(communicator:apiRequest:perPage:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Protocols/NetworkingProtocols.swift",
+      "line": 147,
+      "symbol": "URLSessionProtocol.DataTaskResult",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Protocols/NetworkingProtocols.swift",
+      "line": 161,
+      "symbol": "URLSessionDataTaskProtocol.resume()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/Protocols/NetworkingProtocols.swift",
+      "line": 162,
+      "symbol": "URLSessionDataTaskProtocol.cancel()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/RxGitLabAPIClient.swift",
+      "line": 112,
+      "symbol": "RxGitLabAPIClient.init(with:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/RxGitLabAPIClient.swift",
+      "line": 117,
+      "symbol": "RxGitLabAPIClient.init(with:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/RxGitLabAPIClient.swift",
+      "line": 121,
+      "symbol": "RxGitLabAPIClient.init(with:privateToken:using:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dagytran/Developer/RxGitLabKit/Sources/RxGitLabAPIClient.swift",
+      "line": 127,
+      "symbol": "RxGitLabAPIClient.init(with:oAuthToken:using:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/dagytran/Developer/RxGitLabKit"
+}
