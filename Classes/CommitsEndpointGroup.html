@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>CommitsEndpointGroup Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/CommitsEndpointGroup" class="dashAnchor"></a>
+    <a title="CommitsEndpointGroup Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">RxGitLabKit Docs</a> (46% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">RxGitLabKit Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        CommitsEndpointGroup Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AuthenticationEndpointGroup.html">AuthenticationEndpointGroup</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CommitsEndpointGroup.html">CommitsEndpointGroup</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EndpointGroup.html">EndpointGroup</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/HTTPClient.html">HTTPClient</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/HostCommunicator.html">HostCommunicator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MembersEndpointGroup.html">MembersEndpointGroup</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Paginator.html">Paginator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ProjectsEnpointGroup.html">ProjectsEnpointGroup</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RepositoriesEndpointGroup.html">RepositoriesEndpointGroup</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RxGitLabAPIClient.html">RxGitLabAPIClient</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UsersEndpointGroup.html">UsersEndpointGroup</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/AccessLevel.html">AccessLevel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/HTTPError.html">HTTPError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/HTTPMethod.html">HTTPMethod</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/HeaderKeys.html">HeaderKeys</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ParsingError.html">ParsingError</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/URLSession.html">URLSession</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/Networking.html">Networking</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/URLSessionDataTaskProtocol.html">URLSessionDataTaskProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/URLSessionProtocol.html">URLSessionProtocol</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/APIRequest.html">APIRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Action.html">Action</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Activity.html">Activity</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Authentication.html">Authentication</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/BuildStatus.html">BuildStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/BuildStatus/State.html">– State</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Comment.html">Comment</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Commit.html">Commit</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CommitStatus.html">CommitStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs.html#/s:11RxGitLabKit10ComparisonV">Comparison</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Contributor.html">Contributor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Diff.html">Diff</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Email.html">Email</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/File.html">File</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs.html#/s:11RxGitLabKit8FileInfoV">FileInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Identities.html">Identities</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ImpersonationToken.html">ImpersonationToken</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/LastPipeline.html">LastPipeline</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Links.html">Links</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Member.html">Member</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/MergeRequest.html">MergeRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Namespace.html">Namespace</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/NewCommit.html">NewCommit</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Project.html">Project</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ProjectHook.html">ProjectHook</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ProjectStatistics.html">ProjectStatistics</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Reference.html">Reference</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs.html#/s:11RxGitLabKit10ShareGroupV">ShareGroup</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Stats.html">Stats</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TimeStats.html">TimeStats</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs.html#/s:11RxGitLabKit8TreeNodeV">TreeNode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/User.html">User</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/UserKey.html">UserKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/UserStatus.html">UserStatus</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Typealiases.html">Type Aliases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:11RxGitLabKit6Headera">Header</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:11RxGitLabKit14JSONDictionarya">JSONDictionary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:11RxGitLabKit15QueryParametersa">QueryParameters</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>CommitsEndpointGroup</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">CommitsEndpointGroup</span> <span class="p">:</span> <span class="kt"><a href="../Classes/EndpointGroup.html">EndpointGroup</a></span></code></pre>
+
+                </div>
+              </div>
+            <p>This EndpointGroup communicates with <a href="https://docs.gitlab.com/ee/api/commits.html">Commits API</a></p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit20CommitsEndpointGroupC03getE09projectID10parameters4page7perPage0A5Swift10ObservableCySayAA6CommitVGGSi_SDySSypGSgS2itF"></a>
+                    <a name="//apple_ref/swift/Method/getCommits(projectID:parameters:page:perPage:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit20CommitsEndpointGroupC03getE09projectID10parameters4page7perPage0A5Swift10ObservableCySayAA6CommitVGGSi_SDySSypGSgS2itF">getCommits(projectID:parameters:page:perPage:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get an observable of list of repository commits in a project.</p>
+
+<p><strong>Optional Query Parameters:</strong></p>
+
+<ul>
+<li><strong>ref_name: String</strong> - The name of a repository branch or tag or if not given the default branch</li>
+<li><strong>since: String</strong> - Only commits after or on this date will be returned in ISO 8601 format YYYY-MM-DDTHH:MM:SSZ</li>
+<li><strong>until: String</strong> - Only commits before or on this date will be returned in ISO 8601 format YYYY-MM-DDTHH:MM:SSZ</li>
+<li><strong>path: String</strong> - The file path</li>
+<li><strong>all: Boolean</strong> - Retrieve every commit from the repository</li>
+<li><p><strong>with_stats: Boolean</strong> - Stats about each commit will be added to the response</p></li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getCommits</span><span class="p">(</span><span class="nv">projectID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">parameters</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:11RxGitLabKit15QueryParametersa">QueryParameters</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">page</span><span class="p">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nv">perPage</span><span class="p">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="kt"><a href="../Classes/RxGitLabAPIClient.html">RxGitLabAPIClient</a></span><span class="o">.</span><span class="n">defaultPerPage</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Structs/Commit.html">Commit</a></span><span class="p">]</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>projectID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The ID or URL-encoded path of the project</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An <code>Observable</code> of list of repository <code><a href="../Structs/Commit.html">Commit</a></code>s in a project</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit20CommitsEndpointGroupC03getE09projectID7perPage10parametersAA9PaginatorCyAA6CommitVGSi_SiSDySSypGSgtF"></a>
+                    <a name="//apple_ref/swift/Method/getCommits(projectID:perPage:parameters:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit20CommitsEndpointGroupC03getE09projectID7perPage10parametersAA9PaginatorCyAA6CommitVGSi_SiSDySSypGSgtF">getCommits(projectID:perPage:parameters:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get a paginator of list of repository commits in a project.</p>
+
+<p><strong>Optional Query Parameters:</strong></p>
+
+<ul>
+<li><strong>ref_name: String</strong> - The name of a repository branch or tag or if not given the default branch</li>
+<li><strong>since: String</strong> - Only commits after or on this date will be returned in ISO 8601 format YYYY-MM-DDTHH:MM:SSZ</li>
+<li><strong>until: String</strong> - Only commits before or on this date will be returned in ISO 8601 format YYYY-MM-DDTHH:MM:SSZ</li>
+<li><strong>path: String</strong> - The file path</li>
+<li><strong>all: Boolean</strong> - Retrieve every commit from the repository</li>
+<li><p><strong>with_stats: Boolean</strong> - Stats about each commit will be added to the response</p></li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getCommits</span><span class="p">(</span><span class="nv">projectID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">perPage</span><span class="p">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="kt"><a href="../Classes/RxGitLabAPIClient.html">RxGitLabAPIClient</a></span><span class="o">.</span><span class="n">defaultPerPage</span><span class="p">,</span> <span class="nv">parameters</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:11RxGitLabKit15QueryParametersa">QueryParameters</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/Paginator.html">Paginator</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/Commit.html">Commit</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>projectID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The ID or URL-encoded path of the project</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A Paginator of commits</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit20CommitsEndpointGroupC12createCommit9projectID03newI00A5Swift10ObservableCyAA0I0VGSi_AA03NewI0VtF"></a>
+                    <a name="//apple_ref/swift/Method/createCommit(projectID:newCommit:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit20CommitsEndpointGroupC12createCommit9projectID03newI00A5Swift10ObservableCyAA0I0VGSi_AA03NewI0VtF">createCommit(projectID:newCommit:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Create a commit</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">createCommit</span><span class="p">(</span><span class="nv">projectID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">newCommit</span><span class="p">:</span> <span class="kt"><a href="../Structs/NewCommit.html">NewCommit</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/Commit.html">Commit</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>projectID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The ID or URL-encoded path of the project owned by the</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>newCommit</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>newCommit</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An <code>Observable</code> of accepted Commit</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit20CommitsEndpointGroupC9getCommit9projectID3sha10parameters0A5Swift10ObservableCyAA0I0VGSi_SSSDySSypGSgtF"></a>
+                    <a name="//apple_ref/swift/Method/getCommit(projectID:sha:parameters:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit20CommitsEndpointGroupC9getCommit9projectID3sha10parameters0A5Swift10ObservableCyAA0I0VGSi_SSSDySSypGSgtF">getCommit(projectID:sha:parameters:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get a specific commit identified by the commit hash or name of a branch or tag.</p>
+
+<p><strong>Optional Query Parameters:</strong></p>
+
+<ul>
+<li><p><strong>stats: Bool</strong> - Include commit stats. Default is true</p></li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getCommit</span><span class="p">(</span><span class="nv">projectID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">sha</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">parameters</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:11RxGitLabKit15QueryParametersa">QueryParameters</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/Commit.html">Commit</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>projectID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The ID or URL-encoded path of the project owned by the</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>sha</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The commit hash or name of a repository branch or tag</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An <code>Observable</code> of <code><a href="../Structs/Commit.html">Commit</a></code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit20CommitsEndpointGroupC13getReferences9projectID3sha10parameters4page7perPage0A5Swift10ObservableCySayAA9ReferenceVGGSi_SSSDySSypGSgS2itF"></a>
+                    <a name="//apple_ref/swift/Method/getReferences(projectID:sha:parameters:page:perPage:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit20CommitsEndpointGroupC13getReferences9projectID3sha10parameters4page7perPage0A5Swift10ObservableCySayAA9ReferenceVGGSi_SSSDySSypGSgS2itF">getReferences(projectID:sha:parameters:page:perPage:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get all references (from branches or tags) a commit is pushed to. The pagination parameters page and per_page can be used to restrict the list of references.</p>
+
+<p><strong>Optional Query Parameters:</strong></p>
+
+<ul>
+<li><p><strong>type: String</strong> - The scope of commits. Possible values <code>branch</code>, <code>tag</code>, <code>all</code>. Default is <code>all</code></p></li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getReferences</span><span class="p">(</span><span class="nv">projectID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">sha</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">parameters</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:11RxGitLabKit15QueryParametersa">QueryParameters</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">page</span><span class="p">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nv">perPage</span><span class="p">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="kt"><a href="../Classes/RxGitLabAPIClient.html">RxGitLabAPIClient</a></span><span class="o">.</span><span class="n">defaultPerPage</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Structs/Reference.html">Reference</a></span><span class="p">]</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>projectID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The ID or URL-encoded path of the project</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>sha</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The commit hash or name of a repository branch or tag</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An <code>Observable</code> of list of <code><a href="../Structs/Reference.html">Reference</a></code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit20CommitsEndpointGroupC13getReferences9projectID3shaAA9PaginatorCyAA9ReferenceVGSi_SStF"></a>
+                    <a name="//apple_ref/swift/Method/getReferences(projectID:sha:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit20CommitsEndpointGroupC13getReferences9projectID3shaAA9PaginatorCyAA9ReferenceVGSi_SStF">getReferences(projectID:sha:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get a paginator of references (from branches or tags) a commit is pushed to.</p>
+
+<p><strong>Query Parameters:</strong></p>
+
+<ul>
+<li>Optional:</li>
+<li><p><strong>type: String</strong> - The scope of commits. Possible values <code>branch</code>, <code>tag</code>, <code>all</code>. Default is <code>all</code></p></li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getReferences</span><span class="p">(</span><span class="nv">projectID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">sha</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/Paginator.html">Paginator</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/Reference.html">Reference</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>projectID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The ID or URL-encoded path of the project owned by the user</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>sha</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The commit hash or name of a repository branch or tag</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A <code><a href="../Classes/Paginator.html">Paginator</a></code> of <code><a href="../Structs/Reference.html">Reference</a></code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit20CommitsEndpointGroupC10cherryPick9projectID3sha6branch0A5Swift10ObservableCyAA6CommitVGSi_S2StF"></a>
+                    <a name="//apple_ref/swift/Method/cherryPick(projectID:sha:branch:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit20CommitsEndpointGroupC10cherryPick9projectID3sha6branch0A5Swift10ObservableCyAA6CommitVGSi_S2StF">cherryPick(projectID:sha:branch:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Cherry picks a commit to a given branch.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">cherryPick</span><span class="p">(</span><span class="nv">projectID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">sha</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">branch</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/Commit.html">Commit</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>projectID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The ID or URL-encoded path of the project</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>sha</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The commit has</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>branch</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The name of the branch</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An <code>Observable</code> of <code><a href="../Structs/Commit.html">Commit</a></code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit20CommitsEndpointGroupC6revert9projectID3sha6branch0A5Swift10ObservableCyAA6CommitVGSi_S2StF"></a>
+                    <a name="//apple_ref/swift/Method/revert(projectID:sha:branch:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit20CommitsEndpointGroupC6revert9projectID3sha6branch0A5Swift10ObservableCyAA6CommitVGSi_S2StF">revert(projectID:sha:branch:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Reverts a commit in a given branch.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">revert</span><span class="p">(</span><span class="nv">projectID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">sha</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">branch</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/Commit.html">Commit</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>projectID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The ID or URL-encoded path of the project</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>sha</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The commit has</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>branch</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The name of the branch</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An <code>Observable</code> of <code><a href="../Structs/Commit.html">Commit</a></code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit20CommitsEndpointGroupC7getDiff9projectID3sha0A5Swift10ObservableCyAA0I0VGSi_SStF"></a>
+                    <a name="//apple_ref/swift/Method/getDiff(projectID:sha:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit20CommitsEndpointGroupC7getDiff9projectID3sha0A5Swift10ObservableCyAA0I0VGSi_SStF">getDiff(projectID:sha:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get the diff of a commit in a project.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getDiff</span><span class="p">(</span><span class="nv">projectID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">sha</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/Diff.html">Diff</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>projectID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The ID or URL-encoded path of the project</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>sha</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The commit has</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An <code>Observable</code> of <code><a href="../Structs/Diff.html">Diff</a></code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit20CommitsEndpointGroupC11getComments9projectID3sha0A5Swift10ObservableCySayAA7CommentVGGSi_SStF"></a>
+                    <a name="//apple_ref/swift/Method/getComments(projectID:sha:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit20CommitsEndpointGroupC11getComments9projectID3sha0A5Swift10ObservableCySayAA7CommentVGGSi_SStF">getComments(projectID:sha:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get the comments of a commit in a project.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getComments</span><span class="p">(</span><span class="nv">projectID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">sha</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Structs/Comment.html">Comment</a></span><span class="p">]</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>projectID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The ID or URL-encoded path of the project owned by the</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>sha</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The commit has</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An <code>Observable</code> of <code><a href="../Structs/Comment.html">Comment</a></code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit20CommitsEndpointGroupC11postComment7comment9projectID3sha0A5Swift10ObservableCyAA0I0VGAL_SiSStF"></a>
+                    <a name="//apple_ref/swift/Method/postComment(comment:projectID:sha:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit20CommitsEndpointGroupC11postComment7comment9projectID3sha0A5Swift10ObservableCyAA0I0VGAL_SiSStF">postComment(comment:projectID:sha:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Adds a comment to a commit.-</p>
+
+<p>In order to post a comment in a particular line of a particular file, you must specify the full commit SHA, the path, the <code>line</code> and <code>line_type</code> should be <code>new</code>.
+The comment will be added at the end of the last commit if at least one of the cases below is valid:</p>
+
+<ul>
+<li>the <code>sha</code> is instead a branch or a tag and the <code>line</code> or <code>path</code> are invalid</li>
+<li>the <code>line</code> number is invalid (does not exist)</li>
+<li>the <code>path</code> is invalid (does not exist)</li>
+<li><p>In any of the above cases, the response of <code>line</code>, <code>line_type</code> and <code>path</code> is set to <code>null</code>.</p></li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">postComment</span><span class="p">(</span><span class="nv">comment</span><span class="p">:</span> <span class="kt"><a href="../Structs/Comment.html">Comment</a></span><span class="p">,</span> <span class="nv">projectID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">sha</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/Comment.html">Comment</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>comment</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Comment</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>projectID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The ID or URL-encoded path of the project owned by the</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>sha</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The commit has</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An <code>Observable</code> of <code><a href="../Structs/Comment.html">Comment</a></code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit20CommitsEndpointGroupC11getStatuses9projectID3sha0A5Swift10ObservableCySayAA12CommitStatusVGGSi_SStF"></a>
+                    <a name="//apple_ref/swift/Method/getStatuses(projectID:sha:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit20CommitsEndpointGroupC11getStatuses9projectID3sha0A5Swift10ObservableCySayAA12CommitStatusVGGSi_SStF">getStatuses(projectID:sha:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get the comments of a commit in a project.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getStatuses</span><span class="p">(</span><span class="nv">projectID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">sha</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Structs/CommitStatus.html">CommitStatus</a></span><span class="p">]</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>projectID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The ID or URL-encoded path of the project owned by the</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>sha</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The commit has</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An <code>Observable</code> of <code><a href="../Structs/Comment.html">Comment</a></code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit20CommitsEndpointGroupC10postStatus6status9projectID3sha0A5Swift10ObservableCyAA06CommitI0VGAA05BuildI0V_SiSStF"></a>
+                    <a name="//apple_ref/swift/Method/postStatus(status:projectID:sha:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit20CommitsEndpointGroupC10postStatus6status9projectID3sha0A5Swift10ObservableCyAA06CommitI0VGAA05BuildI0V_SiSStF">postStatus(status:projectID:sha:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Adds or updates a build status of a commit.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">postStatus</span><span class="p">(</span><span class="nv">status</span><span class="p">:</span> <span class="kt"><a href="../Structs/BuildStatus.html">BuildStatus</a></span><span class="p">,</span> <span class="nv">projectID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">sha</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/CommitStatus.html">CommitStatus</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>projectID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The ID or URL-encoded path of the project owned by the</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>sha</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The commit has</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An <code>Observable</code> of <code>Status</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit20CommitsEndpointGroupC16getMergeRequests9projectID3sha0A5Swift10ObservableCySayAA0I7RequestVGGSi_SStF"></a>
+                    <a name="//apple_ref/swift/Method/getMergeRequests(projectID:sha:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit20CommitsEndpointGroupC16getMergeRequests9projectID3sha0A5Swift10ObservableCySayAA0I7RequestVGGSi_SStF">getMergeRequests(projectID:sha:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get a list of Merge Requests related to the specified commit.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getMergeRequests</span><span class="p">(</span><span class="nv">projectID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">sha</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Structs/MergeRequest.html">MergeRequest</a></span><span class="p">]</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>projectID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The ID or URL-encoded path of the project owned by the</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>sha</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The commit SHA</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An <code>Observable</code> of list of <code><a href="../Structs/MergeRequest.html">MergeRequest</a></code>s</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="https://gitlab.com/dagytran/RxGitLabKit" target="_blank" rel="external">Dagy Tran</a>. All rights reserved. (Last updated: 2019-01-07)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

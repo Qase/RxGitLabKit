@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>MembersEndpointGroup Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/MembersEndpointGroup" class="dashAnchor"></a>
+    <a title="MembersEndpointGroup Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">RxGitLabKit Docs</a> (46% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">RxGitLabKit Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        MembersEndpointGroup Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AuthenticationEndpointGroup.html">AuthenticationEndpointGroup</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CommitsEndpointGroup.html">CommitsEndpointGroup</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EndpointGroup.html">EndpointGroup</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/HTTPClient.html">HTTPClient</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/HostCommunicator.html">HostCommunicator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MembersEndpointGroup.html">MembersEndpointGroup</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Paginator.html">Paginator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ProjectsEnpointGroup.html">ProjectsEnpointGroup</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RepositoriesEndpointGroup.html">RepositoriesEndpointGroup</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RxGitLabAPIClient.html">RxGitLabAPIClient</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UsersEndpointGroup.html">UsersEndpointGroup</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/AccessLevel.html">AccessLevel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/HTTPError.html">HTTPError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/HTTPMethod.html">HTTPMethod</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/HeaderKeys.html">HeaderKeys</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ParsingError.html">ParsingError</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/URLSession.html">URLSession</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/Networking.html">Networking</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/URLSessionDataTaskProtocol.html">URLSessionDataTaskProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/URLSessionProtocol.html">URLSessionProtocol</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/APIRequest.html">APIRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Action.html">Action</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Activity.html">Activity</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Authentication.html">Authentication</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/BuildStatus.html">BuildStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/BuildStatus/State.html">– State</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Comment.html">Comment</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Commit.html">Commit</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CommitStatus.html">CommitStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs.html#/s:11RxGitLabKit10ComparisonV">Comparison</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Contributor.html">Contributor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Diff.html">Diff</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Email.html">Email</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/File.html">File</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs.html#/s:11RxGitLabKit8FileInfoV">FileInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Identities.html">Identities</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ImpersonationToken.html">ImpersonationToken</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/LastPipeline.html">LastPipeline</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Links.html">Links</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Member.html">Member</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/MergeRequest.html">MergeRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Namespace.html">Namespace</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/NewCommit.html">NewCommit</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Project.html">Project</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ProjectHook.html">ProjectHook</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ProjectStatistics.html">ProjectStatistics</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Reference.html">Reference</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs.html#/s:11RxGitLabKit10ShareGroupV">ShareGroup</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Stats.html">Stats</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TimeStats.html">TimeStats</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs.html#/s:11RxGitLabKit8TreeNodeV">TreeNode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/User.html">User</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/UserKey.html">UserKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/UserStatus.html">UserStatus</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Typealiases.html">Type Aliases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:11RxGitLabKit6Headera">Header</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:11RxGitLabKit14JSONDictionarya">JSONDictionary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:11RxGitLabKit15QueryParametersa">QueryParameters</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>MembersEndpointGroup</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">MembersEndpointGroup</span> <span class="p">:</span> <span class="kt"><a href="../Classes/EndpointGroup.html">EndpointGroup</a></span></code></pre>
+
+                </div>
+              </div>
+            <p>This EndpointGroup communicates with <a href="https://docs.gitlab.com/ee/api/members.html">Grou and project members API</a></p>
+<h1 id='grou-and-project-members-api' class='heading'>Grou and project members API</h1>
+<h2 id='valid-access-levels' class='heading'>Valid access levels</h2>
+
+<p>The access levels are defined in the <code>Gitlab::Access</code> module. Currently, these levels are recognized:</p>
+<pre class="highlight swift"><code><span class="mi">10</span> <span class="o">=&gt;</span> <span class="kt">Guest</span> <span class="n">access</span>
+<span class="mi">20</span> <span class="o">=&gt;</span> <span class="kt">Reporter</span> <span class="n">access</span>
+<span class="mi">30</span> <span class="o">=&gt;</span> <span class="kt">Developer</span> <span class="n">access</span>
+<span class="mi">40</span> <span class="o">=&gt;</span> <span class="kt">Maintainer</span> <span class="n">access</span>
+<span class="mi">50</span> <span class="o">=&gt;</span> <span class="kt">Owner</span> <span class="n">access</span> <span class="err">#</span> <span class="kt">Only</span> <span class="n">valid</span> <span class="k">for</span> <span class="n">groups</span>
+</code></pre>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit20MembersEndpointGroupC3get7groupID10parameters0A5Swift10ObservableCySayAA6MemberVGGSi_SDySSypGSgtF"></a>
+                    <a name="//apple_ref/swift/Method/get(groupID:parameters:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit20MembersEndpointGroupC3get7groupID10parameters0A5Swift10ObservableCySayAA6MemberVGGSi_SDySSypGSgtF">get(groupID:parameters:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>List all members of a group</p>
+
+<p>Gets a list of group members viewable by the authenticated user. Returns only direct members and not inherited members through ancestors groups.</p>
+
+<p><strong>Optional Query Parameter:</strong></p>
+
+<ul>
+<li><strong>query: String</strong> -  A query string to search for members</li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">get</span><span class="p">(</span><span class="nv">groupID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">parameters</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:11RxGitLabKit15QueryParametersa">QueryParameters</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Structs/Member.html">Member</a></span><span class="p">]</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>groupID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The ID or URL-encoded path of the group owned by the authenticated user</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>parameters</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>See Query Parameters in the description</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An <code>Observable</code> of list of <code><a href="../Structs/Member.html">Member</a></code>s</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit20MembersEndpointGroupC3get9projectID10parameters0A5Swift10ObservableCySayAA6MemberVGGSi_SDySSypGSgtF"></a>
+                    <a name="//apple_ref/swift/Method/get(projectID:parameters:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit20MembersEndpointGroupC3get9projectID10parameters0A5Swift10ObservableCySayAA6MemberVGGSi_SDySSypGSgtF">get(projectID:parameters:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>List all members of a project</p>
+
+<p>Gets a list of project members viewable by the authenticated user. Returns only direct members and not inherited members through ancestors groups.</p>
+
+<p><strong>Optional Query Parameter:</strong></p>
+
+<ul>
+<li><strong>query: String</strong> -  A query string to search for members</li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">get</span><span class="p">(</span><span class="nv">projectID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">parameters</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:11RxGitLabKit15QueryParametersa">QueryParameters</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Structs/Member.html">Member</a></span><span class="p">]</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>projectID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The ID or URL-encoded path of the project owned by the authenticated user</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>parameters</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>See Query Parameters in the description</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An <code>Observable</code> of list of <code><a href="../Structs/Member.html">Member</a></code>s</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit20MembersEndpointGroupC9getSingle7groupID04userK010parameters0A5Swift10ObservableCyAA6MemberVGSi_SiSDySSypGSgtF"></a>
+                    <a name="//apple_ref/swift/Method/getSingle(groupID:userID:parameters:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit20MembersEndpointGroupC9getSingle7groupID04userK010parameters0A5Swift10ObservableCyAA6MemberVGSi_SiSDySSypGSgtF">getSingle(groupID:userID:parameters:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getSingle</span><span class="p">(</span><span class="nv">groupID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">userID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">parameters</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:11RxGitLabKit15QueryParametersa">QueryParameters</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/Member.html">Member</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit20MembersEndpointGroupC9getSingle9projectID04userK010parameters0A5Swift10ObservableCyAA6MemberVGSi_SiSDySSypGSgtF"></a>
+                    <a name="//apple_ref/swift/Method/getSingle(projectID:userID:parameters:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit20MembersEndpointGroupC9getSingle9projectID04userK010parameters0A5Swift10ObservableCyAA6MemberVGSi_SiSDySSypGSgtF">getSingle(projectID:userID:parameters:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getSingle</span><span class="p">(</span><span class="nv">projectID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">userID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">parameters</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:11RxGitLabKit15QueryParametersa">QueryParameters</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/Member.html">Member</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit20MembersEndpointGroupC6getAll7groupID10parameters0A5Swift10ObservableCySayAA6MemberVGGSi_SDySSypGSgtF"></a>
+                    <a name="//apple_ref/swift/Method/getAll(groupID:parameters:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit20MembersEndpointGroupC6getAll7groupID10parameters0A5Swift10ObservableCySayAA6MemberVGGSi_SDySSypGSgtF">getAll(groupID:parameters:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>List all members of a group or project including inherited members</p>
+
+<p>Gets a list of group members viewable by the authenticated user, including inherited members through ancestor groups. Returns multiple times the same user (with different member attributes) when the user is a member of the project/group and of one or more ancestor group.</p>
+
+<p><strong>Optional Query Parameter:</strong></p>
+
+<ul>
+<li><strong>query: String</strong> -  A query string to search for members</li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getAll</span><span class="p">(</span><span class="nv">groupID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">parameters</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:11RxGitLabKit15QueryParametersa">QueryParameters</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Structs/Member.html">Member</a></span><span class="p">]</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>groupID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The ID or URL-encoded path of the group owned by the authenticated user</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>parameters</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>See Query Parameters in the description</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An <code>Observable</code> of list of <code><a href="../Structs/Member.html">Member</a></code>s</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11RxGitLabKit20MembersEndpointGroupC6getAll9projectID10parameters0A5Swift10ObservableCySayAA6MemberVGGSi_SDySSypGSgtF"></a>
+                    <a name="//apple_ref/swift/Method/getAll(projectID:parameters:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11RxGitLabKit20MembersEndpointGroupC6getAll9projectID10parameters0A5Swift10ObservableCySayAA6MemberVGGSi_SDySSypGSgtF">getAll(projectID:parameters:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>List all members of a project or project including inherited members</p>
+
+<p>Gets a list of project members viewable by the authenticated user, including inherited members through ancestor groups. Returns multiple times the same user (with different member attributes) when the user is a member of the project/group and of one or more ancestor group.</p>
+
+<p><strong>Optional Query Parameter:</strong></p>
+
+<ul>
+<li><strong>query: String</strong> -  A query string to search for members</li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getAll</span><span class="p">(</span><span class="nv">projectID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">parameters</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:11RxGitLabKit15QueryParametersa">QueryParameters</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Structs/Member.html">Member</a></span><span class="p">]</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>projectID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The ID or URL-encoded path of the project owned</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>parameters</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>See Query Parameters in the description</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An <code>Observable</code> of list of <code><a href="../Structs/Member.html">Member</a></code>s</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="https://gitlab.com/dagytran/RxGitLabKit" target="_blank" rel="external">Dagy Tran</a>. All rights reserved. (Last updated: 2019-01-07)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
