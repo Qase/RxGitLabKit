@@ -1,4 +1,9 @@
 # RxGitLabKit
+[![Build Status](https://travis-ci.org/Qase/RxGitLabKit.svg?branch=master)](https://travis-ci.org/Qase/RxGitLabKit)
+[![Platform](https://img.shields.io/badge/platform-iOS%20%7C%20macOS%20%7C%20watchOS%20%7C%20tvOS-lightgrey.svg)](https://qase.github.io/RxGitLabKit/)
+[![pod](https://img.shields.io/cocoapods/v/RxGitLabKit.svg)](https://cocoapods.org/)
+[![Carthage](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![Swift Package Manager](https://img.shields.io/badge/Swift%20Package%20Manager-compatible-brightgreen.svg)](https://github.com/apple/swift-package-manager)
 
 ## Description
 Swift Reactive [GitLab API](https://gitlab.com/help/api/README.md) v4 client using
@@ -11,7 +16,7 @@ This library currently supports these endpoint groups:
   - [Commits](https://docs.gitlab.com/ee/api/commits.html)
   - [Group and Project members](https://docs.gitlab.com/ee/api/members.html)
 
-The HTML documentation generated using [Jazzy](https://github.com/realm/jazzy) can be found on GitLab Pages [here](https://dagytran.gitlab.io/RxGitLabKit).
+The HTML documentation generated using [Jazzy](https://github.com/realm/jazzy) can be found on GitHub pages [here](https://qase.github.io/RxGitLabKit/).
 
 Before running the demo app or the tests, download the dependencies using:
 ```bash
