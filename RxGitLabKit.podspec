@@ -26,7 +26,7 @@ Pod::Spec.new do |s|
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = "RxGitLabKit is a reactive Swift library for communication with GitLab API v4. There is no maitained Swift GitLab API client that uses Rx."
 
-  s.homepage     = "https://gitlab.com/dagytran/RxGitLabKit"
+  s.homepage     = "https://github.com/Qase/RxGitLabKit"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -79,7 +79,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://gitlab.com/dagytran/RxGitLabKit.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/Qase/RxGitLabKit.git", :tag => "#{s.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #

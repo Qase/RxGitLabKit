@@ -1,7 +1,9 @@
 - title: 'RxGitLabKit'
-  content: 'A GitLab API v4 client using Swift 4.2 and RxSwift. This client is supported on iOS, macOS, tvOS and watchOS.'
+  content: 'A reactive GitLab API v4 client written in Swift 4.2 using RxSwift. This client is supported on iOS, macOS, tvOS and watchOS.'
   links:
     - url: 'https://gitlab.com/dagytran/diploma-thesis/blob/master/src/main.pdf'
       title: 'Reactive GitLab API library for Apple platforms - Masters thesis '
     - url: 'https://qase.github.io/RxGitLabKit/'
       title: 'RxGitLabKit Documentation'
+    - url: 'https://github.com/Qase/RxGitLabKit'
+      title: 'GitHub Repository'
