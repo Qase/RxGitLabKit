@@ -1620,7 +1620,7 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/tvOS/RxSwift.framework",
-				"$(SRCROOT)/Carthage/Build/Mac/RxCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/tvOS/RxCocoa.framework",
 			);
 			outputFileListPaths = (
 			);
@@ -1862,8 +1862,8 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/macOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/macOS/RxCocoa.framework",
 			);
 			outputPaths = (
 			);
