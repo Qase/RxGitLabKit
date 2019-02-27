@@ -21,7 +21,8 @@ before_install:
   - brew outdated carthage || brew upgrade carthage || true
 
 before_script:
-  - if [ $SCHEME == $IOS_FRAMEWORK_SCHEME ]; then
+  - |
+    if [ $SCHEME == $IOS_FRAMEWORK_SCHEME ]; then
       carthage bootstrap --cache-builds --platform ios
     elif [ $SCHEME == $MACOS_FRAMEWORK_SCHEME ]; then
       carthage bootstrap --cache-builds --platform macos
@@ -37,13 +38,15 @@ script:
   - xcodebuild -showsdks
 
   # Build Framework in Release and Run Tests if specified
-  - if [ $RUN_TESTS == "YES" ]; then
-      xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -destination "$DESTINATION" -configuration Release ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES CODE_SIGN_REQUIRED=NO test | xcpretty -f `xcpretty-travis-formatter`;
+  - |
+    if [ $RUN_TESTS == "YES" ]; then
+      xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -destination "$DESTINATION" -configuration Release ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES CODE_SIGN_REQUIRED=NO test | xcpretty -f `xcpretty-travis-formatter`
     else
-      xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -destination "$DESTINATION" -configuration Release ONLY_ACTIVE_ARCH=NO build | xcpretty -f `xcpretty-travis-formatter`;
+      xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -destination "$DESTINATION" -configuration Release ONLY_ACTIVE_ARCH=NO build | xcpretty -f `xcpretty-travis-formatter`
     fi
 
   # Build Example in Debug if specified
-  - if [ $BUILD_EXAMPLE == "YES" ]; then
-      xcodebuild -workspace "$WORKSPACE" -scheme "$DEMO_APP_SCHEME" -destination "$DESTINATION" -configuration Debug ONLY_ACTIVE_ARCH=NO build | xcpretty -f `xcpretty-travis-formatter`;
+  - |
+    if [ $BUILD_EXAMPLE == "YES" ]; then
+      xcodebuild -workspace "$WORKSPACE" -scheme "$DEMO_APP_SCHEME" -destination "$DESTINATION" -configuration Debug ONLY_ACTIVE_ARCH=NO build | xcpretty -f `xcpretty-travis-formatter`
     fi
