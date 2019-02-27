@@ -1,5 +1,8 @@
 os: osx
 osx_image: xcode10.1
+cache:
+  directories:
+  - Carthage
 env:
   global:
     - WORKSPACE=RxGitLabKit.xcworkspace
@@ -18,7 +21,15 @@ before_install:
   - brew outdated carthage || brew upgrade carthage || true
 
 before_script:
-  - carthage update --cache-builds
+  - if [ $SCHEME == $IOS_FRAMEWORK_SCHEME ]; then
+      carthage bootstrap --cache-builds --platform ios
+    elif [ $SCHEME == $MACOS_FRAMEWORK_SCHEME ]; then
+      carthage bootstrap --cache-builds --platform macos
+    elif [ $SCHEME == $TVOS_FRAMEWORK_SCHEME ]; then
+      carthage bootstrap --cache-builds --platform tvos
+    elif [ $SCHEME == $WATCHOS_FRAMEWORK_SCHEME ]; then
+        carthage bootstrap --cache-builds --platform watchos
+    fi
 
 script:
   - set -o pipefail
@@ -27,7 +38,7 @@ script:
 
   # Build Framework in Release and Run Tests if specified
   - if [ $RUN_TESTS == "YES" ]; then
-      xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -destination "$DESTINATION" -configuration Release ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES test | xcpretty -f `xcpretty-travis-formatter`;
+      xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -destination "$DESTINATION" -configuration Release ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES CODE_SIGN_REQUIRED=NO test | xcpretty -f `xcpretty-travis-formatter`;
     else
       xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -destination "$DESTINATION" -configuration Release ONLY_ACTIVE_ARCH=NO build | xcpretty -f `xcpretty-travis-formatter`;
     fi
