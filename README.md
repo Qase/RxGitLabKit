@@ -1,5 +1,6 @@
 # RxGitLabKit
 [![Build Status](https://travis-ci.org/Qase/RxGitLabKit.svg?branch=master)](https://travis-ci.org/Qase/RxGitLabKit)
+[![codebeat badge](https://codebeat.co/badges/d7306f5e-9328-45a0-bbed-1abab3e8b5b2)](https://codebeat.co/projects/github-com-qase-rxgitlabkit-master)
 [![Platform](https://img.shields.io/badge/platform-iOS%20%7C%20macOS%20%7C%20watchOS%20%7C%20tvOS-lightgrey.svg)](https://qase.github.io/RxGitLabKit/)
 [![pod](https://img.shields.io/cocoapods/v/RxGitLabKit.svg)](https://cocoapods.org/)
 [![Carthage](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
