@@ -27,6 +27,8 @@ $ carthage update
 ### Authorization
 Using a private/ OAuth token or login using `username` and `password`
 ```swift
+import RxGitLabKit
+
 // Host URL
 let hostURL = URL(string: "http://example.gitlab.server.com")!
 // Using private token
@@ -41,6 +43,8 @@ client.logIn(username: "USERNAME", password: "PASSWORD")
 ```
 ### Basic usage
 ```swift
+import RxGitLabKit
+
 let hostURL = URL(string: "http://example.gitlab.server.com")!
 
 let client = RxGitLabAPIClient(with: hostURL, privateToken: "PRIVATE_TOKEN")
@@ -62,6 +66,8 @@ projects.subscribe(onNext: { projects in
 ### Paginator
 Some endpoints return a `Paginator` which handles the pagination of the objects. The paginator uses subscripts for loading the desired pages.
 ```swift
+import RxGitLabKit
+
 // Get the paginator
 let projectsPaginator: Paginator<Project> = client.users
   .getProjects(parameters: ["order_by" : "id", "sort" : "asc"])
@@ -128,7 +134,7 @@ $ pod install
 Add this to `Cartfile`
 
 ```
-  git "https://gitlab.com/dagytran/RxGitLabKit.git"
+  git "https://github.com/Qase/RxGitLabKit.git"
 ```
 and run:
 ```bash
@@ -149,7 +155,7 @@ import PackageDescription
 let package = Package(
   name: "YOUR_PROJECT_NAME",
   dependencies: [
-    .package(url: "https://gitlab.com/dagytran/RxGitLabKit.git", from: "0.1.0")
+    .package(url: "https://github.com/Qase/RxGitLabKit.git", from: "1.0.0")
   ],
   targets: [
     .target(name: "YOUR_PROJECT_NAME", dependencies: ["RxGitLabKit"], path: "SOURCE_PATH")
@@ -166,4 +172,4 @@ $ swift package generate-xcodeproj
 ```
 ## Licence
 
-[MIT](https://gitlab.com/dagytran/RxGitLabKit/blob/master/LICENSE)
+[MIT](https://github.com/Qase/RxGitLabKit/blob/master/LICENSE)
