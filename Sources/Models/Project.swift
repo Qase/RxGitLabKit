@@ -24,7 +24,7 @@ public struct Project: Codable {
   public let resolveOutdatedDiffDiscussions, containerRegistryEnabled: Bool?
   public let createdAt, lastActivityAt: Date?
   public let creatorID: Int?
-  public let namespace: Namespace
+  public let namespace: Namespace?
   public let importStatus: String?
   public let archived: Bool?
   public let avatarURL: String?
