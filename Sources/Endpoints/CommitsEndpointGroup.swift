@@ -195,7 +195,7 @@ public class CommitsEndpointGroup: EndpointGroup {
    - Parameter sha: The commit has
    - Returns: An `Observable` of `Diff`
    */
-  public func getDiff(projectID: Int, sha: String) -> Observable<Diff> {
+  public func getDiff(projectID: Int, sha: String) -> Observable<[Diff]> {
     let apiRequest = APIRequest(path: Endpoints.diff(projectID: projectID, sha: sha).url)
     return object(for: apiRequest)
   }
